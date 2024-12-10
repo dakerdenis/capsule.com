@@ -79,7 +79,7 @@
                             advanced nanotechnology.</p>
                     </div>
                     <div class="about_us__desc-back">
-                    
+
                     </div>
                 </div>
 
@@ -87,11 +87,12 @@
                 <div class="about_us__wrapper">
                     <div class="about_us__image">
                         <div class="about_us__image-car">
-                            <img src="{{asset('./images/aboutcar.png')}}" alt="" srcset="">
+                            <img src="{{ asset('./images/aboutcar.png') }}" alt="" srcset="">
                         </div>
-                        
+
                         <!--placeholders--->
-                        <img class="about_us__image-placeholder1" src="{{asset('./images/about_placeholder1.png')}}" alt="" srcset="">
+                        <img class="about_us__image-placeholder1" src="{{ asset('./images/about_placeholder1.png') }}"
+                            alt="" srcset="">
                     </div>
 
                     <div class="about_us__content">
@@ -135,7 +136,46 @@
                 </div>
 
                 <div class="gallery__images__wrapper">
-                    
+                    <div class="gallery__images__small">
+                        <a href="{{ asset('./images/car2.png') }}" data-fancybox="gallery" data-caption="Royal Park L-16A">
+                            <img src="{{ asset('./images/car2.png') }}" alt="Gallery Image" />
+                        </a>
+                        <a href="{{ asset('./images/car1.png') }}" data-fancybox="gallery" data-caption="Royal Park L-16A">
+                            <img src="{{ asset('./images/car1.png') }}" alt="Gallery Image" />
+                        </a>
+                    </div>
+                    <div class="gallery__images__big">
+                        <a href="{{ asset('./images/car3.jpeg') }}" data-fancybox="gallery" data-caption="Royal Park L-16A">
+                            <img src="{{ asset('./images/car3.jpeg') }}" alt="Gallery Image" />
+                        </a>
+                    </div>
+                    <div class="gallery__images__small">
+                        <a href="{{ asset('./images/car4.jpeg') }}" data-fancybox="gallery" data-caption="Royal Park L-16A">
+                            <img src="{{ asset('./images/car4.jpeg') }}" alt="Gallery Image" />
+                        </a>
+                        <a href="{{ asset('./images/car5.png') }}" data-fancybox="gallery" data-caption="Royal Park L-16A">
+                            <img src="{{ asset('./images/car5.png') }}" alt="Gallery Image" />
+                        </a>
+                    </div>
+                    <div class="gallery__images__small gallery__images__medium">
+                        <a href="{{ asset('./images/car5.jpeg') }}" data-fancybox="gallery" data-caption="Royal Park L-16A">
+                            <img src="{{ asset('./images/car5.jpeg') }}" alt="Gallery Image" />
+                        </a>
+
+                    </div>
+                    <div class="gallery__images__small">
+                        <a href="{{ asset('./images/car7.png') }}" data-fancybox="gallery" data-caption="Royal Park L-16A">
+                            <img src="{{ asset('./images/car7.png') }}" alt="Gallery Image" />
+                        </a>
+                        <a href="{{ asset('./images/car6.png') }}" data-fancybox="gallery" data-caption="Royal Park L-16A">
+                            <img src="{{ asset('./images/car6.png') }}" alt="Gallery Image" />
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="gallery__car__placeholder">
+                    <img src="{{asset('./images/gallery_car.png')}}" alt="" srcset="">
                 </div>
             </div>
         </section>
@@ -170,5 +210,5 @@
             observer.observe(americanSection);
         });
     </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 @endsection
