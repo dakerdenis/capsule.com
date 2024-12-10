@@ -44,7 +44,7 @@
     -ms-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    font-family: "Montserrat", sans-serif;
+
   }
   
   body::-webkit-scrollbar {
@@ -102,8 +102,55 @@
   }
   
   
-  .main__wrapper {
+  .main__container {
     min-height: 100vh;
     width: 100%;
-
+    background-color: #000;
   }
+
+
+/*******MAIN section*********/
+.main{
+    height: 100vh;
+    min-height: 740px;
+    width: 100%; 
+    position: relative;
+}
+/*****text and car*********/
+.main__wrapper{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 200;
+
+}
+.main__info{
+    position: absolute;
+    height: 452px;
+    width: 697px;
+    background-color: rgba(10, 40, 40, 0.116);
+    top: 18%;
+    left: 70px;
+}
+
+.main__car{
+
+    width: 1062px;
+    height: 502px;
+    position: absolute;
+    right: 0;
+    bottom: 18%;
+}
+/******main background*****/
+.main__background{
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    top: 0;
+}
+.main__background img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
