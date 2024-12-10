@@ -128,6 +128,9 @@
 
         <!------Gallery---->
         <section class="gallery" id="gallery">
+            <div class="gallery__car__placeholder">
+                <img src="{{asset('./images/gallery_car.png')}}" alt="" srcset="">
+            </div>
             <div class="gallery__wrapper">
                 <div class="gallery__name">
                     <div class="gallery__name-text">
@@ -174,9 +177,7 @@
                 </div>
 
 
-                <div class="gallery__car__placeholder">
-                    <img src="{{asset('./images/gallery_car.png')}}" alt="" srcset="">
-                </div>
+
             </div>
         </section>
 
