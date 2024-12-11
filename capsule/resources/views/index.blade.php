@@ -277,9 +277,24 @@
             </div>
         </section>
 
+        <!----contact us car--->
+
         <!---COntact US----->
         <section class="contact" id="contact">
+            <div class="contact_wrapper">
+                <div class="contact_wrapper__animation">
+                    <div class="contact__text__block">
+                        <img src="{{ asset('./images/contact_us.png') }}" alt="">
+                    </div>
+                    <div class="contact__car__block">
+                        <img src="{{ asset('./images/contact_car.png') }}" alt="">
+                    </div>
+                </div>
 
+                
+
+
+            </div>
         </section>
 
         <footer>
@@ -287,54 +302,20 @@
         </footer>
     </div>
 
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const americanSection = document.getElementById('american');
-            const carBlock = document.querySelector('.american__car__block img');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        carBlock.style.animationName = 'moveCar'; // Trigger the animation
-                        carBlock.style.opacity = 1; // Ensure visibility
-                    }
-                });
-            }, {
-                threshold: 0.5, // Trigger when 50% of the section is visible
-            });
-
-            observer.observe(americanSection);
-        });
-    </script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const header = document.querySelector('.header');
-
-            let lastScrollTop = 0; // Track the last scroll position
-
-            window.addEventListener('scroll', () => {
-                const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-                if (currentScroll > lastScrollTop) {
-                    // User is scrolling down
-                    header.style.top = '0'; // Move the header to the top
-                } else if (currentScroll === 0) {
-                    // User is back at the top of the page
-                    header.style.top = '50px'; // Reset to the original position
-                }
-
-                lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Avoid negative values
-            });
-        });
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
             const buttons = document.querySelectorAll('.header__nav__element button');
             const sections = document.querySelectorAll('section');
             const rectangle = document.getElementById('header_rectangle');
-
+    
+            const americanCar = document.querySelector('.american__car__block img');
+            const contactCar = document.querySelector('.contact__car__block img');
+            const americanWrapper = document.querySelector('.american__wrapper');
+            const contactWrapper = document.querySelector('.contact_wrapper__animation');
+    
+            let lastScrollTop = 0; // Track the last scroll position
+    
             // Function to update the rectangle position
             const updateRectanglePosition = (button) => {
                 const rect = button.getBoundingClientRect();
@@ -343,49 +324,89 @@
                 const buttonCenter = rect.left - containerRect.left + rect.width / 2; // Center of the button
                 rectangle.style.left = `${buttonCenter - rectangleWidth / 2}px`; // Center the rectangle
             };
-
-            // Add click event to buttons
+    
+            // Scroll behavior for header
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                const isScrolled = currentScroll > 0;
+    
+                // Change header top position
+                if (currentScroll > lastScrollTop) {
+                    header.style.top = '0';
+                } else if (currentScroll === 0) {
+                    header.style.top = '50px';
+                }
+    
+                // Change header background color
+                header.style.backgroundColor = isScrolled ? 'rgba(0, 0, 0, 0.794)' : 'rgba(0, 0, 0, 0.594)';
+    
+                // Highlight the active button and move rectangle
+                let activeButton = buttons[0];
+                sections.forEach((section) => {
+                    const rect = section.getBoundingClientRect();
+                    const sectionId = section.getAttribute('id');
+                    if (rect.top <= 100 && rect.bottom >= 100) {
+                        activeButton = document.querySelector(`.header__nav__element button[data-target="${sectionId}"]`);
+                    }
+                });
+                updateRectanglePosition(activeButton);
+    
+                lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Avoid negative values
+            });
+    
+            // Initialize rectangle position on page load
+            updateRectanglePosition(buttons[0]);
+    
+            // Add click event to buttons for smooth scrolling
             buttons.forEach((button) => {
-                button.addEventListener('click', (e) => {
+                button.addEventListener('click', () => {
                     const targetId = button.getAttribute('data-target');
                     const targetSection = document.getElementById(targetId);
-
-                    // Scroll to the corresponding section
                     if (targetSection) {
                         window.scrollTo({
                             top: targetSection.offsetTop - 100, // Adjust for header height
-                            behavior: 'smooth',
+                            behavior: 'smooth'
                         });
-
-                        // Update rectangle position
                         updateRectanglePosition(button);
                     }
                 });
             });
-
-            // Highlight the active section and move rectangle on scroll
-            window.addEventListener('scroll', () => {
-                let activeButton = buttons[0]; // Default to the first button
-                sections.forEach((section) => {
-                    const rect = section.getBoundingClientRect();
-                    const sectionId = section.getAttribute('id');
-
-                    // Check if the section is in the viewport
-                    if (rect.top <= 100 && rect.bottom >= 100) {
-                        activeButton = document.querySelector(
-                            `.header__nav__element button[data-target="${sectionId}"]`
-                        );
-                    }
-                });
-
-                // Update rectangle position
-                updateRectanglePosition(activeButton);
-            });
-
-            // Initialize the rectangle position on page load
-            updateRectanglePosition(buttons[0]);
+    
+            // Intersection Observer for American Section
+            const americanObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            americanCar.style.animationName = 'moveCar';
+                            americanCar.style.opacity = 1;
+                        }
+                    });
+                },
+                { threshold: 0.5 } // Trigger when 50% of the section is visible
+            );
+    
+            // Intersection Observer for Contact Section
+            const contactObserver = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            contactCar.style.animationName = 'moveCar';
+                            contactCar.style.opacity = 1;
+                        }
+                    });
+                },
+                { threshold: 0.5 } // Trigger when 50% of the section is visible
+            );
+    
+            // Observe respective sections
+            if (americanWrapper) americanObserver.observe(americanWrapper);
+            if (contactWrapper) contactObserver.observe(contactWrapper);
         });
     </script>
+    
+    
+    
+
 
 
 
