@@ -9,12 +9,12 @@
         <header class="header" id="header">
             <div class="header__wrapper">
                 <a href="#">
-                    <img src="{{asset('./images/logo_main.png')}}" alt="">
+                    <img src="{{ asset('./images/logo_main.png') }}" alt="">
                 </a>
 
                 <div class="header__navigation">
                     <div class="header__nav__burger">
-                        <img src="{{asset('./images/circum_menu-burger.png')}}" alt="" srcset="">
+                        <img src="{{ asset('./images/circum_menu-burger.png') }}" alt="" srcset="">
                     </div>
                     <div class="header__nav__element">
                         <button data-target="home">Home</button>
@@ -31,12 +31,13 @@
                     <div class="header__nav__element">
                         <button data-target="contact">Contacts</button>
                     </div>
-                    <img src="{{asset('./images/header_rectangle.png')}}" id="header_rectangle" class="header_rectangle" alt="" />
+                    <img src="{{ asset('./images/header_rectangle.png') }}" id="header_rectangle" class="header_rectangle"
+                        alt="" />
                 </div>
-                
+
 
                 <div class="header__languages">
-
+                    <button>EN</button>
                 </div>
             </div>
         </header>
@@ -65,7 +66,63 @@
 
                 <!---car and description---->
                 <div class="main__car">
-                    <img src="{{ asset('./images/car_main.png') }}" alt="Car info image" srcset="">
+
+                    <img class="main__car__main__img" src="{{ asset('./images/car_main.png') }}" alt="Car info image"
+                        srcset="">
+                    <div class="main__car__dot main__car__dot1">
+                        <div class="main__car__dot-white"></div>
+                    </div>
+                    <div class="main__car__dot main__car__dot2">
+                        <div class="main__car__dot-white"></div>
+                    </div>
+                    <div class="main__car__dot main__car__dot3">
+                        <div class="main__car__dot-white"></div>
+                    </div>
+                    <div class="main__car__dot main__car__dot4">
+                        <div class="main__car__dot-white"></div>
+                    </div>
+                    <div class="main__car__dot main__car__dot5">
+                        <div class="main__car__dot-white"></div>
+                    </div>
+
+
+
+                    <div class="car-vector car-vector1">
+                        <img src="{{ asset('./images/car-vector1.png') }}" alt="" srcset="">
+                    </div>
+                    <div class="car-vector car-vector2">
+                        <img src="{{ asset('./images/car-vector2.png') }}" alt="" srcset="">
+                    </div>
+                    <div class="car-vector car-vector3">
+                        <img src="{{ asset('./images/car-vector3.png') }}" alt="" srcset="">
+                    </div>
+
+                    <div class="car-vector car-vector4">
+                        <img src="{{ asset('./images/car-vector4.png') }}" alt="" srcset="">
+                    </div>
+                    <div class="car-vector car-vector5">
+                        <img src="{{ asset('./images/car-vector5.png') }}" alt="" srcset="">
+                    </div>
+
+
+                    <div class="car-desc car-desc1">
+                        Premium quality
+                    </div>
+                    <div class="car-desc car-desc2">
+                        High hydrophobicity
+                    </div>
+                    <div class="car-desc car-desc3">
+                        100% Self-healing
+                    </div>
+                    <div class="car-desc car-desc4">
+                        Anti-yellow
+                        warranty
+                    </div>
+                    <div class="car-desc car-desc5">
+                        Excellent carrosion
+                        resistance
+                    </div>
+
                 </div>
             </div>
 
@@ -160,7 +217,7 @@
         <!------Gallery---->
         <section class="gallery" id="gallery">
             <div class="gallery__car__placeholder">
-                <img src="{{asset('./images/gallery_car.png')}}" alt="" srcset="">
+                <img src="{{ asset('./images/gallery_car.png') }}" alt="" srcset="">
             </div>
             <div class="gallery__wrapper">
                 <div class="gallery__name">
@@ -171,37 +228,45 @@
 
                 <div class="gallery__images__wrapper">
                     <div class="gallery__images__small">
-                        <a href="{{ asset('./images/car2.png') }}" data-fancybox="gallery" data-caption="Royal Park L-16A">
+                        <a href="{{ asset('./images/car2.png') }}" data-fancybox="gallery"
+                            data-caption="Royal Park L-16A">
                             <img src="{{ asset('./images/car2.png') }}" alt="Gallery Image" />
                         </a>
-                        <a href="{{ asset('./images/car1.png') }}" data-fancybox="gallery" data-caption="Royal Park L-16A">
+                        <a href="{{ asset('./images/car1.png') }}" data-fancybox="gallery"
+                            data-caption="Royal Park L-16A">
                             <img src="{{ asset('./images/car1.png') }}" alt="Gallery Image" />
                         </a>
                     </div>
                     <div class="gallery__images__big">
-                        <a href="{{ asset('./images/car3.jpeg') }}" data-fancybox="gallery" data-caption="Royal Park L-16A">
+                        <a href="{{ asset('./images/car3.jpeg') }}" data-fancybox="gallery"
+                            data-caption="Royal Park L-16A">
                             <img src="{{ asset('./images/car3.jpeg') }}" alt="Gallery Image" />
                         </a>
                     </div>
                     <div class="gallery__images__small">
-                        <a href="{{ asset('./images/car4.jpeg') }}" data-fancybox="gallery" data-caption="Royal Park L-16A">
+                        <a href="{{ asset('./images/car4.jpeg') }}" data-fancybox="gallery"
+                            data-caption="Royal Park L-16A">
                             <img src="{{ asset('./images/car4.jpeg') }}" alt="Gallery Image" />
                         </a>
-                        <a href="{{ asset('./images/car5.png') }}" data-fancybox="gallery" data-caption="Royal Park L-16A">
+                        <a href="{{ asset('./images/car5.png') }}" data-fancybox="gallery"
+                            data-caption="Royal Park L-16A">
                             <img src="{{ asset('./images/car5.png') }}" alt="Gallery Image" />
                         </a>
                     </div>
                     <div class="gallery__images__small gallery__images__medium">
-                        <a href="{{ asset('./images/car5.jpeg') }}" data-fancybox="gallery" data-caption="Royal Park L-16A">
+                        <a href="{{ asset('./images/car5.jpeg') }}" data-fancybox="gallery"
+                            data-caption="Royal Park L-16A">
                             <img src="{{ asset('./images/car5.jpeg') }}" alt="Gallery Image" />
                         </a>
 
                     </div>
                     <div class="gallery__images__small">
-                        <a href="{{ asset('./images/car7.png') }}" data-fancybox="gallery" data-caption="Royal Park L-16A">
+                        <a href="{{ asset('./images/car7.png') }}" data-fancybox="gallery"
+                            data-caption="Royal Park L-16A">
                             <img src="{{ asset('./images/car7.png') }}" alt="Gallery Image" />
                         </a>
-                        <a href="{{ asset('./images/car6.png') }}" data-fancybox="gallery" data-caption="Royal Park L-16A">
+                        <a href="{{ asset('./images/car6.png') }}" data-fancybox="gallery"
+                            data-caption="Royal Park L-16A">
                             <img src="{{ asset('./images/car6.png') }}" alt="Gallery Image" />
                         </a>
                     </div>
@@ -245,12 +310,12 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const header = document.querySelector('.header');
-            
+
             let lastScrollTop = 0; // Track the last scroll position
-    
+
             window.addEventListener('scroll', () => {
                 const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-    
+
                 if (currentScroll > lastScrollTop) {
                     // User is scrolling down
                     header.style.top = '0'; // Move the header to the top
@@ -258,51 +323,53 @@
                     // User is back at the top of the page
                     header.style.top = '50px'; // Reset to the original position
                 }
-    
+
                 lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Avoid negative values
             });
         });
     </script>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const buttons = document.querySelectorAll('.header__nav__element button');
             const sections = document.querySelectorAll('section');
             const rectangle = document.getElementById('header_rectangle');
-    
-            // Function to get the offset left of the active button
+
+            // Function to update the rectangle position
             const updateRectanglePosition = (button) => {
                 const rect = button.getBoundingClientRect();
                 const containerRect = button.parentElement.parentElement.getBoundingClientRect();
-                rectangle.style.left = `${rect.left - containerRect.left}px`;
-                rectangle.style.width = `${rect.width}px`;
+                const rectangleWidth = 17; // Width of the arrow
+                const buttonCenter = rect.left - containerRect.left + rect.width / 2; // Center of the button
+                rectangle.style.left = `${buttonCenter - rectangleWidth / 2}px`; // Center the rectangle
             };
-    
+
             // Add click event to buttons
             buttons.forEach((button) => {
                 button.addEventListener('click', (e) => {
                     const targetId = button.getAttribute('data-target');
                     const targetSection = document.getElementById(targetId);
-    
+
                     // Scroll to the corresponding section
                     if (targetSection) {
                         window.scrollTo({
                             top: targetSection.offsetTop - 100, // Adjust for header height
-                            behavior: 'smooth'
+                            behavior: 'smooth',
                         });
-    
+
                         // Update rectangle position
                         updateRectanglePosition(button);
                     }
                 });
             });
-    
+
             // Highlight the active section and move rectangle on scroll
             window.addEventListener('scroll', () => {
-                let activeButton = buttons[0]; // Default to first button
+                let activeButton = buttons[0]; // Default to the first button
                 sections.forEach((section) => {
                     const rect = section.getBoundingClientRect();
                     const sectionId = section.getAttribute('id');
-    
+
                     // Check if the section is in the viewport
                     if (rect.top <= 100 && rect.bottom >= 100) {
                         activeButton = document.querySelector(
@@ -310,12 +377,18 @@
                         );
                     }
                 });
-    
+
                 // Update rectangle position
                 updateRectanglePosition(activeButton);
             });
+
+            // Initialize the rectangle position on page load
+            updateRectanglePosition(buttons[0]);
         });
     </script>
-    
+
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 @endsection

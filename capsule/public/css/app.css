@@ -177,19 +177,30 @@ h6 {
 
 .header_rectangle {
     position: absolute;
-    bottom: -2px;
-
-    /****changable value****/
-    left: 85px; 
-
-    /****for home 85px***/
-    /****for about_us 185px***/
-    /****for catalog 300px***/
-    /****for gallery 420px***/
-    /****for contact 537px***/
+    bottom: -2px; /* Position the image below the buttons */
+    left: 0; /* Default starting position */
+    width: 17px; /* Set the default width to match the maximum */
+    height: auto; /* Maintain aspect ratio */
+    transition: left 0.3s ease, width 0.3s ease; /* Smooth animation for movement and resizing */
 }
 
-.header__languages {
+.header__languages button {
+    width: 79px;
+    height: 48px;
+    background: linear-gradient(90deg, #bb1216 0%, #581923 100%);
+    border-radius: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
 }
 
 /*******MAIN section*********/
@@ -273,6 +284,149 @@ h6 {
     position: absolute;
     right: 0;
     bottom: 10%;
+}
+.main__car__main__img{
+    position: absolute;
+    z-index: 100;
+}
+
+.main__car__dot{
+    position: absolute;
+    z-index: 300;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #34c81e;
+    border-radius: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.main__car__dot-white{
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    border-radius: 25px;
+}
+
+.main__car__dot:hover{
+    transform: scale(1.1);
+}
+.main__car__dot:hover .main__car__dot-white{
+    border: 3px solid #BB1216;
+}
+.main__car__dot1{
+    top: 29px;
+    left: 154px;
+}
+
+.main__car__dot2{
+    top: 140px;
+    left: 430px;
+}
+.main__car__dot3{
+    top: 80px;
+    left: 620px;
+}
+.main__car__dot4{
+    top: 70px;
+    left: initial;
+    right: 140px;
+}
+.main__car__dot5{
+    top: 180px;
+    left: initial;
+    right: 250px;
+}
+
+.car-vector{
+    position: absolute;
+    z-index: 200;
+    visibility: hidden;
+    opacity: 0; /* Add opacity for a fade-in effect */
+    transition: opacity 0.1s ease, visibility 0.1s ease; /* Smooth transition */
+}
+.car-vector1{
+    top: -93px;
+    left: 125px;
+
+}
+
+.car-vector2{
+    top: -40px;
+    left: 370px;
+}
+.car-vector3{
+    top: -105px;
+    right: 407px;
+}
+.car-vector4{
+    top: -18px;
+    right: 260px;
+}
+.car-vector5{
+    top: -112px;
+    right: 73px;
+}
+
+.car-desc {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0; /* Ensure smooth fade-in */
+    color: #fff;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 27.3px;
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
+}
+
+.car-desc1 {
+    top: -127px;
+    left: 105px;
+}
+
+.car-desc2 {
+    max-width: 165px;
+    text-align: center;
+    top: -97px;
+    left: 293px;
+}
+
+.car-desc3 {
+
+    text-align: center;
+    top: -137px;
+    left: 472px;
+}
+.car-desc4{
+    text-align: center;
+    max-width: 124px;
+    top: -73px;
+    right: 242px;
+}
+.car-desc5{
+    text-align: right;
+    max-width: 197px;
+    top: -169px;
+    right: 76px;
+}
+
+
+/* When hovering over a specific dot, show the corresponding vector */
+/* Hover rules to show car-desc and car-vector */
+.main__car__dot1:hover ~ .car-desc1,
+.main__car__dot2:hover ~ .car-desc2,
+.main__car__dot3:hover ~ .car-desc3,
+.main__car__dot5:hover ~ .car-desc4,
+.main__car__dot4:hover ~ .car-desc5,
+.main__car__dot1:hover ~ .car-vector1,
+.main__car__dot2:hover ~ .car-vector2,
+.main__car__dot3:hover ~ .car-vector3,
+.main__car__dot4:hover ~ .car-vector5,
+.main__car__dot5:hover ~ .car-vector4 {
+    visibility: visible;
+    opacity: 1; /* Fade-in effect */
 }
 
 /******main background*****/
@@ -456,7 +610,10 @@ h6 {
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
 }
-
+/*****catalog********/
+.catalog {
+    min-height: 600px;
+}
 /********gallery**********/
 
 .gallery {
