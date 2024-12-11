@@ -7,7 +7,7 @@
     <div class="main__container">
         <!---header-->
         <header class="header" id="header">
-
+            
         </header>
 
         <!---main home section---->
@@ -211,5 +211,27 @@
             observer.observe(americanSection);
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.querySelector('.header');
+            
+            let lastScrollTop = 0; // Track the last scroll position
+    
+            window.addEventListener('scroll', () => {
+                const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    
+                if (currentScroll > lastScrollTop) {
+                    // User is scrolling down
+                    header.style.top = '0'; // Move the header to the top
+                } else if (currentScroll === 0) {
+                    // User is back at the top of the page
+                    header.style.top = '50px'; // Reset to the original position
+                }
+    
+                lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Avoid negative values
+            });
+        });
+    </script>
+    
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 @endsection

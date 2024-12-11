@@ -9,10 +9,9 @@
     </head>
     <body>
 
-        <main>
             @yield('content')
-        </main>
-        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+       
         <script src="{{ asset('js/app.js') }}" defer></script>
     </body>
     </html>
