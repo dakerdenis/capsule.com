@@ -291,15 +291,11 @@
                     </div>
                 </div>
 
-                
 
 
+                <p>&copy; {{ date('Y') }} PPF Website. All rights reserved.</p>
             </div>
         </section>
-
-        <footer>
-            <p>&copy; {{ date('Y') }} PPF Website. All rights reserved.</p>
-        </footer>
     </div>
 
     <script>
