@@ -291,6 +291,72 @@
                     </div>
                 </div>
 
+                <div class="contact__form__container">
+                    <form action="#">
+                        <div class="contact__form__name-message">
+                            <div class="contact__form__block name">
+                                <div class="contact__form__block-name">
+                                    Name
+                                </div>
+                                <div class="contact__form__block-input">
+                                    <input type="text" name="name" id="name" placeholder="Your name">
+                                </div>
+                            </div>
+
+                            <div class="contact__form__block message">
+                                <div class="contact__form__block-name">
+                                    How can we help you?
+                                </div>
+                                <div class="contact__form__block-input">
+                                  <textarea name="" id=""></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact__form__number-country">
+                            <div class="contact__form__block number">
+                                <div class="contact__form__block-name">
+                                    Number
+                                </div>
+                                <div class="contact__form__block-input">
+                                    <input type="number" name="number" id="number" placeholder="Your mobile number">
+                                </div>
+                            </div>
+
+                            <div class="contact__form__block country">
+                                <div class="contact__form__block-name">
+                                    Country
+                                </div>
+                                <div class="contact__form__block-input">
+                                   
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact__form__email-contact">
+                            <div class="contact__form__block email">
+
+                            </div>
+
+                            <div class="contact__form__block method">
+
+                            </div>
+                        </div>
+
+                        <div class="contact__from-terms">
+
+                        </div>
+
+
+
+                        <div class="contact__form-submit">
+                            <button type="submit">
+                                SEND REQUEST
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
 
 
                 <p>&copy; {{ date('Y') }} PPF Website. All rights reserved.</p>
