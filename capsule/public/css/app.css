@@ -115,7 +115,6 @@ h6 {
     overflow: hidden;
     position: relative;
     background-color: #000;
-    
 }
 /****HEADER******/
 /****HEADER******/
@@ -125,16 +124,76 @@ h6 {
     top: 50px; /* Start 50px from the top */
     width: 100%; /* Full-width header */
     height: 100px; /* Fixed height */
-    background-color: rgba(113, 0, 0, 0.44); /* Semi-transparent red */
+    background-color: rgba(0, 0, 0, 0.594); /* Semi-transparent red */
     z-index: 1000; /* Ensure it stays above other elements */
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3); /* Optional: shadow for visibility */
     transition: top 0.3s ease; /* Smooth animation when changing position */
 }
+.header__wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 90px 0px 42px;
+}
+.header__wrapper a {
+    display: flex;
+    width: 296px;
+    height: 96px;
+}
+.header__wrapper a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.header__navigation {
+    width: 591px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #fff;
 
+    position: relative;
+}
+.header__nav__burger {
+    width: 24px;
+    height: 24px;
+}
+.header__nav__element {
+}
+.header__nav__element button {
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
+
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24.2px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+.header_rectangle {
+    position: absolute;
+    bottom: -2px;
+
+    /****changable value****/
+    left: 85px; 
+
+    /****for home 85px***/
+    /****for about_us 185px***/
+    /****for catalog 300px***/
+    /****for gallery 420px***/
+    /****for contact 537px***/
+}
+
+.header__languages {
+}
 
 /*******MAIN section*********/
 .main {
-
     height: 100vh; /* Full viewport height */
     min-height: 740px; /* Minimum height */
     width: 100%; /* Full-width */
@@ -288,7 +347,6 @@ h6 {
 .about_us__container {
     width: 100%;
     height: 100%;
-
 }
 .about_us__name {
     font-size: 46px;
@@ -345,24 +403,20 @@ h6 {
     justify-content: space-between;
     height: 700px;
     width: 100%;
-align-items: center;
+    align-items: center;
 }
 .about_us__image {
     width: 840px;
     height: 100%;
     position: relative;
-
 }
-.about_us__image-placeholder1{
+.about_us__image-placeholder1 {
     position: absolute;
     z-index: 100;
     top: -90%;
 }
 
-
-
-
-.about_us__image-car{
+.about_us__image-car {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -372,41 +426,36 @@ align-items: center;
 .about_us__image-car img {
     width: 100%;
     height: 100%;
-    object-fit: cover;  
+    object-fit: cover;
 }
 .about_us__content {
-
     width: calc(100% - 940px);
-
 }
 .about_us__content__name {
-    font-family: "Rubik Mono One", monospace;
-font-size: 46px;
-font-weight: 400;
-line-height: 54px;
-letter-spacing: 0.800000011920929px;
-text-align: left;
-text-underline-position: from-font;
-text-decoration-skip-ink: none;
-color: #fff;
-margin-bottom: 52px;
+    font-family: 'Rubik Mono One', monospace;
+    font-size: 46px;
+    font-weight: 400;
+    line-height: 54px;
+    letter-spacing: 0.800000011920929px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #fff;
+    margin-bottom: 52px;
 }
 .about_us__content__desc {
-padding-right: 109px;
-
-
+    padding-right: 109px;
 }
-.about_us__content__desc  p {
+.about_us__content__desc p {
     margin-bottom: 30px;
     color: #fff;
     font-size: 18px;
-font-weight: 400;
-line-height: 41px;
-text-align: left;
-text-underline-position: from-font;
-text-decoration-skip-ink: none;
+    font-weight: 400;
+    line-height: 41px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
 }
-
 
 /********gallery**********/
 
@@ -420,7 +469,7 @@ text-decoration-skip-ink: none;
     width: 100%;
     position: relative;
 }
-.gallery__car__placeholder{
+.gallery__car__placeholder {
     position: absolute;
     right: -25%;
     top: -39%;
@@ -443,13 +492,12 @@ text-decoration-skip-ink: none;
     justify-content: center;
     opacity: 0.88;
 
-font-size: 46px;
-font-weight: 400;
-line-height: 40px;
+    font-size: 46px;
+    font-weight: 400;
+    line-height: 40px;
 
-text-underline-position: from-font;
-text-decoration-skip-ink: none;
-
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
 }
 .gallery__images__wrapper {
     width: 100%;
@@ -458,7 +506,7 @@ text-decoration-skip-ink: none;
     justify-content: space-between;
     margin-top: 55px;
 }
-.gallery__images__small{
+.gallery__images__small {
     height: 100%;
     width: 16%;
 
@@ -466,17 +514,17 @@ text-decoration-skip-ink: none;
     flex-direction: column;
     justify-content: space-between;
 }
-.gallery__images__small a{
+.gallery__images__small a {
     display: block;
     width: 100%;
     height: 200px;
 }
-.gallery__images__small a img{
+.gallery__images__small a img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.gallery__images__big{
+.gallery__images__big {
     height: 100%;
     width: 30%;
     background-color: #710000;
@@ -487,7 +535,7 @@ text-decoration-skip-ink: none;
     height: 100%;
 }
 
-.gallery__images__big a img{
+.gallery__images__big a img {
     width: 100%;
     height: 100%;
     object-fit: cover;

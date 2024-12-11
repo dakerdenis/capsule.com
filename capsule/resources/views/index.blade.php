@@ -7,11 +7,42 @@
     <div class="main__container">
         <!---header-->
         <header class="header" id="header">
-            
+            <div class="header__wrapper">
+                <a href="#">
+                    <img src="{{asset('./images/logo_main.png')}}" alt="">
+                </a>
+
+                <div class="header__navigation">
+                    <div class="header__nav__burger">
+                        <img src="{{asset('./images/circum_menu-burger.png')}}" alt="" srcset="">
+                    </div>
+                    <div class="header__nav__element">
+                        <button data-target="home">Home</button>
+                    </div>
+                    <div class="header__nav__element">
+                        <button data-target="about_us">About</button>
+                    </div>
+                    <div class="header__nav__element">
+                        <button data-target="catalog">Catalogue</button>
+                    </div>
+                    <div class="header__nav__element">
+                        <button data-target="gallery">Gallery</button>
+                    </div>
+                    <div class="header__nav__element">
+                        <button data-target="contact">Contacts</button>
+                    </div>
+                    <img src="{{asset('./images/header_rectangle.png')}}" id="header_rectangle" class="header_rectangle" alt="" />
+                </div>
+                
+
+                <div class="header__languages">
+
+                </div>
+            </div>
         </header>
 
         <!---main home section---->
-        <section class="main" id="main">
+        <section class="main" id="home">
             <!----text and car--->
             <div class="main__wrapper">
                 <!---- Name desc button ---->
@@ -229,6 +260,59 @@
                 }
     
                 lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Avoid negative values
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('.header__nav__element button');
+            const sections = document.querySelectorAll('section');
+            const rectangle = document.getElementById('header_rectangle');
+    
+            // Function to get the offset left of the active button
+            const updateRectanglePosition = (button) => {
+                const rect = button.getBoundingClientRect();
+                const containerRect = button.parentElement.parentElement.getBoundingClientRect();
+                rectangle.style.left = `${rect.left - containerRect.left}px`;
+                rectangle.style.width = `${rect.width}px`;
+            };
+    
+            // Add click event to buttons
+            buttons.forEach((button) => {
+                button.addEventListener('click', (e) => {
+                    const targetId = button.getAttribute('data-target');
+                    const targetSection = document.getElementById(targetId);
+    
+                    // Scroll to the corresponding section
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 100, // Adjust for header height
+                            behavior: 'smooth'
+                        });
+    
+                        // Update rectangle position
+                        updateRectanglePosition(button);
+                    }
+                });
+            });
+    
+            // Highlight the active section and move rectangle on scroll
+            window.addEventListener('scroll', () => {
+                let activeButton = buttons[0]; // Default to first button
+                sections.forEach((section) => {
+                    const rect = section.getBoundingClientRect();
+                    const sectionId = section.getAttribute('id');
+    
+                    // Check if the section is in the viewport
+                    if (rect.top <= 100 && rect.bottom >= 100) {
+                        activeButton = document.querySelector(
+                            `.header__nav__element button[data-target="${sectionId}"]`
+                        );
+                    }
+                });
+    
+                // Update rectangle position
+                updateRectanglePosition(activeButton);
             });
         });
     </script>
