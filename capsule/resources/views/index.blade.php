@@ -335,7 +335,12 @@
 
                         <div class="contact__form__email-contact">
                             <div class="contact__form__block email">
-
+                                <div class="contact__form__block-name">
+                                    E=mail
+                                </div>
+                                <div class="contact__form__block-input">
+                                    <input type="email" name="email" id="email" placeholder="Your mobile number">
+                                </div>
                             </div>
 
                             <div class="contact__form__block method">
