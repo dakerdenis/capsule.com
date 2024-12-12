@@ -208,6 +208,33 @@
             </div>
         </section>
 
+        <!----MAP---->
+        <section class="map" id="map">
+            <div class="map__wrapper">
+                <div class="map__name-container">
+                    <div class="map__name">
+                        <h4>global distribution</h4>
+                        <p>We are trusted by car owners all over the world</p>
+                    </div>
+                </div>
+
+
+                <div class="map__container">
+                    <div class="map__container-map">
+                        <!--img src="{{ './images/map.png' }}" alt="" srcset="">
+                        -->
+                        </div>
+                    <div class="map__container-desc">
+                        <p>15</p>
+                        <span>countries</span>
+                        <p>150+</p>
+                        <span>dealers</span>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
         <!----Catalogue-->
         <section class="catalog" id="catalog">
 
@@ -308,18 +335,19 @@
                                     How can we help you?
                                 </div>
                                 <div class="contact__form__block-input">
-                                  <textarea name="" id=""></textarea>
+                                    <textarea name="" id=""></textarea>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="contact__form__number-country">
                             <div class="contact__form__block number">
                                 <div class="contact__form__block-name">
                                     Number
                                 </div>
                                 <div class="contact__form__block-input">
-                                    <input type="number" name="number" id="number" placeholder="Your mobile number">
+                                    <input type="number" name="number" id="number"
+                                        placeholder="Your mobile number">
                                 </div>
                             </div>
 
@@ -328,7 +356,7 @@
                                     Country
                                 </div>
                                 <div class="contact__form__block-input">
-                                   
+
                                 </div>
                             </div>
                         </div>
@@ -339,7 +367,8 @@
                                     E=mail
                                 </div>
                                 <div class="contact__form__block-input">
-                                    <input type="email" name="email" id="email" placeholder="Your mobile number">
+                                    <input type="email" name="email" id="email"
+                                        placeholder="Your mobile number">
                                 </div>
                             </div>
 
@@ -375,14 +404,14 @@
             const buttons = document.querySelectorAll('.header__nav__element button');
             const sections = document.querySelectorAll('section');
             const rectangle = document.getElementById('header_rectangle');
-    
+
             const americanCar = document.querySelector('.american__car__block img');
             const contactCar = document.querySelector('.contact__car__block img');
             const americanWrapper = document.querySelector('.american__wrapper');
             const contactWrapper = document.querySelector('.contact_wrapper__animation');
-    
+
             let lastScrollTop = 0; // Track the last scroll position
-    
+
             // Function to update the rectangle position
             const updateRectanglePosition = (button) => {
                 const rect = button.getBoundingClientRect();
@@ -391,39 +420,40 @@
                 const buttonCenter = rect.left - containerRect.left + rect.width / 2; // Center of the button
                 rectangle.style.left = `${buttonCenter - rectangleWidth / 2}px`; // Center the rectangle
             };
-    
+
             // Scroll behavior for header
             window.addEventListener('scroll', () => {
                 const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
                 const isScrolled = currentScroll > 0;
-    
+
                 // Change header top position
                 if (currentScroll > lastScrollTop) {
                     header.style.top = '0';
                 } else if (currentScroll === 0) {
                     header.style.top = '50px';
                 }
-    
+
                 // Change header background color
                 header.style.backgroundColor = isScrolled ? 'rgba(0, 0, 0, 0.794)' : 'rgba(0, 0, 0, 0.594)';
-    
+
                 // Highlight the active button and move rectangle
                 let activeButton = buttons[0];
                 sections.forEach((section) => {
                     const rect = section.getBoundingClientRect();
                     const sectionId = section.getAttribute('id');
                     if (rect.top <= 100 && rect.bottom >= 100) {
-                        activeButton = document.querySelector(`.header__nav__element button[data-target="${sectionId}"]`);
+                        activeButton = document.querySelector(
+                            `.header__nav__element button[data-target="${sectionId}"]`);
                     }
                 });
                 updateRectanglePosition(activeButton);
-    
+
                 lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Avoid negative values
             });
-    
+
             // Initialize rectangle position on page load
             updateRectanglePosition(buttons[0]);
-    
+
             // Add click event to buttons for smooth scrolling
             buttons.forEach((button) => {
                 button.addEventListener('click', () => {
@@ -438,7 +468,7 @@
                     }
                 });
             });
-    
+
             // Intersection Observer for American Section
             const americanObserver = new IntersectionObserver(
                 (entries) => {
@@ -448,10 +478,11 @@
                             americanCar.style.opacity = 1;
                         }
                     });
-                },
-                { threshold: 0.5 } // Trigger when 50% of the section is visible
+                }, {
+                    threshold: 0.5
+                } // Trigger when 50% of the section is visible
             );
-    
+
             // Intersection Observer for Contact Section
             const contactObserver = new IntersectionObserver(
                 (entries) => {
@@ -461,18 +492,19 @@
                             contactCar.style.opacity = 1;
                         }
                     });
-                },
-                { threshold: 0.5 } // Trigger when 50% of the section is visible
+                }, {
+                    threshold: 0.5
+                } // Trigger when 50% of the section is visible
             );
-    
+
             // Observe respective sections
             if (americanWrapper) americanObserver.observe(americanWrapper);
             if (contactWrapper) contactObserver.observe(contactWrapper);
         });
     </script>
-    
-    
-    
+
+
+
 
 
 

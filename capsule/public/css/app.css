@@ -285,12 +285,12 @@ h6 {
     right: 0;
     bottom: 10%;
 }
-.main__car__main__img{
+.main__car__main__img {
     position: absolute;
     z-index: 100;
 }
 
-.main__car__dot{
+.main__car__dot {
     position: absolute;
     z-index: 300;
     width: 42px;
@@ -303,69 +303,68 @@ h6 {
     justify-content: center;
     cursor: pointer;
 }
-.main__car__dot-white{
+.main__car__dot-white {
     width: 25px;
     height: 25px;
     background-color: #fff;
     border-radius: 25px;
 }
 
-.main__car__dot:hover{
+.main__car__dot:hover {
     transform: scale(1.1);
 }
-.main__car__dot:hover .main__car__dot-white{
-    border: 3px solid #BB1216;
+.main__car__dot:hover .main__car__dot-white {
+    border: 3px solid #bb1216;
 }
-.main__car__dot1{
+.main__car__dot1 {
     top: 29px;
     left: 154px;
 }
 
-.main__car__dot2{
+.main__car__dot2 {
     top: 140px;
     left: 430px;
 }
-.main__car__dot3{
+.main__car__dot3 {
     top: 80px;
     left: 620px;
 }
-.main__car__dot4{
+.main__car__dot4 {
     top: 70px;
     left: initial;
     right: 140px;
 }
-.main__car__dot5{
+.main__car__dot5 {
     top: 180px;
     left: initial;
     right: 250px;
 }
 
-.car-vector{
+.car-vector {
     position: absolute;
     z-index: 200;
     visibility: hidden;
     opacity: 0; /* Add opacity for a fade-in effect */
     transition: opacity 0.1s ease, visibility 0.1s ease; /* Smooth transition */
 }
-.car-vector1{
+.car-vector1 {
     top: -93px;
     left: 125px;
-
 }
 
-.car-vector2{
+.car-vector2 {
     top: -40px;
     left: 370px;
 }
-.car-vector3{
+.car-vector3 {
     top: -105px;
     right: 407px;
 }
-.car-vector4{
+.car-vector4 {
     top: -18px;
     right: 260px;
 }
-.car-vector5{
+.car-vector5 {
     top: -112px;
     right: 73px;
 }
@@ -394,24 +393,22 @@ h6 {
 }
 
 .car-desc3 {
-
     text-align: center;
     top: -137px;
     left: 472px;
 }
-.car-desc4{
+.car-desc4 {
     text-align: center;
     max-width: 124px;
     top: -73px;
     right: 242px;
 }
-.car-desc5{
+.car-desc5 {
     text-align: right;
     max-width: 197px;
     top: -169px;
     right: 76px;
 }
-
 
 /* When hovering over a specific dot, show the corresponding vector */
 /* Hover rules to show car-desc and car-vector */
@@ -610,6 +607,54 @@ h6 {
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
 }
+/********MAP**********/
+.map {
+    width: 100%;
+    min-height: 500px;
+}
+.map__wrapper {
+    width: 100%;
+    height: 100%;
+    max-width: 1660px;
+    margin: 0 auto;
+}
+.map__name-container {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: flex-end;
+}
+.map__name {
+    text-align: center;
+}
+.map__name  h4 {
+    font-family: 'Rubik Mono One', monospace;
+    font-size: 46px;
+    font-weight: 400;
+    line-height: 54px;
+    letter-spacing: 0.800000011920929px;
+    text-align: center;
+    color: #CDCDCD;
+}
+.map__name  p {
+    font-size: 24px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 16.8px;
+    letter-spacing: 0.800000011920929px;
+    text-align: center;
+    color: #34C81E;
+
+}
+.map__name {
+}
+.map__container {
+}
+.map__container-map {
+}
+.map__container-desc {
+}
+
 /*****catalog********/
 .catalog {
     min-height: 600px;
@@ -712,24 +757,23 @@ h6 {
     background-size: cover;
     background-repeat: no-repeat;
 }
-.contact_wrapper{
+.contact_wrapper {
     width: 100%;
     min-height: 700px;
     background-color: #0000005b;
 }
-.contact_wrapper__animation{
+.contact_wrapper__animation {
     position: relative;
     width: 100%;
     height: 200px;
-
 }
 
-.contact__text__block{
+.contact__text__block {
     position: absolute;
     left: 80px;
     z-index: 100;
 }
-.contact__car__block{
+.contact__car__block {
     position: absolute;
     z-index: 200;
     left: calc(50% - 100px);
@@ -741,3 +785,4 @@ h6 {
     animation-duration: 2.2s; /* Adjust timing as needed */
     animation-fill-mode: forwards; /* Maintain final position after animation */
 }
+/******form*******/
