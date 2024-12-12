@@ -221,13 +221,14 @@
 
                 <div class="map__container">
                     <div class="map__container-map">
-                        <!--img src="{{ './images/map.png' }}" alt="" srcset="">
-                        -->
-                        </div>
+                        <img src="{{ './images/map.png' }}" alt="" srcset="">
+                        
+                    </div>
+
                     <div class="map__container-desc">
                         <p>15</p>
                         <span>countries</span>
-                        <p>150+</p>
+                        <p class="map_margin">150+</p>
                         <span>dealers</span>
                     </div>
                 </div>
@@ -237,8 +238,21 @@
         </section>
         <!----Catalogue-->
         <section class="catalog" id="catalog">
+            <div class="catalog__wrapper">
+                <div class="catalog__name">
+                    Catalogue
+                </div>
 
+                <div class="catalog__swiper">
+                    <div class="catalog__swiper-button">
+                        <a href="#">
+                            VIEW ALL items
+                        </a>
+                    </div>
+                </div>
+            </div>
         </section>
+
         <!---car--->
 
         <!------Gallery---->
