@@ -239,6 +239,11 @@
 
         <!--- Catalogue --->
         <section class="catalog" id="catalog">
+
+            <div class="ctalog__placeholder">
+                <img src="{{asset('./images/catalog_placeholder.png')}}" alt="" srcset="">
+            </div>
+
             <div class="catalog__wrapper">
                 <div class="catalog__name">
                     <p>Catalogue</p>

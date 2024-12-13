@@ -871,6 +871,17 @@ h6 {
     min-height: 600px;
     position: relative;
 }
+.ctalog__placeholder{
+    position: absolute;
+    z-index: 100;
+    right: 0;
+}
+.catalog__wrapper{
+    position: relative;
+    z-index: 200;
+}
+
+
 .catalog__name{
     max-width: 1624px;
     width: 90%;
@@ -903,8 +914,14 @@ text-decoration-skip-ink: none;
     align-items: center;
     justify-content: flex-end;
     padding-right: 64px;
+
+    position: relative;
+    margin-top: 50px;
 }
 .catalog__swiper-button a {
+    position: absolute;
+
+
     width: 221px;
     height: 52px;
     background-color: #34c81e;
