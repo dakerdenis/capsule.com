@@ -531,7 +531,16 @@
                             </div>
 
                             <div class="contact__from-terms">
-
+                                <div class="checkbox-wrapper">
+                                    <label class="custom-checkbox">
+                                        <input type="checkbox" name="consent" />
+                                        <span class="checkbox-label"></span>
+                                    </label>
+                                    <span class="checkbox-text">
+                                        I give my consent to the processing of personal data in accordance with the <a href="#">Terms*</a>
+                                    </span>
+                                </div>
+                                
                             </div>
 
 

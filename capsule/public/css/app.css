@@ -1211,7 +1211,7 @@ text-decoration-skip-ink: none;
 .contact__form-submit{
     width: 100%;
     height: 52px;
-
+    margin-top: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1286,4 +1286,57 @@ text-decoration-skip-ink: none;
 .radio input:checked + .radio-label::before {
     background-color: #34c81e; /* Filled color */
   
+}
+
+
+
+
+
+.contact__from-terms{
+    margin-top: 20px;
+}
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: #fff; /* Text color */
+}
+
+.custom-checkbox {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px; /* Checkbox size */
+    height: 25px;
+    border: 2px solid #34c81e; /* Border color */
+    border-radius: 50%; /* Makes it circular */
+    background-color: #fff; /* Default background */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-checkbox .checkbox-label {
+    display: block;
+    width: 21px; /* Inner circle size */
+
+    height: 21px;
+    border-radius: 50%; /* Makes it circular */
+    background-color: #fff; /* Default inner background */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.custom-checkbox input:checked + .checkbox-label {
+    background-color: #34c81e; /* Filled background when selected */
+}
+.checkbox-text a {
+    text-decoration: underline;
+    color: #fff;
 }
