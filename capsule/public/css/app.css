@@ -626,29 +626,27 @@ h6 {
 }
 .map__name {
     text-align: center;
-}.map__name {
 }
-.map__name  h4 {
+.map__name {
+}
+.map__name h4 {
     font-family: 'Rubik Mono One', monospace;
     font-size: 46px;
     font-weight: 400;
     line-height: 54px;
     letter-spacing: 0.800000011920929px;
     text-align: center;
-    color: #CDCDCD;
+    color: #cdcdcd;
 }
-.map__name  p {
+.map__name p {
     font-size: 24px;
     font-style: italic;
     font-weight: 300;
     line-height: 16.8px;
     letter-spacing: 0.800000011920929px;
     text-align: center;
-    color: #34C81E;
-
+    color: #34c81e;
 }
-
-
 
 .map__container {
     width: 100%;
@@ -662,7 +660,7 @@ h6 {
     position: absolute;
     z-index: 100;
 }
-.map__container-map  img {
+.map__container-map img {
     width: 100%;
     height: 100%;
 }
@@ -679,18 +677,17 @@ h6 {
 .map__container-desc p {
     display: block;
     font-family: 'Rubik Mono One', monospace;
-font-size: 96px;
-font-weight: 400;
-line-height: 54px;
-letter-spacing: 0.800000011920929px;
-text-align: left;
-text-underline-position: from-font;
-text-decoration-skip-ink: none;
-color: #34C81E;
-
+    font-size: 96px;
+    font-weight: 400;
+    line-height: 54px;
+    letter-spacing: 0.800000011920929px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #34c81e;
 }
 
-.map_margin{
+.map_margin {
     margin-top: 55px;
 }
 .map__container-desc span {
@@ -704,14 +701,226 @@ color: #34C81E;
     text-align: left;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
-    
-    color: #fff;
 
+    color: #fff;
+}
+
+.catalog__swiper__wrapper {
+    width: 100%;
+    height: 829px;
+}
+
+.glide--swipeable {
+    height: 100%;
+}
+
+.glide__track {
+    height: 880px;
+}
+
+.glide__slides {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.glide__slide {
+    width: 416px;
+    height: 577px;
+    position: relative;
+}
+.glide__slide button {
+    position: absolute;
+    bottom: 33px;
+    left: calc(50% - 146.5px);
+    z-index: 100;
+    opacity: 0;
+    background: var(--button-background);
+    width: 293px;
+    height: 69px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 69px;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 20px;
+
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+.glide__slide__wrapper {
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    position: relative;
+
+    transition: transform 0.4s ease;
+
+    border-radius: 16px;
+    border: 2px solid #fff;
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.glide__slide__image {
+    width: 317px;
+    height: 293px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.glide__slide__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.glide__slide__name {
+    font-family: 'Rubik Mono One', monospace;
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 54px;
+    letter-spacing: 0.800000011920929px;
+    text-align: center;
+    color: #fff;
+}
+.glide__slide__desc {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 41px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+.glide__background-desc {
+    position: absolute;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    top: 5px;
+    left: 5px;
+    z-index: 200;
+    box-shadow: 12px 12px 21px -1px rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.glide__background-name {
+    font-size: 23.8px;
+    color: #fff;
+    text-transform: uppercase;
+    height: 61px;
+    margin-bottom: 15px;
+}
+
+.glide__background-small {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.glide__background-link {
+    width: 100%;
+    text-align: center;
+}
+
+.glide__background-link a {
+    color: #fff;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 11.2px;
+}
+
+.glide__arrow {
+    top: 97%;
+    box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.1);
+    color: #121730;
+    position: absolute;
+}
+
+.glide__arrow--left {
+    left: 44%;
+    background-color: rgba(0, 0, 0, 0);
+}
+.glide__arrow--left img {
+    transform: rotate(180deg);
+}
+.glide__arrow--right {
+    right: 44%;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.glide__slide--active .glide__slide__wrapper {
+    transform: translateY(-149px);
+}
+
+.glide__slide--active button {
+    opacity: 1;
 }
 
 /*****catalog********/
 .catalog {
+    z-index: 300;
     min-height: 600px;
+    position: relative;
+}
+.catalog__name{
+    max-width: 1624px;
+    width: 90%;
+    margin: 0 auto;
+    height: 370px;
+
+    background-image: url('../images/catalog_back.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.catalog__name p{
+color: #fff;
+font-size: 46px;
+font-weight: 400;
+line-height: 40px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+}
+.catalog__swiper-button {
+    width: 100%;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 64px;
+}
+.catalog__swiper-button a {
+    width: 221px;
+    height: 52px;
+    background-color: #34c81e;
+    border-radius: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
 }
 /********gallery**********/
 
@@ -719,7 +928,7 @@ color: #34C81E;
     width: 100%;
     margin-top: 70px;
     position: relative;
-    z-index: 300;
+    z-index: 200;
 }
 .gallery__wrapper {
     width: 100%;
@@ -728,7 +937,7 @@ color: #34C81E;
 .gallery__car__placeholder {
     position: absolute;
     right: -25%;
-    top: -39%;
+    top: -51%;
 }
 .gallery__name {
     width: calc(100% - 6%);

@@ -236,11 +236,12 @@
 
             </div>
         </section>
-        <!----Catalogue-->
+
+        <!--- Catalogue --->
         <section class="catalog" id="catalog">
             <div class="catalog__wrapper">
                 <div class="catalog__name">
-                    Catalogue
+                    <p>Catalogue</p>
                 </div>
 
                 <div class="catalog__swiper">
@@ -248,6 +249,114 @@
                         <a href="#">
                             VIEW ALL items
                         </a>
+                    </div>
+
+                    <div class="catalog__swiper__wrapper">
+                        <div class="glide">
+                            <div class="glide__track" data-glide-el="track">
+                                <ul class="glide__slides">
+                                    <li class="glide__slide">
+                                        <div class="glide__slide__wrapper">
+                                            <div class="glide__slide__image">
+                                                <img src="{{'./images/placeholder.png'}}" alt="">
+                                            </div>
+                                            <div class="glide__slide__name">
+                                                ITEM NAME
+                                            </div>
+                                            <div class="glide__slide__desc">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                            </div>
+                                        </div>
+                                        <button>Order Now</button>
+                                    </li>
+                                    
+                                    <li class="glide__slide">
+                                        <div class="glide__slide__wrapper">
+                                            <div class="glide__slide__image">
+                                                <img src="{{'./images/placeholder.png'}}" alt="">
+                                            </div>
+                                            <div class="glide__slide__name">
+                                                ITEM NAME
+                                            </div>
+                                            <div class="glide__slide__desc">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                            </div>
+                                        </div>
+                                        <button>Order Now</button>
+                                    </li>
+
+                                    <li class="glide__slide">
+                                        <div class="glide__slide__wrapper">
+                                            <div class="glide__slide__image">
+                                                <img src="{{'./images/placeholder.png'}}" alt="">
+                                            </div>
+                                            <div class="glide__slide__name">
+                                                ITEM NAME
+                                            </div>
+                                            <div class="glide__slide__desc">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                            </div>
+                                        </div>
+                                        <button>Order Now</button>
+                                    </li>
+
+                                    <li class="glide__slide">
+                                        <div class="glide__slide__wrapper">
+                                            <div class="glide__slide__image">
+                                                <img src="{{'./images/placeholder.png'}}" alt="">
+                                            </div>
+                                            <div class="glide__slide__name">
+                                                ITEM NAME
+                                            </div>
+                                            <div class="glide__slide__desc">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                            </div>
+                                        </div>
+                                        <button>Order Now</button>
+                                    </li>
+
+                                    <li class="glide__slide">
+                                        <div class="glide__slide__wrapper">
+                                            <div class="glide__slide__image">
+                                                <img src="{{'./images/placeholder.png'}}" alt="">
+                                            </div>
+                                            <div class="glide__slide__name">
+                                                ITEM NAME
+                                            </div>
+                                            <div class="glide__slide__desc">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                            </div>
+                                        </div>
+                                        <button>Order Now</button>
+                                    </li>
+
+                                    <li class="glide__slide">
+                                        <div class="glide__slide__wrapper">
+                                            <div class="glide__slide__image">
+                                                <img src="{{'./images/placeholder.png'}}" alt="">
+                                            </div>
+                                            <div class="glide__slide__name">
+                                                ITEM NAME
+                                            </div>
+                                            <div class="glide__slide__desc">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                            </div>
+                                        </div>
+                                        <button>Order Now</button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="glide__arrows" data-glide-el="controls">
+                                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+                                    <img src="{{asset('./images/arrow_catalog.png')}}" alt="" srcset="">
+                                </button>
+                                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+                                    <img src="{{asset('./images/arrow_catalog.png')}}" alt="" srcset="">
+                                </button>
+                            </div>
+                        </div>
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -515,6 +624,41 @@
             if (americanWrapper) americanObserver.observe(americanWrapper);
             if (contactWrapper) contactObserver.observe(contactWrapper);
         });
+    </script>
+
+<script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const glide = new Glide('.glide', {
+                type: 'carousel',
+                startAt: 0,
+                perView: 4,
+                focusAt: 'center',
+                gap: 40,
+                autoplay: 10000,
+
+                animationDuration: 800,
+                breakpoints: {
+                    1024: {
+                        perView: 2
+                    },
+                    600: {
+                        perView: 2
+                    }
+                }
+            });
+
+            glide.on('move', () => {
+                const slides = document.querySelectorAll('.glide__slide');
+                slides.forEach(slide => slide.classList.remove('is-next'));
+                const nextIndex = (glide.index + 1) % slides.length;
+                slides[nextIndex].classList.add('is-next');
+            });
+
+            glide.mount();
+        });
+
     </script>
 
 
