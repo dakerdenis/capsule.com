@@ -1066,3 +1066,224 @@ text-decoration-skip-ink: none;
     animation-fill-mode: forwards; /* Maintain final position after animation */
 }
 /******form*******/
+.contact__main__container{
+    width: calc(100% - 106px);
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+}
+
+.contact__form__container{
+    width: 831px;
+    height: 497px;
+    border-radius: 18px;
+    position: relative;
+    overflow: hidden;
+
+    border: 1px solid;
+
+border-image-source: linear-gradient(152.69deg, #646464 3.41%, rgba(0, 0, 0, 0) 82.98%);
+
+
+}
+.contact__form__container-bg{
+    z-index: 300;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/form_back.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    border-radius: 18px;
+    overflow: hidden;
+    opacity: 0.5;
+}
+
+.contact__form__container-blur{
+    z-index: 200;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backdrop-filter: blur(5px);
+}
+.contact__form__container form {
+    z-index: 400;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 25px 45px;
+}
+.contact__form__name-message{
+    width: 100%;
+    height: 87px;
+    display: flex;
+    justify-content: space-between;
+}
+.contact__form__block{
+    height: 87px;
+    width: 353px;
+}
+.contact__form__block-name{
+color: #fff;
+font-size: 20px;
+font-weight: 700;
+line-height: 28px;
+letter-spacing: 0.5px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+margin-bottom: 17px;
+}
+.message .contact__form__block-name{
+   margin-bottom: 0px; 
+}
+.contact__form__block-input{
+    width: 100%;
+    min-height: 41px;
+}
+
+.contact__form__block-input input{
+    width: 100%;
+    height: 41px;
+    border-radius: 8px;
+    background-clip: #fbfbfb;
+    padding: 5px 10px;
+
+
+font-size: 14px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: 0.25px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+    border-bottom: 3px solid #055a00;
+    
+}
+.contact__form__block-input textarea{
+    width: 100%;
+    height: 54px;
+    border-radius: 8px;
+    padding: 5px 15px;
+
+    font-size: 14px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: 0.25px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+}
+
+.contact__form__number-country{
+    margin-top: 28px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 87px;
+
+}
+
+
+
+.contact__form__email-contact{
+    margin-top: 28px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 87px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.contact__form-submit{
+    width: 100%;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact__form-submit button {
+    width: 198px;
+    height: 52px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(91.94deg, #710000 10.91%, #055A00 77.06%);
+
+
+    font-family: Inter;
+font-size: 15px;
+font-weight: 700;
+line-height: 18.15px;
+text-align: center;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.radio {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+.radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px; /* Adjust button size */
+    height: 20px; /* Adjust button height */
+
+    color: #fff; /* Text color */
+    font-size: 16px; /* Text size */
+    text-align: center;
+    transition: all 0.3s ease; /* Smooth transition */
+    margin-left: 25px;
+}
+.radio-label::before{
+    content: "";
+    width: 20px;
+    height: 20px;
+    border: 2px solid #34c81e; /* Border color */
+    border-radius: 20px; /* Rounded corners */
+    background-color: #fff; /* Default background */
+
+    position: absolute;
+    left: 0;
+}
+
+.radio input:checked + .radio-label::before {
+    background-color: #34c81e; /* Filled color */
+  
+}

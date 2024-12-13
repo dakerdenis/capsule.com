@@ -222,7 +222,7 @@
                 <div class="map__container">
                     <div class="map__container-map">
                         <img src="{{ './images/map.png' }}" alt="" srcset="">
-                        
+
                     </div>
 
                     <div class="map__container-desc">
@@ -241,7 +241,7 @@
         <section class="catalog" id="catalog">
 
             <div class="ctalog__placeholder">
-                <img src="{{asset('./images/catalog_placeholder.png')}}" alt="" srcset="">
+                <img src="{{ asset('./images/catalog_placeholder.png') }}" alt="" srcset="">
             </div>
 
             <div class="catalog__wrapper">
@@ -263,28 +263,14 @@
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
                                             <div class="glide__slide__image">
-                                                <img src="{{'./images/placeholder.png'}}" alt="">
+                                                <img src="{{ './images/placeholder.png' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
                                                 ITEM NAME
                                             </div>
                                             <div class="glide__slide__desc">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. </p>
-                                            </div>
-                                        </div>
-                                        <button>Order Now</button>
-                                    </li>
-                                    
-                                    <li class="glide__slide">
-                                        <div class="glide__slide__wrapper">
-                                            <div class="glide__slide__image">
-                                                <img src="{{'./images/placeholder.png'}}" alt="">
-                                            </div>
-                                            <div class="glide__slide__name">
-                                                ITEM NAME
-                                            </div>
-                                            <div class="glide__slide__desc">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
+                                                    risus nec tellus dapibus accumsan a pharetra nisl. </p>
                                             </div>
                                         </div>
                                         <button>Order Now</button>
@@ -293,13 +279,14 @@
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
                                             <div class="glide__slide__image">
-                                                <img src="{{'./images/placeholder.png'}}" alt="">
+                                                <img src="{{ './images/placeholder.png' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
                                                 ITEM NAME
                                             </div>
                                             <div class="glide__slide__desc">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
+                                                    risus nec tellus dapibus accumsan a pharetra nisl. </p>
                                             </div>
                                         </div>
                                         <button>Order Now</button>
@@ -308,13 +295,14 @@
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
                                             <div class="glide__slide__image">
-                                                <img src="{{'./images/placeholder.png'}}" alt="">
+                                                <img src="{{ './images/placeholder.png' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
                                                 ITEM NAME
                                             </div>
                                             <div class="glide__slide__desc">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
+                                                    risus nec tellus dapibus accumsan a pharetra nisl. </p>
                                             </div>
                                         </div>
                                         <button>Order Now</button>
@@ -323,13 +311,14 @@
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
                                             <div class="glide__slide__image">
-                                                <img src="{{'./images/placeholder.png'}}" alt="">
+                                                <img src="{{ './images/placeholder.png' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
                                                 ITEM NAME
                                             </div>
                                             <div class="glide__slide__desc">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
+                                                    risus nec tellus dapibus accumsan a pharetra nisl. </p>
                                             </div>
                                         </div>
                                         <button>Order Now</button>
@@ -338,13 +327,30 @@
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
                                             <div class="glide__slide__image">
-                                                <img src="{{'./images/placeholder.png'}}" alt="">
+                                                <img src="{{ './images/placeholder.png' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
                                                 ITEM NAME
                                             </div>
                                             <div class="glide__slide__desc">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
+                                                    risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                            </div>
+                                        </div>
+                                        <button>Order Now</button>
+                                    </li>
+
+                                    <li class="glide__slide">
+                                        <div class="glide__slide__wrapper">
+                                            <div class="glide__slide__image">
+                                                <img src="{{ './images/placeholder.png' }}" alt="">
+                                            </div>
+                                            <div class="glide__slide__name">
+                                                ITEM NAME
+                                            </div>
+                                            <div class="glide__slide__desc">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
+                                                    risus nec tellus dapibus accumsan a pharetra nisl. </p>
                                             </div>
                                         </div>
                                         <button>Order Now</button>
@@ -353,15 +359,15 @@
                             </div>
                             <div class="glide__arrows" data-glide-el="controls">
                                 <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-                                    <img src="{{asset('./images/arrow_catalog.png')}}" alt="" srcset="">
+                                    <img src="{{ asset('./images/arrow_catalog.png') }}" alt="" srcset="">
                                 </button>
                                 <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
-                                    <img src="{{asset('./images/arrow_catalog.png')}}" alt="" srcset="">
+                                    <img src="{{ asset('./images/arrow_catalog.png') }}" alt="" srcset="">
                                 </button>
                             </div>
                         </div>
-                        
-                        
+
+
                     </div>
                 </div>
             </div>
@@ -446,78 +452,116 @@
                     </div>
                 </div>
 
-                <div class="contact__form__container">
-                    <form action="#">
-                        <div class="contact__form__name-message">
-                            <div class="contact__form__block name">
-                                <div class="contact__form__block-name">
-                                    Name
+                <div class="contact__main__container">
+                    <div class="contact__form__container">
+                        <form action="#">
+                            <div class="contact__form__name-message">
+                                <div class="contact__form__block name">
+                                    <div class="contact__form__block-name">
+                                        Name
+                                    </div>
+                                    <div class="contact__form__block-input">
+                                        <input type="text" name="name" id="name" placeholder="Your name">
+                                    </div>
                                 </div>
-                                <div class="contact__form__block-input">
-                                    <input type="text" name="name" id="name" placeholder="Your name">
+
+                                <div class="contact__form__block message">
+                                    <div class="contact__form__block-name">
+                                        How can we help you?
+                                    </div>
+                                    <div class="contact__form__block-input">
+                                        <textarea placeholder="Leave your message" name="" id=""></textarea>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="contact__form__block message">
-                                <div class="contact__form__block-name">
-                                    How can we help you?
+                            <div class="contact__form__number-country">
+                                <div class="contact__form__block number">
+                                    <div class="contact__form__block-name">
+                                        Number
+                                    </div>
+                                    <div class="contact__form__block-input">
+                                        <input type="number" name="number" id="number"
+                                            placeholder="Your mobile number">
+                                    </div>
                                 </div>
-                                <div class="contact__form__block-input">
-                                    <textarea name="" id=""></textarea>
+
+                                <div class="contact__form__block country">
+                                    <div class="contact__form__block-name">
+                                        Country
+                                    </div>
+                                    <div class="contact__form__block-input">
+
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="contact__form__email-contact">
+                                <div class="contact__form__block email">
+                                    <div class="contact__form__block-name">
+                                        E-mail
+                                    </div>
+                                    <div class="contact__form__block-input">
+                                        <input type="email" name="email" id="email"
+                                            placeholder="Your mobile number">
+                                    </div>
+                                </div>
+
+                                <div class="contact__form__block method">
+                                    <div class="contact__form__block-name">
+                                        How can we contact you?
+                                    </div>
+                                    <div class="contact__form__block-input">
+                                        <div class="radio-group">
+                                            <label class="radio">
+                                                <input type="radio" name="contact-method" value="email" />
+                                                <span class="radio-label">E-Mail</span>
+                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="contact-method" value="phone" />
+                                                <span class="radio-label">Phone</span>
+                                            </label>
+                                            <label class="radio">
+                                                <input type="radio" name="contact-method" value="both" />
+                                                <span class="radio-label">Both</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contact__from-terms">
+
+                            </div>
+
+
+
+                            <div class="contact__form-submit">
+                                <button type="submit">
+                                    SEND REQUEST
+                                </button>
+                            </div>
+                        </form>
+                        <div class="contact__form__container-blur"></div>
+                        <div class="contact__form__container-bg"></div>
+                    </div>
+
+                    <div class="contact__map__logo">
+                        <div class="contact__map-logo">
+                            <img src="{{ './images/logo_main.png' }}" alt="" srcset="">
                         </div>
 
-                        <div class="contact__form__number-country">
-                            <div class="contact__form__block number">
-                                <div class="contact__form__block-name">
-                                    Number
-                                </div>
-                                <div class="contact__form__block-input">
-                                    <input type="number" name="number" id="number"
-                                        placeholder="Your mobile number">
-                                </div>
-                            </div>
-
-                            <div class="contact__form__block country">
-                                <div class="contact__form__block-name">
-                                    Country
-                                </div>
-                                <div class="contact__form__block-input">
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="contact__form__email-contact">
-                            <div class="contact__form__block email">
-                                <div class="contact__form__block-name">
-                                    E=mail
-                                </div>
-                                <div class="contact__form__block-input">
-                                    <input type="email" name="email" id="email"
-                                        placeholder="Your mobile number">
-                                </div>
-                            </div>
-
-                            <div class="contact__form__block method">
-
-                            </div>
-                        </div>
-
-                        <div class="contact__from-terms">
+                        <div class="contact__map-map">
 
                         </div>
+                    </div>
 
-
-
-                        <div class="contact__form-submit">
-                            <button type="submit">
-                                SEND REQUEST
-                            </button>
-                        </div>
-                    </form>
+                    <div class="contact__adress__block">
+                        asdasd
+                    </div>
                 </div>
+
+
 
 
 
@@ -631,10 +675,10 @@
         });
     </script>
 
-<script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
+    <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const glide = new Glide('.glide', {
                 type: 'carousel',
                 startAt: 0,
@@ -663,7 +707,6 @@
 
             glide.mount();
         });
-
     </script>
 
 
