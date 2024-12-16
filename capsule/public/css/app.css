@@ -1069,7 +1069,7 @@ text-decoration-skip-ink: none;
 .contact__main__container{
     width: calc(100% - 106px);
     margin: 0 auto;
-
+    justify-content: space-between;
     display: flex;
     align-items: center;
 }
@@ -1224,7 +1224,7 @@ text-decoration-skip-ink: none;
     display: flex;
     align-items: center;
     justify-content: center;
-
+    color: #fff;
     background: linear-gradient(91.94deg, #710000 10.91%, #055A00 77.06%);
 
 
@@ -1288,7 +1288,11 @@ text-decoration-skip-ink: none;
   
 }
 
-
+.contact__form__block-select{
+    width: 100% !important;
+    height: 41px !important;
+    background-color: #fff;
+}
 
 
 
@@ -1338,5 +1342,87 @@ text-decoration-skip-ink: none;
 }
 .checkbox-text a {
     text-decoration: underline;
+    color: #fff;
+}
+
+
+.contact__map__logo {
+    position: absolute;
+    z-index: 400;
+    height: 460px;
+    width: 339px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 888px;
+
+    justify-content: space-between;
+}
+.contact__map-logo {
+    width: 238px;
+    height: 97px;
+}
+.contact__map-logo img{
+    width: 100%;
+    object-fit: cover;
+}
+.contact__map-map {
+    width: 339px;
+    height: 311px;
+    border-radius: 18px;
+
+    border: 1px solid #fff;
+}
+
+
+
+/* Optional: Customize iframe responsiveness */
+.contact__map-map iframe {
+    width: 100%;
+    height: 100%;
+    display: block; /* Remove iframe default inline spacing */
+    filter: grayscale(100%) contrast(90%) brightness(80%);
+    border-radius: 18px;
+}
+
+
+
+.contact__adress__block {
+    width: 350px;
+}
+.contact__adress__element {
+    width: 100%;
+    height: 30px;
+
+font-size: 20px;
+font-weight: 500;
+line-height: 30px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+display: flex;
+justify-content: space-between;
+color: #fff;
+margin-bottom: 20px;
+}
+.contact__adress__name {
+    width: 90px;
+
+}
+.contact__adress__content {
+}
+
+.footer__copyright{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: calc(100% - 100px);
+    margin: 0 auto;
+    color: #fff;
+}
+
+.footer__copyright p {
     color: #fff;
 }
