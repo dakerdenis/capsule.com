@@ -37,8 +37,15 @@
 
 
                 <div class="header__languages">
-                    <button>EN</button>
+                    <button id="languageButton">EN</button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <a href="?lang=en">EN</a>
+                        <a href="?lang=ru">RU</a>
+                        <a href="?lang=az">AZ</a>
+                    </div>
                 </div>
+                
+                
             </div>
         </header>
 
@@ -493,6 +500,7 @@
                                     <div class="contact__form__block-input">
                                        
                                         <select class="contact__form__block-select" id="countries">
+                                            <option value="TT" data-capital="Kabul">Select Counry</option>
                                             <option value="AF" data-capital="Kabul">Afghanistan</option>
                                             <option value="AX" data-capital="Mariehamn">Aland Islands</option>
                                             <option value="AL" data-capital="Tirana">Albania</option>
@@ -857,7 +865,7 @@
 
 
                 <div class="footer__copyright">
-                    <p>Copyright 2024 {{ date('Y') }} &copy;</p>
+                    <p>Copyright {{ date('Y') }} &copy;</p>
                 </div>
 
                 
@@ -1039,7 +1047,26 @@
         });
     </script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const languageButton = document.getElementById('languageButton');
+    const languageDropdown = document.getElementById('languageDropdown');
 
+    // Toggle dropdown visibility
+    languageButton.addEventListener('click', () => {
+        languageDropdown.style.display =
+            languageDropdown.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.header__languages')) {
+            languageDropdown.style.display = 'none';
+        }
+    });
+});
+
+</script>
 
 
 

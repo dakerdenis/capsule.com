@@ -184,12 +184,17 @@ h6 {
     transition: left 0.3s ease, width 0.3s ease; /* Smooth animation for movement and resizing */
 }
 
+/* General Button Styles */
+/* General Button Styles */
+.header__languages {
+    position: relative; /* Position relative for dropdown alignment */
+}
+
 .header__languages button {
     width: 79px;
     height: 48px;
     background: linear-gradient(90deg, #bb1216 0%, #581923 100%);
     border-radius: 18px;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -198,10 +203,28 @@ h6 {
     font-weight: 600;
     line-height: 24px;
     letter-spacing: 0.5px;
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    outline: none;
 }
+
+/* Dropdown Styles */
+.language-dropdown {
+    position: absolute;
+    top: 50px; /* Position below the button */
+    left: 0;
+    width: 79px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: none; /* Hidden by default */
+    z-index: 1000;
+    padding: 0;
+    margin: 0;
+}
+
+
 
 /*******MAIN section*********/
 .main {
@@ -1293,7 +1316,14 @@ text-decoration-skip-ink: none;
     height: 41px !important;
     background-color: #fff;
 }
-
+.select2-container .select2-selection--single{
+    height: 41px;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+    height: 41px;
+    border-bottom: 2px solid #34c81e;
+    border-radius: 18px;
+}
 
 
 .contact__from-terms{
