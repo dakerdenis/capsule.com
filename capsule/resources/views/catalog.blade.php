@@ -3,7 +3,11 @@
 @section('title', 'Capsule - car proection')
 
 @section('content')
-
+    <style>
+        .catalog{
+            margin-top: 150px;
+        }
+    </style>
     <div class="main__container">
         <!---header-->
         <header class="header" id="header">
@@ -75,194 +79,112 @@
                 </div>
 
                 <div class="catalog__swiper">
-                    <div class="catalog__swiper-button">
-                        <a href="#">
-                            VIEW ALL items
-                        </a>
-                    </div>
-
-                    <div class="catalog__swiper__wrapper">
-                        <div class="glide">
-                            <div class="glide__track" data-glide-el="track">
-                                <ul class="glide__slides">
-                                    <li class="glide__slide">
-                                        <div class="glide__slide__wrapper">
-                                            <div class="glide__slide__image">
-                                                <img src="{{ './images/placeholder.png' }}" alt="">
-                                            </div>
-                                            <div class="glide__slide__name">
-                                                ITEM NAME
-                                            </div>
-                                            <div class="glide__slide__desc">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
-                                                    risus nec tellus dapibus accumsan a pharetra nisl. </p>
-                                            </div>
-                                        </div>
-                                        <button>Order Now</button>
-                                    </li>
-
-                                    <li class="glide__slide">
-                                        <div class="glide__slide__wrapper">
-                                            <div class="glide__slide__image">
-                                                <img src="{{ './images/placeholder.png' }}" alt="">
-                                            </div>
-                                            <div class="glide__slide__name">
-                                                ITEM NAME
-                                            </div>
-                                            <div class="glide__slide__desc">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
-                                                    risus nec tellus dapibus accumsan a pharetra nisl. </p>
-                                            </div>
-                                        </div>
-                                        <button>Order Now</button>
-                                    </li>
-
-                                    <li class="glide__slide">
-                                        <div class="glide__slide__wrapper">
-                                            <div class="glide__slide__image">
-                                                <img src="{{ './images/placeholder.png' }}" alt="">
-                                            </div>
-                                            <div class="glide__slide__name">
-                                                ITEM NAME
-                                            </div>
-                                            <div class="glide__slide__desc">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
-                                                    risus nec tellus dapibus accumsan a pharetra nisl. </p>
-                                            </div>
-                                        </div>
-                                        <button>Order Now</button>
-                                    </li>
-
-                                    <li class="glide__slide">
-                                        <div class="glide__slide__wrapper">
-                                            <div class="glide__slide__image">
-                                                <img src="{{ './images/placeholder.png' }}" alt="">
-                                            </div>
-                                            <div class="glide__slide__name">
-                                                ITEM NAME
-                                            </div>
-                                            <div class="glide__slide__desc">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
-                                                    risus nec tellus dapibus accumsan a pharetra nisl. </p>
-                                            </div>
-                                        </div>
-                                        <button>Order Now</button>
-                                    </li>
-
-                                    <li class="glide__slide">
-                                        <div class="glide__slide__wrapper">
-                                            <div class="glide__slide__image">
-                                                <img src="{{ './images/placeholder.png' }}" alt="">
-                                            </div>
-                                            <div class="glide__slide__name">
-                                                ITEM NAME
-                                            </div>
-                                            <div class="glide__slide__desc">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
-                                                    risus nec tellus dapibus accumsan a pharetra nisl. </p>
-                                            </div>
-                                        </div>
-                                        <button>Order Now</button>
-                                    </li>
-
-                                    <li class="glide__slide">
-                                        <div class="glide__slide__wrapper">
-                                            <div class="glide__slide__image">
-                                                <img src="{{ './images/placeholder.png' }}" alt="">
-                                            </div>
-                                            <div class="glide__slide__name">
-                                                ITEM NAME
-                                            </div>
-                                            <div class="glide__slide__desc">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
-                                                    risus nec tellus dapibus accumsan a pharetra nisl. </p>
-                                            </div>
-                                        </div>
-                                        <button>Order Now</button>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="glide__arrows" data-glide-el="controls">
-                                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-                                    <img src="{{ asset('./images/arrow_catalog.png') }}" alt="" srcset="">
-                                </button>
-                                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
-                                    <img src="{{ asset('./images/arrow_catalog.png') }}" alt="" srcset="">
-                                </button>
-                            </div>
-                        </div>
 
 
+                    <div class="catalog__page__container">
+                        <ul class="glide__slides">
+                            <li class="glide__slide">
+                                <div class="glide__slide__wrapper">
+                                    <div class="glide__slide__image">
+                                        <img src="{{ '../images/placeholder.png' }}" alt="">
+                                    </div>
+                                    <div class="glide__slide__name">
+                                        ITEM NAME
+                                    </div>
+                                    <div class="glide__slide__desc">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
+                                            risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                    </div>
+                                </div>
+                                <button>Order Now</button>
+                            </li>
+
+                            <li class="glide__slide">
+                                <div class="glide__slide__wrapper">
+                                    <div class="glide__slide__image">
+                                        <img src="{{ '../images/placeholder.png' }}" alt="">
+                                    </div>
+                                    <div class="glide__slide__name">
+                                        ITEM NAME
+                                    </div>
+                                    <div class="glide__slide__desc">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
+                                            risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                    </div>
+                                </div>
+                                <button>Order Now</button>
+                            </li>
+
+                            <li class="glide__slide">
+                                <div class="glide__slide__wrapper">
+                                    <div class="glide__slide__image">
+                                        <img src="{{ '../images/placeholder.png' }}" alt="">
+                                    </div>
+                                    <div class="glide__slide__name">
+                                        ITEM NAME
+                                    </div>
+                                    <div class="glide__slide__desc">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
+                                            risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                    </div>
+                                </div>
+                                <button>Order Now</button>
+                            </li>
+
+                            <li class="glide__slide">
+                                <div class="glide__slide__wrapper">
+                                    <div class="glide__slide__image">
+                                        <img src="{{ '../images/placeholder.png' }}" alt="">
+                                    </div>
+                                    <div class="glide__slide__name">
+                                        ITEM NAME
+                                    </div>
+                                    <div class="glide__slide__desc">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
+                                            risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                    </div>
+                                </div>
+                                <button>Order Now</button>
+                            </li>
+
+                            <li class="glide__slide">
+                                <div class="glide__slide__wrapper">
+                                    <div class="glide__slide__image">
+                                        <img src="{{ '../images/placeholder.png' }}" alt="">
+                                    </div>
+                                    <div class="glide__slide__name">
+                                        ITEM NAME
+                                    </div>
+                                    <div class="glide__slide__desc">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
+                                            risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                    </div>
+                                </div>
+                                <button>Order Now</button>
+                            </li>
+
+                            <li class="glide__slide">
+                                <div class="glide__slide__wrapper">
+                                    <div class="glide__slide__image">
+                                        <img src="{{ '../images/placeholder.png' }}" alt="">
+                                    </div>
+                                    <div class="glide__slide__name">
+                                        ITEM NAME
+                                    </div>
+                                    <div class="glide__slide__desc">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
+                                            risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                    </div>
+                                </div>
+                                <button>Order Now</button>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!---car--->
-
-        <!------Gallery---->
-        <section class="gallery" id="gallery">
-            <div class="gallery__car__placeholder">
-                <img src="{{ asset('./images/gallery_car.png') }}" alt="" srcset="">
-            </div>
-            <div class="gallery__wrapper">
-                <div class="gallery__name">
-                    <div class="gallery__name-text">
-                        Gallery
-                    </div>
-                </div>
-
-                <div class="gallery__images__wrapper">
-                    <div class="gallery__images__small">
-                        <a href="{{ asset('./images/car2.png') }}" data-fancybox="gallery"
-                            data-caption="Royal Park L-16A">
-                            <img src="{{ asset('./images/car2.png') }}" alt="Gallery Image" />
-                        </a>
-                        <a href="{{ asset('./images/car1.png') }}" data-fancybox="gallery"
-                            data-caption="Royal Park L-16A">
-                            <img src="{{ asset('./images/car1.png') }}" alt="Gallery Image" />
-                        </a>
-                    </div>
-                    <div class="gallery__images__big">
-                        <a href="{{ asset('./images/car3.jpeg') }}" data-fancybox="gallery"
-                            data-caption="Royal Park L-16A">
-                            <img src="{{ asset('./images/car3.jpeg') }}" alt="Gallery Image" />
-                        </a>
-                    </div>
-                    <div class="gallery__images__small">
-                        <a href="{{ asset('./images/car4.jpeg') }}" data-fancybox="gallery"
-                            data-caption="Royal Park L-16A">
-                            <img src="{{ asset('./images/car4.jpeg') }}" alt="Gallery Image" />
-                        </a>
-                        <a href="{{ asset('./images/car5.png') }}" data-fancybox="gallery"
-                            data-caption="Royal Park L-16A">
-                            <img src="{{ asset('./images/car5.png') }}" alt="Gallery Image" />
-                        </a>
-                    </div>
-                    <div class="gallery__images__small gallery__images__medium">
-                        <a href="{{ asset('./images/car5.jpeg') }}" data-fancybox="gallery"
-                            data-caption="Royal Park L-16A">
-                            <img src="{{ asset('./images/car5.jpeg') }}" alt="Gallery Image" />
-                        </a>
-
-                    </div>
-                    <div class="gallery__images__small">
-                        <a href="{{ asset('./images/car7.png') }}" data-fancybox="gallery"
-                            data-caption="Royal Park L-16A">
-                            <img src="{{ asset('./images/car7.png') }}" alt="Gallery Image" />
-                        </a>
-                        <a href="{{ asset('./images/car6.png') }}" data-fancybox="gallery"
-                            data-caption="Royal Park L-16A">
-                            <img src="{{ asset('./images/car6.png') }}" alt="Gallery Image" />
-                        </a>
-                    </div>
-                </div>
-
-
-
-            </div>
-        </section>
-
+        
         <!----contact us car--->
 
         <!---COntact US----->
@@ -695,37 +617,7 @@
 
 
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const glide = new Glide('.glide', {
-                type: 'carousel',
-                startAt: 0,
-                perView: 4,
-                focusAt: 'center',
-                gap: 40,
-                autoplay: 10000,
 
-                animationDuration: 800,
-                breakpoints: {
-                    1024: {
-                        perView: 2
-                    },
-                    600: {
-                        perView: 2
-                    }
-                }
-            });
-
-            glide.on('move', () => {
-                const slides = document.querySelectorAll('.glide__slide');
-                slides.forEach(slide => slide.classList.remove('is-next'));
-                const nextIndex = (glide.index + 1) % slides.length;
-                slides[nextIndex].classList.add('is-next');
-            });
-
-            glide.mount();
-        });
-    </script>
 
     <script>
         function format(item, state) {
