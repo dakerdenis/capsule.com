@@ -44,8 +44,8 @@
                         <a href="?lang=az">AZ</a>
                     </div>
                 </div>
-                
-                
+
+
             </div>
         </header>
 
@@ -498,7 +498,7 @@
                                         Country
                                     </div>
                                     <div class="contact__form__block-input">
-                                       
+
                                         <select class="contact__form__block-select" id="countries">
                                             <option value="TT" data-capital="Kabul">Select Counry</option>
                                             <option value="AF" data-capital="Kabul">Afghanistan</option>
@@ -824,13 +824,11 @@
 
                         <div class="contact__map-map">
 
-                        
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2504.3025876326838!2d-80.16251344978679!3d32.95325042867251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sru!2saz!4v1734336701034!5m2!1sru!2saz"
-                            width="100%"
-                            height="100%"
-                            style="border: none;"
-                           allowfullscreen="" 
-                           loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2504.3025876326838!2d-80.16251344978679!3d32.95325042867251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sru!2saz!4v1734336701034!5m2!1sru!2saz"
+                                width="100%" height="100%" style="border: none;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
 
@@ -868,11 +866,11 @@
                     <p>Copyright {{ date('Y') }} &copy;</p>
                 </div>
 
-                
+
             </div>
         </section>
     </div>
-   
+
     <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 
@@ -1047,29 +1045,28 @@
         });
     </script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-    const languageButton = document.getElementById('languageButton');
-    const languageDropdown = document.getElementById('languageDropdown');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageButton = document.getElementById('languageButton');
+            const languageDropdown = document.getElementById('languageDropdown');
 
-    // Toggle dropdown visibility
-    languageButton.addEventListener('click', () => {
-        languageDropdown.style.display =
-            languageDropdown.style.display === 'block' ? 'none' : 'block';
-    });
+            // Toggle dropdown visibility
+            languageButton.addEventListener('click', () => {
+                languageDropdown.style.display =
+                    languageDropdown.style.display === 'block' ? 'none' : 'block';
+            });
 
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.header__languages')) {
-            languageDropdown.style.display = 'none';
-        }
-    });
-});
-
-</script>
-
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.header__languages')) {
+                    languageDropdown.style.display = 'none';
+                }
+            });
+        });
+    </script>
 
 
 
-  
+
+
 @endsection

@@ -224,7 +224,25 @@ h6 {
     margin: 0;
 }
 
+.language-dropdown a {
+    width: 79px;
+    height:48px;
 
+    background: linear-gradient(90deg, #bb1216 0%, #581923 100%);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
 
 /*******MAIN section*********/
 .main {
