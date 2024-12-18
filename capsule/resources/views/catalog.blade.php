@@ -39,12 +39,9 @@
                 <div class="header__languages">
                     <button id="languageButton">EN</button>
                     <div class="language-dropdown" id="languageDropdown">
-<div class="language-dropdown" id="languageDropdown">
-    <a href="{{ url('/en') }}" class="{{ app()->getLocale() === 'en' ? 'active' : '' }}">EN</a>
-    <a href="{{ url('/ru') }}" class="{{ app()->getLocale() === 'ru' ? 'active' : '' }}">RU</a>
-    <a href="{{ url('/az') }}" class="{{ app()->getLocale() === 'az' ? 'active' : '' }}">AZ</a>
-</div>
-
+                        <a href="?lang=en">EN</a>
+                        <a href="?lang=ru">RU</a>
+                        <a href="?lang=az">AZ</a>
                     </div>
                 </div>
 
@@ -52,201 +49,7 @@
             </div>
         </header>
 
-        <!---main home section---->
-        <section class="main" id="home">
-            <!----text and car--->
-            <div class="main__wrapper">
-                <!---- Name desc button ---->
-                <div class="main__info">
-                    <div class="main__name">
-                        <h1>Premium class</h1>
-                        <h1>Paint Protection Film.</h1>
-                    </div>
-                    <div class="main__desc">
-                        Cutting-edge Paint Protection Film production delivering unmatched quality.
-                        A forward-thinking catalog of clear, colored, and tinted PPFs, powered by advanced nanotechnology
-                        research and innovation.
-                    </div>
-                    <div class="main__buttons">
-                        <button>Contact us now</button>
-
-                        <button>Learn more</button>
-                    </div>
-                </div>
-
-                <!---car and description---->
-                <div class="main__car">
-
-                    <img class="main__car__main__img" src="{{ asset('./images/car_main.png') }}" alt="Car info image"
-                        srcset="">
-                    <div class="main__car__dot main__car__dot1">
-                        <div class="main__car__dot-white"></div>
-                    </div>
-                    <div class="main__car__dot main__car__dot2">
-                        <div class="main__car__dot-white"></div>
-                    </div>
-                    <div class="main__car__dot main__car__dot3">
-                        <div class="main__car__dot-white"></div>
-                    </div>
-                    <div class="main__car__dot main__car__dot4">
-                        <div class="main__car__dot-white"></div>
-                    </div>
-                    <div class="main__car__dot main__car__dot5">
-                        <div class="main__car__dot-white"></div>
-                    </div>
-
-
-
-                    <div class="car-vector car-vector1">
-                        <img src="{{ asset('./images/car-vector1.png') }}" alt="" srcset="">
-                    </div>
-                    <div class="car-vector car-vector2">
-                        <img src="{{ asset('./images/car-vector2.png') }}" alt="" srcset="">
-                    </div>
-                    <div class="car-vector car-vector3">
-                        <img src="{{ asset('./images/car-vector3.png') }}" alt="" srcset="">
-                    </div>
-
-                    <div class="car-vector car-vector4">
-                        <img src="{{ asset('./images/car-vector4.png') }}" alt="" srcset="">
-                    </div>
-                    <div class="car-vector car-vector5">
-                        <img src="{{ asset('./images/car-vector5.png') }}" alt="" srcset="">
-                    </div>
-
-
-                    <div class="car-desc car-desc1">
-                        Premium quality
-                    </div>
-                    <div class="car-desc car-desc2">
-                        High hydrophobicity
-                    </div>
-                    <div class="car-desc car-desc3">
-                        100% Self-healing
-                    </div>
-                    <div class="car-desc car-desc4">
-                        Anti-yellow
-                        warranty
-                    </div>
-                    <div class="car-desc car-desc5">
-                        Excellent carrosion
-                        resistance
-                    </div>
-
-                </div>
-            </div>
-
-            <!---main background--->
-            <div class="main__background">
-                <img src="{{ asset('./images/background.png') }}" alt="Car Image">
-            </div>
-        </section>
-
-        <!---AMERICAN QUALITY--->
-        <section class="american" id="american">
-            <div class="american__name">
-                Choose Your Expirience
-            </div>
-            <div class="american__wrapper">
-                <div class="american__text__block">
-                    <img src="{{ asset('./images/German_quality.png') }}" alt="">
-                </div>
-                <div class="american__car__block">
-                    <img src="{{ asset('./images/quality_car.png') }}" alt="">
-                </div>
-            </div>
-        </section>
-
-        <!---About us section---->
-        <section class="about_us" id="about_us">
-            <div class="about_us__container">
-                <div class="about_us__name">
-                    who we are and what we do
-                </div>
-                <div class="about_us__desc">
-                    <div class="about_us__desc-text">
-                        <p>
-                            Capsule provides reliable protection against chemical exposure and mechanical damage while
-                            maintaining perfect transparency and color depth, setting
-                            new standards in automotive coating protection.
-                        </p>
-                        <p>The film is made exclusively from high-quality polyurethane materials, ensuring durability and
-                            reliability. It is easy to apply,
-                            features a smooth texture, and offers unique water-repellent and self-healing properties thanks
-                            to
-                            advanced nanotechnology.</p>
-                    </div>
-                    <div class="about_us__desc-back">
-
-                    </div>
-                </div>
-
-
-                <div class="about_us__wrapper">
-                    <div class="about_us__image">
-                        <div class="about_us__image-car">
-                            <img src="{{ asset('./images/aboutcar.png') }}" alt="" srcset="">
-                        </div>
-
-                        <!--placeholders--->
-                        <img class="about_us__image-placeholder1" src="{{ asset('./images/about_placeholder1.png') }}"
-                            alt="" srcset="">
-                    </div>
-
-                    <div class="about_us__content">
-                        <div class="about_us__content__name">
-                            Dedicated to providing
-                            Unparalleled quality
-                        </div>
-                        <div class="about_us__content__desc">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus
-                                dapibus accumsan a pharetra nisl. Sed nec convallis elit. Nullam id eros ac velit consequat
-                                convallis. Nam vulputate nibh a orci egestas laoreet. Donec sed iaculis sapien, eget
-                                pharetra diam. Suspendisse euismod enim et ante rhoncus, at volutpat mi interdum.
-                                Suspendisse euismod sollicitudin tellus ut fringilla.
-                            </p>
-
-                            <p>Nulla venenatis, dolor et volutpat suscipit, urna urna tempor neque, ac pulvinar velit risus
-                                vel ipsum. Pellentesque nec mauris quis tortor efficitur congue eu et mi. Nullam rutrum et
-                                est sit amet sodales. Cras interdum sapien vel malesuada gravida. Mauris sed lorem in lectus
-                                convallis egestas.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!----MAP---->
-        <section class="map" id="map">
-            <div class="map__wrapper">
-                <div class="map__name-container">
-                    <div class="map__name">
-                        <h4>global distribution</h4>
-                        <p>We are trusted by car owners all over the world</p>
-                    </div>
-                </div>
-
-
-                <div class="map__container">
-                    <div class="map__container-map">
-                        <img src="{{ './images/map.png' }}" alt="" srcset="">
-
-                    </div>
-
-                    <div class="map__container-desc">
-                        <p>15</p>
-                        <span>countries</span>
-                        <p class="map_margin">150+</p>
-                        <span>dealers</span>
-                    </div>
-                </div>
-
-
-            </div>
-        </section>
-
+       
         <!--- Catalogue --->
         <section class="catalog" id="catalog">
 
@@ -261,11 +64,10 @@
 
                 <div class="catalog__swiper">
                     <div class="catalog__swiper-button">
-                        <a href="{{ url('/catalog') }}">
+                        <a href="#">
                             VIEW ALL items
                         </a>
                     </div>
-                    
 
                     <div class="catalog__swiper__wrapper">
                         <div class="glide">
@@ -874,41 +676,83 @@
             </div>
         </section>
     </div>
+    <script src="{{ asset('js/main.js') }}"></script>
 
     <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const glide = new Glide('.glide', {
-            type: 'carousel',
-            startAt: 0,
-            perView: 4,
-            focusAt: 'center',
-            gap: 40,
-            autoplay: 10000,
 
-            animationDuration: 800,
-            breakpoints: {
-                1024: {
-                    perView: 2
-                },
-                600: {
-                    perView: 2
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const glide = new Glide('.glide', {
+                type: 'carousel',
+                startAt: 0,
+                perView: 4,
+                focusAt: 'center',
+                gap: 40,
+                autoplay: 10000,
+
+                animationDuration: 800,
+                breakpoints: {
+                    1024: {
+                        perView: 2
+                    },
+                    600: {
+                        perView: 2
+                    }
                 }
+            });
+
+            glide.on('move', () => {
+                const slides = document.querySelectorAll('.glide__slide');
+                slides.forEach(slide => slide.classList.remove('is-next'));
+                const nextIndex = (glide.index + 1) % slides.length;
+                slides[nextIndex].classList.add('is-next');
+            });
+
+            glide.mount();
+        });
+    </script>
+
+    <script>
+        function format(item, state) {
+            if (!item.id) {
+                return item.text;
             }
-        });
+            var countryUrl = "https://hatscripts.github.io/circle-flags/flags/";
+            var stateUrl = "https://oxguy3.github.io/flags/svg/us/";
+            var url = state ? stateUrl : countryUrl;
+            var img = $("<img>", {
+                class: "img-flag",
+                width: 26,
+                src: url + item.element.value.toLowerCase() + ".svg"
+            });
+            var span = $("<span>", {
+                text: " " + item.text
+            });
+            span.prepend(img);
+            return span;
+        }
 
-        glide.on('move', () => {
-            const slides = document.querySelectorAll('.glide__slide');
-            slides.forEach(slide => slide.classList.remove('is-next'));
-            const nextIndex = (glide.index + 1) % slides.length;
-            slides[nextIndex].classList.add('is-next');
+        $(document).ready(function() {
+            $("#countries").select2({
+                templateResult: function(item) {
+                    return format(item, false);
+                }
+            });
+            $("#us-states").select2({
+                templateResult: function(item) {
+                    return format(item, true);
+                }
+            });
         });
+    </script>
 
-        glide.mount();
-    });
-</script>
-<script src="{{ asset('js/main.js') }}"></script>
+
+
+
+
 
 
 @endsection
