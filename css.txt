@@ -215,7 +215,7 @@ h6 {
     top: 50px;
     left: 0;
     width: 79px;
-    display: none; /* Default hidden */
+    display: none !important; /* Default hidden */
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
@@ -237,12 +237,7 @@ h6 {
 .language-dropdown a.active {
     background: #581923; /* Highlight active language */
 }
-.language-dropdown a:nth-child(1){
-    border-radius: 10px 10px 0px 0px;
-}
-.language-dropdown a:nth-child(3){
-    border-radius:  0px 0px 10px 10px;
-}
+
 
 /*******MAIN section*********/
 .main {

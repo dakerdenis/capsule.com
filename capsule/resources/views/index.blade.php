@@ -37,16 +37,14 @@
 
 
                 <div class="header__languages">
-                    <button id="languageButton">EN</button>
+                    <button id="languageButton">{{ strtoupper(app()->getLocale()) }}</button> <!-- Set button text dynamically -->
                     <div class="language-dropdown" id="languageDropdown">
-<div class="language-dropdown" id="languageDropdown">
-    <a href="{{ url('/en') }}" class="{{ app()->getLocale() === 'en' ? 'active' : '' }}">EN</a>
-    <a href="{{ url('/ru') }}" class="{{ app()->getLocale() === 'ru' ? 'active' : '' }}">RU</a>
-    <a href="{{ url('/az') }}" class="{{ app()->getLocale() === 'az' ? 'active' : '' }}">AZ</a>
-</div>
-
+                        <a href="{{ url('/en') }}" class="{{ app()->getLocale() === 'en' ? 'active' : '' }}">EN</a>
+                        <a href="{{ url('/ru') }}" class="{{ app()->getLocale() === 'ru' ? 'active' : '' }}">RU</a>
+                        <a href="{{ url('/az') }}" class="{{ app()->getLocale() === 'az' ? 'active' : '' }}">AZ</a>
                     </div>
                 </div>
+                
 
 
             </div>
@@ -875,7 +873,7 @@
         </section>
     </div>
 
-    <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {

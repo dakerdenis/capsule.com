@@ -30,7 +30,7 @@
         @yield('content')
 
         <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-        <script src="{{ asset('js/app.js') }}" defer></script>
+
     </body>
 
     </html>
