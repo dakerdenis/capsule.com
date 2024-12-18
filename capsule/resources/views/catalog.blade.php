@@ -37,13 +37,25 @@
 
 
                 <div class="header__languages">
-                    <button id="languageButton">EN</button>
+                    {{-- Language Button (Shows Current Locale) --}}
+                    <button id="languageButton">
+                        {{ strtoupper(app()->getLocale()) }} {{-- Display current locale --}}
+                    </button>
+                
+                    {{-- Dropdown Language Selector --}}
                     <div class="language-dropdown" id="languageDropdown">
-                        <a href="?lang=en">EN</a>
-                        <a href="?lang=ru">RU</a>
-                        <a href="?lang=az">AZ</a>
+                        <a href="{{ url('/en' . substr(request()->getPathInfo(), 3)) }}" class="{{ app()->getLocale() === 'en' ? 'active' : '' }}">
+                            EN
+                        </a>
+                        <a href="{{ url('/ru' . substr(request()->getPathInfo(), 3)) }}" class="{{ app()->getLocale() === 'ru' ? 'active' : '' }}">
+                            RU
+                        </a>
+                        <a href="{{ url('/az' . substr(request()->getPathInfo(), 3)) }}" class="{{ app()->getLocale() === 'az' ? 'active' : '' }}">
+                            AZ
+                        </a>
                     </div>
                 </div>
+                
 
 
             </div>

@@ -57,9 +57,10 @@
                 <!---- Name desc button ---->
                 <div class="main__info">
                     <div class="main__name">
-                        <h1>Premium class</h1>
-                        <h1>Paint Protection Film.</h1>
+                        <h1>{{ __('main.title_line_1') }}</h1>
+                        <h1>{{ __('main.title_line_2') }}</h1>
                     </div>
+                    
                     <div class="main__desc">
                         Cutting-edge Paint Protection Film production delivering unmatched quality.
                         A forward-thinking catalog of clear, colored, and tinted PPFs, powered by advanced nanotechnology

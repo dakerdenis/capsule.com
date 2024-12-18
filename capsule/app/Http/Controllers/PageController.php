@@ -21,4 +21,15 @@ class PageController extends Controller
 
         return view('catalog', ['locale' => $locale]);
     }
+
+    public function verification()
+{
+    return 'verification page';
+}
+
+public function warranty()
+{
+    return 'warranty page';
+}
+
 }
