@@ -215,7 +215,7 @@ h6 {
     top: 50px; /* Position below the button */
     left: 0;
     width: 79px;
-    background: #fff;
+    overflow: hidden;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     display: none; /* Hidden by default */
@@ -229,7 +229,7 @@ h6 {
     height:48px;
 
     background: linear-gradient(90deg, #bb1216 0%, #581923 100%);
-    border-radius: 18px;
+
     display: flex;
     align-items: center;
     justify-content: center;

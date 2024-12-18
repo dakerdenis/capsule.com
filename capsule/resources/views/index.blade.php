@@ -877,17 +877,28 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const header = document.querySelector('.header');
-            const buttons = document.querySelectorAll('.header__nav__element button');
-            const sections = document.querySelectorAll('section');
-            const rectangle = document.getElementById('header_rectangle');
+        const buttons = document.querySelectorAll('.header__nav__element button');
+        const mainButtons = document.querySelectorAll('.main__buttons button'); // Select main section buttons
+        const sections = document.querySelectorAll('section');
+        const rectangle = document.getElementById('header_rectangle');
 
+        /*****animation***********/
             const americanCar = document.querySelector('.american__car__block img');
             const contactCar = document.querySelector('.contact__car__block img');
             const americanWrapper = document.querySelector('.american__wrapper');
             const contactWrapper = document.querySelector('.contact_wrapper__animation');
 
             let lastScrollTop = 0; // Track the last scroll position
-
+        // Function to scroll to a target section
+        const scrollToSection = (targetId) => {
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 100, // Adjust for header height
+                    behavior: 'smooth'
+                });
+            }
+        };
             // Function to update the rectangle position
             const updateRectanglePosition = (button) => {
                 const rect = button.getBoundingClientRect();
@@ -944,6 +955,10 @@
                     }
                 });
             });
+
+              // Add click event to main buttons
+        mainButtons[0].addEventListener('click', () => scrollToSection('contact')); // Contact us now
+        mainButtons[1].addEventListener('click', () => scrollToSection('about_us')); // Learn more
 
             // Intersection Observer for American Section
             const americanObserver = new IntersectionObserver(
