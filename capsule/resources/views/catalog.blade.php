@@ -269,13 +269,16 @@
                             <div class="popup__text" id="popupDetails"></div>
                         </div>
                         <div class="popup__content__button">
-
+                            <div class="slider-track">
+                                <button class="slider-button">ORDER NOW</button>
+                            </div>
                         </div>
+
                     </div>
                     <!---popup auto---->
                     <div class="popup__auto">
                         <div class="popup__auto__image">
-                            <img src="{{asset('../images/popup.png')}}" alt="" srcset="">
+                            <img src="{{ asset('../images/popup.png') }}" alt="" srcset="">
                         </div>
 
                         <div class="popup__auto__line">
@@ -770,7 +773,7 @@
                     if (contactSection) {
                         window.scrollTo({
                             top: contactSection.offsetTop -
-                            100, // Adjust offset for header height
+                                100, // Adjust offset for header height
                             behavior: 'smooth'
                         });
                     }
@@ -822,7 +825,7 @@
                         bodyType: 'Sedan',
                         warranty: '3 Years',
                         other: 'UV Protection'
-                    },                   {
+                    }, {
                         id: 5,
                         name: 'Item name 5',
                         desc: '2 Lorem ipsum dolor sit amet.',
@@ -846,16 +849,16 @@
             };
 
             const viewButtons = document.querySelectorAll('.catalog__page__element-content-info button');
-    const popup = document.getElementById('popup');
-    const popupDetails = document.getElementById('popupDetails');
-    const popupClose = document.getElementById('popupClose');
+            const popup = document.getElementById('popup');
+            const popupDetails = document.getElementById('popupDetails');
+            const popupClose = document.getElementById('popupClose');
 
-    viewButtons.forEach((button, index) => {
-        button.addEventListener('click', () => {
-            const itemData = catalogData.items[index];
-            if (itemData) {
-                // Populate popup content
-                popupDetails.innerHTML = `
+            viewButtons.forEach((button, index) => {
+                button.addEventListener('click', () => {
+                    const itemData = catalogData.items[index];
+                    if (itemData) {
+                        // Populate popup content
+                        popupDetails.innerHTML = `
                     <h2 class="popup__name">${itemData.name}</h2>
                     
                     <ul>
@@ -865,27 +868,93 @@
                         <li><strong>Warranty:</strong> ${itemData.warranty}</li>
                         <li><strong>Other:</strong> ${itemData.other}</li>
                     </ul>
-                    <p>${itemData.desc}</p>
+                    <p class="popup__p">${itemData.desc}</p>
                 `;
-                popup.style.display = 'block';
-                document.body.classList.add('no-scroll'); // Disable scrolling
-            }
+                        popup.style.display = 'block';
+                        document.body.classList.add('no-scroll'); // Disable scrolling
+                    }
+                });
+            });
+
+            // Close popup on close button click
+            popupClose.addEventListener('click', () => {
+                popup.style.display = 'none';
+                document.body.classList.remove('no-scroll'); // Enable scrolling
+            });
+
+            // Close popup when clicking outside of it
+            popup.addEventListener('click', (event) => {
+                if (event.target === popup) {
+                    popup.style.display = 'none';
+                    document.body.classList.remove('no-scroll'); // Enable scrolling
+                }
+            });
         });
-    });
 
-    // Close popup on close button click
-    popupClose.addEventListener('click', () => {
-        popup.style.display = 'none';
-        document.body.classList.remove('no-scroll'); // Enable scrolling
-    });
 
-    // Close popup when clicking outside of it
-    popup.addEventListener('click', (event) => {
-        if (event.target === popup) {
-            popup.style.display = 'none';
-            document.body.classList.remove('no-scroll'); // Enable scrolling
-        }
-    });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const sliderButton = document.querySelector('.slider-button');
+            const sliderTrack = document.querySelector('.slider-track');
+            const popup = document.getElementById('popup');
+            let isDragging = false;
+            let startX;
+            let currentX = 0;
+
+            sliderButton.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startX = e.clientX - currentX;
+                sliderButton.style.cursor = 'grabbing';
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                currentX = e.clientX - startX;
+
+                // Constrain the button within the track
+                const maxTranslate = sliderTrack.offsetWidth - sliderButton.offsetWidth;
+                if (currentX < 0) currentX = 0;
+                if (currentX > maxTranslate) currentX = maxTranslate;
+
+                sliderButton.style.transform = `translateX(${currentX}px)`;
+            });
+
+            document.addEventListener('mouseup', () => {
+                if (!isDragging) return;
+                isDragging = false;
+                sliderButton.style.cursor = 'grab';
+
+                // Check if the button has been dragged to the end
+                const maxTranslate = sliderTrack.offsetWidth - sliderButton.offsetWidth;
+                if (currentX >= maxTranslate) {
+                    // Close the popup and scroll to contact section
+                    popup.style.display = 'none';
+                    document.body.classList.remove('no-scroll'); // Re-enable scrolling
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) {
+                        window.scrollTo({
+                            top: contactSection.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+
+                    // Reset the button position after a delay
+                    setTimeout(() => {
+                        sliderButton.style.transition = 'transform 0.5s ease';
+                        sliderButton.style.transform = 'translateX(0)';
+                        currentX = 0;
+
+                        // Remove the transition after reset to allow dragging again
+                        setTimeout(() => {
+                            sliderButton.style.transition = '';
+                        }, 500);
+                    }, 500); // Adjust the delay as needed
+                } else {
+                    // Reset the button position if not dragged to the end
+                    sliderButton.style.transform = 'translateX(0)';
+                    currentX = 0;
+                }
+            });
         });
     </script>
 
