@@ -85,20 +85,150 @@
                             <div class="catalog__page__element">
                                 <div class="catalog__page__element-content">
                                     <div class="catalog__page__element-content-info">
-
+                                        <button>View details</button>
                                     </div>
 
                                     <div class="catalog__page__element-content-container">
                                         <div class="catalog__page__element-image">
-
+                                            <img src="{{'../images/placeholder.png'}}" alt="" srcset="">
                                         </div>
 
                                         <div class="catalog__page__element-name">
-
+                                            Item name 1
                                         </div>
 
                                         <div class="catalog__page__element-desc">
-                                            
+                                             1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. 
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="catalog__page__element-button">
+                                    <button>order now</button>
+                                </div>
+                            </div>
+
+                            <div class="catalog__page__element">
+                                <div class="catalog__page__element-content">
+                                    <div class="catalog__page__element-content-info">
+                                        <button>View details</button>
+                                    </div>
+
+                                    <div class="catalog__page__element-content-container">
+                                        <div class="catalog__page__element-image">
+                                            <img src="{{'../images/placeholder.png'}}" alt="" srcset="">
+                                        </div>
+
+                                        <div class="catalog__page__element-name">
+                                            Item name 2 
+                                        </div>
+
+                                        <div class="catalog__page__element-desc">
+                                           2  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. 
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="catalog__page__element-button">
+                                    <button>order now</button>
+                                </div>
+                            </div>
+
+                            <div class="catalog__page__element">
+                                <div class="catalog__page__element-content">
+                                    <div class="catalog__page__element-content-info">
+                                        <button>View details</button>
+                                    </div>
+
+                                    <div class="catalog__page__element-content-container">
+                                        <div class="catalog__page__element-image">
+                                            <img src="{{'../images/placeholder.png'}}" alt="" srcset="">
+                                        </div>
+
+                                        <div class="catalog__page__element-name">
+                                            Item name 3
+                                        </div>
+
+                                        <div class="catalog__page__element-desc">
+                                           3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. 
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="catalog__page__element-button">
+                                    <button>order now</button>
+                                </div>
+                            </div>
+
+                            <div class="catalog__page__element">
+                                <div class="catalog__page__element-content">
+                                    <div class="catalog__page__element-content-info">
+                                        <button>View details</button>
+                                    </div>
+
+                                    <div class="catalog__page__element-content-container">
+                                        <div class="catalog__page__element-image">
+                                            <img src="{{'../images/placeholder.png'}}" alt="" srcset="">
+                                        </div>
+
+                                        <div class="catalog__page__element-name">
+                                            4 Item name
+                                        </div>
+
+                                        <div class="catalog__page__element-desc">
+                                           4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. 
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="catalog__page__element-button">
+                                    <button>order now</button>
+                                </div>
+                            </div>
+
+                            <div class="catalog__page__element">
+                                <div class="catalog__page__element-content">
+                                    <div class="catalog__page__element-content-info">
+                                        <button>View details</button>
+                                    </div>
+
+                                    <div class="catalog__page__element-content-container">
+                                        <div class="catalog__page__element-image">
+                                            <img src="{{'../images/placeholder.png'}}" alt="" srcset="">
+                                        </div>
+
+                                        <div class="catalog__page__element-name">
+                                           5 Item name
+                                        </div>
+
+                                        <div class="catalog__page__element-desc">
+                                            5 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. 
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="catalog__page__element-button">
+                                    <button>order now</button>
+                                </div>
+                            </div>
+
+                            <div class="catalog__page__element">
+                                <div class="catalog__page__element-content">
+                                    <div class="catalog__page__element-content-info">
+                                        <button>View details</button>
+                                    </div>
+
+                                    <div class="catalog__page__element-content-container">
+                                        <div class="catalog__page__element-image">
+                                            <img src="{{'../images/placeholder.png'}}" alt="" srcset="">
+                                        </div>
+
+                                        <div class="catalog__page__element-name">
+                                            6 Item name
+                                        </div>
+
+                                        <div class="catalog__page__element-desc">
+                                            6 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. 
                                         </div>
                                     </div>
                                 </div>
