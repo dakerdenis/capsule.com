@@ -752,12 +752,25 @@ h6 {
 }
 
 /***catalog page*****/
+
+.catalog__swiper{
+    position: relative;
+
+}
+.catalog__swiper__placeholder{
+    position: absolute;
+    z-index: 100;
+    right: -550px;
+    bottom: 150px;
+
+}
 .catalog__page__container {
     width: 1440px;
     height: 100%;
 
     margin: 0 auto;
-
+    position: relative;
+    z-index: 200;
 }
 
 /*********/
@@ -1462,6 +1475,7 @@ h6 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
 }
 
 .catalog__page__element {
@@ -1538,7 +1552,7 @@ color: #fff;
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
-    padding: 35px;
+    padding: 30px;
 }
 .catalog__page__element-image {
     width: 317px;
@@ -1570,6 +1584,7 @@ color: #fff;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
     color: #fff;
+    overflow: hidden;
 }
 
 .catalog__page__element-button {
@@ -1608,4 +1623,84 @@ color: #fff;
     text-decoration-skip-ink: none;
     color: #fff;
     text-transform: uppercase;
+}
+
+
+.catalog_page__button{
+    width: 100%;
+    padding-left: 54px;
+    margin-top: 100px;
+}
+.catalog_page__button a {
+    width: 174px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #34c81e;
+
+border-radius: 36px;
+color: #fff;
+text-transform: uppercase;
+font-size: 15px;
+font-weight: 700;
+line-height: 20px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+}
+/*****POPUP******/
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    filter: blur(5px);
+}
+
+.popup__content {
+
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    max-width: 90%;
+    position: absolute;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.popup__content h2 {
+    margin-top: 0;
+}
+
+.popup__content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.popup__content ul li {
+    margin: 10px 0;
+}
+
+.popup__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+.no-scroll {
+    overflow: hidden;
+    height: 100vh;
 }

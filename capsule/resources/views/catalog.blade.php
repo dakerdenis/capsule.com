@@ -4,7 +4,7 @@
 
 @section('content')
     <style>
-        .catalog{
+        .catalog {
             margin-top: 150px;
         }
     </style>
@@ -45,27 +45,30 @@
                     <button id="languageButton">
                         {{ strtoupper(app()->getLocale()) }} {{-- Display current locale --}}
                     </button>
-                
+
                     {{-- Dropdown Language Selector --}}
                     <div class="language-dropdown" id="languageDropdown">
-                        <a href="{{ url('/en' . substr(request()->getPathInfo(), 3)) }}" class="{{ app()->getLocale() === 'en' ? 'active' : '' }}">
+                        <a href="{{ url('/en' . substr(request()->getPathInfo(), 3)) }}"
+                            class="{{ app()->getLocale() === 'en' ? 'active' : '' }}">
                             EN
                         </a>
-                        <a href="{{ url('/ru' . substr(request()->getPathInfo(), 3)) }}" class="{{ app()->getLocale() === 'ru' ? 'active' : '' }}">
+                        <a href="{{ url('/ru' . substr(request()->getPathInfo(), 3)) }}"
+                            class="{{ app()->getLocale() === 'ru' ? 'active' : '' }}">
                             RU
                         </a>
-                        <a href="{{ url('/az' . substr(request()->getPathInfo(), 3)) }}" class="{{ app()->getLocale() === 'az' ? 'active' : '' }}">
+                        <a href="{{ url('/az' . substr(request()->getPathInfo(), 3)) }}"
+                            class="{{ app()->getLocale() === 'az' ? 'active' : '' }}">
                             AZ
                         </a>
                     </div>
                 </div>
-                
+
 
 
             </div>
         </header>
 
-       
+
         <!--- Catalogue --->
         <section class="catalog" id="catalog">
 
@@ -80,169 +83,190 @@
 
                 <div class="catalog__swiper">
 
-
+                    <div class="catalog_page__button">
+                        <a href="{{ url(app()->getLocale()) }}">
+                            go back
+                        </a>
+                    </div>
                     <div class="catalog__page__container">
-                            <div class="catalog__page__element">
-                                <div class="catalog__page__element-content">
-                                    <div class="catalog__page__element-content-info">
-                                        <button>View details</button>
-                                    </div>
-
-                                    <div class="catalog__page__element-content-container">
-                                        <div class="catalog__page__element-image">
-                                            <img src="{{'../images/placeholder.png'}}" alt="" srcset="">
-                                        </div>
-
-                                        <div class="catalog__page__element-name">
-                                            Item name 1
-                                        </div>
-
-                                        <div class="catalog__page__element-desc">
-                                             1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. 
-                                        </div>
-                                    </div>
+                        <div class="catalog__page__element">
+                            <div class="catalog__page__element-content">
+                                <div class="catalog__page__element-content-info">
+                                    <button>View details</button>
                                 </div>
 
-                                <div class="catalog__page__element-button">
-                                    <button>order now</button>
+                                <div class="catalog__page__element-content-container">
+                                    <div class="catalog__page__element-image">
+                                        <img src="{{ '../images/placeholder.png' }}" alt="" srcset="">
+                                    </div>
+
+                                    <div class="catalog__page__element-name">
+                                        Item name 1
+                                    </div>
+
+                                    <div class="catalog__page__element-desc">
+                                        1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec
+                                        tellus dapibus accumsan a pharetra nisl.
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="catalog__page__element">
-                                <div class="catalog__page__element-content">
-                                    <div class="catalog__page__element-content-info">
-                                        <button>View details</button>
-                                    </div>
+                            <div class="catalog__page__element-button">
+                                <button>order now</button>
+                            </div>
+                        </div>
 
-                                    <div class="catalog__page__element-content-container">
-                                        <div class="catalog__page__element-image">
-                                            <img src="{{'../images/placeholder.png'}}" alt="" srcset="">
-                                        </div>
-
-                                        <div class="catalog__page__element-name">
-                                            Item name 2 
-                                        </div>
-
-                                        <div class="catalog__page__element-desc">
-                                           2  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. 
-                                        </div>
-                                    </div>
+                        <div class="catalog__page__element">
+                            <div class="catalog__page__element-content">
+                                <div class="catalog__page__element-content-info">
+                                    <button>View details</button>
                                 </div>
 
-                                <div class="catalog__page__element-button">
-                                    <button>order now</button>
+                                <div class="catalog__page__element-content-container">
+                                    <div class="catalog__page__element-image">
+                                        <img src="{{ '../images/placeholder.png' }}" alt="" srcset="">
+                                    </div>
+
+                                    <div class="catalog__page__element-name">
+                                        Item name 2
+                                    </div>
+
+                                    <div class="catalog__page__element-desc">
+                                        2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec
+                                        tellus dapibus accumsan a pharetra nisl.
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="catalog__page__element">
-                                <div class="catalog__page__element-content">
-                                    <div class="catalog__page__element-content-info">
-                                        <button>View details</button>
-                                    </div>
+                            <div class="catalog__page__element-button">
+                                <button>order now</button>
+                            </div>
+                        </div>
 
-                                    <div class="catalog__page__element-content-container">
-                                        <div class="catalog__page__element-image">
-                                            <img src="{{'../images/placeholder.png'}}" alt="" srcset="">
-                                        </div>
-
-                                        <div class="catalog__page__element-name">
-                                            Item name 3
-                                        </div>
-
-                                        <div class="catalog__page__element-desc">
-                                           3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. 
-                                        </div>
-                                    </div>
+                        <div class="catalog__page__element">
+                            <div class="catalog__page__element-content">
+                                <div class="catalog__page__element-content-info">
+                                    <button>View details</button>
                                 </div>
 
-                                <div class="catalog__page__element-button">
-                                    <button>order now</button>
+                                <div class="catalog__page__element-content-container">
+                                    <div class="catalog__page__element-image">
+                                        <img src="{{ '../images/placeholder.png' }}" alt="" srcset="">
+                                    </div>
+
+                                    <div class="catalog__page__element-name">
+                                        Item name 3
+                                    </div>
+
+                                    <div class="catalog__page__element-desc">
+                                        3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec
+                                        tellus dapibus accumsan a pharetra nisl.
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="catalog__page__element">
-                                <div class="catalog__page__element-content">
-                                    <div class="catalog__page__element-content-info">
-                                        <button>View details</button>
-                                    </div>
+                            <div class="catalog__page__element-button">
+                                <button>order now</button>
+                            </div>
+                        </div>
 
-                                    <div class="catalog__page__element-content-container">
-                                        <div class="catalog__page__element-image">
-                                            <img src="{{'../images/placeholder.png'}}" alt="" srcset="">
-                                        </div>
-
-                                        <div class="catalog__page__element-name">
-                                            4 Item name
-                                        </div>
-
-                                        <div class="catalog__page__element-desc">
-                                           4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. 
-                                        </div>
-                                    </div>
+                        <div class="catalog__page__element">
+                            <div class="catalog__page__element-content">
+                                <div class="catalog__page__element-content-info">
+                                    <button>View details</button>
                                 </div>
 
-                                <div class="catalog__page__element-button">
-                                    <button>order now</button>
+                                <div class="catalog__page__element-content-container">
+                                    <div class="catalog__page__element-image">
+                                        <img src="{{ '../images/placeholder.png' }}" alt="" srcset="">
+                                    </div>
+
+                                    <div class="catalog__page__element-name">
+                                        4 Item name
+                                    </div>
+
+                                    <div class="catalog__page__element-desc">
+                                        4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec
+                                        tellus dapibus accumsan a pharetra nisl.
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="catalog__page__element">
-                                <div class="catalog__page__element-content">
-                                    <div class="catalog__page__element-content-info">
-                                        <button>View details</button>
-                                    </div>
+                            <div class="catalog__page__element-button">
+                                <button>order now</button>
+                            </div>
+                        </div>
 
-                                    <div class="catalog__page__element-content-container">
-                                        <div class="catalog__page__element-image">
-                                            <img src="{{'../images/placeholder.png'}}" alt="" srcset="">
-                                        </div>
-
-                                        <div class="catalog__page__element-name">
-                                           5 Item name
-                                        </div>
-
-                                        <div class="catalog__page__element-desc">
-                                            5 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. 
-                                        </div>
-                                    </div>
+                        <div class="catalog__page__element">
+                            <div class="catalog__page__element-content">
+                                <div class="catalog__page__element-content-info">
+                                    <button>View details</button>
                                 </div>
 
-                                <div class="catalog__page__element-button">
-                                    <button>order now</button>
+                                <div class="catalog__page__element-content-container">
+                                    <div class="catalog__page__element-image">
+                                        <img src="{{ '../images/placeholder.png' }}" alt="" srcset="">
+                                    </div>
+
+                                    <div class="catalog__page__element-name">
+                                        5 Item name
+                                    </div>
+
+                                    <div class="catalog__page__element-desc">
+                                        5 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec
+                                        tellus dapibus accumsan a pharetra nisl.
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="catalog__page__element">
-                                <div class="catalog__page__element-content">
-                                    <div class="catalog__page__element-content-info">
-                                        <button>View details</button>
-                                    </div>
+                            <div class="catalog__page__element-button">
+                                <button>order now</button>
+                            </div>
+                        </div>
 
-                                    <div class="catalog__page__element-content-container">
-                                        <div class="catalog__page__element-image">
-                                            <img src="{{'../images/placeholder.png'}}" alt="" srcset="">
-                                        </div>
-
-                                        <div class="catalog__page__element-name">
-                                            6 Item name
-                                        </div>
-
-                                        <div class="catalog__page__element-desc">
-                                            6 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. 
-                                        </div>
-                                    </div>
+                        <div class="catalog__page__element">
+                            <div class="catalog__page__element-content">
+                                <div class="catalog__page__element-content-info">
+                                    <button>View details</button>
                                 </div>
 
-                                <div class="catalog__page__element-button">
-                                    <button>order now</button>
+                                <div class="catalog__page__element-content-container">
+                                    <div class="catalog__page__element-image">
+                                        <img src="{{ '../images/placeholder.png' }}" alt="" srcset="">
+                                    </div>
+
+                                    <div class="catalog__page__element-name">
+                                        6 Item name
+                                    </div>
+
+                                    <div class="catalog__page__element-desc">
+                                        6 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec
+                                        tellus dapibus accumsan a pharetra nisl.
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="catalog__page__element-button">
+                                <button>order now</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="catalog__swiper__placeholder">
+                        <img src="{{ '../images/gallery_car.png' }}" alt="" srcset="">
                     </div>
                 </div>
             </div>
         </section>
+        <div class="popup" id="popup" style="display: none;">
+            <div class="popup__content">
+                <button class="popup__close" id="popupClose">×</button>
+                <div id="popupDetails"></div>
+            </div>
+        </div>
 
-        
+
         <!----contact us car--->
 
         <!---COntact US----->
@@ -250,10 +274,10 @@
             <div class="contact_wrapper">
                 <div class="contact_wrapper__animation">
                     <div class="contact__text__block">
-                        <img src="{{ asset('./images/contact_us.png') }}" alt="">
+                        <img src="{{ asset('../images/contact_us.png') }}" alt="">
                     </div>
                     <div class="contact__car__block">
-                        <img src="{{ asset('./images/contact_car.png') }}" alt="">
+                        <img src="{{ asset('../images/contact_car.png') }}" alt="">
                     </div>
                 </div>
 
@@ -617,7 +641,7 @@
 
                     <div class="contact__map__logo">
                         <div class="contact__map-logo">
-                            <img src="{{ './images/logo_main.png' }}" alt="" srcset="">
+                            <img src="{{ '../images/logo_main.png' }}" alt="" srcset="">
                         </div>
 
                         <div class="contact__map-map">
@@ -670,7 +694,7 @@
     </div>
     <script src="{{ asset('js/main.js') }}"></script>
 
-    <script src="node_modules/@glidejs/glide/dist/glide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 
 
@@ -713,7 +737,134 @@
 
 
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Scroll to Contact Section for "Order Now" buttons
+            const orderButtons = document.querySelectorAll('.catalog__page__element-button button');
+            const contactSection = document.getElementById('contact'); // Adjust ID to match the contact section
 
+            orderButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    if (contactSection) {
+                        window.scrollTo({
+                            top: contactSection.offsetTop -
+                            100, // Adjust offset for header height
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Sample JSON data (replace with actual JSON file or API endpoint)
+            const catalogData = {
+                items: [{
+                        id: 1,
+                        name: 'Item name 1',
+                        desc: '1 Lorem ipsum dolor sit amet.',
+                        filmType: 'Type A',
+                        filmColor: 'Red',
+                        bodyType: 'SUV',
+                        warranty: '5 Years',
+                        other: 'Scratch Resistance'
+                    },
+                    {
+                        id: 2,
+                        name: 'Item name 2',
+                        desc: '2 Lorem ipsum dolor sit amet.',
+                        filmType: 'Type B',
+                        filmColor: 'Blue',
+                        bodyType: 'Sedan',
+                        warranty: '3 Years',
+                        other: 'UV Protection'
+                    },
+                    {
+                        id: 3,
+                        name: 'Item name 3',
+                        desc: '3 Lorem ipsum dolor sit amet.',
+                        filmType: 'Type C',
+                        filmColor: 'Blue',
+                        bodyType: 'Sedan',
+                        warranty: '3 Years',
+                        other: 'UV Protection'
+                    },
+                    {
+                        id: 4,
+                        name: 'Item name 4',
+                        desc: '2 Lorem ipsum dolor sit amet.',
+                        filmType: 'Type B',
+                        filmColor: 'Blue',
+                        bodyType: 'Sedan',
+                        warranty: '3 Years',
+                        other: 'UV Protection'
+                    },                   {
+                        id: 5,
+                        name: 'Item name 5',
+                        desc: '2 Lorem ipsum dolor sit amet.',
+                        filmType: 'Type B',
+                        filmColor: 'Blue',
+                        bodyType: 'Sedan',
+                        warranty: '3 Years',
+                        other: 'UV Protection'
+                    },
+                    {
+                        id: 6,
+                        name: 'Item name 6',
+                        desc: '2 Lorem ipsum dolor sit amet.',
+                        filmType: 'Type B',
+                        filmColor: 'Blue',
+                        bodyType: 'Sedan',
+                        warranty: '3 Years',
+                        other: 'UV Protection'
+                    }
+                ]
+            };
+
+            const viewButtons = document.querySelectorAll('.catalog__page__element-content-info button');
+    const popup = document.getElementById('popup');
+    const popupDetails = document.getElementById('popupDetails');
+    const popupClose = document.getElementById('popupClose');
+
+    viewButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+            const itemData = catalogData.items[index];
+            if (itemData) {
+                // Populate popup content
+                popupDetails.innerHTML = `
+                    <h2>${itemData.name}</h2>
+                    <p>${itemData.desc}</p>
+                    <ul>
+                        <li><strong>Film Type:</strong> ${itemData.filmType}</li>
+                        <li><strong>Film Color:</strong> ${itemData.filmColor}</li>
+                        <li><strong>Body Type:</strong> ${itemData.bodyType}</li>
+                        <li><strong>Warranty:</strong> ${itemData.warranty}</li>
+                        <li><strong>Other:</strong> ${itemData.other}</li>
+                    </ul>
+                `;
+                popup.style.display = 'block';
+                document.body.classList.add('no-scroll'); // Disable scrolling
+            }
+        });
+    });
+
+    // Close popup on close button click
+    popupClose.addEventListener('click', () => {
+        popup.style.display = 'none';
+        document.body.classList.remove('no-scroll'); // Enable scrolling
+    });
+
+    // Close popup when clicking outside of it
+    popup.addEventListener('click', (event) => {
+        if (event.target === popup) {
+            popup.style.display = 'none';
+            document.body.classList.remove('no-scroll'); // Enable scrolling
+        }
+    });
+        });
+    </script>
 
 
 
