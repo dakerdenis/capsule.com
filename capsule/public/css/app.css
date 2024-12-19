@@ -1664,42 +1664,126 @@ text-decoration-skip-ink: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    filter: blur(5px);
 }
 
 .popup__content {
 
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    width: 400px;
-    max-width: 90%;
+
+    width: 1200px;
+    height: 615px;
     position: absolute;
+    left: calc(50% - 600px);
+    top: calc(50% - 307.5px);
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+
 }
 
-.popup__content h2 {
-    margin-top: 0;
+
+.popup__wrapper {
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+}
+.popup__content_container{
+    position: absolute;
+    width: 787px;
+    height: 614px;
+    background-color: #fff;
+    border-radius: 18px 0px  0px 18px;
+    padding: 65px;
+}
+.popup__content-js {
+    
+}
+.popup__close {
+}
+.popup__content__button {
 }
 
-.popup__content ul {
-    list-style: none;
-    padding: 0;
+
+.popup__auto {
+position: absolute;
+left: 787px;
+width: 368px;
+height: 100%;
+
+border-top: 1px solid #fff;
+border-bottom: 1px solid #fff;
 }
 
-.popup__content ul li {
-    margin: 10px 0;
+.popup__auto__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+.popup__auto__image img{
+    height: 100%;
+    object-fit: cover;
+}
+.popup__auto__line {
+    width: 1px;
+    height: 100%;
+    background-color: #fff;
+    position: absolute;
+    right: 0;
+}
+
+
 
 .popup__close {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: none;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+
+    font-weight: 600;
+    background-color: #34c81e;
+    color: #fff;
+z-index: 800;
+
     border: none;
-    font-size: 18px;
+    font-size: 35px;
     cursor: pointer;
 }
+.popup__name{
+    font-family: Rubik Mono One;
+font-size: 48px;
+font-weight: 400;
+line-height: 59.42px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+color: #CE1103;
+margin-bottom: 50px;
+}
+
+.popup__text li{
+    font-family: Inter;
+font-size: 20px;
+font-weight: 300;
+line-height: 33px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+}
+.popup__text strong{
+    font-family: Inter;
+font-size: 20px;
+font-weight: 700;
+line-height: 33px;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+}
+
 .no-scroll {
     overflow: hidden;
     height: 100vh;

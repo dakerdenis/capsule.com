@@ -261,8 +261,30 @@
         </section>
         <div class="popup" id="popup" style="display: none;">
             <div class="popup__content">
-                <button class="popup__close" id="popupClose">×</button>
-                <div id="popupDetails"></div>
+                <div class="popup__wrapper">
+                    <!----popup text----->
+                    <div class="popup__content_container">
+                        <div class="popup__content-js">
+                            <button class="popup__close" id="popupClose">X</button>
+                            <div class="popup__text" id="popupDetails"></div>
+                        </div>
+                        <div class="popup__content__button">
+
+                        </div>
+                    </div>
+                    <!---popup auto---->
+                    <div class="popup__auto">
+                        <div class="popup__auto__image">
+                            <img src="{{asset('../images/popup.png')}}" alt="" srcset="">
+                        </div>
+
+                        <div class="popup__auto__line">
+
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
 
@@ -834,8 +856,8 @@
             if (itemData) {
                 // Populate popup content
                 popupDetails.innerHTML = `
-                    <h2>${itemData.name}</h2>
-                    <p>${itemData.desc}</p>
+                    <h2 class="popup__name">${itemData.name}</h2>
+                    
                     <ul>
                         <li><strong>Film Type:</strong> ${itemData.filmType}</li>
                         <li><strong>Film Color:</strong> ${itemData.filmColor}</li>
@@ -843,6 +865,7 @@
                         <li><strong>Warranty:</strong> ${itemData.warranty}</li>
                         <li><strong>Other:</strong> ${itemData.other}</li>
                     </ul>
+                    <p>${itemData.desc}</p>
                 `;
                 popup.style.display = 'block';
                 document.body.classList.add('no-scroll'); // Disable scrolling
