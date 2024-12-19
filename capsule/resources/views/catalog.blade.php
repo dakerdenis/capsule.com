@@ -12,7 +12,7 @@
         <!---header-->
         <header class="header" id="header">
             <div class="header__wrapper">
-                <a href="#">
+                <a href="{{ url(app()->getLocale()) }}">
                     <img src="{{ asset('./images/logo_main.png') }}" alt="">
                 </a>
 
@@ -82,103 +82,31 @@
 
 
                     <div class="catalog__page__container">
-                        <ul class="glide__slides">
-                            <li class="glide__slide">
-                                <div class="glide__slide__wrapper">
-                                    <div class="glide__slide__image">
-                                        <img src="{{ '../images/placeholder.png' }}" alt="">
-                                    </div>
-                                    <div class="glide__slide__name">
-                                        ITEM NAME
-                                    </div>
-                                    <div class="glide__slide__desc">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
-                                            risus nec tellus dapibus accumsan a pharetra nisl. </p>
-                                    </div>
-                                </div>
-                                <button>Order Now</button>
-                            </li>
+                            <div class="catalog__page__element">
+                                <div class="catalog__page__element-content">
+                                    <div class="catalog__page__element-content-info">
 
-                            <li class="glide__slide">
-                                <div class="glide__slide__wrapper">
-                                    <div class="glide__slide__image">
-                                        <img src="{{ '../images/placeholder.png' }}" alt="">
                                     </div>
-                                    <div class="glide__slide__name">
-                                        ITEM NAME
-                                    </div>
-                                    <div class="glide__slide__desc">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
-                                            risus nec tellus dapibus accumsan a pharetra nisl. </p>
-                                    </div>
-                                </div>
-                                <button>Order Now</button>
-                            </li>
 
-                            <li class="glide__slide">
-                                <div class="glide__slide__wrapper">
-                                    <div class="glide__slide__image">
-                                        <img src="{{ '../images/placeholder.png' }}" alt="">
-                                    </div>
-                                    <div class="glide__slide__name">
-                                        ITEM NAME
-                                    </div>
-                                    <div class="glide__slide__desc">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
-                                            risus nec tellus dapibus accumsan a pharetra nisl. </p>
-                                    </div>
-                                </div>
-                                <button>Order Now</button>
-                            </li>
+                                    <div class="catalog__page__element-content-container">
+                                        <div class="catalog__page__element-image">
 
-                            <li class="glide__slide">
-                                <div class="glide__slide__wrapper">
-                                    <div class="glide__slide__image">
-                                        <img src="{{ '../images/placeholder.png' }}" alt="">
-                                    </div>
-                                    <div class="glide__slide__name">
-                                        ITEM NAME
-                                    </div>
-                                    <div class="glide__slide__desc">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
-                                            risus nec tellus dapibus accumsan a pharetra nisl. </p>
-                                    </div>
-                                </div>
-                                <button>Order Now</button>
-                            </li>
+                                        </div>
 
-                            <li class="glide__slide">
-                                <div class="glide__slide__wrapper">
-                                    <div class="glide__slide__image">
-                                        <img src="{{ '../images/placeholder.png' }}" alt="">
-                                    </div>
-                                    <div class="glide__slide__name">
-                                        ITEM NAME
-                                    </div>
-                                    <div class="glide__slide__desc">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
-                                            risus nec tellus dapibus accumsan a pharetra nisl. </p>
-                                    </div>
-                                </div>
-                                <button>Order Now</button>
-                            </li>
+                                        <div class="catalog__page__element-name">
 
-                            <li class="glide__slide">
-                                <div class="glide__slide__wrapper">
-                                    <div class="glide__slide__image">
-                                        <img src="{{ '../images/placeholder.png' }}" alt="">
-                                    </div>
-                                    <div class="glide__slide__name">
-                                        ITEM NAME
-                                    </div>
-                                    <div class="glide__slide__desc">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
-                                            risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                        </div>
+
+                                        <div class="catalog__page__element-desc">
+                                            
+                                        </div>
                                     </div>
                                 </div>
-                                <button>Order Now</button>
-                            </li>
-                        </ul>
+
+                                <div class="catalog__page__element-button">
+                                    <button>order now</button>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>

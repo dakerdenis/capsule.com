@@ -8,9 +8,11 @@
         <!---header-->
         <header class="header" id="header">
             <div class="header__wrapper">
-                <a href="#">
+                
+                <a href="{{ url(app()->getLocale()) }}">
                     <img src="{{ asset('./images/logo_main.png') }}" alt="">
                 </a>
+                
 
                 <div class="header__navigation">
                     <div class="header__nav__burger">

@@ -759,15 +759,7 @@ h6 {
     margin: 0 auto;
     margin-top: 200px;
 }
-.catalog__page__container .glide__slides{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-.catalog__page__container li{
-    margin-bottom: 120px;
-}
+
 /*********/
 .glide--swipeable {
     height: 100%;
@@ -1492,3 +1484,4 @@ margin-bottom: 20px;
 .footer__copyright p {
     color: #fff;
 }
+/*********CATLOG PAGE***********/
