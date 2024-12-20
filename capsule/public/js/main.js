@@ -2,9 +2,11 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     /********** HEADER NAVIGATION AND SMOOTH SCROLL **********/
+    const mainButtons = document.querySelectorAll('.main__buttons button');
+
     const header = document.querySelector('.header');
     const buttons = document.querySelectorAll('.header__nav__element button');
-    const mainButtons = document.querySelectorAll('.main__buttons button');
+
     const sections = document.querySelectorAll('section');
     const rectangle = document.getElementById('header_rectangle');
     let lastScrollTop = 0;
@@ -22,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update rectangle position
     const updateRectanglePosition = (button) => {
+        if (!button) return; // Prevent errors if button is null
         const rect = button.getBoundingClientRect();
         const containerRect = button.parentElement.parentElement.getBoundingClientRect();
         const rectangleWidth = 17;
@@ -29,14 +32,22 @@ document.addEventListener('DOMContentLoaded', () => {
         rectangle.style.left = `${buttonCenter - rectangleWidth / 2}px`;
     };
 
-    // Scroll behavior for header
+    // Scroll behavior for header and rectangle
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-        const isScrolled = currentScroll > 0;
 
-        header.style.top = currentScroll > lastScrollTop ? '0' : '50px';
-        header.style.backgroundColor = isScrolled ? 'rgba(0, 0, 0, 0.794)' : 'rgba(0, 0, 0, 0.594)';
+        // Make the header stick to the top
+        if (currentScroll > 0) {
+            header.style.position = 'fixed';
+            header.style.top = '0';
+            header.style.backgroundColor = 'rgba(0, 0, 0, 0.794)';
+        } else {
+            header.style.position = 'absolute';
+            header.style.top = '50px';
+            header.style.backgroundColor = 'rgba(0, 0, 0, 0.594)';
+        }
 
+        // Update rectangle position based on active section
         let activeButton = buttons[0];
         sections.forEach((section) => {
             const rect = section.getBoundingClientRect();
@@ -44,10 +55,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 activeButton = document.querySelector(`.header__nav__element button[data-target="${section.id}"]`);
             }
         });
+                // If scrolled past the last section, use the "Contacts" button
+                if (!activeButton) {
+                    const lastSection = sections[sections.length - 1];
+                    const rect = lastSection.getBoundingClientRect();
+                    if (rect.bottom <= window.innerHeight) {
+                        activeButton = document.querySelector(
+                            `.header__nav__element button[data-target="${lastSection.id}"]`
+                        );
+                    }
+                }
+
         updateRectanglePosition(activeButton);
-        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+
     });
 
+    // Initialize rectangle position
     updateRectanglePosition(buttons[0]);
 
     // Header Navigation Buttons
