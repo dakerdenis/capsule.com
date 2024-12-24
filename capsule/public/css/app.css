@@ -1964,6 +1964,42 @@ text-decoration-skip-ink: none;
     .glide__slide__wrapper {
         padding: 20px;
     }
+    .catalog__page__container{
+        width: 95%;
+    }
+    .catalog__page__element-image{
+        width: 317px;
+
+    }
+    .catalog__page__element-name{
+        font-size: 24px;
+        line-height: 45px;
+    }
+    .catalog__page__element-desc{
+        font-size: 18px;
+        line-height: 32px;
+    }
+    .catalog__page__element-content-container {
+        padding: 20px;
+    }
+    .catalog__page__element-button{
+        bottom: 0;
+    }
+    .catalog__page__element:hover .catalog__page__element-content{
+        bottom: 100px;
+}
+    .catalog__page__element {
+        width: 370px;
+        height: calc(530px + 100px);
+    }
+    .catalog__page__element-content{
+        width: 370px;
+        height: 530px;
+    }
+    .catalog__page__element-content-info button {
+        height: 44px;
+        font-size: 14px;
+    }
 }
 
 @media only screen and (max-width: 1370px) {
