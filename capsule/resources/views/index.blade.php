@@ -25,6 +25,9 @@
                         <button data-target="about_us">About</button>
                     </div>
                     <div class="header__nav__element">
+                        <button data-target="warranty">Warranty</button>
+                    </div>
+                    <div class="header__nav__element">
                         <button data-target="catalog">Catalogue</button>
                     </div>
                     <div class="header__nav__element">
@@ -219,33 +222,10 @@
             </div>
         </section>
 
-        <!----MAP---->
-        <section class="map" id="map">
-            <div class="map__wrapper">
-                <div class="map__name-container">
-                    <div class="map__name">
-                        <h4>global distribution</h4>
-                        <p>We are trusted by car owners all over the world</p>
-                    </div>
-                </div>
+        <!---warranty and verification--->
 
-
-                <div class="map__container">
-                    <div class="map__container-map">
-                        <img src="{{ './images/map.png' }}" alt="" srcset="">
-
-                    </div>
-
-                    <div class="map__container-desc">
-                        <p>15</p>
-                        <span>countries</span>
-                        <p class="map_margin">150+</p>
-                        <span>dealers</span>
-                    </div>
-                </div>
-
-
-            </div>
+        <section class="warranty" id="warranty">
+            sdadasd
         </section>
 
         <!--- Catalogue --->
@@ -385,7 +365,7 @@
             </div>
         </section>
 
-        <!---car--->
+
 
         <!------Gallery---->
         <section class="gallery" id="gallery">
@@ -450,7 +430,34 @@
             </div>
         </section>
 
-        <!----contact us car--->
+        <!----MAP---->
+        <section class="map">
+            <div class="map__wrapper">
+                <div class="map__name-container">
+                    <div class="map__name">
+                        <h4>global distribution</h4>
+                        <p>We are trusted by car owners all over the world</p>
+                    </div>
+                </div>
+
+
+                <div class="map__container">
+                    <div class="map__container-map">
+                        <img src="{{ './images/map.png' }}" alt="" srcset="">
+
+                    </div>
+
+                    <div class="map__container-desc">
+                        <p>15</p>
+                        <span>countries</span>
+                        <p class="map_margin">150+</p>
+                        <span>dealers</span>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
 
         <!---COntact US----->
         <section class="contact" id="contact">
@@ -831,7 +838,7 @@
 
 
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2504.3025876326838!2d-80.16251344978679!3d32.95325042867251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sru!2saz!4v1734336701034!5m2!1sru!2saz"
+                                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3104.5949588474564!2d-77.0222031!3d38.91037680000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2saz!4v1735153252338!5m2!1sru!2saz"
                                 width="100%" height="100%" style="border: none;" allowfullscreen="" loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
@@ -843,7 +850,7 @@
                                 Address:
                             </div>
                             <div class="contact__adress__content">
-                                91 Main St. New York, USA
+                                1550 7th st NW, Washington, apt 819, District of Columbia, 20001
                             </div>
                         </div>
                         <div class="contact__adress__element">
@@ -851,7 +858,7 @@
                                 Phone:
                             </div>
                             <div class="contact__adress__content">
-                                +994 44 444 44 44
+                                +12137067456
                             </div>
                         </div>
                         <div class="contact__adress__element">
@@ -859,7 +866,7 @@
                                 Email:
                             </div>
                             <div class="contact__adress__content">
-                                hello@capsule.com
+                                contact@capsule.com
                             </div>
                         </div>
                     </div>

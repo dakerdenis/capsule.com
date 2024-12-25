@@ -148,7 +148,7 @@ h6 {
     object-fit: cover;
 }
 .header__navigation {
-    width: 591px;
+    width: 640px;
     height: 52px;
     display: flex;
     align-items: center;
@@ -349,6 +349,22 @@ h6 {
     height: 25px;
     background-color: #fff;
     border-radius: 25px;
+
+    position: relative;
+    animation: pulse 2s infinite; /* Add the animation */
+}
+
+/* Define the keyframes for the pulsing effect */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(187, 18, 22, 0.8);
+    }
+    50% {
+        box-shadow: 0 0 15px 10px rgba(187, 18, 22, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(187, 18, 22, 0.8);
+    }
 }
 
 .main__car__dot:hover {
@@ -652,6 +668,7 @@ h6 {
 .map {
     width: 100%;
     min-height: 500px;
+    margin-top: 150px;
 }
 .map__wrapper {
     width: 100%;
@@ -931,6 +948,7 @@ h6 {
 
 /*****catalog********/
 .catalog {
+    margin-top: 120px;
     z-index: 300;
     min-height: 600px;
     position: relative;
@@ -1000,6 +1018,16 @@ h6 {
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
 }
+
+/********warranty********/
+.warranty {
+    margin-top: 100px;
+    min-height: 500px;
+    width: 100%;
+    background-color: #581923;
+}
+
+
 /********gallery**********/
 
 .gallery {
@@ -1094,7 +1122,7 @@ h6 {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.3);
 
-    margin-top: 75px;
+    margin-top: 0px;
     background-image: url('../images/contact_back.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -1440,7 +1468,7 @@ h6 {
 }
 
 .contact__adress__block {
-    width: 350px;
+    width: 470px;
 }
 .contact__adress__element {
     width: 100%;
@@ -1456,12 +1484,13 @@ h6 {
     display: flex;
     justify-content: space-between;
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 42px;
 }
 .contact__adress__name {
     width: 90px;
 }
 .contact__adress__content {
+    text-align: right;
 }
 
 .footer__copyright {

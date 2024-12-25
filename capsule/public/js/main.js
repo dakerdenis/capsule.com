@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const rect = button.getBoundingClientRect();
         const containerRect = button.parentElement.parentElement.getBoundingClientRect();
         const rectangleWidth = 17;
-        const buttonCenter = rect.left - containerRect.left + rect.width / 2;
-        rectangle.style.left = `${buttonCenter - rectangleWidth / 2}px`;
+        const buttonCenter = rect.left - containerRect.left + rect.width / 1.7;
+        rectangle.style.left = `${buttonCenter - rectangleWidth / 1.7}px`;
     };
 
     // Scroll behavior for header and rectangle
