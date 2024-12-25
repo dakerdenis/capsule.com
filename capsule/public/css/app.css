@@ -240,7 +240,7 @@ h6 {
 .language-dropdown a:nth-child(1) {
     border-radius: 10px 10px 0px 0px;
 }
-.language-dropdown a:nth-child(3) {
+.language-dropdown a:nth-child(2) {
     border-radius: 0px 0px 10px 10px;
 }
 

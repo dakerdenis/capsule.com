@@ -39,13 +39,13 @@
 
 
                 <div class="header__languages">
-                    <button id="languageButton">{{ strtoupper(app()->getLocale()) }}</button> <!-- Set button text dynamically -->
+                    <button id="languageButton">{{ strtoupper(app()->getLocale()) }}</button>
                     <div class="language-dropdown" id="languageDropdown">
                         <a href="{{ url('/en') }}" class="{{ app()->getLocale() === 'en' ? 'active' : '' }}">EN</a>
-                        <a href="{{ url('/ru') }}" class="{{ app()->getLocale() === 'ru' ? 'active' : '' }}">RU</a>
-                        <a href="{{ url('/az') }}" class="{{ app()->getLocale() === 'az' ? 'active' : '' }}">AZ</a>
+                        <a href="{{ url('/de') }}" class="{{ app()->getLocale() === 'de' ? 'active' : '' }}">DE</a>
                     </div>
                 </div>
+                
                 
 
 

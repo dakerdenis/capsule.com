@@ -20,8 +20,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $locale = request()->segment(1); // First part of the URL, e.g., 'en', 'ru', or 'az'
-        if (in_array($locale, ['en', 'ru', 'az'])) {
+        $locale = request()->segment(1); // First part of the URL, e.g., 'en' or 'de'
+        if (in_array($locale, ['en', 'de'])) {
             App::setLocale($locale);
         } else {
             App::setLocale('en'); // Default to English
