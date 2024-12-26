@@ -33,6 +33,7 @@
                     <div class="header__nav__element">
                         <button data-target="gallery">Gallery</button>
                     </div>
+
                     <div class="header__nav__element">
                         <button data-target="contact">Contacts</button>
                     </div>

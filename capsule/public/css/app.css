@@ -1913,9 +1913,7 @@ text-decoration-skip-ink: none;
     .map__container-desc{
         left: 40px;
     }
-    .contact__adress__block {
-        width: 317px;
-    }
+
     .contact__adress__element {
         font-size: 18px;
     }
@@ -1928,8 +1926,8 @@ text-decoration-skip-ink: none;
     .contact__map__logo {
 
     }
-    .contact__adress__block{
-        width: 322px;
+    .contact__adress__block {
+        width: 380px;
     }
 }
 @media only screen and (max-width: 1450px) {
@@ -2125,5 +2123,185 @@ text-decoration-skip-ink: none;
     .contact_wrapper{
         height: initial;
         min-height: initial; 
+    }
+}
+@media only screen and (max-width: 768px) {
+    .header__languages{
+        display: none;
+        visibility: hidden;
+    }
+    .header__navigation{
+        display: none;
+        visibility: hidden;
+    }
+    .main__info{
+        top: 150px;
+        left: initial;
+        position: initial;
+        width: 95%;
+        margin: 0 auto;
+        padding-top: 160px;
+    }
+    .main__name h1 {
+        font-size: 26px;
+        font-weight: 600;
+        line-height: 31px;
+    }
+    .main__desc{
+        font-size: 13px;
+        margin-top: 22px;
+        line-height: 21px;
+
+    }
+    .main__buttons {
+        margin-top: 31px;
+    }
+    .main__car{
+        transform: initial;
+        width: 100%;
+        left: initial;
+        right: initial;
+    }
+    .main__car__main__img{
+        width: 100%;
+    position: absolute;
+    z-index: 100;
+    bottom: 0px;
+    }
+    .main__buttons{
+        width: 100%;
+    }
+    .main__buttons button{
+        width: 40%;
+    }
+    .main__car{
+        height: 237px;
+    }
+    .main__buttons button:nth-child(1){
+        width: 140px;
+        height: 40px;
+        font-size: 10.5px;
+    }
+    .main__buttons button:nth-child(2){
+        width: 140px;
+        height: 40px; 
+        font-size: 14.5px;
+    }
+    .main__car__dot-white {
+        width: 12px;
+        height: 12px;
+    }
+    .main__car__dot{
+        height: 20px;
+        width: 20px;
+    }
+    .car-vector1 {
+        width: 40px;
+        height: 100px;
+        top: 0px;
+        left: 33px;
+    }
+    .car-vector1 img{
+        width: 100%;
+    }
+    .main__car__dot1 {
+        top: 80px;
+        left: 56px;
+    }
+    .car-desc1{
+        top: -27px;
+        left: 11px;
+        font-size: 15px;
+    }
+    .main__car__dot2 {
+        top: 152px;
+    left: 313px;
+    }
+
+    .car-vector2 {
+        top: 66px;
+        height: 100px;
+        left: 284px;
+    }
+    .car-vector2 img{
+        height: 100%;
+    }
+    .car-desc2 {
+        max-width: 165px;
+        text-align: center;
+        top: 46px;
+        left: 242px;
+        font-size: 10px;
+    }
+    .car-vector5 {
+        top: 32px;
+        right: 104px;
+        height: 111px;
+    }
+    .car-vector5 img{
+        height: 100%;
+    }
+    .main__car__dot4 {
+        top: 128px;
+        left: initial;
+        right: 139px;
+    }
+    .car-desc5 {
+        text-align: right;
+        max-width: 197px;
+        top: 7px;
+        right: 76px;
+        font-size: 12px;
+    }
+    .car-vector4 {
+        top: 54px;
+        right: 253px;
+        height: 142px;
+    }
+    .car-vector4 img{
+        height: 100%;
+    }
+    .car-desc4 {
+        text-align: center;
+        max-width: 124px;
+        top: 7px;
+        right: 216px;
+        font-size: 12px;
+    }
+    .about_us{
+        margin-top: 0;
+    }
+    .about_us__name{
+        font-size: 19.5px;
+    }
+    .about_us__desc-text p {
+        font-size: 11.5px;
+        line-height: 24px;
+    }
+    .about_us__image-car img{
+        height: initial;
+        width: 100%;
+    }
+    .about_us__wrapper{
+        height: initial;
+        flex-direction: column;
+    }
+    .about_us__image{
+        width: 100%;
+
+    }
+    .about_us__content{
+        width: 100%;
+    }
+    .about_us__image-car{
+        position: initial;
+    }
+    .about_us__image-placeholder1{
+        display: none;
+        visibility: hidden  ;
+    }
+    .american__car__block img{
+        height: 50px;
+        width: 100px;
     }
 }
