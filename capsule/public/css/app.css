@@ -1120,7 +1120,7 @@ h6 {
 /********contact***********/
 .contact {
     min-height: 700px;
-    height: 100vh;
+
     background-color: rgba(0, 0, 0, 0.3);
 
     margin-top: 0px;
@@ -1131,7 +1131,7 @@ h6 {
 }
 .contact_wrapper {
     width: 100%;
-    min-height: 700px;
+
     height: 100vh;
     background-color: #0000005b;
 
@@ -1925,10 +1925,14 @@ text-decoration-skip-ink: none;
         width: 792px;
     }
     .contact__map__logo {
-
+        left: 835px;
     }
     .contact__adress__block {
-        width: 380px;
+        width: 340px;
+    }
+    .contact__adress__element{
+        height: 100px;
+        margin-bottom: 0;
     }
 }
 @media only screen and (max-width: 1450px) {
@@ -2027,6 +2031,16 @@ text-decoration-skip-ink: none;
     .catalog__page__element-content-info button {
         height: 44px;
         font-size: 14px;
+    }
+    .contact__map__logo{
+        left: 888px;
+    }
+    .map__container-desc p {
+        font-size: 73px;
+    }
+    .map__container-desc span{
+        font-size: 20px;
+        margin-top: 0;
     }
 }
 
@@ -2308,5 +2322,42 @@ text-decoration-skip-ink: none;
     .about_us__container{
         width: 95%;
         margin: 0 auto;
+    }
+    .main__info {
+        padding-top: 130px;
+    }
+    .main__car__dot {
+        display: none;
+        visibility: hidden;
+    }
+    .american__wrapper{
+        width: 100%;
+    }
+    .american__text__block{
+        width: 95%;
+        margin: 0 auto;
+    }
+    .about_us__container{
+        width: 100%;
+    }
+    .about_us__desc{
+        width: 95%;
+        margin: 0 auto;
+    }
+    .about_us__content{
+        width: 95%;
+        margin: 0 auto;
+    }
+    .about_us__content__name {
+        font-size: 20px;
+        line-height: 36px;
+    }
+    .about_us__content__desc{
+        padding-left: 0px;
+
+    }
+    .about_us__content__desc p{
+        font-size: 14px;
+        line-height: 26px;
     }
 }

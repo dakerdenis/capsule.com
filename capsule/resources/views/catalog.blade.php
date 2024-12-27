@@ -13,12 +13,12 @@
         <header class="header" id="header">
             <div class="header__wrapper">
                 <a href="{{ url(app()->getLocale()) }}">
-                    <img src="{{ asset('./images/logo_main.png') }}" alt="">
+                    <img src="{{ asset('public/images/logo_main.png') }}" alt="">
                 </a>
 
                 <div class="header__navigation">
                     <div class="header__nav__burger">
-                        <img src="{{ asset('./images/circum_menu-burger.png') }}" alt="" srcset="">
+                        <img src="{{ asset('public/images/circum_menu-burger.png') }}" alt="" srcset="">
                     </div>
                     <div class="header__nav__element">
                         <button data-target="home">Home</button>
@@ -35,7 +35,7 @@
                     <div class="header__nav__element">
                         <button data-target="contact">Contacts</button>
                     </div>
-                    <img src="{{ asset('./images/header_rectangle.png') }}" id="header_rectangle" class="header_rectangle"
+                    <img src="{{ asset('public/images/header_rectangle.png') }}" id="header_rectangle" class="header_rectangle"
                         alt="" />
                 </div>
 
@@ -73,7 +73,7 @@
         <section class="catalog" id="catalog">
 
             <div class="ctalog__placeholder">
-                <img src="{{ asset('./images/catalog_placeholder.png') }}" alt="" srcset="">
+                <img src="{{ asset('../public/images/catalog_placeholder.png') }}" alt="" srcset="">
             </div>
 
             <div class="catalog__wrapper">
@@ -97,7 +97,7 @@
 
                                 <div class="catalog__page__element-content-container">
                                     <div class="catalog__page__element-image">
-                                        <img src="{{ '../images/placeholder.png' }}" alt="" srcset="">
+                                        <img src="{{ '../public/images/placeholder.png' }}" alt="" srcset="">
                                     </div>
 
                                     <div class="catalog__page__element-name">
@@ -124,7 +124,7 @@
 
                                 <div class="catalog__page__element-content-container">
                                     <div class="catalog__page__element-image">
-                                        <img src="{{ '../images/placeholder.png' }}" alt="" srcset="">
+                                        <img src="{{ '../public/images/placeholder.png' }}" alt="" srcset="">
                                     </div>
 
                                     <div class="catalog__page__element-name">
@@ -151,7 +151,7 @@
 
                                 <div class="catalog__page__element-content-container">
                                     <div class="catalog__page__element-image">
-                                        <img src="{{ '../images/placeholder.png' }}" alt="" srcset="">
+                                        <img src="{{ '../public/images/placeholder.png' }}" alt="" srcset="">
                                     </div>
 
                                     <div class="catalog__page__element-name">
@@ -178,7 +178,7 @@
 
                                 <div class="catalog__page__element-content-container">
                                     <div class="catalog__page__element-image">
-                                        <img src="{{ '../images/placeholder.png' }}" alt="" srcset="">
+                                        <img src="{{ '../public/images/placeholder.png' }}" alt="" srcset="">
                                     </div>
 
                                     <div class="catalog__page__element-name">
@@ -205,7 +205,7 @@
 
                                 <div class="catalog__page__element-content-container">
                                     <div class="catalog__page__element-image">
-                                        <img src="{{ '../images/placeholder.png' }}" alt="" srcset="">
+                                        <img src="{{ '../public/images/placeholder.png' }}" alt="" srcset="">
                                     </div>
 
                                     <div class="catalog__page__element-name">
@@ -232,7 +232,7 @@
 
                                 <div class="catalog__page__element-content-container">
                                     <div class="catalog__page__element-image">
-                                        <img src="{{ '../images/placeholder.png' }}" alt="" srcset="">
+                                        <img src="{{ '../public/images/placeholder.png' }}" alt="" srcset="">
                                     </div>
 
                                     <div class="catalog__page__element-name">
@@ -254,7 +254,7 @@
 
 
                     <div class="catalog__swiper__placeholder">
-                        <img src="{{ '../images/gallery_car.png' }}" alt="" srcset="">
+                        <img src="{{ '../public/images/gallery_car.png' }}" alt="" srcset="">
                     </div>
                 </div>
             </div>
@@ -717,7 +717,7 @@
             </div>
         </section>
     </div>
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('../public/js/main.js') }}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
