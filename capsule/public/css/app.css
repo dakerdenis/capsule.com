@@ -2361,7 +2361,9 @@ text-decoration-skip-ink: none;
         line-height: 26px;
     }
     .catalog__name{
-        background-size: contain;
+        height: 105px;
+        width: 100%;
+        background-size: 100%;
     }
     .catalog__name p {
         font-size: 19px;
@@ -2390,7 +2392,7 @@ text-decoration-skip-ink: none;
     .glide__slide{
         height: 359px;
     }
-    .glide__slide__desc{
+    .glide__slide__desc p{
         font-size: 13px;
         line-height: 23px;
     }
@@ -2400,4 +2402,32 @@ text-decoration-skip-ink: none;
         height: 46px;
         font-size: 18px;
     }
+    .glide__track{
+        height: 464px;
+        margin-top: 30px;
+    }
+    .glide__slides {
+        height: 567px;
+    }
+    .glide__arrow{
+        top: 104%;
+
+    }
+    .glide__arrow--right {
+        right: 25%;
+    }
+    .glide__arrow--left{
+        left: 25%;
+    }
+    .catalog__swiper__wrapper{
+        height: initial;
+    }
+    .catalog__swiper-button{
+        padding-right: 0px;
+        justify-content: center;
+    }
+    
+    .catalog__swiper-button {
+        margin-top: 84px;
+        }
 }
