@@ -2353,11 +2353,51 @@ text-decoration-skip-ink: none;
         line-height: 36px;
     }
     .about_us__content__desc{
-        padding-left: 0px;
+        padding-right: 0px;
 
     }
     .about_us__content__desc p{
         font-size: 14px;
         line-height: 26px;
+    }
+    .catalog__name{
+        background-size: contain;
+    }
+    .catalog__name p {
+        font-size: 19px;
+    }
+    .catalog__swiper{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .glide__slide__image  {
+        height: 210px;
+        width: 210px;
+        border-radius: 5px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .glide__slide__image img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .glide__slide__wrapper{
+        padding: 10px;
+    }
+    .glide__slide{
+        height: 359px;
+    }
+    .glide__slide__desc{
+        font-size: 13px;
+        line-height: 23px;
+    }
+    .glide__slide button {
+        left: calc(50% - 100px);
+        width: 200px;
+        height: 46px;
+        font-size: 18px;
     }
 }

@@ -896,13 +896,13 @@
             gap: 40,
             autoplay: 10000,
 
-            animationDuration: 800,
+            animationDuration: 5000,
             breakpoints: {
                 1024: {
                     perView: 2
                 },
                 600: {
-                    perView: 2
+                    perView: 1.5
                 }
             }
         });
