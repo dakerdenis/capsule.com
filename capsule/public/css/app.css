@@ -329,6 +329,7 @@ h6 {
 .main__car__main__img {
     position: absolute;
     z-index: 100;
+    width: 100%;
 }
 
 .main__car__dot {
@@ -2303,5 +2304,9 @@ text-decoration-skip-ink: none;
     .american__car__block img{
         height: 50px;
         width: 100px;
+    }
+    .about_us__container{
+        width: 95%;
+        margin: 0 auto;
     }
 }

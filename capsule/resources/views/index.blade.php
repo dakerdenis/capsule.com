@@ -10,13 +10,13 @@
             <div class="header__wrapper">
                 
                 <a href="{{ url(app()->getLocale()) }}">
-                    <img src="{{ asset('./images/logo_main.png') }}" alt="">
+                    <img src="{{ asset('public/images/logo_main.png') }}" alt="">
                 </a>
                 
 
                 <div class="header__navigation">
                     <div class="header__nav__burger">
-                        <img src="{{ asset('./images/circum_menu-burger.png') }}" alt="" srcset="">
+                        <img src="{{ asset('public/images/circum_menu-burger.png') }}" alt="" srcset="">
                     </div>
                     <div class="header__nav__element">
                         <button data-target="home">Home</button>
@@ -37,7 +37,7 @@
                     <div class="header__nav__element">
                         <button data-target="contact">Contacts</button>
                     </div>
-                    <img src="{{ asset('./images/header_rectangle.png') }}" id="header_rectangle" class="header_rectangle"
+                    <img src="{{ asset('public/images/header_rectangle.png') }}" id="header_rectangle" class="header_rectangle"
                         alt="" />
                 </div>
 
@@ -82,7 +82,7 @@
                 <!---car and description---->
                 <div class="main__car">
 
-                    <img class="main__car__main__img" src="{{ asset('./images/car_main.png') }}" alt="Car info image"
+                    <img class="main__car__main__img" src="{{ asset('public/images/car_main.png') }}" alt="Car info image"
                         srcset="">
                     <div class="main__car__dot main__car__dot1">
                         <div class="main__car__dot-white"></div>
@@ -103,20 +103,20 @@
 
 
                     <div class="car-vector car-vector1">
-                        <img src="{{ asset('./images/car-vector1.png') }}" alt="" srcset="">
+                        <img src="{{ asset('public/images/car-vector1.png') }}" alt="" srcset="">
                     </div>
                     <div class="car-vector car-vector2">
-                        <img src="{{ asset('./images/car-vector2.png') }}" alt="" srcset="">
+                        <img src="{{ asset('public/images/car-vector2.png') }}" alt="" srcset="">
                     </div>
                     <div class="car-vector car-vector3">
-                        <img src="{{ asset('./images/car-vector3.png') }}" alt="" srcset="">
+                        <img src="{{ asset('public/images/car-vector3.png') }}" alt="" srcset="">
                     </div>
 
                     <div class="car-vector car-vector4">
-                        <img src="{{ asset('./images/car-vector4.png') }}" alt="" srcset="">
+                        <img src="{{ asset('public/images/car-vector4.png') }}" alt="" srcset="">
                     </div>
                     <div class="car-vector car-vector5">
-                        <img src="{{ asset('./images/car-vector5.png') }}" alt="" srcset="">
+                        <img src="{{ asset('public/images/car-vector5.png') }}" alt="" srcset="">
                     </div>
 
 
@@ -143,7 +143,7 @@
 
             <!---main background--->
             <div class="main__background">
-                <img src="{{ asset('./images/background.png') }}" alt="Car Image">
+                <img src="{{ asset('public/images/background.png') }}" alt="Car Image">
             </div>
         </section>
 
@@ -154,10 +154,10 @@
             </div>
             <div class="american__wrapper">
                 <div class="american__text__block">
-                    <img src="{{ asset('./images/German_quality.png') }}" alt="">
+                    <img src="{{ asset('public/images/German_quality.png') }}" alt="">
                 </div>
                 <div class="american__car__block">
-                    <img src="{{ asset('./images/quality_car.png') }}" alt="">
+                    <img src="{{ asset('public/images/quality_car.png') }}" alt="">
                 </div>
             </div>
         </section>
@@ -190,11 +190,11 @@
                 <div class="about_us__wrapper">
                     <div class="about_us__image">
                         <div class="about_us__image-car">
-                            <img src="{{ asset('./images/aboutcar.png') }}" alt="" srcset="">
+                            <img src="{{ asset('public/images/aboutcar.png') }}" alt="" srcset="">
                         </div>
 
                         <!--placeholders--->
-                        <img class="about_us__image-placeholder1" src="{{ asset('./images/about_placeholder1.png') }}"
+                        <img class="about_us__image-placeholder1" src="{{ asset('public/images/about_placeholder1.png') }}"
                             alt="" srcset="">
                     </div>
 
@@ -233,7 +233,7 @@
         <section class="catalog" id="catalog">
 
             <div class="ctalog__placeholder">
-                <img src="{{ asset('./images/catalog_placeholder.png') }}" alt="" srcset="">
+                <img src="{{ asset('public/images/catalog_placeholder.png') }}" alt="" srcset="">
             </div>
 
             <div class="catalog__wrapper">
@@ -256,7 +256,7 @@
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
                                             <div class="glide__slide__image">
-                                                <img src="{{ './images/placeholder.png' }}" alt="">
+                                                <img src="{{ 'public/images/placeholder.png' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
                                                 ITEM NAME
@@ -272,7 +272,7 @@
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
                                             <div class="glide__slide__image">
-                                                <img src="{{ './images/placeholder.png' }}" alt="">
+                                                <img src="{{ 'public/images/placeholder.png' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
                                                 ITEM NAME
@@ -288,7 +288,7 @@
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
                                             <div class="glide__slide__image">
-                                                <img src="{{ './images/placeholder.png' }}" alt="">
+                                                <img src="{{ 'public/images/placeholder.png' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
                                                 ITEM NAME
@@ -304,7 +304,7 @@
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
                                             <div class="glide__slide__image">
-                                                <img src="{{ './images/placeholder.png' }}" alt="">
+                                                <img src="{{ 'public/images/placeholder.png' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
                                                 ITEM NAME
@@ -320,7 +320,7 @@
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
                                             <div class="glide__slide__image">
-                                                <img src="{{ './images/placeholder.png' }}" alt="">
+                                                <img src="{{ 'public/images/placeholder.png' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
                                                 ITEM NAME
@@ -336,7 +336,7 @@
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
                                             <div class="glide__slide__image">
-                                                <img src="{{ './images/placeholder.png' }}" alt="">
+                                                <img src="{{ 'public/images/placeholder.png' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
                                                 ITEM NAME
@@ -352,10 +352,10 @@
                             </div>
                             <div class="glide__arrows" data-glide-el="controls">
                                 <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-                                    <img src="{{ asset('./images/arrow_catalog.png') }}" alt="" srcset="">
+                                    <img src="{{ asset('public/images/arrow_catalog.png') }}" alt="" srcset="">
                                 </button>
                                 <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
-                                    <img src="{{ asset('./images/arrow_catalog.png') }}" alt="" srcset="">
+                                    <img src="{{ asset('public/images/arrow_catalog.png') }}" alt="" srcset="">
                                 </button>
                             </div>
                         </div>
@@ -371,7 +371,7 @@
         <!------Gallery---->
         <section class="gallery" id="gallery">
             <div class="gallery__car__placeholder">
-                <img src="{{ asset('./images/gallery_car.png') }}" alt="" srcset="">
+                <img src="{{ asset('public/images/gallery_car.png') }}" alt="" srcset="">
             </div>
             <div class="gallery__wrapper">
                 <div class="gallery__name">
@@ -382,46 +382,46 @@
 
                 <div class="gallery__images__wrapper">
                     <div class="gallery__images__small">
-                        <a href="{{ asset('./images/car2.png') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/car2.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('./images/car2.png') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/car2.png') }}" alt="Gallery Image" />
                         </a>
-                        <a href="{{ asset('./images/car1.png') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/car1.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('./images/car1.png') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/car1.png') }}" alt="Gallery Image" />
                         </a>
                     </div>
                     <div class="gallery__images__big">
-                        <a href="{{ asset('./images/car3.jpeg') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/car3.jpeg') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('./images/car3.jpeg') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/car3.jpeg') }}" alt="Gallery Image" />
                         </a>
                     </div>
                     <div class="gallery__images__small">
-                        <a href="{{ asset('./images/car4.jpeg') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/car4.jpeg') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('./images/car4.jpeg') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/car4.jpeg') }}" alt="Gallery Image" />
                         </a>
-                        <a href="{{ asset('./images/car5.png') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/car5.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('./images/car5.png') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/car5.png') }}" alt="Gallery Image" />
                         </a>
                     </div>
                     <div class="gallery__images__small gallery__images__medium">
-                        <a href="{{ asset('./images/car5.jpeg') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/car5.jpeg') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('./images/car5.jpeg') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/car5.jpeg') }}" alt="Gallery Image" />
                         </a>
 
                     </div>
                     <div class="gallery__images__small">
-                        <a href="{{ asset('./images/car7.png') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/car7.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('./images/car7.png') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/car7.png') }}" alt="Gallery Image" />
                         </a>
-                        <a href="{{ asset('./images/car6.png') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/car6.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('./images/car6.png') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/car6.png') }}" alt="Gallery Image" />
                         </a>
                     </div>
                 </div>
@@ -444,7 +444,7 @@
 
                 <div class="map__container">
                     <div class="map__container-map">
-                        <img src="{{ './images/map.png' }}" alt="" srcset="">
+                        <img src="{{ 'public/images/map.png' }}" alt="" srcset="">
 
                     </div>
 
@@ -465,10 +465,10 @@
             <div class="contact_wrapper">
                 <div class="contact_wrapper__animation">
                     <div class="contact__text__block">
-                        <img src="{{ asset('./images/contact_us.png') }}" alt="">
+                        <img src="{{ asset('public/images/contact_us.png') }}" alt="">
                     </div>
                     <div class="contact__car__block">
-                        <img src="{{ asset('./images/contact_car.png') }}" alt="">
+                        <img src="{{ asset('public/images/contact_car.png') }}" alt="">
                     </div>
                 </div>
 
@@ -832,7 +832,7 @@
 
                     <div class="contact__map__logo">
                         <div class="contact__map-logo">
-                            <img src="{{ './images/logo_main.png' }}" alt="" srcset="">
+                            <img src="{{ 'public/images/logo_main.png' }}" alt="" srcset="">
                         </div>
 
                         <div class="contact__map-map">
@@ -917,7 +917,7 @@
         glide.mount();
     });
 </script>
-<script src="{{ asset('js/main.js') }}"></script>
+<script src="{{ asset('public/js/main.js') }}"></script>
 
 
 @endsection
