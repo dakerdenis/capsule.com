@@ -2341,7 +2341,7 @@ text-decoration-skip-ink: none;
         width: 100%;
     }
     .about_us__desc{
-        width: 95%;
+
         margin: 0 auto;
     }
     .about_us__content{
@@ -2374,7 +2374,7 @@ text-decoration-skip-ink: none;
     }
     .glide__slide__image  {
         height: 210px;
-        width: 210px;
+        width: 100%;
         border-radius: 5px;
         overflow: hidden;
         display: flex;
@@ -2429,5 +2429,142 @@ text-decoration-skip-ink: none;
     
     .catalog__swiper-button {
         margin-top: 84px;
+        }
+        .gallery__name {
+            height: 86px;
+        }
+        .gallery__name-text{
+            opacity: 0.9;
+        }
+        .gallery__images__wrapper{
+            flex-wrap: wrap;
+            flex-direction: column;
+
+            height: initial;
+            width: 95%;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+        .gallery__images__small{
+            width: 100%;
+        }
+        .gallery__images__small a:nth-child(1){
+            margin-bottom: 20px;
+        }
+        .gallery__images__small img{
+            width: 100%;
+            height: 200px;
+        }
+        .gallery__images__big{
+            width: 100%;
+            height: 200px;
+            margin: 20px 0px;
+        }
+        .gallery__images__medium img{
+            margin-top: 20px;
+        }
+        .gallery{
+            z-index: 400;
+        }
+        .gallery__car__placeholder{
+            display: none;
+            visibility: hidden;
+        }
+        .about_us__image-car{
+            margin-top: 31px;
+        }
+        .map__name h4{
+            font-size: 20px;
+            line-height: 30px;
+        }
+        .map__name p{
+            font-size: 16px;
+            font-style: italic;
+            font-weight: 300;
+            line-height: 20.8px;
+        }
+        .map__container-map img{
+            width: 100%;
+            height: initial;
+        }
+        .map {
+            margin-top: 40px;
+        }
+        .map__container {
+            height: 300px;
+        }
+        .map__container-desc{
+            left: 10px;
+            bottom: -205px;
+        }
+        .map__container-desc p {
+            font-size: 27px;
+            line-height: 30px;
+        }
+        .map__container-desc span {
+            font-size: 16px;
+            line-height: 20px;
+        }
+        .map_margin{
+            margin-top: 10px;
+        }
+        .map__container{
+                margin-top: 20px;
+        }
+        .contact__text__block{
+            position: initial;
+            left: 0px;
+            width: 95%;
+            margin: 0 auto;
+        }
+        .contact__text__block img{
+            width: 100%;
+        }
+        .contact_wrapper__animation{
+            height: 80px;
+        }
+        .contact__car__block{
+            height: 60px;
+        }
+        .contact__car__block img{
+            height: 100%;
+            
+        }
+
+
+        .contact__form__name-message{
+            flex-direction: column;
+            margin-bottom: 30px;
+            height: initial;
+        }
+        .contact__form__number-country{
+            flex-direction: column;
+            height: initial;
+        }
+        .contact__main__container{
+            width: 95%;
+            margin: 0 auto;
+        }
+        .contact__form__container{
+            width: 100%;
+        }
+
+        .contact__form__email-contact{
+            height: initial;
+            flex-direction: column;
+        }
+        .contact__main__container {
+            width: 90%;
+        }
+        .contact__form__block{
+            width: 100%;
+        }
+        .contact__form__block-select span {
+            width: 100% !important;
+
+        }
+        .contact__form__email-contact{
+            height: initial;
+            flex-direction: column;
         }
 }
