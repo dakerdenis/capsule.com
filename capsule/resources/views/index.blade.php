@@ -226,7 +226,41 @@
         <!---warranty and verification--->
 
         <section class="warranty" id="warranty">
-            sdadasd
+            <div class="warranty__container">
+                <div class="warranty__element">
+                    <div class="warranty__element__wrapper">
+                        <div class="warranty__element__image">
+                            <div class="warranty__element__image-block">
+                              
+                            </div>
+                            <div class="warranty__element__image-link">
+                                <a href="">Verification check</a>
+                            </div>
+                        </div>
+                        <div class="warranty__element__desc">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. Sed nec convallis elit. Nullam id eros ac velit consequat convallis. Nam vulputate nibh a orci egestas laoreet.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="warranty__name">
+                    <p>dual digital shield</p>
+                </div>
+                <div class="warranty__element2">
+                    <div class="warranty__element__wrapper2">
+                        <div class="warranty__element__image2">
+                            <div class="warranty__element__image-block2">
+                              
+                            </div>
+                            <div class="warranty__element__image-link2">
+                                <a href="">warranty check</a>
+                            </div>
+                        </div>
+                        <div class="warranty__element__desc2">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. Sed nec convallis elit. Nullam id eros ac velit consequat convallis. Nam vulputate nibh a orci egestas laoreet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!--- Catalogue --->
