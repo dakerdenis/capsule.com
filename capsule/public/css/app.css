@@ -978,6 +978,8 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    border-radius: 10px;
 }
 .catalog__name p {
     color: #fff;
@@ -1036,8 +1038,28 @@ h6 {
 }
 .warranty__name {
     width: calc(100% - 88%);
-    background-color: #008000;
-    height: 100%;
+
+    position: relative;
+}
+.warranty__name p{
+    display: block;
+    position: absolute;
+    width: 510px;
+    color: #34C81E;
+    transform: rotate(-74deg);
+    bottom: 355px;
+
+    left: -143px;
+    text-transform: uppercase;
+    font-family: Inter;
+font-size: 46px;
+font-weight: 700;
+line-height: 16.8px;
+letter-spacing: 0.800000011920929px;
+text-align: center;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
 }
 
 .warranty__element {
@@ -1159,7 +1181,7 @@ color: #fff;
     width: 250px;
     height: 65px;
     background-color: #bb1216;
-    left: 111px;
+    left: 105px;
     top: 0;
 }
 .warranty__element__image-link2 a{
@@ -2103,7 +2125,43 @@ text-decoration-skip-ink: none;
         height: 100px;
         margin-bottom: 0;
     }
+    .warranty__element2{
+        width: 45%;
+        height: 600px;
+    }
+    .warranty__element{
+        width: 45%;
+        height: 600px;
+    }
+    .warranty__element__image {
+        height: 450px;
+    }
+    .warranty__element__image2{
+        height: 450px;
+    }
+    .warranty__element__desc {
+        width: 90%;
+    }
+    .warranty__element__desc2 {
+        width: 90%;
+    }
+    .warranty__element__desc p {
+        font-size: 17px;
+        font-weight: 36px;
+    }
+    .warranty__name{
+        width: 8%;
+    }
+    .warranty__name p{
+        bottom: 299px;
+        left: -185px;
+    }
+    .warranty__element__image-link2 {
+        left: 80px;
+    }
 }
+
+
 @media only screen and (max-width: 1450px) {
     .main__car{
         transform: scale(0.8);
