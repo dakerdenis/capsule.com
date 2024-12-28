@@ -771,16 +771,14 @@ h6 {
 
 /***catalog page*****/
 
-.catalog__swiper{
+.catalog__swiper {
     position: relative;
-
 }
-.catalog__swiper__placeholder{
+.catalog__swiper__placeholder {
     position: absolute;
     z-index: 100;
     right: -550px;
     bottom: 150px;
-
 }
 .catalog__page__container {
     width: 1440px;
@@ -1024,10 +1022,11 @@ h6 {
 
 /********warranty********/
 .warranty {
+    position: relative;
     margin-top: 100px;
     min-height: 500px;
     width: 100%;
-
+    z-index: 500;
 }
 .warranty__container {
     width: 100%;
@@ -1041,31 +1040,29 @@ h6 {
 
     position: relative;
 }
-.warranty__name p{
+.warranty__name p {
     display: block;
     position: absolute;
     width: 510px;
-    color: #34C81E;
+    color: #34c81e;
     transform: rotate(-74deg);
     bottom: 355px;
 
     left: -143px;
     text-transform: uppercase;
     font-family: Inter;
-font-size: 46px;
-font-weight: 700;
-line-height: 16.8px;
-letter-spacing: 0.800000011920929px;
-text-align: center;
-text-underline-position: from-font;
-text-decoration-skip-ink: none;
-
+    font-size: 46px;
+    font-weight: 700;
+    line-height: 16.8px;
+    letter-spacing: 0.800000011920929px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
 }
 
 .warranty__element {
     height: 730px;
     width: 44%;
-
 }
 .warranty__element__wrapper {
     position: relative;
@@ -1090,9 +1087,8 @@ text-decoration-skip-ink: none;
 
     background-position: 0% 29%;
     background-size: 127%;
-
 }
-.warranty__element__image-block img{
+.warranty__element__image-block img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -1107,7 +1103,7 @@ text-decoration-skip-ink: none;
     right: 0;
     top: 0;
 }
-.warranty__element__image-link a{
+.warranty__element__image-link a {
     width: 100%;
     height: 100%;
     display: flex;
@@ -1120,7 +1116,7 @@ text-decoration-skip-ink: none;
     text-align: center;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
-    color: #fff;    
+    color: #fff;
 }
 
 .warranty__element__desc {
@@ -1128,25 +1124,21 @@ text-decoration-skip-ink: none;
     width: 718px;
     position: absolute;
     right: 0;
-}   
+}
 .warranty__element__desc p {
     font-family: Inter;
-font-size: 18px;
-font-weight: 400;
-line-height: 41px;
-text-align: justified;
-text-underline-position: from-font;
-text-decoration-skip-ink: none;
-color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 41px;
+    text-align: justified;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #fff;
 }
-
-
-
 
 .warranty__element2 {
     height: 730px;
     width: 44%;
-
 }
 .warranty__element__wrapper2 {
     position: relative;
@@ -1171,9 +1163,7 @@ color: #fff;
 
     background-position: 100% 37%;
     background-size: 121%;
-
 }
-
 
 .warranty__element__image-link2 {
     position: absolute;
@@ -1184,7 +1174,7 @@ color: #fff;
     left: 105px;
     top: 0;
 }
-.warranty__element__image-link2 a{
+.warranty__element__image-link2 a {
     width: 100%;
     height: 100%;
     display: flex;
@@ -1197,7 +1187,7 @@ color: #fff;
     text-align: center;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
-    color: #fff;    
+    color: #fff;
 }
 
 .warranty__element__desc2 {
@@ -1206,19 +1196,17 @@ color: #fff;
     position: absolute;
     left: 0;
     bottom: 0;
-}   
+}
 .warranty__element__desc2 p {
     font-family: Inter;
-font-size: 18px;
-font-weight: 400;
-line-height: 41px;
-text-align: justified;
-text-underline-position: from-font;
-text-decoration-skip-ink: none;
-color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 41px;
+    text-align: justified;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #fff;
 }
-
-
 
 /********gallery**********/
 
@@ -1318,7 +1306,6 @@ color: #fff;
     background-image: url('../images/contact_back.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
-
 }
 .contact_wrapper {
     width: 100%;
@@ -1703,7 +1690,6 @@ color: #fff;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
 }
 
 .catalog__page__element {
@@ -1722,16 +1708,15 @@ color: #fff;
     width: 416px;
     height: 577px;
 
-
     z-index: 300;
-z-index: 300;
+    z-index: 300;
     border: 2px solid #ffffff;
     border-radius: 16px;
 
     transition: bottom ease-in 0.3s;
 }
-.catalog__page__element:hover .catalog__page__element-content{
-        bottom: 149px;
+.catalog__page__element:hover .catalog__page__element-content {
+    bottom: 149px;
 }
 
 .catalog__page__element-content-info {
@@ -1745,10 +1730,10 @@ z-index: 300;
     transition: opacity ease-in 0.2s;
 }
 
-.catalog__page__element:hover .catalog__page__element-content-info{
+.catalog__page__element:hover .catalog__page__element-content-info {
     opacity: 1;
 }
-.catalog__page__element:hover .catalog__page__element-content{
+.catalog__page__element:hover .catalog__page__element-content {
     border-radius: 16px 18px 16px 16px;
 }
 .catalog__page__element-content-info button {
@@ -1757,21 +1742,17 @@ z-index: 300;
     background-color: #bb1216;
     border-radius: 0px 16px 0px 16px;
 
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 18.15px;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    text-transform: uppercase;
 
-font-family: Inter;
-font-size: 15px;
-font-weight: 700;
-line-height: 18.15px;
-text-align: center;
-text-underline-position: from-font;
-text-decoration-skip-ink: none;
-text-transform: uppercase;
-
-color: #fff;
-
+    color: #fff;
 }
-
-
 
 .catalog__page__element-content-container {
     width: 100%;
@@ -1830,10 +1811,9 @@ color: #fff;
     opacity: 0;
     transition: opacity ease-in 0.3s;
 }
-.catalog__page__element:hover .catalog__page__element-button{
+.catalog__page__element:hover .catalog__page__element-button {
     opacity: 1;
 }
-
 
 .catalog__page__element-button button {
     height: 70px;
@@ -1853,8 +1833,7 @@ color: #fff;
     text-transform: uppercase;
 }
 
-
-.catalog_page__button{
+.catalog_page__button {
     width: 100%;
     padding-left: 54px;
     margin-top: 100px;
@@ -1868,16 +1847,15 @@ color: #fff;
 
     background-color: #34c81e;
 
-border-radius: 36px;
-color: #fff;
-text-transform: uppercase;
-font-size: 15px;
-font-weight: 700;
-line-height: 20px;
-text-align: left;
-text-underline-position: from-font;
-text-decoration-skip-ink: none;
-
+    border-radius: 36px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
 }
 /*****POPUP******/
 
@@ -1896,18 +1874,13 @@ text-decoration-skip-ink: none;
 }
 
 .popup__content {
-
-
     width: 1200px;
     height: 615px;
     position: absolute;
     left: calc(50% - 600px);
     top: calc(50% - 307.5px);
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
-
-
 }
-
 
 .popup__wrapper {
     width: 100%;
@@ -1915,16 +1888,15 @@ text-decoration-skip-ink: none;
 
     position: relative;
 }
-.popup__content_container{
+.popup__content_container {
     position: absolute;
     width: 787px;
     height: 614px;
     background-color: #fff;
-    border-radius: 18px 0px  0px 18px;
+    border-radius: 18px 0px 0px 18px;
     padding: 65px;
 }
 .popup__content-js {
-    
 }
 .popup__close {
 }
@@ -1932,15 +1904,14 @@ text-decoration-skip-ink: none;
     margin-top: 20px;
 }
 
-
 .popup__auto {
-position: absolute;
-left: 787px;
-width: 368px;
-height: 100%;
+    position: absolute;
+    left: 787px;
+    width: 368px;
+    height: 100%;
 
-border-top: 1px solid #fff;
-border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
 }
 
 .popup__auto__image {
@@ -1951,7 +1922,7 @@ border-bottom: 1px solid #fff;
     justify-content: center;
     align-items: center;
 }
-.popup__auto__image img{
+.popup__auto__image img {
     height: 100%;
     object-fit: cover;
 }
@@ -1962,8 +1933,6 @@ border-bottom: 1px solid #fff;
     position: absolute;
     right: 0;
 }
-
-
 
 .popup__close {
     position: absolute;
@@ -1976,45 +1945,43 @@ border-bottom: 1px solid #fff;
     font-weight: 600;
     background-color: #34c81e;
     color: #fff;
-z-index: 800;
+    z-index: 800;
 
     border: none;
     font-size: 35px;
     cursor: pointer;
 }
-.popup__name{
+.popup__name {
     font-family: Rubik Mono One;
-font-size: 48px;
-font-weight: 400;
-line-height: 59.42px;
-text-align: left;
-text-underline-position: from-font;
-text-decoration-skip-ink: none;
-color: #CE1103;
-margin-bottom: 50px;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 59.42px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #ce1103;
+    margin-bottom: 50px;
 }
 
-.popup__text li{
+.popup__text li {
     font-family: Inter;
-font-size: 20px;
-font-weight: 300;
-line-height: 33px;
-text-align: left;
-text-underline-position: from-font;
-text-decoration-skip-ink: none;
-
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 33px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
 }
-.popup__text strong{
+.popup__text strong {
     font-family: Inter;
-font-size: 20px;
-font-weight: 700;
-line-height: 33px;
-text-align: left;
-text-underline-position: from-font;
-text-decoration-skip-ink: none;
-
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 33px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
 }
-.popup__p{
+.popup__p {
     margin-top: 10px;
     font-size: 18px;
     font-family: Inter;
@@ -2060,25 +2027,24 @@ text-decoration-skip-ink: none;
     height: 100vh;
 }
 @media only screen and (max-width: 1670px) {
-    .main__car{
+    .main__car {
         height: 369px;
     }
-    .main__name h1{
+    .main__name h1 {
         font-size: 60px;
         line-height: 68px;
     }
     .main__info {
         top: 21%;
     }
-    .american{
+    .american {
         margin-top: 50px;
     }
-    .american__wrapper{
+    .american__wrapper {
         width: 90%;
         margin: 0 auto;
-
     }
-    .american__text__block img{
+    .american__text__block img {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -2086,23 +2052,23 @@ text-decoration-skip-ink: none;
     .about_us__desc-text p {
         line-height: 36px;
     }
-    .about_us__image{
+    .about_us__image {
         width: 740px;
     }
-    .about_us__content{
+    .about_us__content {
         width: calc(100% - 750px);
     }
     .about_us__content__name {
         font-size: 37px;
     }
-    .map__wrapper{
+    .map__wrapper {
         max-width: 100%;
     }
     .map__name-container {
         max-width: 90%;
         margin: 0 auto;
     }
-    .map__container-desc{
+    .map__container-desc {
         left: 40px;
     }
 
@@ -2121,22 +2087,22 @@ text-decoration-skip-ink: none;
     .contact__adress__block {
         width: 340px;
     }
-    .contact__adress__element{
+    .contact__adress__element {
         height: 100px;
         margin-bottom: 0;
     }
-    .warranty__element2{
+    .warranty__element2 {
         width: 45%;
         height: 600px;
     }
-    .warranty__element{
+    .warranty__element {
         width: 45%;
         height: 600px;
     }
     .warranty__element__image {
         height: 450px;
     }
-    .warranty__element__image2{
+    .warranty__element__image2 {
         height: 450px;
     }
     .warranty__element__desc {
@@ -2149,10 +2115,10 @@ text-decoration-skip-ink: none;
         font-size: 17px;
         font-weight: 36px;
     }
-    .warranty__name{
+    .warranty__name {
         width: 8%;
     }
-    .warranty__name p{
+    .warranty__name p {
         bottom: 299px;
         left: -185px;
     }
@@ -2161,54 +2127,52 @@ text-decoration-skip-ink: none;
     }
 }
 
-
 @media only screen and (max-width: 1450px) {
-    .main__car{
+    .main__car {
         transform: scale(0.8);
         right: -71px;
     }
     .about_us__content__name {
         font-size: 29px;
     }
-    .catalog__name{
+    .catalog__name {
         height: 280px;
     }
-    .contact__main__container{
+    .contact__main__container {
         flex-direction: column;
         align-items: flex-start;
     }
-    .contact__adress__block{
+    .contact__adress__block {
         margin-top: 30px;
     }
-    .about_us__content__desc p{
+    .about_us__content__desc p {
         line-height: 36px;
-
     }
     .about_us__content__name {
         font-size: 29px;
         margin-bottom: 33px;
     }
-    .about_us__image{
-        width: 640px; 
+    .about_us__image {
+        width: 640px;
     }
     .map__container {
         height: 720px;
     }
-    .map__container-map{
+    .map__container-map {
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    .map__container-map img{
+    .map__container-map img {
         width: initial;
     }
     .glide__slide {
         height: 520px;
     }
-    .glide__slide img{
+    .glide__slide img {
         height: 240px;
     }
-    .glide__slide__image img{
+    .glide__slide__image img {
         width: initial;
     }
     .glide__slide__name {
@@ -2223,35 +2187,34 @@ text-decoration-skip-ink: none;
     .glide__slide__wrapper {
         padding: 20px;
     }
-    .catalog__page__container{
+    .catalog__page__container {
         width: 95%;
     }
-    .catalog__page__element-image{
+    .catalog__page__element-image {
         width: 317px;
-
     }
-    .catalog__page__element-name{
+    .catalog__page__element-name {
         font-size: 24px;
         line-height: 45px;
     }
-    .catalog__page__element-desc{
+    .catalog__page__element-desc {
         font-size: 18px;
         line-height: 32px;
     }
     .catalog__page__element-content-container {
         padding: 20px;
     }
-    .catalog__page__element-button{
+    .catalog__page__element-button {
         bottom: 0;
     }
-    .catalog__page__element:hover .catalog__page__element-content{
+    .catalog__page__element:hover .catalog__page__element-content {
         bottom: 100px;
-}
+    }
     .catalog__page__element {
         width: 370px;
         height: calc(530px + 100px);
     }
-    .catalog__page__element-content{
+    .catalog__page__element-content {
         width: 370px;
         height: 530px;
     }
@@ -2259,84 +2222,81 @@ text-decoration-skip-ink: none;
         height: 44px;
         font-size: 14px;
     }
-    .contact__map__logo{
+    .contact__map__logo {
         left: 888px;
     }
     .map__container-desc p {
         font-size: 73px;
     }
-    .map__container-desc span{
+    .map__container-desc span {
         font-size: 20px;
         margin-top: 0;
     }
 
-    .warranty__name p{
+    .warranty__name p {
         transform: rotate(-77deg);
         left: -194px;
     }
 
-
-    
-    .warranty__element__desc2{
+    .warranty__element__desc2 {
         height: 137px;
     }
-    .warranty__element2{
+    .warranty__element2 {
         width: 45%;
         height: 550px;
     }
-    .warranty__element__image2{
+    .warranty__element__image2 {
         height: 400px;
     }
-    .warranty__element__desc2 p{
+    .warranty__element__desc2 p {
         font-size: 16px;
         line-height: 30px;
     }
 
-
-    .warranty__element__desc{
+    .warranty__element__desc {
         height: 137px;
     }
-    .warranty__element{
+    .warranty__element {
         width: 45%;
         height: 550px;
     }
-    .warranty__element__image{
+    .warranty__element__image {
         height: 400px;
     }
-    .warranty__element__desc p{
+    .warranty__element__desc p {
         font-size: 16px;
         line-height: 30px;
     }
-    
+
     .warranty__element__image-link2 {
         left: 60px;
     }
-
+    .catalog__page__container {
+        width: 90%;
+    }
 }
 
 @media only screen and (max-width: 1370px) {
-    .header{
+    .header {
         height: 80px;
     }
     .main__name h1 {
         font-size: 54px;
     }
-    .main__car{
+    .main__car {
         transform: scale(0.7);
         right: -117px;
     }
     .main__desc {
         font-size: 16px;
     }
-    .about_us__desc-text{
+    .about_us__desc-text {
         width: 100%;
         left: initial;
         display: flex;
         flex-direction: column;
-
-
     }
-    .about_us__desc-text p{
+    .about_us__desc-text p {
         max-width: 90%;
         font-size: 16.5px;
         line-height: 33px;
@@ -2349,77 +2309,74 @@ text-decoration-skip-ink: none;
     .about_us__image {
         width: 687px;
         height: 90%;
-}
-.about_us__image-car img{
-    width: initial;
-}
-.catalog__name {
-    height: 240px;
-}
-.catalog__swiper-button{
-
-}
-.glide__track {
-    height: 818px;
-}
-.glide__slide button {
-    bottom: 15px;
-}
-.glide__slide--active .glide__slide__wrapper{
-    transform: translateY(-104px);
-}
-.glide__slide__desc {
-
-    line-height: 30px;}
-    .glide__slide button{
-        height: 60px;
-
     }
-    .glide__slide button{
+    .about_us__image-car img {
+        width: initial;
+    }
+    .catalog__name {
+        height: 240px;
+    }
+    .catalog__swiper-button {
+    }
+    .glide__track {
+        height: 818px;
+    }
+    .glide__slide button {
+        bottom: 15px;
+    }
+    .glide__slide--active .glide__slide__wrapper {
+        transform: translateY(-104px);
+    }
+    .glide__slide__desc {
+        line-height: 30px;
+    }
+    .glide__slide button {
+        height: 60px;
+    }
+    .glide__slide button {
         font-size: 21px;
     }
-    .glide__arrow{
+    .glide__arrow {
         top: 85%;
-
     }
     .glide__arrow {
         height: 35px;
         width: 45px;
     }
-    .glide__arrow img{
+    .glide__arrow img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
-    .header__wrapper a{
+    .header__wrapper a {
         height: 62px;
     }
-    .header__wrapper a img{
+    .header__wrapper a img {
         width: initial;
         height: 100%;
     }
-    .header__nav__element button{
+    .header__nav__element button {
         font-size: 17px;
     }
-    .contact{
+    .contact {
         height: initial;
         min-height: initial;
     }
-    .contact_wrapper{
+    .contact_wrapper {
         height: initial;
-        min-height: initial; 
+        min-height: initial;
     }
 }
 @media only screen and (max-width: 768px) {
-    .header__languages{
+    .header__languages {
         display: none;
         visibility: hidden;
     }
-    .header__navigation{
+    .header__navigation {
         display: none;
         visibility: hidden;
     }
-    .main__info{
+    .main__info {
         top: 150px;
         left: initial;
         position: initial;
@@ -2432,51 +2389,50 @@ text-decoration-skip-ink: none;
         font-weight: 600;
         line-height: 31px;
     }
-    .main__desc{
+    .main__desc {
         font-size: 13px;
         margin-top: 22px;
         line-height: 21px;
-
     }
     .main__buttons {
         margin-top: 31px;
     }
-    .main__car{
+    .main__car {
         transform: initial;
         width: 100%;
         left: initial;
         right: initial;
     }
-    .main__car__main__img{
+    .main__car__main__img {
         width: 100%;
-    position: absolute;
-    z-index: 100;
-    bottom: 0px;
+        position: absolute;
+        z-index: 100;
+        bottom: 0px;
     }
-    .main__buttons{
+    .main__buttons {
         width: 100%;
     }
-    .main__buttons button{
+    .main__buttons button {
         width: 40%;
     }
-    .main__car{
+    .main__car {
         height: 237px;
     }
-    .main__buttons button:nth-child(1){
+    .main__buttons button:nth-child(1) {
         width: 140px;
         height: 40px;
         font-size: 10.5px;
     }
-    .main__buttons button:nth-child(2){
+    .main__buttons button:nth-child(2) {
         width: 140px;
-        height: 40px; 
+        height: 40px;
         font-size: 14.5px;
     }
     .main__car__dot-white {
         width: 12px;
         height: 12px;
     }
-    .main__car__dot{
+    .main__car__dot {
         height: 20px;
         width: 20px;
     }
@@ -2486,21 +2442,21 @@ text-decoration-skip-ink: none;
         top: 0px;
         left: 33px;
     }
-    .car-vector1 img{
+    .car-vector1 img {
         width: 100%;
     }
     .main__car__dot1 {
         top: 80px;
         left: 56px;
     }
-    .car-desc1{
+    .car-desc1 {
         top: -27px;
         left: 11px;
         font-size: 15px;
     }
     .main__car__dot2 {
         top: 152px;
-    left: 313px;
+        left: 313px;
     }
 
     .car-vector2 {
@@ -2508,7 +2464,7 @@ text-decoration-skip-ink: none;
         height: 100px;
         left: 284px;
     }
-    .car-vector2 img{
+    .car-vector2 img {
         height: 100%;
     }
     .car-desc2 {
@@ -2523,7 +2479,7 @@ text-decoration-skip-ink: none;
         right: 104px;
         height: 111px;
     }
-    .car-vector5 img{
+    .car-vector5 img {
         height: 100%;
     }
     .main__car__dot4 {
@@ -2543,7 +2499,7 @@ text-decoration-skip-ink: none;
         right: 253px;
         height: 142px;
     }
-    .car-vector4 img{
+    .car-vector4 img {
         height: 100%;
     }
     .car-desc4 {
@@ -2553,43 +2509,42 @@ text-decoration-skip-ink: none;
         right: 216px;
         font-size: 12px;
     }
-    .about_us{
+    .about_us {
         margin-top: 0;
     }
-    .about_us__name{
+    .about_us__name {
         font-size: 19.5px;
     }
     .about_us__desc-text p {
         font-size: 11.5px;
         line-height: 24px;
     }
-    .about_us__image-car img{
+    .about_us__image-car img {
         height: initial;
         width: 100%;
     }
-    .about_us__wrapper{
+    .about_us__wrapper {
         height: initial;
         flex-direction: column;
     }
-    .about_us__image{
-        width: 100%;
-
-    }
-    .about_us__content{
+    .about_us__image {
         width: 100%;
     }
-    .about_us__image-car{
+    .about_us__content {
+        width: 100%;
+    }
+    .about_us__image-car {
         position: initial;
     }
-    .about_us__image-placeholder1{
+    .about_us__image-placeholder1 {
         display: none;
-        visibility: hidden  ;
+        visibility: hidden;
     }
-    .american__car__block img{
+    .american__car__block img {
         height: 50px;
         width: 100px;
     }
-    .about_us__container{
+    .about_us__container {
         width: 95%;
         margin: 0 auto;
     }
@@ -2600,21 +2555,20 @@ text-decoration-skip-ink: none;
         display: none;
         visibility: hidden;
     }
-    .american__wrapper{
+    .american__wrapper {
         width: 100%;
     }
-    .american__text__block{
+    .american__text__block {
         width: 95%;
         margin: 0 auto;
     }
-    .about_us__container{
+    .about_us__container {
         width: 100%;
     }
-    .about_us__desc{
-
+    .about_us__desc {
         margin: 0 auto;
     }
-    .about_us__content{
+    .about_us__content {
         width: 95%;
         margin: 0 auto;
     }
@@ -2622,15 +2576,14 @@ text-decoration-skip-ink: none;
         font-size: 20px;
         line-height: 36px;
     }
-    .about_us__content__desc{
+    .about_us__content__desc {
         padding-right: 0px;
-
     }
-    .about_us__content__desc p{
+    .about_us__content__desc p {
         font-size: 14px;
         line-height: 26px;
     }
-    .catalog__name{
+    .catalog__name {
         height: 105px;
         width: 100%;
         background-size: 100%;
@@ -2638,11 +2591,11 @@ text-decoration-skip-ink: none;
     .catalog__name p {
         font-size: 19px;
     }
-    .catalog__swiper{
+    .catalog__swiper {
         display: flex;
         flex-direction: column-reverse;
     }
-    .glide__slide__image  {
+    .glide__slide__image {
         height: 210px;
         width: 100%;
         border-radius: 5px;
@@ -2651,18 +2604,18 @@ text-decoration-skip-ink: none;
         align-items: center;
         justify-content: center;
     }
-    .glide__slide__image img{
+    .glide__slide__image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
-    .glide__slide__wrapper{
+    .glide__slide__wrapper {
         padding: 10px;
     }
-    .glide__slide{
+    .glide__slide {
         height: 359px;
     }
-    .glide__slide__desc p{
+    .glide__slide__desc p {
         font-size: 13px;
         line-height: 23px;
     }
@@ -2672,257 +2625,398 @@ text-decoration-skip-ink: none;
         height: 46px;
         font-size: 18px;
     }
-    .glide__track{
+    .glide__track {
         height: 464px;
         margin-top: 30px;
     }
     .glide__slides {
         height: 567px;
     }
-    .glide__arrow{
+    .glide__arrow {
         top: 104%;
-
     }
     .glide__arrow--right {
         right: 25%;
     }
-    .glide__arrow--left{
+    .glide__arrow--left {
         left: 25%;
     }
-    .catalog__swiper__wrapper{
+    .catalog__swiper__wrapper {
         height: initial;
     }
-    .catalog__swiper-button{
+    .catalog__swiper-button {
         padding-right: 0px;
         justify-content: center;
     }
-    
+
     .catalog__swiper-button {
         margin-top: 84px;
-        }
-        .gallery__name {
-            height: 86px;
-        }
-        .gallery__name-text{
-            opacity: 0.9;
-        }
-        .gallery__images__wrapper{
-            flex-wrap: wrap;
-            flex-direction: column;
+    }
+    .gallery__name {
+        height: 86px;
+    }
+    .gallery__name-text {
+        opacity: 0.9;
+    }
+    .gallery__images__wrapper {
+        flex-wrap: wrap;
+        flex-direction: column;
 
-            height: initial;
-            width: 95%;
-            margin: 0 auto;
-            margin-top: 20px;
-        }
-        .gallery__images__small{
-            width: 100%;
-        }
-        .gallery__images__small a:nth-child(1){
-            margin-bottom: 20px;
-        }
-        .gallery__images__small img{
-            width: 100%;
-            height: 200px;
-        }
-        .gallery__images__big{
-            width: 100%;
-            height: 200px;
-            margin: 20px 0px;
-        }
-        .gallery__images__medium img{
-            margin-top: 20px;
-        }
-        .gallery{
-            z-index: 400;
-        }
-        .gallery__car__placeholder{
-            display: none;
-            visibility: hidden;
-        }
-        .about_us__image-car{
-            margin-top: 31px;
-        }
-        .map__name h4{
-            font-size: 20px;
-            line-height: 30px;
-        }
-        .map__name p{
-            font-size: 16px;
-            font-style: italic;
-            font-weight: 300;
-            line-height: 20.8px;
-        }
-        .map__container-map img{
-            width: 100%;
-            height: initial;
-        }
-        .map {
-            margin-top: 40px;
-        }
-        .map__container {
-            height: 300px;
-        }
-        .map__container-desc{
-            left: 10px;
-            bottom: -205px;
-        }
-        .map__container-desc p {
-            font-size: 27px;
-            line-height: 30px;
-        }
-        .map__container-desc span {
-            font-size: 16px;
-            line-height: 20px;
-        }
-        .map_margin{
-            margin-top: 10px;
-        }
-        .map__container{
-                margin-top: 20px;
-        }
-        .contact__text__block{
-            position: initial;
-            left: 0px;
-            width: 95%;
-            margin: 0 auto;
-        }
-        .contact__text__block img{
-            width: 100%;
-        }
-        .contact_wrapper__animation{
-            height: 80px;
-        }
-        .contact__car__block{
-            height: 60px;
-        }
-        .contact__car__block img{
-            height: 100%;
-            
-        }
+        height: initial;
+        width: 95%;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    .gallery__images__small {
+        width: 100%;
+    }
+    .gallery__images__small a:nth-child(1) {
+        margin-bottom: 20px;
+    }
+    .gallery__images__small img {
+        width: 100%;
+        height: 200px;
+    }
+    .gallery__images__big {
+        width: 100%;
+        height: 200px;
+        margin: 20px 0px;
+    }
+    .gallery__images__medium img {
+        margin-top: 20px;
+    }
+    .gallery {
+        z-index: 400;
+    }
+    .gallery__car__placeholder {
+        display: none;
+        visibility: hidden;
+    }
+    .about_us__image-car {
+        margin-top: 31px;
+    }
+    .map__name h4 {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .map__name p {
+        font-size: 16px;
+        font-style: italic;
+        font-weight: 300;
+        line-height: 20.8px;
+    }
+    .map__container-map img {
+        width: 100%;
+        height: initial;
+    }
+    .map {
+        margin-top: 40px;
+    }
+    .map__container {
+        height: 300px;
+    }
+    .map__container-desc {
+        left: 10px;
+        bottom: -205px;
+    }
+    .map__container-desc p {
+        font-size: 27px;
+        line-height: 30px;
+    }
+    .map__container-desc span {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .map_margin {
+        margin-top: 10px;
+    }
+    .map__container {
+        margin-top: 20px;
+    }
+    .contact__text__block {
+        position: initial;
+        left: 0px;
+        width: 95%;
+        margin: 0 auto;
+    }
+    .contact__text__block img {
+        width: 100%;
+    }
+    .contact_wrapper__animation {
+        height: 80px;
+    }
+    .contact__car__block {
+        height: 60px;
+    }
+    .contact__car__block img {
+        height: 100%;
+    }
 
+    .contact__form__name-message {
+        flex-direction: column;
+        margin-bottom: 30px;
+        height: initial;
+    }
+    .contact__form__number-country {
+        flex-direction: column;
+        height: initial;
+    }
+    .contact__main__container {
+        width: 95%;
+        margin: 0 auto;
+    }
+    .contact__form__container {
+        width: 100%;
+    }
 
-        .contact__form__name-message{
-            flex-direction: column;
-            margin-bottom: 30px;
-            height: initial;
-        }
-        .contact__form__number-country{
-            flex-direction: column;
-            height: initial;
-        }
-        .contact__main__container{
-            width: 95%;
-            margin: 0 auto;
-        }
-        .contact__form__container{
-            width: 100%;
-        }
+    .contact__form__email-contact {
+        height: initial;
+        flex-direction: column;
+    }
+    .contact__main__container {
+        width: 90%;
+    }
+    .contact__form__block {
+        width: 100%;
+    }
+    .contact__form__block-select span {
+        width: 100% !important;
+    }
+    .contact__form__email-contact {
+        height: initial;
+        flex-direction: column;
+    }
 
-        .contact__form__email-contact{
-            height: initial;
-            flex-direction: column;
-        }
-        .contact__main__container {
-            width: 90%;
-        }
-        .contact__form__block{
-            width: 100%;
-        }
-        .contact__form__block-select span {
-            width: 100% !important;
+    .warranty__container {
+        flex-direction: column;
+    }
+    .warranty__name {
+        order: 1;
+        width: 100%;
+        height: 50px;
+    }
+    .warranty__name p {
+        transform: initial;
+        left: initial;
+        bottom: initial;
+        font-size: 24px;
+        width: 100%;
+        text-align: center;
+    }
 
-        }
-        .contact__form__email-contact{
-            height: initial;
-            flex-direction: column;
-        }
+    .warranty__element {
+        width: 100%;
+        order: 2;
+    }
+    .warranty__element__desc {
+        position: initial;
+        width: 95%;
+        margin: 0 auto;
+    }
+    .warranty__element__image {
+        height: 300px;
+    }
+    .warranty__element {
+        height: 485px;
+    }
+    .warranty__element__desc p {
+        font-size: 14px;
+    }
 
+    .warranty__element2 {
+        order: 3;
+        height: 485px;
+        width: 100%;
+    }
+    .warranty__element__desc2 {
+        position: initial;
+        width: 95%;
+        margin: 0 auto;
+    }
+    .warranty__element__image2 {
+        height: 300px;
+        bottom: 0;
+        top: initial;
+    }
 
+    .warranty__element__desc2 p {
+        font-size: 14px;
+    }
+    .warranty__element__image-link2 {
+        left: 24px;
+    }
+    .warranty__element__image-link {
+        width: 234px;
+        height: 55px;
+    }
+    .warranty__element__image-link2 {
+        width: 234px;
+        height: 55px;
+    }
+    .warranty__element2 {
+        margin-top: 40px;
+    }
+    .catalog__name {
+        width: 95%;
+    }
+    .warranty__element__image {
+        height: 290px;
+    }
+    .warranty__element__image2 {
+        height: 290px;
+    }
 
+    .catalog__page__container {
+        align-items: center;
+        flex-direction: column;
+        margin-top: 40px;
+    }
 
-        .warranty__container{
-            flex-direction: column;
-        }
-        .warranty__name{
-            order: 1;
-            width: 100%;
-            height: 50px;
-        }
-        .warranty__name p{
-            transform: initial;
-            left: initial;
-            bottom: initial;
-            font-size: 24px;
-            width: 100%;
-            text-align: center;
-        }
-        
-        .warranty__element{
-            width: 100%;
-            order: 2;
-        }
-        .warranty__element__desc{
-            position: initial;
-            width: 95%;
-            margin: 0 auto;
-        }
-        .warranty__element__image{
-            height: 300px;
-        }
-        .warranty__element{
-            height: 485px;
-        }
-        .warranty__element__desc p {
-            font-size: 14px;
-        }
+    .catalog__page__element {
+        width: 300px;
+    }
+    .catalog__page__element-content {
+        width: 300px;
+    }
+    .catalog__page__element-image {
+        width: 100%;
+        height: 227px;
+    }
+    .catalog__page__element-name {
+        font-size: 20px;
+    }
+    .catalog__page__element-name {
+        font-size: 14px;
+    }
+    .catalog__page__element-content-container {
+        padding: 12px;
+    }
+    .catalog__page__element-button button {
+        height: 58px;
+        width: 272px;
+        font-size: 21px;
+        font-weight: 700;
+        line-height: 20px;
+    }
 
+    /************POPUP****************/
+    .popup__content {
+        width: initial;
+        height: initial;
+        position: absolute;
+        left: calc(50% - 150px);
+        /* top: calc(50% - 307.5px); */
+        top: 10%;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+    }
+    .popup__wrapper{
+        width: 300px;
+    /* height: 100%; */
+    height: initial;
+    /* position: relative; */
+    position: initial;
+    display: flex
+;
+    flex-direction: column-reverse;
+    }
+    .popup__content_container{
+        position: initial;
+        width: 100%;
+        height: initial;
+        background-color: #fff;
+        border-radius: 0%;
+        padding: 14px;
+    }
+    .popup__close{
+        position: absolute;
+        top: 10px;
+        right: 4%;
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        font-weight: 600;
+        background-color: #34c81e;
+        color: #fff;
+        z-index: 800;
+        border: none;
+        font-size: 19px;
+        cursor: pointer;
+    }
+    .popup__name{
+        font-family: Rubik Mono One;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 20.42px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: #CE1103;
+    margin-bottom: 0px;
+    }
+    .popup__text li{
+        font-family: Inter;
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 18px;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+    }
+    .popup__p {
+        margin-top: 0px;
+        font-size: 12px;
+        font-family: Inter;
+        line-height: 19px;
+    }
+    .slider-track{
+        position: relative;
+        width: 100%;
+        height: 24px;
+        background: #f3f3f3;
+        border-radius: 36px;
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+        display: flex
+    ;
+        align-items: center;
+        padding: 5px;
+    }
+    .slider-button{
+        position: absolute;
+        left: 0;
+        width: 100px;
+        height: 33px;
+        background: linear-gradient(90deg, #008000 0%, #800000 100%);
+        border-radius: 36px;
+        border: none;
+        color: #fff;
+        font-weight: bold;
+        cursor: grab;
+        display: flex
+    ;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+        font-size: 11px;
+    }
+    .popup__auto{
+        position: initial;
 
+    width: 100%;
+    height: 150px;
 
-
-
-
-        .warranty__element2{
-            order: 3;
-            height: 485px;
-            width: 100%;
-        }
-        .warranty__element__desc2{
-            position: initial;
-            width: 95%;
-            margin: 0 auto;
-        }
-        .warranty__element__image2{
-            height: 300px;
-            bottom: 0;
-            top: initial;
-        }
-        
-        
-        .warranty__element__desc2 p {
-            font-size: 14px;
-        }
-        .warranty__element__image-link2 {
-            left: 24px;
-        }
-        .warranty__element__image-link {
-            width: 234px;
-            height: 55px;
-        }
-        .warranty__element__image-link2 {
-            width: 234px;
-            height: 55px;
-        }
-        .warranty__element2{
-            margin-top: 40px;
-        }
-        .catalog__name {
-            width: 95%;
-        }
-        .warranty__element__image{
-            height: 290px;
-        }
-        .warranty__element__image2{
-            height: 290px;
-        }
+    /* background-color: red; */
+    /* border-bottom: 1px solid #fff; */
+    border: 1px solid #fff;
+    border-radius: 11px;
+    }
+    .popup__auto__image{
+        position: initial;
+    }
+    .catalog__page__element-content{
+        height: 425px;
+    }
+    .catalog__page__element-desc{
+        font-size: 15px;
+        line-height: 32px;
+    }
 }

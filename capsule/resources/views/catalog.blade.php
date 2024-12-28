@@ -278,7 +278,7 @@
                     <!---popup auto---->
                     <div class="popup__auto">
                         <div class="popup__auto__image">
-                            <img src="{{ asset('../images/popup.png') }}" alt="" srcset="">
+                            <img src="{{ asset('../public/images/popup.png') }}" alt="" srcset="">
                         </div>
 
                         <div class="popup__auto__line">
