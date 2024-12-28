@@ -234,7 +234,7 @@
                               
                             </div>
                             <div class="warranty__element__image-link">
-                                <a href="">Verification check</a>
+                                <a target="_blank" href="{{ route('verification') }}">Verification check</a>
                             </div>
                         </div>
                         <div class="warranty__element__desc">
@@ -252,7 +252,7 @@
                               
                             </div>
                             <div class="warranty__element__image-link2">
-                                <a href="">warranty check</a>
+                                <a target="_blank" href="{{ route('warranty') }}">warranty check</a>
                             </div>
                         </div>
                         <div class="warranty__element__desc2">

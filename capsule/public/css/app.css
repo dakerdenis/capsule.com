@@ -2269,6 +2269,49 @@ text-decoration-skip-ink: none;
         font-size: 20px;
         margin-top: 0;
     }
+
+    .warranty__name p{
+        transform: rotate(-77deg);
+        left: -194px;
+    }
+
+
+    
+    .warranty__element__desc2{
+        height: 137px;
+    }
+    .warranty__element2{
+        width: 45%;
+        height: 550px;
+    }
+    .warranty__element__image2{
+        height: 400px;
+    }
+    .warranty__element__desc2 p{
+        font-size: 16px;
+        line-height: 30px;
+    }
+
+
+    .warranty__element__desc{
+        height: 137px;
+    }
+    .warranty__element{
+        width: 45%;
+        height: 550px;
+    }
+    .warranty__element__image{
+        height: 400px;
+    }
+    .warranty__element__desc p{
+        font-size: 16px;
+        line-height: 30px;
+    }
+    
+    .warranty__element__image-link2 {
+        left: 60px;
+    }
+
 }
 
 @media only screen and (max-width: 1370px) {
@@ -2793,5 +2836,93 @@ text-decoration-skip-ink: none;
         .contact__form__email-contact{
             height: initial;
             flex-direction: column;
+        }
+
+
+
+
+        .warranty__container{
+            flex-direction: column;
+        }
+        .warranty__name{
+            order: 1;
+            width: 100%;
+            height: 50px;
+        }
+        .warranty__name p{
+            transform: initial;
+            left: initial;
+            bottom: initial;
+            font-size: 24px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .warranty__element{
+            width: 100%;
+            order: 2;
+        }
+        .warranty__element__desc{
+            position: initial;
+            width: 95%;
+            margin: 0 auto;
+        }
+        .warranty__element__image{
+            height: 300px;
+        }
+        .warranty__element{
+            height: 485px;
+        }
+        .warranty__element__desc p {
+            font-size: 14px;
+        }
+
+
+
+
+
+
+        .warranty__element2{
+            order: 3;
+            height: 485px;
+            width: 100%;
+        }
+        .warranty__element__desc2{
+            position: initial;
+            width: 95%;
+            margin: 0 auto;
+        }
+        .warranty__element__image2{
+            height: 300px;
+            bottom: 0;
+            top: initial;
+        }
+        
+        
+        .warranty__element__desc2 p {
+            font-size: 14px;
+        }
+        .warranty__element__image-link2 {
+            left: 24px;
+        }
+        .warranty__element__image-link {
+            width: 234px;
+            height: 55px;
+        }
+        .warranty__element__image-link2 {
+            width: 234px;
+            height: 55px;
+        }
+        .warranty__element2{
+            margin-top: 40px;
+        }
+        .catalog__name {
+            width: 95%;
+        }
+        .warranty__element__image{
+            height: 290px;
+        }
+        .warranty__element__image2{
+            height: 290px;
         }
 }
