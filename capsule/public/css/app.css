@@ -3019,4 +3019,25 @@ h6 {
         font-size: 15px;
         line-height: 32px;
     }
+    .catalog__page__element{
+        height: 495px;
+    }
+    .catalog_page__button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contact__form__container form {
+        padding: 18px 17px;
+    }
+    .contact__form__container {
+        height: 780px;
+    }
+    .checkbox-text{
+        font-size: 10px;
+    }
+    .contact__adress__block{
+        width: 100%;
+    }
 }
