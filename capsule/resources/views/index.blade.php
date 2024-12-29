@@ -10,7 +10,7 @@
             <div class="header__wrapper">
                 
                 <a href="{{ url(app()->getLocale()) }}">
-                    <img src="{{ asset('public/images/logo_main.png') }}" alt="">
+                    <img src="{{ asset('images/logo_main.png') }}" alt="">
                 </a>
                 
 
@@ -51,9 +51,27 @@
                 </div>
                 
                 
+                <div class="header__burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+            </div>      
 
 
-            </div>
+                <!-- Full-screen mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu__close" id="mobileMenuClose">X</button>
+        <div class="mobile-menu__content">
+            <a href="#home">Home</a>
+            <a href="#about_us">About</a>
+            <a href="#warranty">Warranty</a>
+            <a href="#catalog">Catalogue</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contacts</a>
+        </div>
+    </div>
         </header>
 
         <!---main home section---->
@@ -950,6 +968,47 @@
 
         glide.mount();
     });
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const burger = document.querySelector('.header__burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuClose = document.getElementById('mobileMenuClose');
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu a'); // Select all links inside the mobile menu
+    const body = document.body;
+
+    // Open mobile menu
+    burger.addEventListener('click', () => {
+        mobileMenu.classList.add('active');
+        body.style.overflow = 'hidden'; // Disable scrolling
+    });
+
+    // Close mobile menu on close button click
+    mobileMenuClose.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        body.style.overflow = ''; // Enable scrolling
+    });
+
+    // Close mobile menu on link click
+    mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            body.style.overflow = ''; // Enable scrolling
+        });
+    });
+
+    // Close mobile menu on click outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.header__burger') && !e.target.closest('.mobile-menu')) {
+            mobileMenu.classList.remove('active');
+            body.style.overflow = ''; // Enable scrolling
+        }
+    });
+});
+
+
+
+
 </script>
 <script src="{{ asset('public/js/main.js') }}"></script>
 
