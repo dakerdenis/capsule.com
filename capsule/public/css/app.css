@@ -2400,25 +2400,25 @@ h6 {
 }
 
 /* Mobile Menu */
+/* Mobile menu default hidden state */
 .mobile-menu {
-    display: none;
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
+    right: -100%; /* Start off the screen */
+    width: 100%; /* Width of the menu */
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 999;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-/* Mobile Menu Active State */
-.mobile-menu.active {
-    display: flex;
+    background-color: #000000;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: right 0.2s ease-in-out; /* Slide-in animation */
     z-index: 1000;
 }
+
+/* When the menu is active */
+.mobile-menu.active {
+    right: 0; /* Slide into view */
+    z-index: 1000;
+}
+
 
 /* Mobile Menu Content */
 .mobile-menu__content {

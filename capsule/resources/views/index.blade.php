@@ -974,7 +974,7 @@
     const burger = document.querySelector('.header__burger');
     const mobileMenu = document.getElementById('mobileMenu');
     const mobileMenuClose = document.getElementById('mobileMenuClose');
-    const mobileMenuLinks = document.querySelectorAll('.mobile-menu a'); // Select all links inside the mobile menu
+    const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
     const body = document.body;
 
     // Open mobile menu
@@ -995,14 +995,6 @@
             mobileMenu.classList.remove('active');
             body.style.overflow = ''; // Enable scrolling
         });
-    });
-
-    // Close mobile menu on click outside
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.header__burger') && !e.target.closest('.mobile-menu')) {
-            mobileMenu.classList.remove('active');
-            body.style.overflow = ''; // Enable scrolling
-        }
     });
 });
 
