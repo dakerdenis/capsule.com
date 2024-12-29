@@ -10,7 +10,7 @@
             <div class="header__wrapper">
                 
                 <a href="{{ url(app()->getLocale()) }}">
-                    <img src="{{ asset('images/logo_main.png') }}" alt="">
+                    <img src="{{ asset('public/images/logo_main.png') }}" alt="">
                 </a>
                 
 
@@ -64,12 +64,26 @@
     <div class="mobile-menu" id="mobileMenu">
         <button class="mobile-menu__close" id="mobileMenuClose">X</button>
         <div class="mobile-menu__content">
-            <a href="#home">Home</a>
-            <a href="#about_us">About</a>
-            <a href="#warranty">Warranty</a>
-            <a href="#catalog">Catalogue</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#contact">Contacts</a>
+            <div class="mobile__menu__container">
+                <div class="mobile__burger-logo">
+                    <img src="{{ asset('public/images/logo_main.png') }}" alt="">
+                </div>
+                <div class="mobile__burger-navigation">
+                    <a href="#home">Home</a>
+                    <a href="#about_us">About</a>
+                    <a href="#warranty">Warranty</a>
+                    <a href="#catalog">Catalogue</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#contact">Contacts</a>
+                </div>
+                <div class="mobile__burger__created">
+                    
+                </div>
+            </div>
+
+            <div class="mobile__menu__placeholder">
+                <img src="{{asset('public/images/about_placeholder1.png')}}" alt="">
+            </div>
         </div>
     </div>
         </header>
