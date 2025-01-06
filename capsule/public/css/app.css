@@ -2380,9 +2380,7 @@ h6 {
 @media only screen and (max-width: 768px) {
 /* Burger Icon */
 /* Burger Icon */
-.header{
-    top: 0;
-}
+
 .header__burger {
     display: flex;
     visibility: visible;
@@ -3167,7 +3165,7 @@ h6 {
     }
 
     .contact__form__container form {
-        padding: 18px 17px;
+        padding: 18px 10px;
     }
     .contact__form__container {
         height: 780px;
@@ -3178,4 +3176,29 @@ h6 {
     .contact__adress__block{
         width: 100%;
     }
+    .header{
+        top: 0;
+    }
+    .contact__adress__element {
+        height: 92px;
+    }
+    .select2-container{
+        width: 100%;
+    }
+    .contact__form-submit {
+        margin-top: 13px;
+    }
+    .contact__form__block-name {
+        font-size: 17px;
+    }
+    .radio-label {
+        margin-left: 21px;
+        font-size: 16px;
+
+    }
+    .checkbox-text{
+        line-height: 15px;
+    }
+
+ 
 }
