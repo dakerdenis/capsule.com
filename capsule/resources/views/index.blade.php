@@ -8,11 +8,11 @@
         <!---header-->
         <header class="header" id="header">
             <div class="header__wrapper">
-                
+
                 <a href="{{ url(app()->getLocale()) }}">
                     <img src="{{ asset('public/images/logo_main.png') }}" alt="">
                 </a>
-                
+
 
                 <div class="header__navigation">
                     <div class="header__nav__burger">
@@ -37,8 +37,8 @@
                     <div class="header__nav__element">
                         <button data-target="contact">Contacts</button>
                     </div>
-                    <img src="{{ asset('public/images/header_rectangle.png') }}" id="header_rectangle" class="header_rectangle"
-                        alt="" />
+                    <img src="{{ asset('public/images/header_rectangle.png') }}" id="header_rectangle"
+                        class="header_rectangle" alt="" />
                 </div>
 
 
@@ -49,43 +49,43 @@
                         <a href="{{ url('/de') }}" class="{{ app()->getLocale() === 'de' ? 'active' : '' }}">DE</a>
                     </div>
                 </div>
-                
-                
+
+
                 <div class="header__burger">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
 
-            </div>      
-
-
-                <!-- Full-screen mobile menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <button class="mobile-menu__close" id="mobileMenuClose">X</button>
-        <div class="mobile-menu__content">
-            <div class="mobile__menu__container">
-                <div class="mobile__burger-logo">
-                    <img src="{{ asset('public/images/logo_main.png') }}" alt="">
-                </div>
-                <div class="mobile__burger-navigation">
-                    <a href="#home">Home</a>
-                    <a href="#about_us">About</a>
-                    <a href="#warranty">Warranty</a>
-                    <a href="#catalog">Catalogue</a>
-                    <a href="#gallery">Gallery</a>
-                    <a href="#contact">Contacts</a>
-                </div>
-                <div class="mobile__burger__created">
-                    
-                </div>
             </div>
 
-            <div class="mobile__menu__placeholder">
-                <img src="{{asset('public/images/about_placeholder1.png')}}" alt="">
+
+            <!-- Full-screen mobile menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <button class="mobile-menu__close" id="mobileMenuClose">X</button>
+                <div class="mobile-menu__content">
+                    <div class="mobile__menu__container">
+                        <div class="mobile__burger-logo">
+                            <img src="{{ asset('public/images/logo_main.png') }}" alt="">
+                        </div>
+                        <div class="mobile__burger-navigation">
+                            <a href="#home">Home</a>
+                            <a href="#about_us">About</a>
+                            <a href="#warranty">Warranty</a>
+                            <a href="#catalog">Catalogue</a>
+                            <a href="#gallery">Gallery</a>
+                            <a href="#contact">Contacts</a>
+                        </div>
+                        <div class="mobile__burger__created">
+
+                        </div>
+                    </div>
+
+                    <div class="mobile__menu__placeholder">
+                        <img src="{{ asset('public/images/about_placeholder1.png') }}" alt="">
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
         </header>
 
         <!---main home section---->
@@ -98,16 +98,14 @@
                         <h1>{{ __('main.title_line_1') }}</h1>
                         <h1>{{ __('main.title_line_2') }}</h1>
                     </div>
-                    
+
                     <div class="main__desc">
-                        Cutting-edge Paint Protection Film production delivering unmatched quality.
-                        A forward-thinking catalog of clear, colored, and tinted PPFs, powered by advanced nanotechnology
-                        research and innovation.
+                        {{ __('main.title_main_text') }}
                     </div>
                     <div class="main__buttons">
-                        <button>Contact us now</button>
+                        <button>{{ __('main.title_main_contact') }}</button>
 
-                        <button>Learn more</button>
+                        <button>{{ __('main.title_main_learn') }}</button>
                     </div>
                 </div>
 
@@ -198,20 +196,20 @@
         <section class="about_us" id="about_us">
             <div class="about_us__container">
                 <div class="about_us__name">
-                    who we are and what we do
+                    {{ __('main.about_us__name') }}
                 </div>
                 <div class="about_us__desc">
                     <div class="about_us__desc-text">
                         <p>
-                            Capsule provides reliable protection against chemical exposure and mechanical damage while
-                            maintaining perfect transparency and color depth, setting
-                            new standards in automotive coating protection.
+                            {{ __('main.about_us__desc-text1') }}  
                         </p>
-                        <p>The film is made exclusively from high-quality polyurethane materials, ensuring durability and
-                            reliability. It is easy to apply,
-                            features a smooth texture, and offers unique water-repellent and self-healing properties thanks
-                            to
-                            advanced nanotechnology.</p>
+                        <p>
+                            {{ __('main.about_us__desc-text2') }} 
+                        </p>
+
+                        <p>
+                            {{ __('main.about_us__desc-text3') }} 
+                        </p>
                     </div>
                     <div class="about_us__desc-back">
 
@@ -226,8 +224,8 @@
                         </div>
 
                         <!--placeholders--->
-                        <img class="about_us__image-placeholder1" src="{{ asset('public/images/about_placeholder1.png') }}"
-                            alt="" srcset="">
+                        <img class="about_us__image-placeholder1"
+                            src="{{ asset('public/images/about_placeholder1.png') }}" alt="" srcset="">
                     </div>
 
                     <div class="about_us__content">
@@ -263,14 +261,16 @@
                     <div class="warranty__element__wrapper">
                         <div class="warranty__element__image">
                             <div class="warranty__element__image-block">
-                              
+
                             </div>
                             <div class="warranty__element__image-link">
                                 <a target="_blank" href="{{ route('verification') }}">Verification check</a>
                             </div>
                         </div>
                         <div class="warranty__element__desc">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. Sed nec convallis elit. Nullam id eros ac velit consequat convallis. Nam vulputate nibh a orci egestas laoreet.</p>
+                            <p>
+                                {{ __('main.warranty__element__verification') }}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -281,14 +281,16 @@
                     <div class="warranty__element__wrapper2">
                         <div class="warranty__element__image2">
                             <div class="warranty__element__image-block2">
-                              
+
                             </div>
                             <div class="warranty__element__image-link2">
                                 <a target="_blank" href="{{ route('warranty') }}">warranty check</a>
                             </div>
                         </div>
                         <div class="warranty__element__desc2">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus accumsan a pharetra nisl. Sed nec convallis elit. Nullam id eros ac velit consequat convallis. Nam vulputate nibh a orci egestas laoreet.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus
+                                accumsan a pharetra nisl. Sed nec convallis elit. Nullam id eros ac velit consequat
+                                convallis. Nam vulputate nibh a orci egestas laoreet.</p>
                         </div>
                     </div>
                 </div>
@@ -313,7 +315,7 @@
                             VIEW ALL items
                         </a>
                     </div>
-                    
+
 
                     <div class="catalog__swiper__wrapper">
                         <div class="glide">
@@ -418,10 +420,12 @@
                             </div>
                             <div class="glide__arrows" data-glide-el="controls">
                                 <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-                                    <img src="{{ asset('public/images/arrow_catalog.png') }}" alt="" srcset="">
+                                    <img src="{{ asset('public/images/arrow_catalog.png') }}" alt=""
+                                        srcset="">
                                 </button>
                                 <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
-                                    <img src="{{ asset('public/images/arrow_catalog.png') }}" alt="" srcset="">
+                                    <img src="{{ asset('public/images/arrow_catalog.png') }}" alt=""
+                                        srcset="">
                                 </button>
                             </div>
                         </div>
@@ -492,7 +496,51 @@
                     </div>
                 </div>
 
+                <div class="gallery__images__wrapper">
+                    <div class="gallery__images__small">
+                        <a href="{{ asset('public/images/car2.png') }}" data-fancybox="gallery"
+                            data-caption="Royal Park L-16A">
+                            <img src="{{ asset('public/images/car2.png') }}" alt="Gallery Image" />
+                        </a>
+                        <a href="{{ asset('public/images/car1.png') }}" data-fancybox="gallery"
+                            data-caption="Royal Park L-16A">
+                            <img src="{{ asset('public/images/car1.png') }}" alt="Gallery Image" />
+                        </a>
+                    </div>
+                    <div class="gallery__images__big">
+                        <a href="{{ asset('public/images/car3.jpeg') }}" data-fancybox="gallery"
+                            data-caption="Royal Park L-16A">
+                            <img src="{{ asset('public/images/car3.jpeg') }}" alt="Gallery Image" />
+                        </a>
+                    </div>
+                    <div class="gallery__images__small">
+                        <a href="{{ asset('public/images/car4.jpeg') }}" data-fancybox="gallery"
+                            data-caption="Royal Park L-16A">
+                            <img src="{{ asset('public/images/car4.jpeg') }}" alt="Gallery Image" />
+                        </a>
+                        <a href="{{ asset('public/images/car5.png') }}" data-fancybox="gallery"
+                            data-caption="Royal Park L-16A">
+                            <img src="{{ asset('public/images/car5.png') }}" alt="Gallery Image" />
+                        </a>
+                    </div>
+                    <div class="gallery__images__small gallery__images__medium">
+                        <a href="{{ asset('public/images/car5.jpeg') }}" data-fancybox="gallery"
+                            data-caption="Royal Park L-16A">
+                            <img src="{{ asset('public/images/car5.jpeg') }}" alt="Gallery Image" />
+                        </a>
 
+                    </div>
+                    <div class="gallery__images__small">
+                        <a href="{{ asset('public/images/car7.png') }}" data-fancybox="gallery"
+                            data-caption="Royal Park L-16A">
+                            <img src="{{ asset('public/images/car7.png') }}" alt="Gallery Image" />
+                        </a>
+                        <a href="{{ asset('public/images/car6.png') }}" data-fancybox="gallery"
+                            data-caption="Royal Park L-16A">
+                            <img src="{{ asset('public/images/car6.png') }}" alt="Gallery Image" />
+                        </a>
+                    </div>
+                </div>
 
             </div>
         </section>
@@ -952,71 +1000,67 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const glide = new Glide('.glide', {
-            type: 'carousel',
-            startAt: 0,
-            perView: 4,
-            focusAt: 'center',
-            gap: 40,
-            autoplay: 10000,
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const glide = new Glide('.glide', {
+                type: 'carousel',
+                startAt: 0,
+                perView: 4,
+                focusAt: 'center',
+                gap: 40,
+                autoplay: 10000,
 
-            animationDuration: 800,
-            breakpoints: {
-                1024: {
-                    perView: 2
-                },
-                600: {
-                    perView: 1.5
+                animationDuration: 800,
+                breakpoints: {
+                    1024: {
+                        perView: 2
+                    },
+                    600: {
+                        perView: 1.5
+                    }
                 }
-            }
+            });
+
+            glide.on('move', () => {
+                const slides = document.querySelectorAll('.glide__slide');
+                slides.forEach(slide => slide.classList.remove('is-next'));
+                const nextIndex = (glide.index + 1) % slides.length;
+                slides[nextIndex].classList.add('is-next');
+            });
+
+            glide.mount();
         });
 
-        glide.on('move', () => {
-            const slides = document.querySelectorAll('.glide__slide');
-            slides.forEach(slide => slide.classList.remove('is-next'));
-            const nextIndex = (glide.index + 1) % slides.length;
-            slides[nextIndex].classList.add('is-next');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const burger = document.querySelector('.header__burger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuClose = document.getElementById('mobileMenuClose');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+            const body = document.body;
+
+            // Open mobile menu
+            burger.addEventListener('click', () => {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden'; // Disable scrolling
+            });
+
+            // Close mobile menu on close button click
+            mobileMenuClose.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = ''; // Enable scrolling
+            });
+
+            // Close mobile menu on link click
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    body.style.overflow = ''; // Enable scrolling
+                });
+            });
         });
-
-        glide.mount();
-    });
-
-
-    document.addEventListener('DOMContentLoaded', () => {
-    const burger = document.querySelector('.header__burger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const mobileMenuClose = document.getElementById('mobileMenuClose');
-    const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
-    const body = document.body;
-
-    // Open mobile menu
-    burger.addEventListener('click', () => {
-        mobileMenu.classList.add('active');
-        body.style.overflow = 'hidden'; // Disable scrolling
-    });
-
-    // Close mobile menu on close button click
-    mobileMenuClose.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        body.style.overflow = ''; // Enable scrolling
-    });
-
-    // Close mobile menu on link click
-    mobileMenuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            body.style.overflow = ''; // Enable scrolling
-        });
-    });
-});
-
-
-
-
-</script>
-<script src="{{ asset('public/js/main.js') }}"></script>
+    </script>
+    <script src="{{ asset('public/js/main.js') }}"></script>
 
 
 @endsection
