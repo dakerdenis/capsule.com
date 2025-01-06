@@ -180,7 +180,7 @@
         <!---AMERICAN QUALITY--->
         <section class="american" id="american">
             <div class="american__name">
-                Choose Your Expirience
+                {{ __('main.american__name') }}                 
             </div>
             <div class="american__wrapper">
                 <div class="american__text__block">
@@ -235,17 +235,12 @@
                         </div>
                         <div class="about_us__content__desc">
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus
-                                dapibus accumsan a pharetra nisl. Sed nec convallis elit. Nullam id eros ac velit consequat
-                                convallis. Nam vulputate nibh a orci egestas laoreet. Donec sed iaculis sapien, eget
-                                pharetra diam. Suspendisse euismod enim et ante rhoncus, at volutpat mi interdum.
-                                Suspendisse euismod sollicitudin tellus ut fringilla.
+                                {{ __('main.about_us__content__desc1') }} 
                             </p>
 
-                            <p>Nulla venenatis, dolor et volutpat suscipit, urna urna tempor neque, ac pulvinar velit risus
-                                vel ipsum. Pellentesque nec mauris quis tortor efficitur congue eu et mi. Nullam rutrum et
-                                est sit amet sodales. Cras interdum sapien vel malesuada gravida. Mauris sed lorem in lectus
-                                convallis egestas.</p>
+                            <p>
+                                {{ __('main.about_us__content__desc2') }} 
+                            </p>
                         </div>
                     </div>
                 </div>

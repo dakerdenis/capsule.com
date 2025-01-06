@@ -3168,7 +3168,7 @@ h6 {
         padding: 18px 10px;
     }
     .contact__form__container {
-        height: 780px;
+        height: 745px;
     }
     .checkbox-text{
         font-size: 10px;
@@ -3199,6 +3199,19 @@ h6 {
     .checkbox-text{
         line-height: 15px;
     }
-
- 
+    .contact__adress__content{
+            font-size: 15px;
+    }
+    .contact__adress__name{
+        font-size: 15px;
+    }
+    .radio-group{
+        gap: 4px;
+    }
+    .radio-group input{
+        padding: 5px 0px;
+    }
+    .radio-label {
+        width: 65px;
+    }
 }
