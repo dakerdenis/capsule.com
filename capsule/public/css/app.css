@@ -2459,15 +2459,15 @@ h6 {
     object-fit: cover;
 }
 .mobile__burger-navigation{
-    margin-top: 80px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .mobile__burger-navigation a{
-    font-size: 17px;
+    font-size: 19px;
     color: #fff;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
 }
 /* Mobile Menu Close Button */
 .mobile-menu__close {
@@ -2496,8 +2496,8 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 30px;
-    width: 50px;
+    height: 40px;
+    width: 74px;
     border-radius: 8px;
     font-size: 17px;
     color: #fff;
@@ -3242,5 +3242,14 @@ h6 {
     }
     .radio-label {
         width: 65px;
+    }
+    .american__name {
+        font-size: 21px;
+    }
+    .contact__adress__element:nth-child(2){
+        height: 35px;
+    }
+    .contact__adress__element:nth-child(3){
+        height: 35px;
     }
 }
