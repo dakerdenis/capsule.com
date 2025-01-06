@@ -68,6 +68,10 @@
                         <div class="mobile__burger-logo">
                             <img src="{{ asset('public/images/logo_main.png') }}" alt="">
                         </div>
+                        <div class="mobile__burger-language">
+                            <a href="{{ url('/en') }}" class="{{ app()->getLocale() === 'en' ? 'active' : '' }}">EN</a>
+                            <a href="{{ url('/de') }}" class="{{ app()->getLocale() === 'de' ? 'active' : '' }}">DE</a>
+                        </div>
                         <div class="mobile__burger-navigation">
                             <a href="#home">{{ __('main.header_home') }}</a>
                             <a href="#about_us">{{ __('main.header_about') }}</a>

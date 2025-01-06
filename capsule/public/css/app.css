@@ -2444,7 +2444,7 @@ h6 {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+
     
 }
 .mobile__burger-logo{
@@ -2459,6 +2459,7 @@ h6 {
     object-fit: cover;
 }
 .mobile__burger-navigation{
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2480,9 +2481,32 @@ h6 {
     cursor: pointer;
     z-index: 1001;
 }
+.mobile__burger-language{
+    height: 40px;
+    width: 80%;
+    margin: 0 auto;
 
-
-
+    display: flex;
+    margin-top: 40px;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.mobile__burger-language a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 50px;
+    border-radius: 8px;
+    font-size: 17px;
+    color: #fff;
+    background: linear-gradient(90deg, #bb1216 0%, #581923 100%);
+}
+.mobile__burger-language a.active{
+    background: #581923;
+    color: #ffffffd2;
+}
 
 
 
