@@ -1,6 +1,13 @@
 <?php
 
 return [
+     'header_home'=>'Home',    
+     'header_about'=>'About', 
+     'header_warranty'=>'Warranty', 
+     'header_catalogue'=>'Catalogue', 
+     'header_gallery'=>'Gallery', 
+     'header_contacts'=>'Contacts', 
+
     'title_line_1' => 'High-End ', 
     'title_line_2' => 'Paint Protection Film',
     'title_main_text' => 'Advanced production of protective films for automotive paint, ensuring unmatched quality and reliability. A diverse range of clear and colored PPF films developed using the latest nanotechnology research and innovative solutions.',

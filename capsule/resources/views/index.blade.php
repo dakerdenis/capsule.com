@@ -19,23 +19,23 @@
                         <img src="{{ asset('public/images/circum_menu-burger.png') }}" alt="" srcset="">
                     </div>
                     <div class="header__nav__element">
-                        <button data-target="home">Home</button>
+                        <button data-target="home">{{ __('main.header_home') }}</button>
                     </div>
                     <div class="header__nav__element">
-                        <button data-target="about_us">About</button>
+                        <button data-target="about_us">{{ __('main.header_about') }}</button>
                     </div>
                     <div class="header__nav__element">
-                        <button data-target="warranty">Warranty</button>
+                        <button data-target="warranty">{{ __('main.header_warranty') }}</button>
                     </div>
                     <div class="header__nav__element">
-                        <button data-target="catalog">Catalogue</button>
+                        <button data-target="catalog">{{ __('main.header_catalogue') }}</button>
                     </div>
                     <div class="header__nav__element">
-                        <button data-target="gallery">Gallery</button>
+                        <button data-target="gallery">{{ __('main.header_gallery') }}</button>
                     </div>
 
                     <div class="header__nav__element">
-                        <button data-target="contact">Contacts</button>
+                        <button data-target="contact">{{ __('main.header_contacts') }}</button>
                     </div>
                     <img src="{{ asset('public/images/header_rectangle.png') }}" id="header_rectangle"
                         class="header_rectangle" alt="" />
@@ -69,12 +69,12 @@
                             <img src="{{ asset('public/images/logo_main.png') }}" alt="">
                         </div>
                         <div class="mobile__burger-navigation">
-                            <a href="#home">Home</a>
-                            <a href="#about_us">About</a>
-                            <a href="#warranty">Warranty</a>
-                            <a href="#catalog">Catalogue</a>
-                            <a href="#gallery">Gallery</a>
-                            <a href="#contact">Contacts</a>
+                            <a href="#home">{{ __('main.header_home') }}</a>
+                            <a href="#about_us">{{ __('main.header_about') }}</a>
+                            <a href="#warranty">{{ __('main.header_warranty') }}</a>
+                            <a href="#catalog">{{ __('main.header_catalogue') }}</a>
+                            <a href="#gallery">{{ __('main.header_gallery') }}</a>
+                            <a href="#contact">{{ __('main.header_contacts') }}</a>
                         </div>
                         <div class="mobile__burger__created">
 

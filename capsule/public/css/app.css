@@ -2409,7 +2409,7 @@ h6 {
     right: -100%; /* Start off the screen */
     width: 100%; /* Width of the menu */
     height: 100%;
-    background-color: #000000d8;
+    background-color: #000000ed;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
     transition: right 0.2s ease-in-out; /* Slide-in animation */
     z-index: 1000;
@@ -2461,8 +2461,13 @@ h6 {
 .mobile__burger-navigation{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
-
+.mobile__burger-navigation a{
+    font-size: 17px;
+    color: #fff;
+    margin-bottom: 12px;
+}
 /* Mobile Menu Close Button */
 .mobile-menu__close {
     position: absolute;
