@@ -247,7 +247,7 @@ h6 {
 /*******MAIN section*********/
 .main {
     height: 100vh; /* Full viewport height */
-    min-height: 740px; /* Minimum height */
+    min-height: 850px; /* Minimum height */
     width: 100%; /* Full-width */
     position: relative;
 }
