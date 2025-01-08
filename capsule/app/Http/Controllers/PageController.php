@@ -23,13 +23,14 @@ class PageController extends Controller
     }
 
     public function verification()
-{
-    return 'verification page';
-}
-
-public function warranty()
-{
-    return 'warranty page';
-}
+    {
+        return view('verification');
+    }
+    
+    public function warranty()
+    {
+        return view('warranty');
+    }
+    
 
 }
