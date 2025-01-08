@@ -29,8 +29,16 @@ class PageController extends Controller
     
     public function warranty()
     {
-        return view('warranty');
+        return view('warranty.warranty');
     }
-    
+    public function registerWarranty()
+{
+    return view('warranty.register');
+}
+public function warrantyDocument()
+{
+    return view('warranty.document');
+}
+
 
 }

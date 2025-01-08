@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="az">
 
@@ -9,6 +8,8 @@
     <title>Login</title>
 
     <link rel="stylesheet" href="{{ asset('./public/css/warranty.css') }}"> <!-- Link to warranty.css -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
 
 <body>
@@ -16,7 +17,7 @@
         <div class="admin__login-form">
             <div class="admin__login__wrapper">
                 <div class="login_image">
-                    <img src="{{asset('./public/images/logo_main.png')}}" alt="" srcset="">
+                    <img src="{{ asset('./public/images/logo_main.png') }}" alt="" srcset="">
                 </div>
                 <div class="login__hello">
                     Welcome !
@@ -25,12 +26,14 @@
                     CAPSULEPPF warranty page
                 </div>
 
-                <form method="POST" action="" class="login__form">
-                    <input type="hidden" name="_token" value="MHdfqaqxlNXJBwqEmngUlSkqT15NTxqnxUNszVz3" autocomplete="off">                    <div class="input__container">
+                <form method="POST" action="{{ route('login') }}" class="login__form" id="loginForm">
+                    @csrf
+                    <!-- Input fields for email and password -->
+                    <div class="input__container">
                         <div class="input__container__desc">
                             Login
                         </div>
-
+                
                         <div class="input__field">
                             <input type="text" id="email" name="email" placeholder="Login |" required>
                         </div>
@@ -38,18 +41,32 @@
 
                     <div class="input__container">
                         <div class="input__container__desc">
+                            Product code
+                        </div>
+                
+                        <div class="input__field">
+                            <input type="text" id="email" name="email" placeholder="Product code |" required>
+                        </div>
+                    </div>
+                
+                    <div class="input__container">
+                        <div class="input__container__desc">
                             Password
                         </div>
-
+                
                         <div class="input__field">
                             <input type="password" id="password" name="password" placeholder="Password |" required>
                         </div>
                     </div>
-
-                                        <div class="input__button">
+                
+                    <!-- Google reCAPTCHA widget -->
+                    <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+                
+                    <div class="input__button">
                         <button type="submit">Login</button>
                     </div>
                 </form>
+                
             </div>
         </div>
 
@@ -60,5 +77,16 @@
 
     </div>
 </body>
+<!-- JavaScript for form validation -->
+<script>
+//   document.getElementById('loginForm').addEventListener('submit', function(event) {
+//       // Check if the reCAPTCHA is checked
+//       const recaptchaResponse = grecaptcha.getResponse();
+//       if (!recaptchaResponse) {
+//           event.preventDefault(); // Prevent form submission
+//           alert('Please complete the reCAPTCHA to proceed.');
+//       }
+//   });
+</script>
 
 </html>
