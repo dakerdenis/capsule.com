@@ -3,17 +3,14 @@
         <div class="home__statistics__element">
             <div class="element__name">
                 <p>Товары</p>
-                <span></span>
+                <span>23</span>
             </div>
-            <div class="element__desc1">
-                <p>Общее количество:</p>
-                <span>125</span>
-            </div>
-            <div class="element__desc2">
+
+            <div class="element__desc">
                 <p>Верифицированных:</p>
                 <span>14</span>
             </div>
-            <div class="element__desc2">
+            <div class="element__desc">
                 <p>С гарантией:</p>
                 <span>11</span>
             </div>
@@ -21,14 +18,11 @@
         <div class="home__statistics__element">
             <div class="element__name">
                 <p>Сервисы</p>
-                <span></span>
+                <span>45</span>
             </div>
-            <div class="element__desc1">
-                <p>Общее количество:</p>
-                <span>125</span>
-            </div>
-            <div class="element__desc2">
-                <p>Выпустили гарантий:</p>
+
+            <div class="element__desc">
+                <p>Выпущено гарантий:</p>
                 <span>14</span>
             </div>
 
@@ -36,16 +30,15 @@
         <div class="home__statistics__element">
             <div class="element__name">
                 <p>Гарантии</p>
-                <span></span>
+                <span>18</span>
             </div>
-            <div class="element__desc1">
-                <p>Общее количество:</p>
-                <span>125</span>
-            </div>
-            <div class="element__desc2">
-                <p>Выпустили гарантий:</p>
+
+            <div class="element__desc">
+                <p>Просроченных гарантий:</p>
                 <span>14</span>
             </div>
         </div>
     </div>
+
+
 </div>
