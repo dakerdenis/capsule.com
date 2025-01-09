@@ -63,7 +63,7 @@ class WarrantyDocumentController extends Controller
 
             // Define the public path for saving the image
             $fileName = time() . '.jpg'; // Save as a JPG
-            $filePath = public_path('images/documents/' . $fileName);
+            $filePath = public_path('/images/documents/' . $fileName);
 
             // Ensure the directory exists
             if (!file_exists(public_path('images/documents'))) {
@@ -83,7 +83,7 @@ class WarrantyDocumentController extends Controller
             // Return success response
             return response()->json([
                 'message' => 'Document uploaded successfully.',
-                'file_url' => asset('images/documents/' . $fileName),
+                'file_url' => asset('/images/documents/' . $fileName),
             ]);
         } catch (\Exception $e) {
             // Catch unexpected errors and log them

@@ -41,10 +41,18 @@ Route::get('/warranty/document', [PageController::class, 'warrantyDocument'])->n
 Route::post('/warranty/document', [WarrantyDocumentController::class, 'uploadDocument'])->name('upload.document');
 
 
-//ADMIN routes
-Route::get('/admin/login', [AdminController::class, 'showLoginForm'])->name('admin.login');
-Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.dashboard');
 
+
+
+// Admin Login Routes
+Route::get('/admin/login', [AdminController::class, 'showLoginForm'])->name('admin.login');
+Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.login.submit');
+Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+
+// Admin Dashboard Route (Protected by Middleware)
+Route::middleware(['admin.auth'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.dashboard');
+});
 
 
 

@@ -12,6 +12,11 @@
 <body>
     <div class="admin-dashboard-wrapper">
         <h1>Welcome to Admin Dashboard</h1>
+
+        <form method="POST" action="{{ route('admin.logout') }}">
+            @csrf
+            <button type="submit">Logout</button>
+        </form>
     </div>
 </body>
 
