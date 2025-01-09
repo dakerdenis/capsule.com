@@ -21,12 +21,14 @@ Route::get('/catalog', function () {
     return redirect('/en/catalog');
 });
 
-Route::get('/test-image', function () {
-    $img = Image::make(public_path('images/sample.jpg'))->resize(300, 200);
-
-    return $img->response('jpg');
+Route::get('/image-test', function () {
+    try {
+        $image = Image::canvas(300, 200, '#ff0000'); // Create a red canvas
+        return $image->response('jpg'); // Return the image response
+    } catch (\Exception $e) {
+        return response()->json(['error' => $e->getMessage()], 500);
+    }
 });
-
 
 ///Verification for client
 Route::get('/verification', [PageController::class, 'verification'])->name('verification');
