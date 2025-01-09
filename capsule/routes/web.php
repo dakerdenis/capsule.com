@@ -50,7 +50,7 @@ Route::get('/admin/login', [AdminController::class, 'showLoginForm'])->name('adm
 Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.login.submit');
 Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
-Route::middleware([App\Http\Middleware\AdminAuth::class])->group(function () {
+Route::middleware([AdminAuth::class])->group(function () {
     Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.dashboard');
 });
 

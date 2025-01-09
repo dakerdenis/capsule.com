@@ -1,31 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="az">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin Login</title>
-    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="{{ asset('/css/warranty.css') }}"> <!-- Link to warranty.css -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
 
 <body>
-    <div class="admin-login-wrapper">
-        <h1>Admin Login</h1>
-        <form method="POST" action="{{ route('admin.login.submit') }}">
-            @csrf
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="Enter your email" required>
+    <div class="admin__wrapper">
+        <div class="admin__login-form">
+            <div class="admin__login__wrapper">
+                <div class="login_image">
+                    <img src="{{ asset('/images/logo_main.png') }}" alt="" srcset="">
+                </div>
+                <div class="login__hello">
+                    Welcome !
+                </div>
+                <div class="login__desc">
+                    CAPSULEPPF warranty page
+                </div>
+
+                <form method="POST" action="{{ route('admin.login.submit') }}">
+                    @csrf
+                    <!-- Input fields for email and password -->
+                    <div class="input__container">
+                        <div class="input__container__desc">
+                            Login
+                        </div>
+                
+                        <div class="input__field">
+                            <input type="text" id="email" name="email" placeholder="Login |" required>
+                        </div>
+                    </div>
+                
+                    <div class="input__container">
+                        <div class="input__container__desc">
+                            Password
+                        </div>
+                
+                        <div class="input__field">
+                            <input type="password" id="password" name="password" placeholder="Password |" required>
+                        </div>
+                    </div>
+                
+
+                
+                    <div class="input__button">
+                        <button type="submit">Login</button>
+                    </div>
+                </form>
+                
             </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" placeholder="Enter your password" required>
-            </div>
-            <button type="submit">Login</button>
-        </form>
-        
+        </div>
+
+        <div class="admin__bakcground">
+            <img src="{{asset('/images/admin.jpeg')}}" alt="">
+        </div>
+
+
     </div>
 </body>
+
 
 </html>

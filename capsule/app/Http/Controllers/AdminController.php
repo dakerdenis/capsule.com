@@ -47,8 +47,20 @@ class AdminController extends Controller
         $request->session()->regenerateToken();
         return redirect()->route('admin.login');
     }
-    public function showAdminPage()
+    public function showAdminPage(Request $request)
     {
-        return view('admin.dashboard');
+        // Get the 'section' query parameter, default to 'home'
+        $section = $request->query('section', 'home');
+    
+        // Validate the section to ensure it's a valid component
+        $validSections = ['home', 'products', 'services', 'warranties'];
+    
+        if (!in_array($section, $validSections)) {
+            abort(404, 'Section not found');
+        }
+    
+        // Pass the section to the view
+        return view('admin.dashboard', compact('section'));
     }
+    
 }
