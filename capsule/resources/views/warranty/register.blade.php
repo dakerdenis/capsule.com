@@ -13,21 +13,28 @@
     <div class="warranty-document__wrapper">
         <h1>Upload Warranty Documents</h1>
         <form method="POST" action="{{ route('upload.document') }}" enctype="multipart/form-data">
-            @csrf <!-- Include CSRF token -->
-
+            @csrf
             <div class="form-group">
                 <label for="document">Upload Document</label>
                 <input type="file" id="document" name="document" accept="image/*" required>
             </div>
-
             <div class="form-group">
                 <button type="submit">Upload</button>
             </div>
         </form>
+        @if (session('uploadedImageUrl'))
+            <h2>Uploaded Image:</h2>
+            <img src="{{ session('uploadedImageUrl') }}" alt="Uploaded Image">
+        @endif
+        @if ($errors->any())
+            <div class="error-messages">
+                @foreach ($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                @endforeach
+            </div>
+        @endif
     </div>
-    @if (isset($uploadedImageUrl))
-    <img src="{{ $uploadedImageUrl }}" alt="Uploaded Image">
-@endif
 </body>
+
 
 </html>

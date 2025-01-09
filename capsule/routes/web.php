@@ -32,6 +32,7 @@ Route::get('/warranty/register', [PageController::class, 'registerWarranty'])->n
 Route::get('/warranty/document', [PageController::class, 'warrantyDocument'])->name('warranty.document');
 Route::post('/warranty/document', [WarrantyDocumentController::class, 'uploadDocument'])->name('upload.document');
 
+
 //ADMIN routes
 Route::get('/admin/login', [AdminController::class, 'showLoginForm'])->name('admin.login');
 Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.dashboard');
