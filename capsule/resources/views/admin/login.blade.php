@@ -12,7 +12,7 @@
 <body>
     <div class="admin-login-wrapper">
         <h1>Admin Login</h1>
-        <form method="POST" action="">
+        <form method="POST" action="{{ route('admin.login.submit') }}">
             @csrf
             <div class="form-group">
                 <label for="email">Email</label>
@@ -24,6 +24,7 @@
             </div>
             <button type="submit">Login</button>
         </form>
+        
     </div>
 </body>
 

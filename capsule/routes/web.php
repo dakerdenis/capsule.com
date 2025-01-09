@@ -1,5 +1,6 @@
 <?php
-
+// Admin Dashboard Route (Protected by Middleware)
+use App\Http\Middleware\AdminAuth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\AuthController;
@@ -49,8 +50,7 @@ Route::get('/admin/login', [AdminController::class, 'showLoginForm'])->name('adm
 Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.login.submit');
 Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
-// Admin Dashboard Route (Protected by Middleware)
-Route::middleware(['admin.auth'])->group(function () {
+Route::middleware([App\Http\Middleware\AdminAuth::class])->group(function () {
     Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.dashboard');
 });
 
