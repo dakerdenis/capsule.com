@@ -1691,7 +1691,7 @@ h6 {
 .catalog__page__container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .catalog__page__element {

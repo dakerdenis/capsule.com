@@ -326,11 +326,10 @@
                                                 <img src="{{ 'public/images/placeholder.png' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
-                                                ITEM NAME
+                                                URBAN
                                             </div>
                                             <div class="glide__slide__desc">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
-                                                    risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                                <p>Designed for cars used daily in urban conditions.</p>
                                             </div>
                                         </div>
                                         <button>Order Now</button>
@@ -342,11 +341,10 @@
                                                 <img src="{{ 'public/images/placeholder.png' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
-                                                ITEM NAME
+                                                ELEMENT 
                                             </div>
                                             <div class="glide__slide__desc">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
-                                                    risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                                <p>Crafted for premium-class vehicles, providing perfect protection and style.</p>
                                             </div>
                                         </div>
                                         <button>Order Now</button>
@@ -358,11 +356,10 @@
                                                 <img src="{{ 'public/images/placeholder.png' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
-                                                ITEM NAME
+                                                HURACAN
                                             </div>
                                             <div class="glide__slide__desc">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
-                                                    risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                                <p>Built for sports cars and extreme usage, delivering maximum protection.</p>
                                             </div>
                                         </div>
                                         <button>Order Now</button>
@@ -374,11 +371,10 @@
                                                 <img src="{{ 'public/images/placeholder.png' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
-                                                ITEM NAME
+                                                MATTE
                                             </div>
                                             <div class="glide__slide__desc">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
-                                                    risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                                <p>Matte protection for vehicles, offering a stylish look and reliable coverage.</p>
                                             </div>
                                         </div>
                                         <button>Order Now</button>
@@ -390,27 +386,10 @@
                                                 <img src="{{ 'public/images/placeholder.png' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
-                                                ITEM NAME
+                                                BLACK
                                             </div>
                                             <div class="glide__slide__desc">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
-                                                    risus nec tellus dapibus accumsan a pharetra nisl. </p>
-                                            </div>
-                                        </div>
-                                        <button>Order Now</button>
-                                    </li>
-
-                                    <li class="glide__slide">
-                                        <div class="glide__slide__wrapper">
-                                            <div class="glide__slide__image">
-                                                <img src="{{ 'public/images/placeholder.png' }}" alt="">
-                                            </div>
-                                            <div class="glide__slide__name">
-                                                ITEM NAME
-                                            </div>
-                                            <div class="glide__slide__desc">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel
-                                                    risus nec tellus dapibus accumsan a pharetra nisl. </p>
+                                                <p>Created for changing the car's color and ensuring its protection.</p>
                                             </div>
                                         </div>
                                         <button>Order Now</button>

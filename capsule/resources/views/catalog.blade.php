@@ -101,12 +101,11 @@
                                     </div>
 
                                     <div class="catalog__page__element-name">
-                                        Item name 1
+                                        URBAN
                                     </div>
 
                                     <div class="catalog__page__element-desc">
-                                        1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec
-                                        tellus dapibus accumsan a pharetra nisl.
+                                        Designed for cars used daily in urban conditions.
                                     </div>
                                 </div>
                             </div>
@@ -128,12 +127,11 @@
                                     </div>
 
                                     <div class="catalog__page__element-name">
-                                        Item name 2
+                                        ELEMENT
                                     </div>
 
                                     <div class="catalog__page__element-desc">
-                                        2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec
-                                        tellus dapibus accumsan a pharetra nisl.
+                                        Crafted for premium-class vehicles, providing perfect protection and style.
                                     </div>
                                 </div>
                             </div>
@@ -155,12 +153,11 @@
                                     </div>
 
                                     <div class="catalog__page__element-name">
-                                        Item name 3
+                                        HURACAN
                                     </div>
 
                                     <div class="catalog__page__element-desc">
-                                        3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec
-                                        tellus dapibus accumsan a pharetra nisl.
+                                        Built for sports cars and extreme usage, delivering maximum protection.
                                     </div>
                                 </div>
                             </div>
@@ -182,12 +179,11 @@
                                     </div>
 
                                     <div class="catalog__page__element-name">
-                                        4 Item name
+                                        MATTE
                                     </div>
 
                                     <div class="catalog__page__element-desc">
-                                        4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec
-                                        tellus dapibus accumsan a pharetra nisl.
+                                        Matte protection for vehicles, offering a stylish look and reliable coverage.
                                     </div>
                                 </div>
                             </div>
@@ -209,12 +205,11 @@
                                     </div>
 
                                     <div class="catalog__page__element-name">
-                                        5 Item name
+                                        BLACK
                                     </div>
 
                                     <div class="catalog__page__element-desc">
-                                        5 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec
-                                        tellus dapibus accumsan a pharetra nisl.
+                                       Created for changing the car's color and ensuring its protection.
                                     </div>
                                 </div>
                             </div>
@@ -224,32 +219,6 @@
                             </div>
                         </div>
 
-                        <div class="catalog__page__element">
-                            <div class="catalog__page__element-content">
-                                <div class="catalog__page__element-content-info">
-                                    <button>View details</button>
-                                </div>
-
-                                <div class="catalog__page__element-content-container">
-                                    <div class="catalog__page__element-image">
-                                        <img src="{{ '../public/images/placeholder.png' }}" alt="" srcset="">
-                                    </div>
-
-                                    <div class="catalog__page__element-name">
-                                        6 Item name
-                                    </div>
-
-                                    <div class="catalog__page__element-desc">
-                                        6 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec
-                                        tellus dapibus accumsan a pharetra nisl.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="catalog__page__element-button">
-                                <button>order now</button>
-                            </div>
-                        </div>
                     </div>
 
 
@@ -788,61 +757,51 @@
             const catalogData = {
                 items: [{
                         id: 1,
-                        name: 'Item name 1',
-                        desc: '1 Lorem ipsum dolor sit amet.',
-                        filmType: 'Type A',
-                        filmColor: 'Red',
-                        bodyType: 'SUV',
+                        name: 'URBAN',
+                        desc: 'Designed for cars used daily in urban conditions.',
+                        filmType: 'paint protecrion film',
+                        filmColor: 'clear',
+                        bodyType: '190 mikrons',
                         warranty: '5 Years',
-                        other: 'Scratch Resistance'
+                        other: '60"×50\' - 152cm×15m'
                     },
                     {
                         id: 2,
-                        name: 'Item name 2',
-                        desc: '2 Lorem ipsum dolor sit amet.',
-                        filmType: 'Type B',
-                        filmColor: 'Blue',
-                        bodyType: 'Sedan',
-                        warranty: '3 Years',
-                        other: 'UV Protection'
+                        name: 'ELEMENT',
+                        desc: 'Crafted for premium-class vehicles, providing perfect protection and style.',
+                        filmType: 'Paint protecrion film',
+                        filmColor: 'Clear',
+                        bodyType: '190 mikrons',
+                        warranty: '8 Years',
+                        other: '60"×50\' - 152cm×15m'
                     },
                     {
                         id: 3,
-                        name: 'Item name 3',
-                        desc: '3 Lorem ipsum dolor sit amet.',
-                        filmType: 'Type C',
-                        filmColor: 'Blue',
-                        bodyType: 'Sedan',
-                        warranty: '3 Years',
-                        other: 'UV Protection'
+                        name: 'HURACAN',
+                        desc: 'Built for sports cars and extreme usage, delivering maximum protection.',
+                        filmType: 'paint protecrion film',
+                        filmColor: 'clear',
+                        bodyType: '240 mikrons',
+                        warranty: '8 Years',
+                        other: '60"×50\' - 152cm×15m'
                     },
                     {
                         id: 4,
-                        name: 'Item name 4',
-                        desc: '2 Lorem ipsum dolor sit amet.',
-                        filmType: 'Type B',
-                        filmColor: 'Blue',
-                        bodyType: 'Sedan',
-                        warranty: '3 Years',
-                        other: 'UV Protection'
+                        name: 'MATTE',
+                        desc: 'Matte protection for vehicles, offering a stylish look and reliable coverage.',
+                        filmType: 'paint protecrion film',
+                        filmColor: 'Matte',
+                        bodyType: '190 mikrons',
+                        warranty: '5 Years',
+                        other: '60"×50\' - 152cm×15m'
                     }, {
                         id: 5,
-                        name: 'Item name 5',
-                        desc: '2 Lorem ipsum dolor sit amet.',
-                        filmType: 'Type B',
-                        filmColor: 'Blue',
-                        bodyType: 'Sedan',
-                        warranty: '3 Years',
-                        other: 'UV Protection'
-                    },
-                    {
-                        id: 6,
-                        name: 'Item name 6',
-                        desc: '2 Lorem ipsum dolor sit amet.',
-                        filmType: 'Type B',
-                        filmColor: 'Blue',
-                        bodyType: 'Sedan',
-                        warranty: '3 Years',
+                        name: 'BLACK',
+                        desc: 'Developed for changing the car\'s color and ensuring its protection.',
+                        filmType: 'paint protecrion film',
+                        filmColor: 'black',
+                        bodyType: '190 mikrons',
+                        warranty: '5 Years',
                         other: 'UV Protection'
                     }
                 ]
@@ -864,9 +823,9 @@
                     <ul>
                         <li><strong>Film Type:</strong> ${itemData.filmType}</li>
                         <li><strong>Film Color:</strong> ${itemData.filmColor}</li>
-                        <li><strong>Body Type:</strong> ${itemData.bodyType}</li>
+                        <li><strong>Thickness:</strong> ${itemData.bodyType}</li>
                         <li><strong>Warranty:</strong> ${itemData.warranty}</li>
-                        <li><strong>Other:</strong> ${itemData.other}</li>
+                        <li><strong>Size:</strong> ${itemData.other}</li>
                     </ul>
                     <p class="popup__p">${itemData.desc}</p>
                 `;
