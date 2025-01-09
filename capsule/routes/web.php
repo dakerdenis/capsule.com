@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\WarrantyDocumentController;
 // Redirect '/' to '/en'
 Route::get('/', function () {
     return redirect('/en');
@@ -30,7 +30,7 @@ Route::get('/warranty', [PageController::class, 'warranty'])->name('warranty');
 Route::post('/login', [AuthController::class, 'handleLogin'])->name('login');
 Route::get('/warranty/register', [PageController::class, 'registerWarranty'])->name('warranty.register');
 Route::get('/warranty/document', [PageController::class, 'warrantyDocument'])->name('warranty.document');
-
+Route::post('/warranty/document', [WarrantyDocumentController::class, 'uploadDocument'])->name('upload.document');
 
 //ADMIN routes
 Route::get('/admin/login', [AdminController::class, 'showLoginForm'])->name('admin.login');

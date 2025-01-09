@@ -4,44 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Warranty Registration</title>
+    <title>Warranty Document Upload</title>
 
-    <link rel="stylesheet" href="{{ asset('./public/css/warranty.css') }}"> <!-- Link to warranty.css -->
+    <link rel="stylesheet" href="{{ asset('./public/css/warranty.css') }}">
 </head>
 
 <body>
-    <div class="warranty-register__wrapper">
-        <h1>Warranty Registration</h1>
-        <p>Register your product warranty to receive premium support and services.</p>
-
-        <form method="POST" action="">
+    <div class="warranty-document__wrapper">
+        <h1>Upload Warranty Documents</h1>
+        <form method="POST" action="{{ route('upload.document') }}" enctype="multipart/form-data">
             @csrf <!-- Include CSRF token -->
 
             <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                <label for="document">Upload Document</label>
+                <input type="file" id="document" name="document" accept="image/*" required>
             </div>
 
             <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
-            </div>
-
-            <div class="form-group">
-                <label for="product_serial">Product Serial Number</label>
-                <input type="text" id="product_serial" name="product_serial" placeholder="Enter product serial number" required>
-            </div>
-
-            <div class="form-group">
-                <label for="purchase_date">Purchase Date</label>
-                <input type="date" id="purchase_date" name="purchase_date" required>
-            </div>
-
-            <div class="form-group">
-                <button type="submit">Register Warranty</button>
+                <button type="submit">Upload</button>
             </div>
         </form>
     </div>
+    @if (isset($uploadedImageUrl))
+    <img src="{{ $uploadedImageUrl }}" alt="Uploaded Image">
+@endif
 </body>
 
 </html>
