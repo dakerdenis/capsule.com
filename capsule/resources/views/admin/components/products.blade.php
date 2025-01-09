@@ -1,4 +1,13 @@
-<div>
-    <h2>Product Management</h2>
-    <p>Here you can manage all products.</p>
+<div class="products__wrapper">
+    <div class="products__name">
+        Список всех продуктов
+    </div>
+
+    <div class="products__list">
+        <div class="products__list__desc">
+            <div class="list__desc__id">
+                id
+            </div>
+        </div>
+    </div>
 </div>
