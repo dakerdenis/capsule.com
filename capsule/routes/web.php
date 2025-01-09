@@ -5,6 +5,8 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\WarrantyDocumentController;
+use Intervention\Image\Facades\Image;
+
 // Redirect '/' to '/en'
 Route::get('/', function () {
     return redirect('/en');
@@ -19,7 +21,11 @@ Route::get('/catalog', function () {
     return redirect('/en/catalog');
 });
 
+Route::get('/test-image', function () {
+    $img = Image::make(public_path('images/sample.jpg'))->resize(300, 200);
 
+    return $img->response('jpg');
+});
 
 
 ///Verification for client
