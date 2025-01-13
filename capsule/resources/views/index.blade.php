@@ -255,6 +255,9 @@
         <!---warranty and verification--->
 
         <section class="warranty" id="warranty">
+            <div class="warranty__name__desc">
+                <p>Dual Digital Shield is an advanced protection system integrated into our products to ensure their authenticity and security, including an electronic warranty. This innovative technology features two levels of digital verification:</p>
+            </div>
             <div class="warranty__container">
                 <div class="warranty__element">
                     <div class="warranty__element__wrapper">

@@ -1032,6 +1032,23 @@ h6 {
     z-index: 500;
     padding-top: 100px;
 }
+.warranty__name__desc{
+    height: 70px;
+    width: 1280px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+
+}
+.warranty__name__desc p {
+    font-family: Inter;
+font-size: 18px;
+font-weight: 300;
+line-height: 35px;
+text-align: center;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+color: #fff;
+}
 .warranty__container {
     width: 100%;
     height: 100%;
@@ -1132,7 +1149,7 @@ h6 {
 .warranty__element__desc p {
     font-family: Inter;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 35px;
     text-align: justified;
     text-underline-position: from-font;
@@ -1195,8 +1212,8 @@ h6 {
 }
 
 .warranty__element__desc2 {
-    height: 123px;
-    width: 718px;
+    height: 156px;
+    width: 770px;
     position: absolute;
     left: 0;
     bottom: 0;
@@ -1204,8 +1221,8 @@ h6 {
 .warranty__element__desc2 p {
     font-family: Inter;
     font-size: 18px;
-    font-weight: 400;
-    line-height: 41px;
+    font-weight: 300;
+    line-height: 35px;
     text-align: justified;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
@@ -2039,6 +2056,11 @@ h6 {
     display: none;
     visibility: hidden;
 }
+.american__text__block img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 @media only screen and (max-width: 1670px) {
     .main__car {
         height: 369px;
@@ -2106,11 +2128,11 @@ h6 {
     }
     .warranty__element2 {
         width: 45%;
-        height: 600px;
+        height: 665px;
     }
     .warranty__element {
         width: 45%;
-        height: 600px;
+        height: 665px;
     }
     .warranty__element__image {
         height: 450px;
@@ -2119,10 +2141,10 @@ h6 {
         height: 450px;
     }
     .warranty__element__desc {
-        width: 90%;
+        width: 98%;
     }
     .warranty__element__desc2 {
-        width: 90%;
+        width: 98%;
     }
     .warranty__element__desc p {
         font-size: 17px;
@@ -2271,7 +2293,11 @@ h6 {
     }
     .warranty__element {
         width: 45%;
-        height: 550px;
+        height: 585px;
+    }
+    .warranty__element2 {
+        width: 45%;
+        height: 585px;
     }
     .warranty__element__image {
         height: 400px;
@@ -2989,7 +3015,7 @@ h6 {
         height: 300px;
     }
     .warranty__element {
-        height: 485px;
+        height: 560px;
     }
     .warranty__element__desc p {
         font-size: 14px;
@@ -2997,7 +3023,7 @@ h6 {
 
     .warranty__element2 {
         order: 3;
-        height: 485px;
+        height: 500px;
         width: 100%;
     }
     .warranty__element__desc2 {
@@ -3258,5 +3284,16 @@ h6 {
     }
     .contact__adress__element:nth-child(3){
         height: 35px;
+    }
+    .warranty__name__desc{
+        height: 100%;
+        width: 95%;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+
+    .warranty__name__desc p {
+            font-size: 14px;
+            line-height: 24px;
     }
 }
