@@ -184,7 +184,7 @@
         <!---AMERICAN QUALITY--->
         <section class="american" id="american">
             <div class="american__name">
-                {{ __('main.american__name') }}                 
+                {{ __('main.american__name') }}
             </div>
             <div class="american__wrapper">
                 <div class="american__text__block">
@@ -205,14 +205,14 @@
                 <div class="about_us__desc">
                     <div class="about_us__desc-text">
                         <p>
-                            {{ __('main.about_us__desc-text1') }}  
+                            {{ __('main.about_us__desc-text1') }}
                         </p>
                         <p>
-                            {{ __('main.about_us__desc-text2') }} 
+                            {{ __('main.about_us__desc-text2') }}
                         </p>
 
                         <p>
-                            {{ __('main.about_us__desc-text3') }} 
+                            {{ __('main.about_us__desc-text3') }}
                         </p>
                     </div>
                     <div class="about_us__desc-back">
@@ -239,11 +239,11 @@
                         </div>
                         <div class="about_us__content__desc">
                             <p>
-                                {{ __('main.about_us__content__desc1') }} 
+                                {{ __('main.about_us__content__desc1') }}
                             </p>
 
                             <p>
-                                {{ __('main.about_us__content__desc2') }} 
+                                {{ __('main.about_us__content__desc2') }}
                             </p>
                         </div>
                     </div>
@@ -287,9 +287,10 @@
                             </div>
                         </div>
                         <div class="warranty__element__desc2">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel risus nec tellus dapibus
-                                accumsan a pharetra nisl. Sed nec convallis elit. Nullam id eros ac velit consequat
-                                convallis. Nam vulputate nibh a orci egestas laoreet.</p>
+                            <p>Our Digital Warranty System safeguards your investment in paint protection films and your
+                                consumer rights. Each product comes with a unique digital warranty certificate that verifies
+                                its authenticity and quality. The warranty is activated via an SMS notification from
+                                Capsule, ensuring protection against fraud.</p>
                         </div>
                     </div>
                 </div>
@@ -341,10 +342,11 @@
                                                 <img src="{{ 'public/images/placeholder.png' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
-                                                ELEMENT 
+                                                ELEMENT
                                             </div>
                                             <div class="glide__slide__desc">
-                                                <p>Crafted for premium-class vehicles, providing perfect protection and style.</p>
+                                                <p>Crafted for premium-class vehicles, providing perfect protection and
+                                                    style.</p>
                                             </div>
                                         </div>
                                         <button>Order Now</button>
@@ -359,7 +361,8 @@
                                                 HURACAN
                                             </div>
                                             <div class="glide__slide__desc">
-                                                <p>Built for sports cars and extreme usage, delivering maximum protection.</p>
+                                                <p>Built for sports cars and extreme usage, delivering maximum protection.
+                                                </p>
                                             </div>
                                         </div>
                                         <button>Order Now</button>
@@ -374,7 +377,8 @@
                                                 MATTE
                                             </div>
                                             <div class="glide__slide__desc">
-                                                <p>Matte protection for vehicles, offering a stylish look and reliable coverage.</p>
+                                                <p>Matte protection for vehicles, offering a stylish look and reliable
+                                                    coverage.</p>
                                             </div>
                                         </div>
                                         <button>Order Now</button>

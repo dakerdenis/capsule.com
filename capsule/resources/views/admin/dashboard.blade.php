@@ -7,16 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="{{ asset('css/admin/style.css') }}">
-       <!-- Section-Specific CSS -->
-       @if ($section === 'home')
-       <link rel="stylesheet" href="{{ asset('css/admin/home.css') }}">
-   @elseif ($section === 'products')
-       <link rel="stylesheet" href="{{ asset('css/admin/products.css') }}">
-   @elseif ($section === 'services')
-       <link rel="stylesheet" href="{{ asset('css/admin/services.css') }}">
-   @elseif ($section === 'warranties')
-       <link rel="stylesheet" href="{{ asset('css/admin/warranties.css') }}">
-   @endif
+    <!-- Section-Specific CSS -->
+    @if ($section === 'home')
+        <link rel="stylesheet" href="{{ asset('css/admin/home.css') }}">
+    @elseif ($section === 'products')
+        <link rel="stylesheet" href="{{ asset('css/admin/products.css') }}">
+    @elseif ($section === 'services')
+        <link rel="stylesheet" href="{{ asset('css/admin/services.css') }}">
+    @elseif ($section === 'warranties')
+        <link rel="stylesheet" href="{{ asset('css/admin/warranties.css') }}">
+    @endif
 </head>
 
 <body>
@@ -24,7 +24,7 @@
     <div class="admin__wrapper">
         <div class="admin__wrapper__controlpanel">
             <div class="admin__logo">
-                <img src="{{asset('images/logo_main.png')}}" alt="">
+                <img src="{{ asset('images/logo_main.png') }}" alt="">
             </div>
 
             <div class="admin__hello">

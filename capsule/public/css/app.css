@@ -575,20 +575,23 @@ h6 {
 }
 .about_us__desc-text {
     position: absolute;
-    width: 1366px;
+    width: 1440px;
     height: 164px;
-    left: calc(50% - 683px);
+    left: calc(50% - 720px);
     z-index: 200;
     color: #fff;
     margin-top: 45px;
 }
 .about_us__desc-text p {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 300;
     line-height: 41px;
     text-align: center;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
+}
+.about_us__desc{
+    height: 320px;
 }
 
 .about_us__desc-back {
@@ -1121,16 +1124,16 @@ h6 {
 }
 
 .warranty__element__desc {
-    height: 123px;
-    width: 718px;
+    height: 175px;
+    width: 809px;
     position: absolute;
-    right: 0;
+    left: 20px;
 }
 .warranty__element__desc p {
     font-family: Inter;
     font-size: 18px;
     font-weight: 400;
-    line-height: 41px;
+    line-height: 35px;
     text-align: justified;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
@@ -2283,6 +2286,10 @@ h6 {
     }
     .catalog__page__container {
         width: 90%;
+    }
+    .about_us__desc-text{
+        width: 1280px;
+        left: calc(50% - 640px);
     }
 }
 
