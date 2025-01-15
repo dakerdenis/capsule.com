@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
 
-    <link rel="stylesheet" href="{{ asset('/css/warranty.css') }}"> <!-- Link to warranty.css -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="stylesheet" href="{{ asset('../public/css/warranty.css') }}"> <!-- Link to warranty.css -->
+
 
 </head>
 
@@ -17,7 +17,7 @@
         <div class="admin__login-form">
             <div class="admin__login__wrapper">
                 <div class="login_image">
-                    <img src="{{ asset('/images/logo_main.png') }}" alt="" srcset="">
+                    <img src="{{ asset('../public/images/logo_main.png') }}" alt="" srcset="">
                 </div>
                 <div class="login__hello">
                     Welcome !
@@ -26,7 +26,7 @@
                     CAPSULEPPF warranty page
                 </div>
 
-                <form method="POST" action="{{ route('admin.login.submit') }}">
+                <form method="POST" action="{{ route('admin.login.submit') }}" class="login__form" id="loginForm">
                     @csrf
                     <!-- Input fields for email and password -->
                     <div class="input__container">
@@ -49,23 +49,32 @@
                         </div>
                     </div>
                 
-
-                
                     <div class="input__button">
                         <button type="submit">Login</button>
                     </div>
                 </form>
                 
+                
             </div>
         </div>
 
         <div class="admin__bakcground">
-            <img src="{{asset('/images/admin.jpeg')}}" alt="">
+            <img src="./public/images/admin.jpeg" alt="">
         </div>
 
 
     </div>
 </body>
-
+<!-- JavaScript for form validation -->
+<script>
+//   document.getElementById('loginForm').addEventListener('submit', function(event) {
+//       // Check if the reCAPTCHA is checked
+//       const recaptchaResponse = grecaptcha.getResponse();
+//       if (!recaptchaResponse) {
+//           event.preventDefault(); // Prevent form submission
+//           alert('Please complete the reCAPTCHA to proceed.');
+//       }
+//   });
+</script>
 
 </html>

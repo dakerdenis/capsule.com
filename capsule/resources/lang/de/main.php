@@ -18,7 +18,7 @@ return [
     'car_small_desc1' => 'Erstklassige Qualität',
     'car_small_desc2' => 'Hohe Hydrophobie',
     'car_small_desc3' => '100 % selbstheilend',
-    'car_small_desc4' => 'Anti-Gelbfärbungsgarantie',
+    'car_small_desc4' => 'Anti-Gelbfärbungsgarantie', 
     'car_small_desc5' => 'Exzellenter Korrosionsschutz',
     //American quality//////
     'american__name' => 'Entwickelt für Profis',

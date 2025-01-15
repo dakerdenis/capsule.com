@@ -36,10 +36,11 @@ Route::get('/verification', [PageController::class, 'verification'])->name('veri
 
 ///warranty from service center
 Route::get('/warranty', [PageController::class, 'warranty'])->name('warranty');
-Route::post('/login', [AuthController::class, 'handleLogin'])->name('login');
+Route::post('/warranty/login', [AuthController::class, 'handleLogin'])->name('warranty.login');
 Route::get('/warranty/register', [PageController::class, 'registerWarranty'])->name('warranty.register');
 Route::get('/warranty/document', [PageController::class, 'warrantyDocument'])->name('warranty.document');
 Route::post('/warranty/document', [WarrantyDocumentController::class, 'uploadDocument'])->name('upload.document');
+Route::get('/warranty/document/{id}', [WarrantyDocumentController::class, 'show'])->name('show.document');
 
 
 

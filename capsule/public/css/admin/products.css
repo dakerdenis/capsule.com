@@ -1,0 +1,48 @@
+.products__wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.products__name {
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    width: 100%;
+    border-bottom: 1px solid #0e025021;
+}
+.products__list {
+    width: 100%;
+    
+}
+.products__list__desc {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    background-color: #bebebee5;
+}
+
+.flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.list__desc__id {
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.list__desc__code {
+}
+.list__desc__verificationdate {
+}
+.list__desc__warranty {
+}
+.list__desc__type {
+}
+.list__desc__serviceid {
+}
+.products__list__data {
+}
