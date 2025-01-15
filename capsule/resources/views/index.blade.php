@@ -155,21 +155,19 @@
 
 
                     <div class="car-desc car-desc1">
-                        Premium quality
+                        {{ __('main.car_small_desc1') }}
                     </div>
                     <div class="car-desc car-desc2">
-                        High hydrophobicity
+                        {{ __('main.car_small_desc2') }}
                     </div>
                     <div class="car-desc car-desc3">
-                        100% Self-healing
+                        {{ __('main.car_small_desc3') }}
                     </div>
                     <div class="car-desc car-desc4">
-                        Anti-yellow
-                        warranty
+                        {{ __('main.car_small_desc4') }}
                     </div>
                     <div class="car-desc car-desc5">
-                        Excellent carrosion
-                        resistance
+                        {{ __('main.car_small_desc5') }}
                     </div>
 
                 </div>
@@ -234,8 +232,7 @@
 
                     <div class="about_us__content">
                         <div class="about_us__content__name">
-                            Dedicated to providing
-                            Unparalleled quality
+                            {{ __('main.about_us__content__name') }}
                         </div>
                         <div class="about_us__content__desc">
                             <p>
@@ -256,7 +253,9 @@
 
         <section class="warranty" id="warranty">
             <div class="warranty__name__desc">
-                <p>Dual Digital Shield is an advanced protection system integrated into our products to ensure their authenticity and security, including an electronic warranty. This innovative technology features two levels of digital verification:</p>
+                <p>
+                    {{ __('main.warranty__name__desc') }}
+                </p>
             </div>
             <div class="warranty__container">
                 <div class="warranty__element">
@@ -277,7 +276,9 @@
                     </div>
                 </div>
                 <div class="warranty__name">
-                    <p>dual digital shield</p>
+                    <p>
+                        {{ __('main.warranty__name') }}
+                    </p>
                 </div>
                 <div class="warranty__element2">
                     <div class="warranty__element__wrapper2">
@@ -290,10 +291,7 @@
                             </div>
                         </div>
                         <div class="warranty__element__desc2">
-                            <p>Our Digital Warranty System safeguards your investment in paint protection films and your
-                                consumer rights. Each product comes with a unique digital warranty certificate that verifies
-                                its authenticity and quality. The warranty is activated via an SMS notification from
-                                Capsule, ensuring protection against fraud.</p>
+                            <p>{{ __('main.warranty__element__warranty') }}</p>
                         </div>
                     </div>
                 </div>
@@ -309,13 +307,13 @@
 
             <div class="catalog__wrapper">
                 <div class="catalog__name">
-                    <p>Catalogue</p>
+                    <p>{{ __('main.catalog__name') }}</p>
                 </div>
 
                 <div class="catalog__swiper">
                     <div class="catalog__swiper-button">
-                        <a href="{{ url('/catalog') }}">
-                            VIEW ALL items
+                        <a href="{{ url('/catalog') }}">                            
+                            {{ __('main.catalog__swiper-button') }}
                         </a>
                     </div>
 
@@ -330,13 +328,13 @@
                                                 <img src="{{ 'public/images/placeholder.png' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
-                                                URBAN
+                                                {{ __('main.catalog_eleemnt1_name') }}
                                             </div>
                                             <div class="glide__slide__desc">
-                                                <p>Designed for cars used daily in urban conditions.</p>
+                                                <p>{{ __('main.catalog_eleemnt1_desc') }}</p>
                                             </div>
                                         </div>
-                                        <button>Order Now</button>
+                                        <button>{{ __('main.catalog_element_button') }}</button>
                                     </li>
 
                                     <li class="glide__slide">
@@ -345,14 +343,13 @@
                                                 <img src="{{ 'public/images/placeholder.png' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
-                                                ELEMENT
+                                                {{ __('main.catalog_eleemnt2_name') }}
                                             </div>
                                             <div class="glide__slide__desc">
-                                                <p>Crafted for premium-class vehicles, providing perfect protection and
-                                                    style.</p>
+                                                <p>{{ __('main.catalog_eleemnt2_desc') }}</p>
                                             </div>
                                         </div>
-                                        <button>Order Now</button>
+                                        <button>{{ __('main.catalog_element_button') }}</button>
                                     </li>
 
                                     <li class="glide__slide">
@@ -361,14 +358,15 @@
                                                 <img src="{{ 'public/images/placeholder.png' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
-                                                HURACAN
+                                                {{ __('main.catalog_eleemnt3_name') }}
                                             </div>
                                             <div class="glide__slide__desc">
-                                                <p>Built for sports cars and extreme usage, delivering maximum protection.
+                                                <p>
+                                                    {{ __('main.catalog_eleemnt3_desc') }}
                                                 </p>
                                             </div>
                                         </div>
-                                        <button>Order Now</button>
+                                        <button>{{ __('main.catalog_element_button') }}</button>
                                     </li>
 
                                     <li class="glide__slide">
@@ -377,14 +375,16 @@
                                                 <img src="{{ 'public/images/placeholder.png' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
-                                                MATTE
+                                                
+                                                {{ __('main.catalog_eleemnt4_name') }}
                                             </div>
                                             <div class="glide__slide__desc">
-                                                <p>Matte protection for vehicles, offering a stylish look and reliable
-                                                    coverage.</p>
+                                                <p>
+                                                    {{ __('main.catalog_eleemnt4_desc') }} 
+                                                </p>
                                             </div>
                                         </div>
-                                        <button>Order Now</button>
+                                        <button>{{ __('main.catalog_element_button') }}</button>
                                     </li>
 
                                     <li class="glide__slide">
@@ -399,7 +399,7 @@
                                                 <p>Created for changing the car's color and ensuring its protection.</p>
                                             </div>
                                         </div>
-                                        <button>Order Now</button>
+                                        <button>{{ __('main.catalog_element_button') }}</button>
                                     </li>
                                 </ul>
                             </div>
@@ -431,7 +431,7 @@
             <div class="gallery__wrapper">
                 <div class="gallery__name">
                     <div class="gallery__name-text">
-                        Gallery
+                        {{ __('main.gallery__name-text') }}
                     </div>
                 </div>
 
@@ -535,8 +535,8 @@
             <div class="map__wrapper">
                 <div class="map__name-container">
                     <div class="map__name">
-                        <h4>global distribution</h4>
-                        <p>We are trusted by car owners all over the world</p>
+                        <h4>{{ __('main.map_map__name') }}</h4>
+                        <p>{{ __('main.map_name__desc') }}</p>
                     </div>
                 </div>
 
