@@ -17,7 +17,7 @@
     
 }
 .products__list__desc {
-    width: 100%;
+    width: 1440px;
     height: 40px;
     display: flex;
     background-color: #bebebee5;
@@ -27,22 +27,34 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid #000;
 }
 .list__desc__id {
     width: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
+
+
 }
 .list__desc__code {
+    width: 200px;
 }
 .list__desc__verificationdate {
+    width: 140px;
 }
 .list__desc__warranty {
+    width: 200px;
 }
 .list__desc__type {
+    width: 120px;
 }
 .list__desc__serviceid {
+    width: 250px;
 }
+
+
 .products__list__data {
+    display: flex;
+    height: 40px;
 }

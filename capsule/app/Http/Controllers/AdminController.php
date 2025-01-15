@@ -64,11 +64,17 @@ class AdminController extends Controller
     {
         $section = $request->query('section', 'home');
         $validSections = ['home', 'products', 'services', 'warranties'];
-
+    
         if (!in_array($section, $validSections)) {
             abort(404, 'Section not found');
         }
-
-        return view('admin.dashboard', compact('section'));
+    
+        // Fetch products if the section is 'products'
+        $products = [];
+        if ($section === 'products') {
+            $products = \App\Models\Product::all(); // Replace Product with your actual model name
+        }
+    
+        return view('admin.dashboard', compact('section', 'products'));
     }
 }
