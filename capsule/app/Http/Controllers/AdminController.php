@@ -74,21 +74,25 @@ class AdminController extends Controller
             $query = \App\Models\Product::query();
     
             // Filter by type if provided
-            if ($request->has('type')) {
+            if ($request->has('type') && $request->query('type') !== '') {
                 $type = $request->query('type');
                 $query->where('type', $type);
             }
     
             // Sort by date if provided
-            if ($request->has('sort_by_date')) {
+            if ($request->has('sort_by_date') && $request->query('sort_by_date') !== '') {
                 $sortByDate = $request->query('sort_by_date');
                 $query->orderBy('verification_date', $sortByDate);
             }
     
             // Filter by warranty if provided
-            if ($request->has('has_warranty')) {
+            if ($request->has('has_warranty') && $request->query('has_warranty') !== '') {
                 $hasWarranty = $request->query('has_warranty');
-                $query->whereNotNull('warranty', $hasWarranty == '1');
+                if ($hasWarranty == '1') {
+                    $query->whereNotNull('warranty');
+                } else {
+                    $query->whereNull('warranty');
+                }
             }
     
             $products = $query->paginate(20);
@@ -96,6 +100,7 @@ class AdminController extends Controller
     
         return view('admin.dashboard', compact('section', 'products'));
     }
+    
     
     
     
