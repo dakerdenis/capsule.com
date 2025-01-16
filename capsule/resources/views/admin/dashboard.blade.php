@@ -41,7 +41,7 @@
                     <a class="btn btn-dark" href="{{ route('admin.dashboard', ['section' => 'products']) }}">Товары</a>
                 </div>
                 <div class="admin__navigation-element">
-                    <a class="btn btn-dark"href="{{ route('admin.dashboard', ['section' => 'services']) }}">Продукты</a>
+                    <a class="btn btn-dark"href="{{ route('admin.dashboard', ['section' => 'services']) }}">Сервисы</a>
                 </div>
                 <div class="admin__navigation-element">
                     <a class="btn btn-dark" href="{{ route('admin.dashboard', ['section' => 'warranties']) }}">Гарантии</a>

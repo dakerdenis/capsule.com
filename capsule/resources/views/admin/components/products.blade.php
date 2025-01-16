@@ -32,17 +32,18 @@
             <input type="hidden" name="section" value="products">
             <input type="hidden" name="type" value="{{ request('type') }}">
             <label for="has_warranty">Сортировка по наличию гарантии:</label>
-            <select id="has_warranty" name="has_warranty" onchange="this.form.submit()">
+            <select id="has_warranty" name="has_warranty" onchange="removeEmptyAndSubmit(this.form)">
                 <option value="">Выберите</option>
                 <option value="1" {{ request('has_warranty') === '1' ? 'selected' : '' }}>С гарантией</option>
                 <option value="0" {{ request('has_warranty') === '0' ? 'selected' : '' }}>Без гарантии</option>
             </select>
         </form>
     </div>
+    
 
-    <a class="btn btn-secondary" href="{{ route('admin.dashboard', ['section' => 'products']) }}">Сбросить фильтры</a>
+    <a class="filtr_default btn btn-secondary" href="{{ route('admin.dashboard', ['section' => 'products']) }}">Сбросить фильтры</a>
 
-    <table class="table table-hover">
+    <table class="main__table table table-hover">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">ID</th>
@@ -80,3 +81,15 @@
         {{ $products->appends(request()->query())->links('pagination::bootstrap-4') }}
     </div>
 </div>
+<script>
+    function removeEmptyAndSubmit(form) {
+        const formData = new FormData(form);
+        for (let [key, value] of formData.entries()) {
+            if (value === '') {
+                form.querySelector(`[name="${key}"]`).remove();
+            }
+        }
+        form.submit();
+    }
+    </script>
+    

@@ -95,3 +95,12 @@
     color: #fff;
     border-color: #007bff;
 }
+
+.main__table{
+    margin-top: 20px;
+}
+.filtr_default{
+    display: block;
+    max-width: 200px;
+
+}
