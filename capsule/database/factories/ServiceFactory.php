@@ -4,21 +4,17 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Service>
- */
 class ServiceFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     */
-    public function definition(): array
+    public function definition()
     {
         return [
-            'name' => $this->faker->company, // Generate a fake company name
-            'description' => $this->faker->sentence, // Generate a fake description
-            'cooperation' => $this->faker->boolean, // Generate a random boolean value
-            'list_of_products' => [], // Default empty array
+            'name' => $this->faker->company,
+            'description' => $this->faker->paragraph,
+            'cooperation' => $this->faker->boolean,
+            'list_of_products' => [],
+            'email' => $this->faker->unique()->safeEmail,
+            'password' => bcrypt('password'), // Default password for testing
         ];
     }
 }

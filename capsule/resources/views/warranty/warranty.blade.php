@@ -26,7 +26,7 @@
                     CAPSULEPPF warranty page
                 </div>
 
-                <form method="POST" action="{{ route('login') }}" class="login__form" id="loginForm">
+                <form method="POST" action="{{ route('warranty.login') }}" class="login__form" id="loginForm">
                     @csrf
                     <!-- Input fields for email and password -->
                     <div class="input__container">
