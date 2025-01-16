@@ -252,12 +252,17 @@
         <!---warranty and verification--->
 
         <section class="warranty" id="warranty">
+            <div class="warranty__name warranty__name-mobile">
+                {{ __('main.warranty__name') }}
+            </div>
+
             <div class="warranty__name__desc">
                 <p>
                     {{ __('main.warranty__name__desc') }}
                 </p>
             </div>
             <div class="warranty__container">
+
                 <div class="warranty__element">
                     <div class="warranty__element__wrapper">
                         <div class="warranty__element__image">

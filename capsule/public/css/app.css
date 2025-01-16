@@ -2061,6 +2061,9 @@ color: #fff;
     height: 100%;
     object-fit: cover;
 }
+    .warranty__name-mobile{
+        display: none;
+    }
 @media only screen and (max-width: 1670px) {
     .main__car {
         height: 369px;
@@ -3296,4 +3299,39 @@ color: #fff;
             font-size: 14px;
             line-height: 24px;
     }
+    .warranty__name{
+        display: none;
+    }
+    .warranty__name-mobile{
+        display: visible;
+    }
+    .warranty__element__desc{
+        height: 243px;
+    }
+    .warranty__element__image{
+        bottom: initial;
+        top: 0;
+    }
+    .warranty__element__desc {
+        position: absolute;
+        width: 95%;
+        margin: 0 auto;
+        bottom: 0;
+    }
+        .warranty__element__desc2 {
+            height: 185px;
+            position: absolute;
+            width: 95%;
+            margin: 0 auto;
+            bottom: 0;
+            left: 9px;
+        }
+        .warranty__element__image2{
+            bottom: initial;
+            top: 0;
+        }
+        .gallery__images__wrapper.gallery__images__small:nth-child(1){
+            display: none;
+            visibility: hidden;
+        }
 }
