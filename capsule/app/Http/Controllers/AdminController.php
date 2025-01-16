@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use App\Models\Product;
+use App\Models\Service;
 
 class AdminController extends Controller
 {
@@ -18,7 +20,6 @@ class AdminController extends Controller
         Log::info('Login method triggered.');
 
         try {
-            // Validate the request
             $request->validate([
                 'email' => 'required|email',
                 'password' => 'required',
@@ -26,7 +27,6 @@ class AdminController extends Controller
 
             Log::info('Validation passed.');
 
-            // Attempt to log in the user
             $credentials = $request->only('email', 'password');
             if (Auth::attempt($credentials)) {
                 Log::info('Authentication successful for user: ' . $request->email);
@@ -60,55 +60,72 @@ class AdminController extends Controller
         return redirect()->route('admin.login');
     }
 
-    public function showAdminPage(Request $request)
+    public function showAdminPage()
     {
-        $section = $request->query('section', 'home');
-        $validSections = ['home', 'products', 'services', 'warranties'];
-    
-        if (!in_array($section, $validSections)) {
-            abort(404, 'Section not found');
+        $section = 'home';
+        return view('admin.dashboard', compact('section'));
+    }
+
+    public function adminProducts(Request $request)
+    {
+        $query = Product::query();
+
+        if ($request->has('type') && $request->query('type') !== '') {
+            $type = $request->query('type');
+            $query->where('type', $type);
         }
-    
-        $products = [];
-        $services = [];
-    
-        if ($section === 'products') {
-            $query = \App\Models\Product::query();
-    
-            // Filter by type if provided
-            if ($request->has('type') && $request->query('type') !== '') {
-                $type = $request->query('type');
-                $query->where('type', $type);
-            }
-    
-            // Sort by date if provided
-            if ($request->has('sort_by_date') && $request->query('sort_by_date') !== '') {
-                $sortByDate = $request->query('sort_by_date');
-                $query->orderBy('verification_date', $sortByDate);
-            }
-    
-            // Filter by warranty if provided
-            if ($request->has('has_warranty') && $request->query('has_warranty') !== '') {
-                $hasWarranty = $request->query('has_warranty');
-                if ($hasWarranty == '1') {
-                    $query->whereNotNull('warranty');
-                } else {
-                    $query->whereNull('warranty');
-                }
-            }
-    
-            $products = $query->paginate(20);
+
+        if ($request->has('sort_by_date') && $request->query('sort_by_date') !== '') {
+            $sortByDate = $request->query('sort_by_date');
+            $query->orderBy('verification_date', $sortByDate);
         }
-    
-        if ($section === 'services') {
-            $services = \App\Models\Service::all(); // Get all services
+
+        if ($request->has('has_warranty') && $request->query('has_warranty') !== '') {
+            $hasWarranty = $request->query('has_warranty');
+            if ($hasWarranty == '1') {
+                $query->whereNotNull('warranty');
+            } else {
+                $query->whereNull('warranty');
+            }
         }
+
+        $products = $query->paginate(20);
+        $section = 'products';
+
+        return view('admin.dashboard', compact('section', 'products'));
+    }
+
+    public function adminServices()
+    {
+        $services = Service::all();
+        $section = 'services';
+
+        return view('admin.dashboard', compact('section', 'services'));
+    }
+
+    public function adminSingleService($id)
+    {
+        $service = Service::findOrFail($id); // Fetch the service by ID or fail with a 404
+        $section = 'single_service';
     
-        return view('admin.dashboard', compact('section', 'products', 'services'));
+        return view('admin.dashboard', compact('section', 'service'));
     }
     
     
-    
-    
-    
+
+    public function adminWarranties()
+    {
+        $warranties = []; // Load warranty data as needed
+        $section = 'warranties';
+
+        return view('admin.dashboard', compact('section', 'warranties'));
+    }
+
+    public function adminSingleWarranty($id)
+    {
+        $warranty = []; // Load single warranty data as needed
+        $section = 'single_warranty';
+
+        return view('admin.dashboard', compact('section', 'warranty'));
+    }
 }

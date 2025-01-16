@@ -51,9 +51,19 @@ Route::get('/admin/login', [AdminController::class, 'showLoginForm'])->name('adm
 Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.login.submit');
 Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
+
+
 Route::middleware([AdminAuth::class])->group(function () {
     Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.dashboard');
+    Route::get('/admin/products', [AdminController::class, 'adminProducts'])->name('admin.products');
+    Route::get('/admin/services', [AdminController::class, 'adminServices'])->name('admin.services');
+    Route::get('/admin/services/{id}', [AdminController::class, 'adminSingleService'])->name('admin.service');
+    Route::get('/admin/warranties', [AdminController::class, 'adminWarranties'])->name('admin.warranties'); // Correct route name
+    Route::get('/admin/warranties/{id}', [AdminController::class, 'adminSingleWarranty'])->name('admin.warranty');
 });
+
+
+
 
 
 

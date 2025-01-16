@@ -35,18 +35,19 @@
 
             <div class="admin__navigation">
                 <div class="admin__navigation-element">
-                    <a class="btn btn-dark" href="{{ route('admin.dashboard', ['section' => 'home']) }}">Главная</a>
+                    <a class="btn btn-dark" href="{{ route('admin.dashboard') }}">Главная</a>
                 </div>
                 <div class="admin__navigation-element">
-                    <a class="btn btn-dark" href="{{ route('admin.dashboard', ['section' => 'products']) }}">Товары</a>
+                    <a class="btn btn-dark" href="{{ route('admin.products') }}">Товары</a>
                 </div>
                 <div class="admin__navigation-element">
-                    <a class="btn btn-dark"href="{{ route('admin.dashboard', ['section' => 'services']) }}">Сервисы</a>
+                    <a class="btn btn-dark" href="{{ route('admin.services') }}">Сервисы</a>
                 </div>
                 <div class="admin__navigation-element">
-                    <a class="btn btn-dark" href="{{ route('admin.dashboard', ['section' => 'warranties']) }}">Гарантии</a>
+                    <a class="btn btn-dark" href="{{ route('admin.warranties') }}">Гарантии</a> <!-- Use 'admin.warranties' -->
                 </div>
             </div>
+            
 
             <div class="admin__logout">
                 <form method="POST" action="{{ route('admin.logout') }}">
