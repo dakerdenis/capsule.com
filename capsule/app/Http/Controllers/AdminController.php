@@ -70,6 +70,8 @@ class AdminController extends Controller
         }
     
         $products = [];
+        $services = [];
+    
         if ($section === 'products') {
             $query = \App\Models\Product::query();
     
@@ -98,8 +100,13 @@ class AdminController extends Controller
             $products = $query->paginate(20);
         }
     
-        return view('admin.dashboard', compact('section', 'products'));
+        if ($section === 'services') {
+            $services = \App\Models\Service::all(); // Get all services
+        }
+    
+        return view('admin.dashboard', compact('section', 'products', 'services'));
     }
+    
     
     
     
