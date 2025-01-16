@@ -69,12 +69,34 @@ class AdminController extends Controller
             abort(404, 'Section not found');
         }
     
-        // Fetch products if the section is 'products'
         $products = [];
         if ($section === 'products') {
-            $products = \App\Models\Product::all(); // Replace Product with your actual model name
+            $query = \App\Models\Product::query();
+    
+            // Filter by type if provided
+            if ($request->has('type')) {
+                $type = $request->query('type');
+                $query->where('type', $type);
+            }
+    
+            // Sort by date if provided
+            if ($request->has('sort_by_date')) {
+                $sortByDate = $request->query('sort_by_date');
+                $query->orderBy('verification_date', $sortByDate);
+            }
+    
+            // Filter by warranty if provided
+            if ($request->has('has_warranty')) {
+                $hasWarranty = $request->query('has_warranty');
+                $query->whereNotNull('warranty', $hasWarranty == '1');
+            }
+    
+            $products = $query->paginate(20);
         }
     
         return view('admin.dashboard', compact('section', 'products'));
     }
+    
+    
+    
 }
