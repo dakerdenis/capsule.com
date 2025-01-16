@@ -22,7 +22,7 @@ Route::middleware(['web'])->group(function () {
     });
 
     Route::get('/catalog', fn() => redirect('/en/catalog'));
-
+    Route::get('/verification', [PageController::class, 'verification'])->name('verification');
     // Warranty System Routes
     Route::get('/warranty', [PageController::class, 'warranty'])->name('warranty');
     Route::post('/warranty/login', [AuthController::class, 'handleLogin'])->name('warranty.login');

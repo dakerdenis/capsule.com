@@ -11,7 +11,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        // Add your global middleware or route-specific middleware here
+        $middleware->route('admin.auth', \App\Http\Middleware\AdminAuth::class);
+        $middleware->route('service.auth', \App\Http\Middleware\ServiceAuth::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

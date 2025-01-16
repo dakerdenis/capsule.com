@@ -253,7 +253,7 @@
 
         <section class="warranty" id="warranty">
             <div class="warranty__name warranty__name-mobile">
-                {{ __('main.warranty__name') }}
+                <p>{{ __('main.warranty__name') }}</p>
             </div>
 
             <div class="warranty__name__desc">
@@ -441,7 +441,7 @@
                 </div>
 
                 <div class="gallery__images__wrapper">
-                    <div class="gallery__images__small">
+                    <div class="gallery__images__small gallery__images__small-mobile">
                         <a href="{{ asset('public/images/1.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
                             <img src="{{ asset('public/images/1.png') }}" alt="Gallery Image" />
@@ -553,9 +553,9 @@
                     </div>
 
                     <div class="map__container-desc">
-                        <p>15</p>
+                        <p>9</p>
                         <span>countries</span>
-                        <p class="map_margin">150+</p>
+                        <p class="map_margin">34</p>
                         <span>dealers</span>
                     </div>
                 </div>

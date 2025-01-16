@@ -17,39 +17,20 @@ class AdminController extends Controller
 
     public function login(Request $request)
     {
-        Log::info('Login method triggered.');
-
-        try {
-            $request->validate([
-                'email' => 'required|email',
-                'password' => 'required',
-            ]);
-
-            Log::info('Validation passed.');
-
-            $credentials = $request->only('email', 'password');
-            if (Auth::attempt($credentials)) {
-                Log::info('Authentication successful for user: ' . $request->email);
-                $request->session()->regenerate();
-                return redirect()->route('admin.dashboard');
-            }
-
-            Log::warning('Authentication failed for user: ' . $request->email);
-
-            return redirect()->route('admin.login')->withErrors([
-                'email' => 'The provided credentials do not match our records.',
-            ]);
-        } catch (\Exception $e) {
-            Log::error('Unexpected error during login: ' . $e->getMessage(), [
-                'line' => $e->getLine(),
-                'file' => $e->getFile(),
-            ]);
-
-            return redirect()->route('admin.login')->withErrors([
-                'email' => 'An unexpected error occurred. Please try again.',
-            ]);
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+    
+        if (Auth::guard('web')->attempt($request->only('email', 'password'))) {
+            return redirect()->route('admin.dashboard');
         }
+    
+        return back()->withErrors([
+            'email' => 'Invalid credentials.',
+        ]);
     }
+    
 
     public function logout(Request $request)
     {

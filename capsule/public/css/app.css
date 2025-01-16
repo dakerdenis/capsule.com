@@ -3303,7 +3303,7 @@ color: #fff;
         display: none;
     }
     .warranty__name-mobile{
-        display: visible;
+        display: block;
     }
     .warranty__element__desc{
         height: 243px;
@@ -3331,6 +3331,10 @@ color: #fff;
             top: 0;
         }
         .gallery__images__wrapper.gallery__images__small:nth-child(1){
+            display: none;
+            visibility: hidden;
+        }
+        .gallery__images__small-mobile{
             display: none;
             visibility: hidden;
         }
