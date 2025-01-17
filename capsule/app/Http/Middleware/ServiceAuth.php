@@ -9,6 +9,7 @@ class ServiceAuth
 {
     public function handle($request, Closure $next)
     {
+        logger('ServiceAuth middleware triggered');
         if (!Auth::guard('service')->check()) {
             return redirect()->route('warranty');
         }
