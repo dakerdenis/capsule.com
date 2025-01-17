@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\AdminAuth;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -12,9 +13,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->global([\Illuminate\Session\Middleware\StartSession::class]);
-        $middleware->route('admin.auth', \App\Http\Middleware\AdminAuth::class);
-        $middleware->route('service.auth', \App\Http\Middleware\ServiceAuth::class);
+        $middleware->alias([
+            'admin.auth'=>AdminAuth::class
+        ]);
     })
     ->create();
 
