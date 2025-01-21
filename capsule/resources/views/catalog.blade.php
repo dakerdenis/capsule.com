@@ -838,7 +838,7 @@
                     {
                         id: 2,
                         name: 'OPTIMA',
-                        desc: 'Crafted for premium-class vehicles, providing perfect protection and style.',
+                        desc: 'Optima is a high-impact resistant film for vechicle protection.',
                         filmType: 'Paint protecrion film',
                         filmColor: 'Clear',
                         bodyType: '210 mikrons',
@@ -846,7 +846,7 @@
                         other: '60"×50\' - 152cm×15m'
                     },
                     {
-                        id: 2,
+                        id: 3,
                         name: 'ELEMENT',
                         desc: 'Crafted for premium-class vehicles, providing perfect protection and style.',
                         filmType: 'Paint protecrion film',
@@ -856,7 +856,7 @@
                         other: '60"×50\' - 152cm×15m'
                     },
                     {
-                        id: 3,
+                        id: 4,
                         name: 'HURACAN',
                         desc: 'Built for sports cars and extreme usage, delivering maximum protection.',
                         filmType: 'paint protecrion film',
@@ -866,7 +866,7 @@
                         other: '60"×50\' - 152cm×15m'
                     },
                     {
-                        id: 4,
+                        id: 5,
                         name: 'MATTE',
                         desc: 'Matte protection for vehicles, offering a stylish look and reliable coverage.',
                         filmType: 'paint protecrion film',
@@ -875,7 +875,7 @@
                         warranty: '5 Years',
                         other: '60"×50\' - 152cm×15m'
                     }, {
-                        id: 5,
+                        id: 6,
                         name: 'BLACK',
                         desc: 'Developed for changing the car\'s color and ensuring its protection.',
                         filmType: 'paint protecrion film',

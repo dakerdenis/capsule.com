@@ -2891,7 +2891,8 @@ h6 {
     }
 
     .header__wrapper a img {
-        width: 100%;
+        width: initial;
+        height: 100%;
         object-fit: cover;
     }
 
@@ -3843,6 +3844,7 @@ h6 {
     }
     .catalog__page__element {
         width: 280px;
+        height: 505px;
     }
     .catalog__page__element-content {
         width: 280px;

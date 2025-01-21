@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>@yield('title', 'Capsule - car protection')</title>
+        <title>Capsule - car protection</title>
 
         <!-- Primary Meta Tags -->
         <meta name="description" content="@yield('meta_description', 'Capsule PPF provides high-quality protective films for cars, offering superior protection against scratches, chemical exposure, and damage while ensuring a glossy, transparent finish. Maintain your car’s aesthetics with ease.')">

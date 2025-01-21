@@ -330,7 +330,7 @@
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
                                             <div class="glide__slide__image">
-                                                <img src="{{ 'public/images/placeholder.png' }}" alt="">
+                                                <img src="{{ 'public/images/urbanppf.jpg' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
                                                 {{ __('main.catalog_eleemnt1_name') }}
@@ -344,7 +344,7 @@
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
                                             <div class="glide__slide__image">
-                                                <img src="{{ 'public/images/placeholder.png' }}" alt="">
+                                                <img src="{{ 'public/images/optimappf.jpg' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
                                                 {{ __('main.catalog_eleemnt5_name') }}
@@ -358,7 +358,7 @@
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
                                             <div class="glide__slide__image">
-                                                <img src="{{ 'public/images/placeholder.png' }}" alt="">
+                                                <img src="{{ 'public/images/elementppf.jpg' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
                                                 {{ __('main.catalog_eleemnt2_name') }}
@@ -373,7 +373,7 @@
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
                                             <div class="glide__slide__image">
-                                                <img src="{{ 'public/images/placeholder.png' }}" alt="">
+                                                <img src="{{ 'public/images/hurakanppf.jpg' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
                                                 {{ __('main.catalog_eleemnt3_name') }}
@@ -390,7 +390,7 @@
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
                                             <div class="glide__slide__image">
-                                                <img src="{{ 'public/images/placeholder.png' }}" alt="">
+                                                <img src="{{ 'public/images/matteppf.jpg' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
                                                 
@@ -411,10 +411,12 @@
                                                 <img src="{{ 'public/images/placeholder.png' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
-                                                BLACK
+                                                {{ __('main.catalog_eleemnt6_name') }}
                                             </div>
                                             <div class="glide__slide__desc">
-                                                <p>Created for changing the car's color and ensuring its protection.</p>
+                                                <p>
+                                                    {{ __('main.catalog_eleemnt6_desc') }} 
+                                                </p>
                                             </div>
                                         </div>
                                         <button data-target="contact">{{ __('main.catalog_element_button') }}</button>

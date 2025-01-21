@@ -71,6 +71,9 @@ This process ensures full transparency and protection against counterfeiting, gu
     'catalog_eleemnt4_name' => 'MATTE',
     'catalog_eleemnt4_desc' => 'Matte protection for vehicles, offering a stylish look and reliable coverage.',
 
+    'catalog_eleemnt6_name' => 'BLACK',
+    'catalog_eleemnt6_desc' => 'Created for changing the car\'s color and ensuring its protection.',
+
 
 
 
