@@ -30,7 +30,7 @@ Route::get('/catalog', fn() => redirect('/en/catalog'));
 //!Verification Page for all users -> need to add maximum values of attempts per minute.
 //*************************** */
 //*************************** */
-Route::get('/verification', [VerificationController::class, 'verification'])->name('verification');
+Route::get('/verification', [VerificationController::class, 'ShowVerificationForm'])->name('verification');
 Route::post('/verification', [VerificationController::class, 'verification_check'])->name('verification.post');
 //*************************** */
 //*************************** */
@@ -48,7 +48,7 @@ Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.lo
 
 
 
-//* Admin authenticated MIddleware (ONLY AUTHORIZED ADMIN CAN ACCESS)
+//! Admin authenticated MIddleware (ONLY AUTHORIZED ADMIN CAN ACCESS)
 //*************************** */
 Route::middleware('auth_admin')->group(function () {
     //dashboard admin page - admin panel only could be accessed by authenticated adminstrators
@@ -83,10 +83,11 @@ Route::middleware('auth_admin')->group(function () {
 });
 //*************************** */
 
-//*Warranty system for Services
+//!Warranty system for Services
 //*************************** */
-Route::get('/warranty', [WarrantyController::class, 'warrantyPage'])->name('service.login');
+Route::get('/warranty', [WarrantyController::class, 'warrantyPage'])->name('warranty');
 Route::post('/warranty',[WarrantyController::class,'warrantyLogin'])->name('service.post_login');
+//!Warranty only logged in
 Route::middleware('auth_service')->group(function () {
     Route::prefix('warranty')->group(function(){
         Route::get('/register', [WarrantyController::class, 'warrantyregister'])->name('service.register');
