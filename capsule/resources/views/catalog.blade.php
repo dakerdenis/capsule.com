@@ -7,12 +7,30 @@
         .catalog {
             margin-top: 150px;
         }
+
+        .header__nav__element-catalog {
+            background-color: rgba(0, 0, 0, 0);
+            color: #fff;
+
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 24.2px;
+            text-align: left;
+            text-underline-position: from-font;
+            text-decoration-skip-ink: none;
+            width: initial;
+            height: initial;
+        }
+        .header_rectangle{
+            display: none;
+            visibility: hidden;
+        }
     </style>
     <div class="main__container">
         <!---header-->
         <header class="header" id="header">
             <div class="header__wrapper">
-                <a href="{{ url(app()->getLocale()) }}">
+                <a  class="header__wrapper__image-a" href="{{ url(app()->getLocale()) }}">
                     <img src="{{ asset('public/images/logo_main.png') }}" alt="">
                 </a>
 
@@ -21,51 +39,75 @@
                         <img src="{{ asset('public/images/circum_menu-burger.png') }}" alt="" srcset="">
                     </div>
                     <div class="header__nav__element">
-                        <button data-target="home">Home</button>
+                        <a class="header__nav__element-catalog"
+                            href="{{ url(app()->getLocale() . '#home') }}">{{ __('main.header_home') }}</a>
                     </div>
                     <div class="header__nav__element">
-                        <button data-target="about_us">About</button>
+                        <a class="header__nav__element-catalog"
+                            href="{{ url(app()->getLocale() . '#about_us') }}">{{ __('main.header_about') }}</a>
                     </div>
                     <div class="header__nav__element">
-                        <button data-target="catalog">Catalogue</button>
+                        <a class="header__nav__element-catalog"
+                            href="{{ url(app()->getLocale() . '#warranty') }}">{{ __('main.header_warranty') }}</a>
                     </div>
                     <div class="header__nav__element">
-                        <button data-target="gallery">Gallery</button>
+                        <a class="header__nav__element-catalog"
+                            href="{{ url(app()->getLocale() . '#gallery') }}">{{ __('main.header_gallery') }}</a>
                     </div>
                     <div class="header__nav__element">
                         <button data-target="contact">Contacts</button>
                     </div>
-                    <img src="{{ asset('public/images/header_rectangle.png') }}" id="header_rectangle" class="header_rectangle"
-                        alt="" />
+                    <img src="{{ asset('public/images/header_rectangle.png') }}" id="header_rectangle"
+                        class="header_rectangle" alt="" />
                 </div>
 
 
                 <div class="header__languages">
-                    {{-- Language Button (Shows Current Locale) --}}
-                    <button id="languageButton">
-                        {{ strtoupper(app()->getLocale()) }} {{-- Display current locale --}}
-                    </button>
-
-                    {{-- Dropdown Language Selector --}}
+                    <button id="languageButton">{{ strtoupper(app()->getLocale()) }}</button>
                     <div class="language-dropdown" id="languageDropdown">
-                        <a href="{{ url('/en' . substr(request()->getPathInfo(), 3)) }}"
-                            class="{{ app()->getLocale() === 'en' ? 'active' : '' }}">
-                            EN
-                        </a>
-                        <a href="{{ url('/ru' . substr(request()->getPathInfo(), 3)) }}"
-                            class="{{ app()->getLocale() === 'ru' ? 'active' : '' }}">
-                            RU
-                        </a>
-                        <a href="{{ url('/az' . substr(request()->getPathInfo(), 3)) }}"
-                            class="{{ app()->getLocale() === 'az' ? 'active' : '' }}">
-                            AZ
-                        </a>
+                        <a href="{{ url('/en') }}" class="{{ app()->getLocale() === 'en' ? 'active' : '' }}">EN</a>
+                        <a href="{{ url('/de') }}" class="{{ app()->getLocale() === 'de' ? 'active' : '' }}">DE</a>
                     </div>
                 </div>
 
-
+                <div class="header__burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
 
             </div>
+
+                        <!-- Full-screen mobile menu -->
+                        <div class="mobile-menu" id="mobileMenu">
+                            <button class="mobile-menu__close" id="mobileMenuClose">X</button>
+                            <div class="mobile-menu__content">
+                                <div class="mobile__menu__container">
+                                    <div class="mobile__burger-logo">
+                                        <img src="{{ asset('public/images/logo_main.png') }}" alt="">
+                                    </div>
+                                    <div class="mobile__burger-language">
+                                        <a href="{{ url('/en') }}" class="{{ app()->getLocale() === 'en' ? 'active' : '' }}">EN</a>
+                                        <a href="{{ url('/de') }}" class="{{ app()->getLocale() === 'de' ? 'active' : '' }}">DE</a>
+                                    </div>
+                                    <div class="mobile__burger-navigation">
+                                        <a href="#home">{{ __('main.header_home') }}</a>
+                                        <a href="#about_us">{{ __('main.header_about') }}</a>
+                                        <a href="#warranty">{{ __('main.header_warranty') }}</a>
+                                        <a href="#catalog">{{ __('main.header_catalogue') }}</a>
+                                        <a href="#gallery">{{ __('main.header_gallery') }}</a>
+                                        <a href="#contact">{{ __('main.header_contacts') }}</a>
+                                    </div>
+                                    <div class="mobile__burger__created">
+            
+                                    </div>
+                                </div>
+            
+                                <div class="mobile__menu__placeholder">
+                                    <img src="{{ asset('public/images/about_placeholder1.png') }}" alt="">
+                                </div>
+                            </div>
+                        </div>
         </header>
 
 
@@ -201,7 +243,8 @@
 
                                 <div class="catalog__page__element-content-container">
                                     <div class="catalog__page__element-image">
-                                        <img src="{{ '../public/images/placeholder.png' }}" alt="" srcset="">
+                                        <img src="{{ '../public/images/placeholder.png' }}" alt=""
+                                            srcset="">
                                     </div>
 
                                     <div class="catalog__page__element-name">
@@ -227,7 +270,8 @@
 
                                 <div class="catalog__page__element-content-container">
                                     <div class="catalog__page__element-image">
-                                        <img src="{{ '../public/images/placeholder.png' }}" alt="" srcset="">
+                                        <img src="{{ '../public/images/placeholder.png' }}" alt=""
+                                            srcset="">
                                     </div>
 
                                     <div class="catalog__page__element-name">
@@ -235,7 +279,7 @@
                                     </div>
 
                                     <div class="catalog__page__element-desc">
-                                       Created for changing the car's color and ensuring its protection.
+                                        Created for changing the car's color and ensuring its protection.
                                     </div>
                                 </div>
                             </div>
@@ -798,7 +842,7 @@
                         filmType: 'Paint protecrion film',
                         filmColor: 'Clear',
                         bodyType: '210 mikrons',
-                        warranty: '8 Years',
+                        warranty: '5 Years',
                         other: '60"×50\' - 152cm×15m'
                     },
                     {
@@ -949,6 +993,36 @@
                     sliderButton.style.transform = 'translateX(0)';
                     currentX = 0;
                 }
+            });
+        });
+
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const burger = document.querySelector('.header__burger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuClose = document.getElementById('mobileMenuClose');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+            const body = document.body;
+
+            // Open mobile menu
+            burger.addEventListener('click', () => {
+                mobileMenu.classList.add('active');
+                body.style.overflow = 'hidden'; // Disable scrolling
+            });
+
+            // Close mobile menu on close button click
+            mobileMenuClose.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                body.style.overflow = ''; // Enable scrolling
+            });
+
+            // Close mobile menu on link click
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    body.style.overflow = ''; // Enable scrolling
+                });
             });
         });
     </script>

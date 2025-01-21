@@ -147,13 +147,13 @@ h6 {
     padding: 0px 90px 0px 42px;
 }
 
-.header__wrapper a {
+.header__wrapper__image-a {
     display: flex;
     width: 306px;
     height: 85px;
 }
 
-.header__wrapper a img {
+.header__wrapper__image-a img {
 
     height: 100%;
     object-fit: cover;
@@ -188,7 +188,17 @@ h6 {
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
 }
+.header__nav__element-catalog {
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
 
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24.2px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
 .header_rectangle {
     position: absolute;
     bottom: -2px;
@@ -2269,7 +2279,19 @@ h6 {
 .warranty__name-mobile {
     display: none;
 }
+.header__nav__element-catalog {
+    background-color: rgba(0, 0, 0, 0);
+    color: #fff;
 
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24.2px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    width: initial;
+    height: initial;
+}
 @media only screen and (max-width: 1670px) {
     .main__car {
         height: 369px;

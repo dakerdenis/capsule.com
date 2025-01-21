@@ -57,7 +57,7 @@ This process ensures full transparency and protection against counterfeiting, gu
     'catalog_eleemnt1_desc' => 'Designed for cars used daily in urban conditions.',
 
     'catalog_eleemnt5_name' => 'OPTIMA',
-    'catalog_eleemnt5_desc' => 'Matte protection for vehicles, offering a stylish look and reliable coverage.',
+    'catalog_eleemnt5_desc' => 'Optima is a high-impact resistant film for vechicle protection',
 
     //catalog element2
     'catalog_eleemnt2_name' => 'ELEMENT',
