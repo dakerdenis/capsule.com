@@ -127,6 +127,32 @@
                                     </div>
 
                                     <div class="catalog__page__element-name">
+                                        OPTIMA
+                                    </div>
+
+                                    <div class="catalog__page__element-desc">
+                                        Designed for cars used daily in urban conditions.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="catalog__page__element-button">
+                                <button>order now</button>
+                            </div>
+                        </div>
+
+                        <div class="catalog__page__element">
+                            <div class="catalog__page__element-content">
+                                <div class="catalog__page__element-content-info">
+                                    <button>View details</button>
+                                </div>
+
+                                <div class="catalog__page__element-content-container">
+                                    <div class="catalog__page__element-image">
+                                        <img src="{{ '../public/images/placeholder.png' }}" alt="" srcset="">
+                                    </div>
+
+                                    <div class="catalog__page__element-name">
                                         ELEMENT
                                     </div>
 
@@ -763,6 +789,16 @@
                         filmColor: 'clear',
                         bodyType: '190 mikrons',
                         warranty: '5 Years',
+                        other: '60"×50\' - 152cm×15m'
+                    },
+                    {
+                        id: 2,
+                        name: 'OPTIMA',
+                        desc: 'Crafted for premium-class vehicles, providing perfect protection and style.',
+                        filmType: 'Paint protecrion film',
+                        filmColor: 'Clear',
+                        bodyType: '210 mikrons',
+                        warranty: '8 Years',
                         other: '60"×50\' - 152cm×15m'
                     },
                     {

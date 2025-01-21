@@ -56,6 +56,9 @@ This process ensures full transparency and protection against counterfeiting, gu
     'catalog_eleemnt1_name' => 'URBAN',
     'catalog_eleemnt1_desc' => 'Designed for cars used daily in urban conditions.',
 
+    'catalog_eleemnt5_name' => 'OPTIMA',
+    'catalog_eleemnt5_desc' => 'Matte protection for vehicles, offering a stylish look and reliable coverage.',
+
     //catalog element2
     'catalog_eleemnt2_name' => 'ELEMENT',
     'catalog_eleemnt2_desc' => 'Crafted for premium-class vehicles, providing perfect protection and style.',
@@ -68,7 +71,13 @@ This process ensures full transparency and protection against counterfeiting, gu
     'catalog_eleemnt4_name' => 'MATTE',
     'catalog_eleemnt4_desc' => 'Matte protection for vehicles, offering a stylish look and reliable coverage.',
 
+
+
+
     'catalog_element_button' => 'Order now',
+
+
+
 
 
     //Gallery block

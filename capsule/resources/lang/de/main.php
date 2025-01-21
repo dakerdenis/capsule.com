@@ -53,6 +53,8 @@ Dieser Prozess gewährleistet vollständige Transparenz und Schutz vor Fälschun
     'catalog_eleemnt1_name' => 'URBAN',
     'catalog_eleemnt1_desc' => 'Entwickelt für Autos, die täglich in städtischen Bedingungen genutzt werden.',
 
+    'catalog_eleemnt5_name' => 'OPTIMA',
+    'catalog_eleemnt5_desc' => 'Entwickelt für Autos, die täglich in städtischen Bedingungen genutzt werden.',
     //catalog element2
     'catalog_eleemnt2_name' => 'ELEMENT',
     'catalog_eleemnt2_desc' => 'Für Fahrzeuge der Premiumklasse, die perfekten Schutz und Stil bieten.',

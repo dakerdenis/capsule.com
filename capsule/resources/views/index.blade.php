@@ -341,7 +341,20 @@
                                         </div>
                                         <button>{{ __('main.catalog_element_button') }}</button>
                                     </li>
-
+                                    <li class="glide__slide">
+                                        <div class="glide__slide__wrapper">
+                                            <div class="glide__slide__image">
+                                                <img src="{{ 'public/images/placeholder.png' }}" alt="">
+                                            </div>
+                                            <div class="glide__slide__name">
+                                                {{ __('main.catalog_eleemnt5_name') }}
+                                            </div>
+                                            <div class="glide__slide__desc">
+                                                <p>{{ __('main.catalog_eleemnt5_desc') }}</p>
+                                            </div>
+                                        </div>
+                                        <button>{{ __('main.catalog_element_button') }}</button>
+                                    </li>
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
                                             <div class="glide__slide__image">
