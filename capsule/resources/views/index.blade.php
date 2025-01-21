@@ -968,7 +968,7 @@
                                 Address:
                             </div>
                             <div class="contact__adress__content">
-                                1550 7th st NW, Washington, apt 819, District of Columbia, 20001
+                                37157 Barrington Parkway, Millville, DE 19967
                             </div>
                         </div>
                         <div class="contact__adress__element">
@@ -976,7 +976,7 @@
                                 Phone:
                             </div>
                             <div class="contact__adress__content">
-                                +12137067456
+                                +1 (302) 307-0077
                             </div>
                         </div>
                         <div class="contact__adress__element">
