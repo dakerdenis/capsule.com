@@ -943,9 +943,9 @@ h6 {
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
 }
-
 .glide__slide__wrapper {
-    width: 100%;
+    width: 93%;
+    margin: 0 auto;
     height: 100%;
     z-index: 200;
     position: relative;
@@ -962,11 +962,12 @@ h6 {
 }
 
 .glide__slide__image {
-    width: 317px;
-    height: 293px;
+    width: 326px;
+    height: 402px;
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 .glide__slide__image img {
@@ -983,6 +984,8 @@ h6 {
     letter-spacing: 0.800000011920929px;
     text-align: center;
     color: #fff;
+    display: none;
+    visibility: hidden;
 }
 
 .glide__slide__desc {
@@ -993,6 +996,10 @@ h6 {
     text-align: center;
     text-underline-position: from-font;
     text-decoration-skip-ink: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .glide__background-desc {
@@ -2418,6 +2425,19 @@ h6 {
     .warranty__element__image-link2 {
         left: 80px;
     }
+    .glide__slide__image{
+        width: 285px;
+        height: 363px;
+    }
+    .glide__slide__desc {
+        line-height: 36px;
+    }
+    .glide__slide--active .glide__slide__wrapper{
+        transform: translateY(-120px);
+    }
+    .glide__slide__wrapper {
+        height: 95%;
+    }
 }
 
 @media only screen and (max-width: 1450px) {
@@ -2475,11 +2495,17 @@ h6 {
     }
 
     .glide__slide img {
-        height: 240px;
+        width: 100%;
     }
+    .glide__slide__image {
+        width: 233px;
+        height: 317px;
+    }
+    .glide__slide__desc{
+        height: 270px;
+        font-size: 17px;
+        line-height: 31px;
 
-    .glide__slide__image img {
-        width: initial;
     }
 
     .glide__slide__name {
@@ -2493,7 +2519,7 @@ h6 {
     }
 
     .glide__slide__wrapper {
-        padding: 20px;
+        padding: 16px;
     }
 
     .catalog__page__container {
@@ -2679,7 +2705,9 @@ h6 {
     }
 
     .glide__slide__desc {
-        line-height: 30px;
+        line-height: 29px;
+        font-size: 16px;
+        height: 240px;
     }
 
     .glide__slide button {
@@ -2726,6 +2754,21 @@ h6 {
     .contact_wrapper {
         height: initial;
         min-height: initial;
+    }
+    .glide__slide__wrapper {
+        height: 88%;
+    }
+    .glide__slide__desc{
+        font-size: 15px;
+    }
+    .glide__slide button{
+        bottom: 57px;
+    }
+    .glide__slide{
+        height: 493px;
+    }
+    .glide__arrow {
+        top: 77%;
     }
 }
 

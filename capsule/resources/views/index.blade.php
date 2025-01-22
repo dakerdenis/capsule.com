@@ -408,7 +408,7 @@
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
                                             <div class="glide__slide__image">
-                                                <img src="{{ 'public/images/placeholder.png' }}" alt="">
+                                                <img src="{{ 'public/images/blackppf.jpg' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
                                                 {{ __('main.catalog_eleemnt6_name') }}
