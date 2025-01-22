@@ -3895,4 +3895,53 @@ h6 {
     .catalog{
         margin-top: 30px;
     }
+    .glide__slide__desc{
+        height: initial;
+
+    }
+    .glide__slide__wrapper {
+        width: 100%;
+    }
+    .glide__slide__image {
+
+        width: 94%;
+    }
+    .glide__arrow{
+        top: 103%;
+    }
+    .glide__slide button {
+        width: 190px;
+        left: calc(50% - 95px);
+    }
+    .popup__auto__line{
+        display: none;
+    }
+    .popup__text strong{
+        font-size: 15px;
+    }
+    .popup__auto {
+        border-radius: 11px 11px 0px 0px;
+    }
+    .popup__content_container{
+        border-radius: 0px 0px 11px 11px;
+    }
+.glide__slide__wrapper{
+    height: 100%;
+}
+.glide__slide__image{
+    height: 255px;
+    width: 100%;
+}
+.glide__slide__image img{
+    width: initial;
+    height: 100%;
+    object-fit: contain;
+
+}
+.glide__slide--active .glide__slide__wrapper {
+    transform: translateY(-65px);
+}
+.glide__slide button {
+    bottom: 0px;
+}
 }

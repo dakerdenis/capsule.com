@@ -91,11 +91,14 @@
                                         <a href="{{ url('/de') }}" class="{{ app()->getLocale() === 'de' ? 'active' : '' }}">DE</a>
                                     </div>
                                     <div class="mobile__burger-navigation">
-                                        <a href="#home">{{ __('main.header_home') }}</a>
-                                        <a href="#about_us">{{ __('main.header_about') }}</a>
-                                        <a href="#warranty">{{ __('main.header_warranty') }}</a>
-                                        <a href="#catalog">{{ __('main.header_catalogue') }}</a>
-                                        <a href="#gallery">{{ __('main.header_gallery') }}</a>
+                                        <a class="header__nav__element-catalog"
+                                        href="{{ url(app()->getLocale() . '#home') }}">{{ __('main.header_home') }}</a>
+                                        <a class="header__nav__element-catalog"
+                                        href="{{ url(app()->getLocale() . '#about_us') }}">{{ __('main.header_about') }}</a>
+                                        <a class="header__nav__element-catalog"
+                                        href="{{ url(app()->getLocale() . '#warranty') }}">{{ __('main.header_warranty') }}</a>
+                                        <a class="header__nav__element-catalog"
+                                        href="{{ url(app()->getLocale() . '#gallery') }}">{{ __('main.header_gallery') }}</a>
                                         <a href="#contact">{{ __('main.header_contacts') }}</a>
                                     </div>
                                     <div class="mobile__burger__created">
