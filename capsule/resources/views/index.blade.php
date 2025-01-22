@@ -175,7 +175,11 @@
 
             <!---main background--->
             <div class="main__background">
-                <img src="{{ asset('public/images/background.png') }}" alt="Car Image">
+
+                <picture>
+                    <source media="(max-width: 768px)" srcset="{{ asset('public/images/background-mobile.png') }}">
+                    <img src="{{ asset('public/images/background.png') }}" alt="Car Image">
+                </picture>
             </div>
         </section>
 

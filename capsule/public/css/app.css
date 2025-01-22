@@ -3944,4 +3944,17 @@ h6 {
 .glide__slide button {
     bottom: 0px;
 }
+
+.main__background img{
+    height: initial;
+}
+.american__car__block img{
+    width: 150px;
+    height: 75px;
+}
+.american__car__block img, .contact__car__block img {
+    opacity: 0;
+    animation-duration: 3.2s;
+    animation-fill-mode: forwards;
+}
 }
