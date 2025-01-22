@@ -945,7 +945,8 @@ h6 {
 }
 
 .glide__slide__wrapper {
-    width: 100%;
+    width: 93%;
+    margin: 0 auto;
     height: 100%;
     z-index: 200;
     position: relative;
@@ -962,11 +963,12 @@ h6 {
 }
 
 .glide__slide__image {
-    width: 317px;
-    height: 293px;
+    width: 326px;
+    height: 402px;
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 .glide__slide__image img {
@@ -983,6 +985,7 @@ h6 {
     letter-spacing: 0.800000011920929px;
     text-align: center;
     color: #fff;
+    display: none;
 }
 
 .glide__slide__desc {
