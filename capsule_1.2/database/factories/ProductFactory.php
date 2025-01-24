@@ -12,10 +12,11 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'code' => $this->faker->regexify('[A-Z0-9]{6}'), // Random product code like "123ABC"
+            'code' => $this->faker->regexify('[A-Z0-9]{12}'), // Random product code like "123ABC"
             'verification_date' => null,
             'warranty' => null,
             'type' => $this->faker->numberBetween(1, 5),
+            'country' => $this->faker->randomElement(['AZ', 'US', 'EU']),
             'service_id' => null,
         ];
     }

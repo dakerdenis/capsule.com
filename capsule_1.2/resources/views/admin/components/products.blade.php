@@ -14,6 +14,15 @@
         <a class="btn btn-secondary" href="{{ route('admin.products', ['type' => 5]) }}">Black</a>
     </div>
 
+    <div class="products__sortby">
+        Фильтр по Стране:
+    </div>
+    <div class="products__sortby__buttons">
+        <a class="btn btn-secondary" href="{{ route('admin.products', ['country' => 'AZ']) }}">AZ</a>
+        <a class="btn btn-secondary" href="{{ route('admin.products', ['country' => 'EU']) }}">EU</a>
+        <a class="btn btn-secondary" href="{{ route('admin.products', ['country' => 'US']) }}">US</a>
+    </div>
+
     <div class="products__sortbydate">
         <form method="GET" action="{{ route('admin.products') }}">
             <input type="hidden" name="section" value="products">
@@ -51,6 +60,7 @@
                 <th scope="col">DD.MM.YYYY</th>
                 <th scope="col">Warranty Number</th>
                 <th scope="col">Type</th>
+                <th scope="col">Country</th>
                 <th scope="col">Service</th>
             </tr>
         </thead>
@@ -71,6 +81,7 @@
                     <td>{{ $product->verification_date ? $product->verification_date->format('d.m.Y') : 'N/A' }}</td>
                     <td>{{ $product->warranty ?? 'N/A' }}</td>
                     <td>{{ $typeNames[$product->type] ?? 'Unknown' }}</td>
+                    <td>{{ $product->country ?? 'N/A' }}</td>
                     <td>{{ $product->service_id ?? 'N/A' }}</td>
                 </tr>
             @endforeach

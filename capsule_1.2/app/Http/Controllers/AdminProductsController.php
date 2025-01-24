@@ -15,6 +15,10 @@ class AdminProductsController extends Controller
             $type = $request->query('type');
             $query->where('type', $type);
         }
+        if ($request->has('country') && $request->query('country') !== '') {
+            $country = $request->query('country');
+            $query->where('country', $country);
+        } 
 
         if ($request->has('sort_by_date') && $request->query('sort_by_date') !== '') {
             $sortByDate = $request->query('sort_by_date');

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date('verification_date')->nullable(); // Date of verification (nullable)
             $table->string('warranty')->nullable(); // Warranty (nullable)
             $table->tinyInteger('type')->unsigned(); // Type of product (1 to 5)
+            $table->string('country')->nullable();
             $table->unsignedBigInteger('service_id')->nullable(); // Service ID (nullable)
             $table->timestamps(); // Created at and updated at
         });
