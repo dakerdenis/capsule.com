@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,8 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('services', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id(); // Auto-incrementing ID
+            $table->string('name'); // Service name
+            $table->text('description')->nullable(); // Optional description of the service
+            $table->boolean('cooperation')->default(false); // Indicates cooperation (default 0/false)
+            $table->json('list_of_products')->default(json_encode([])); // List of associated products (default empty array)
+            $table->timestamps(); // Created at and Updated at
         });
     }
 
@@ -24,4 +28,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('services');
     }
-};
+}
