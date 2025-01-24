@@ -21,16 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
         }
     }
-    // Attach event listeners to buttons inside Glide slider
-    const glideButtons = document.querySelectorAll(
-        '.glide__slide button[data-target]'
-    )
-    glideButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const targetId = button.getAttribute('data-target')
-            scrollToSection(targetId)
-        })
-    })
+
 
     // Update rectangle position
     const updateRectanglePosition = button => {

@@ -176,7 +176,7 @@
                                     </div>
 
                                     <div class="catalog__page__element-desc">
-                                        Designed for cars used daily in urban conditions.
+                                        Optima is a high-impact resistant film for vechicle protection
                                     </div>
                                 </div>
                             </div>
@@ -841,7 +841,7 @@
                     {
                         id: 2,
                         name: 'OPTIMA',
-                        desc: 'Optima is a high-impact resistant film for vechicle protection.',
+                        desc: 'Optima is a high-impact resistant film for vechicle protection',
                         filmType: 'Paint protecrion film',
                         filmColor: 'Clear',
                         bodyType: '210 mikrons',
@@ -883,7 +883,7 @@
                         desc: 'Developed for changing the car\'s color and ensuring its protection.',
                         filmType: 'paint protecrion film',
                         filmColor: 'black',
-                        bodyType: '190 mikrons',
+                        bodyType: '200 mikrons',
                         warranty: '5 Years',
                         other: 'UV Protection'
                     }

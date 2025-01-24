@@ -343,7 +343,9 @@
                                                 <p>{{ __('main.catalog_eleemnt1_desc') }}</p>
                                             </div>
                                         </div>
-                                        <button data-target="contact">{{ __('main.catalog_element_button') }}</button>
+                                        <button>
+                                            <a href="{{ url('/catalog') }}">{{ __('main.catalog_element_button') }}</a>
+                                        </button>
                                     </li>
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
@@ -357,7 +359,9 @@
                                                 <p>{{ __('main.catalog_eleemnt5_desc') }}</p>
                                             </div>
                                         </div>
-                                        <button data-target="contact">{{ __('main.catalog_element_button') }}</button>
+                                        <button>
+                                            <a href="{{ url('/catalog') }}">{{ __('main.catalog_element_button') }}</a>
+                                        </button>
                                     </li>
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
@@ -371,7 +375,9 @@
                                                 <p>{{ __('main.catalog_eleemnt2_desc') }}</p>
                                             </div>
                                         </div>
-                                        <button data-target="contact">{{ __('main.catalog_element_button') }}</button>
+                                        <button>
+                                            <a href="{{ url('/catalog') }}">{{ __('main.catalog_element_button') }}</a>
+                                        </button>
                                     </li>
 
                                     <li class="glide__slide">
@@ -388,7 +394,9 @@
                                                 </p>
                                             </div>
                                         </div>
-                                        <button data-target="contact">{{ __('main.catalog_element_button') }}</button>
+                                        <button>
+                                            <a href="{{ url('/catalog') }}">{{ __('main.catalog_element_button') }}</a>
+                                        </button>
                                     </li>
 
                                     <li class="glide__slide">
@@ -406,7 +414,9 @@
                                                 </p>
                                             </div>
                                         </div>
-                                        <button data-target="contact">{{ __('main.catalog_element_button') }}</button>
+                                        <button>
+                                            <a href="{{ url('/catalog') }}">{{ __('main.catalog_element_button') }}</a>
+                                        </button>
                                     </li>
 
                                     <li class="glide__slide">
@@ -423,7 +433,9 @@
                                                 </p>
                                             </div>
                                         </div>
-                                        <button data-target="contact">{{ __('main.catalog_element_button') }}</button>
+                                        <button>
+                                            <a href="{{ url('/catalog') }}">{{ __('main.catalog_element_button') }}</a>
+                                        </button>
                                     </li>
                                 </ul>
                             </div>
