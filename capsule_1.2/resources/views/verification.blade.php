@@ -13,7 +13,6 @@
     <header>
         <h1>Verification Page</h1>
     </header>
-
     <main>
         <p>This is the verification page. Add your content here.</p>
     </main>

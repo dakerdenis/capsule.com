@@ -91,11 +91,14 @@
                                         <a href="{{ url('/de') }}" class="{{ app()->getLocale() === 'de' ? 'active' : '' }}">DE</a>
                                     </div>
                                     <div class="mobile__burger-navigation">
-                                        <a href="#home">{{ __('main.header_home') }}</a>
-                                        <a href="#about_us">{{ __('main.header_about') }}</a>
-                                        <a href="#warranty">{{ __('main.header_warranty') }}</a>
-                                        <a href="#catalog">{{ __('main.header_catalogue') }}</a>
-                                        <a href="#gallery">{{ __('main.header_gallery') }}</a>
+                                        <a class="header__nav__element-catalog"
+                                        href="{{ url(app()->getLocale() . '#home') }}">{{ __('main.header_home') }}</a>
+                                        <a class="header__nav__element-catalog"
+                                        href="{{ url(app()->getLocale() . '#about_us') }}">{{ __('main.header_about') }}</a>
+                                        <a class="header__nav__element-catalog"
+                                        href="{{ url(app()->getLocale() . '#warranty') }}">{{ __('main.header_warranty') }}</a>
+                                        <a class="header__nav__element-catalog"
+                                        href="{{ url(app()->getLocale() . '#gallery') }}">{{ __('main.header_gallery') }}</a>
                                         <a href="#contact">{{ __('main.header_contacts') }}</a>
                                     </div>
                                     <div class="mobile__burger__created">
@@ -173,7 +176,7 @@
                                     </div>
 
                                     <div class="catalog__page__element-desc">
-                                        Designed for cars used daily in urban conditions.
+                                        Optima is a high-impact resistant film for vechicle protection
                                     </div>
                                 </div>
                             </div>
@@ -838,7 +841,7 @@
                     {
                         id: 2,
                         name: 'OPTIMA',
-                        desc: 'Optima is a high-impact resistant film for vechicle protection.',
+                        desc: 'Optima is a high-impact resistant film for vechicle protection',
                         filmType: 'Paint protecrion film',
                         filmColor: 'Clear',
                         bodyType: '210 mikrons',
@@ -880,7 +883,7 @@
                         desc: 'Developed for changing the car\'s color and ensuring its protection.',
                         filmType: 'paint protecrion film',
                         filmColor: 'black',
-                        bodyType: '190 mikrons',
+                        bodyType: '200 mikrons',
                         warranty: '5 Years',
                         other: 'UV Protection'
                     }

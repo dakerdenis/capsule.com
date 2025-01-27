@@ -47,39 +47,4 @@ class AdminController extends Controller
         return view('admin.dashboard', compact('section'));
     }
 
-
-
-    public function adminServices()
-    {
-        $services = Service::all();
-        $section = 'services';
-
-        return view('admin.dashboard', compact('section', 'services'));
-    }
-
-    public function adminSingleService($id)
-    {
-        $service = Service::findOrFail($id); // Fetch the service by ID or fail with a 404
-        $section = 'single_service';
-    
-        return view('admin.dashboard', compact('section', 'service'));
-    }
-    
-    
-
-    public function adminWarranties()
-    {
-        $warranties = []; // Load warranty data as needed
-        $section = 'warranties';
-
-        return view('admin.dashboard', compact('section', 'warranties'));
-    }
-
-    public function adminSingleWarranty($id)
-    {
-        $warranty = []; // Load single warranty data as needed
-        $section = 'single_warranty';
-
-        return view('admin.dashboard', compact('section', 'warranty'));
-    }
 }

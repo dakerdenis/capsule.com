@@ -95,7 +95,7 @@
         <!---main home section---->
         <section class="main" id="home">
             <!----text and car--->
-            <div class="main__wrapper">
+            <div class="main__wrapper main__wrapper-pc">
                 <!---- Name desc button ---->
                 <div class="main__info">
                     <div class="main__name">
@@ -172,10 +172,103 @@
 
                 </div>
             </div>
+            <div class="main__wrapper-mobile">
+                <!--image-->
+                <div class="mobile__main-background">
+                    <img src="{{ asset('images/background.png') }}" alt="Car Image">
+                </div>
+                <!--DESC + CONTACT-->
+                <div class="mobile__main-desc">
+                    <div class="mobile__main-name">
+                        {{ __('main.title_line_1') }} <br>
+                        {{ __('main.title_line_2') }}
+                    </div>
+                    <div class="mobile__main-text">
+                        {{ __('main.title_main_text') }}
+                    </div>
+                    <div class="mobile__main-button">
+                        <button data-target="contact">
+                            {{ __('main.title_main_contact') }}
+                        </button>
+                    </div>
+                </div>
+                <!----CAR--->
+                <div class="mobile__main-car">
+                    <div class="mobile__main-car">
+                        <div class="mobile__main-car-car">
+                            <img src="{{ asset('images/aboutcar-mobile.png') }}" alt="">
+                        </div>
+                        <div class="mobile__main-car-desc">
+                            <!---1--->
+                            <div class="mobile__main-car-desc1-image">
+
+                            </div>
+                            <div class="mobile__main-car-desc1-text">
+
+                            </div>
+                            <div class="mobile__main__circle1">
+
+                            </div>
+                            <!---2--->
+                            <div class="mobile__main-car-desc2-image">
+
+                            </div>
+                            <div class="mobile__main-car-desc2-text">
+
+                            </div>
+                            <div class="mobile__main__circle1">
+
+                            </div>
+                            <!---3--->
+                            <div class="mobile__main-car-desc2-image">
+
+                            </div>
+                            <div class="mobile__main-car-desc2-text">
+
+                            </div>
+                            <div class="mobile__main__circle1">
+
+                            </div>
+                            <!---4--->
+                            <div class="mobile__main-car-desc2-image">
+
+                            </div>
+                            <div class="mobile__main-car-desc2-text">
+
+                            </div>
+                            <div class="mobile__main__circle1">
+
+                            </div>
+                            <!---5--->
+                            <div class="mobile__main-car-desc2-image">
+
+                            </div>
+                            <div class="mobile__main-car-desc2-text">
+
+                            </div>
+                            <div class="mobile__main__circle1">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile__main-background-car">
+                        <img src="{{ asset('public/images/mobile_placeholder.svg') }}" alt="" srcset="">
+                    </div>
+                </div>
+
+                <!----RIGHT CAR---->
+                <div class="mobile__main-technology">
+
+                </div>
+            </div>
 
             <!---main background--->
-            <div class="main__background">
-                <img src="{{ asset('public/images/background.png') }}" alt="Car Image">
+            <div class="main__background main__background-mobile">
+
+                <picture>
+                    <source media="(max-width: 768px)" srcset="{{ asset('public/images/background-mobile.png') }}">
+                    <img src="{{ asset('public/images/background.png') }}" alt="Car Image">
+                </picture>
             </div>
         </section>
 
@@ -317,7 +410,7 @@
 
                 <div class="catalog__swiper">
                     <div class="catalog__swiper-button">
-                        <a href="{{ url('/catalog') }}">                            
+                        <a href="{{ url('/catalog') }}">
                             {{ __('main.catalog__swiper-button') }}
                         </a>
                     </div>
@@ -339,7 +432,9 @@
                                                 <p>{{ __('main.catalog_eleemnt1_desc') }}</p>
                                             </div>
                                         </div>
-                                        <button data-target="contact">{{ __('main.catalog_element_button') }}</button>
+                                        <button>
+                                            <a href="{{ url('/catalog') }}">{{ __('main.catalog_element_button') }}</a>
+                                        </button>
                                     </li>
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
@@ -353,7 +448,9 @@
                                                 <p>{{ __('main.catalog_eleemnt5_desc') }}</p>
                                             </div>
                                         </div>
-                                        <button data-target="contact">{{ __('main.catalog_element_button') }}</button>
+                                        <button>
+                                            <a href="{{ url('/catalog') }}">{{ __('main.catalog_element_button') }}</a>
+                                        </button>
                                     </li>
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
@@ -367,7 +464,9 @@
                                                 <p>{{ __('main.catalog_eleemnt2_desc') }}</p>
                                             </div>
                                         </div>
-                                        <button data-target="contact">{{ __('main.catalog_element_button') }}</button>
+                                        <button>
+                                            <a href="{{ url('/catalog') }}">{{ __('main.catalog_element_button') }}</a>
+                                        </button>
                                     </li>
 
                                     <li class="glide__slide">
@@ -384,7 +483,9 @@
                                                 </p>
                                             </div>
                                         </div>
-                                        <button data-target="contact">{{ __('main.catalog_element_button') }}</button>
+                                        <button>
+                                            <a href="{{ url('/catalog') }}">{{ __('main.catalog_element_button') }}</a>
+                                        </button>
                                     </li>
 
                                     <li class="glide__slide">
@@ -393,33 +494,37 @@
                                                 <img src="{{ 'public/images/matteppf.jpg' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
-                                                
+
                                                 {{ __('main.catalog_eleemnt4_name') }}
                                             </div>
                                             <div class="glide__slide__desc">
                                                 <p>
-                                                    {{ __('main.catalog_eleemnt4_desc') }} 
+                                                    {{ __('main.catalog_eleemnt4_desc') }}
                                                 </p>
                                             </div>
                                         </div>
-                                        <button data-target="contact">{{ __('main.catalog_element_button') }}</button>
+                                        <button>
+                                            <a href="{{ url('/catalog') }}">{{ __('main.catalog_element_button') }}</a>
+                                        </button>
                                     </li>
 
                                     <li class="glide__slide">
                                         <div class="glide__slide__wrapper">
                                             <div class="glide__slide__image">
-                                                <img src="{{ 'public/images/placeholder.png' }}" alt="">
+                                                <img src="{{ 'public/images/blackppf.jpg' }}" alt="">
                                             </div>
                                             <div class="glide__slide__name">
                                                 {{ __('main.catalog_eleemnt6_name') }}
                                             </div>
                                             <div class="glide__slide__desc">
                                                 <p>
-                                                    {{ __('main.catalog_eleemnt6_desc') }} 
+                                                    {{ __('main.catalog_eleemnt6_desc') }}
                                                 </p>
                                             </div>
                                         </div>
-                                        <button data-target="contact">{{ __('main.catalog_element_button') }}</button>
+                                        <button>
+                                            <a href="{{ url('/catalog') }}">{{ __('main.catalog_element_button') }}</a>
+                                        </button>
                                     </li>
                                 </ul>
                             </div>
