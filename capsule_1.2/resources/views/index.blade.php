@@ -175,7 +175,7 @@
             <div class="main__wrapper-mobile">
                 <!--image-->
                 <div class="mobile__main-background">
-                    <img src="{{ asset('images/background.png') }}" alt="Car Image">
+                    <img src="{{ asset('images/background-mobile.png') }}" alt="Car Image">
                 </div>
                 <!--DESC + CONTACT-->
                 <div class="mobile__main-desc">
@@ -193,69 +193,76 @@
                     </div>
                 </div>
                 <!----CAR--->
-                <div class="mobile__main-car">
+                <div class="mobile__main-car-container">
+
+
                     <div class="mobile__main-car">
                         <div class="mobile__main-car-car">
                             <img src="{{ asset('images/aboutcar-mobile.png') }}" alt="">
                         </div>
                         <div class="mobile__main-car-desc">
+
                             <!---1--->
                             <div class="mobile__main-car-desc1-image">
-
+                                <img src="{{ asset('images/mobile-vector1.svg') }}" alt="" srcset="">
                             </div>
-                            <div class="mobile__main-car-desc1-text">
-
+                            <div class="mobile__main-car-desc-text mobile__main-car-desc1-text">
+                                Premium quality
                             </div>
-                            <div class="mobile__main__circle1">
-
+                            <div class="main__car__dot main__mobile__dot1">
+                                <div class="main__car__dot-white"></div>
                             </div>
+
                             <!---2--->
                             <div class="mobile__main-car-desc2-image">
-
+                                <img src="{{ asset('images/mobile-vector2.svg') }}" alt="" srcset="">
                             </div>
-                            <div class="mobile__main-car-desc2-text">
-
+                            <div class="mobile__main-car-desc-text mobile__main-car-desc2-text">
+                                High hydrophobicity
                             </div>
-                            <div class="mobile__main__circle1">
-
+                            <div class="main__car__dot main__mobile__dot2">
+                                <div class="main__car__dot-white"></div>
                             </div>
                             <!---3--->
-                            <div class="mobile__main-car-desc2-image">
-
+                            <div class="mobile__main-car-desc3-image">
+                                <img src="{{ asset('images/mobile-vector3.svg') }}" alt="" srcset="">
                             </div>
-                            <div class="mobile__main-car-desc2-text">
-
+                            <div class="mobile__main-car-desc-text mobile__main-car-desc3-text">
+                                100% Self-healing
                             </div>
-                            <div class="mobile__main__circle1">
-
+                            <div class="main__car__dot main__mobile__dot3">
+                                <div class="main__car__dot-white"></div>
                             </div>
                             <!---4--->
-                            <div class="mobile__main-car-desc2-image">
-
+                            <div class="mobile__main-car-desc4-image">
+                                <img src="{{ asset('images/mobile-vector4.svg') }}" alt="" srcset="">
                             </div>
-                            <div class="mobile__main-car-desc2-text">
-
+                            <div class="mobile__main-car-desc-text mobile__main-car-desc4-text">
+                                Anti-yellow warranty
                             </div>
-                            <div class="mobile__main__circle1">
-
+                            <div class="main__car__dot main__mobile__dot4">
+                                <div class="main__car__dot-white"></div>
                             </div>
                             <!---5--->
-                            <div class="mobile__main-car-desc2-image">
-
+                            <div class="mobile__main-car-desc5-image">
+                                <img src="{{ asset('images/mobile-vector5.svg') }}" alt="" srcset="">
                             </div>
-                            <div class="mobile__main-car-desc2-text">
-
+                            <div class="mobile__main-car-desc-text mobile__main-car-desc5-text">
+                                Excellent carrosion
+                                resistance
                             </div>
-                            <div class="mobile__main__circle1">
-
+                            <div class="main__car__dot main__mobile__dot5">
+                                <div class="main__car__dot-white"></div>
                             </div>
                         </div>
                     </div>
+
+
+
                     <div class="mobile__main-background-car">
-                        <img src="{{ asset('public/images/mobile_placeholder.svg') }}" alt="" srcset="">
+                        <img src="{{ asset('images/mobile_placeholder.svg') }}" alt="" srcset="">
                     </div>
                 </div>
-
                 <!----RIGHT CAR---->
                 <div class="mobile__main-technology">
 
