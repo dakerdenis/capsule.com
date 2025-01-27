@@ -264,9 +264,16 @@
                     </div>
                 </div>
                 <!----RIGHT CAR---->
-                <div class="mobile__main-technology">
 
+                <div class="mobile__main-technology">
+                    <div class="mobile__main-technoimage">
+                        <img src="{{asset('images/techno-mobile.png')}}" alt="" srcset="">
+                    </div>
+                    <div class="mobile__main-car-small">                        
+                        <img src="{{asset('images/mobile-car.png')}}" alt="" srcset="">
+                    </div>
                 </div>
+
             </div>
 
             <!---main background--->
@@ -1177,6 +1184,15 @@
             });
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(() => {
+                const car = document.querySelector('.mobile__main-car-small');
+                car.style.animation = 'carAnimation 3.2s ease-in-out forwards';
+            }, 1500); // Start animation after 1.5 seconds
+        });
+    </script>
+    
     <script src="{{ asset('public/js/main.js') }}"></script>
 
 
