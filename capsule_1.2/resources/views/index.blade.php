@@ -175,7 +175,7 @@
             <div class="main__wrapper-mobile">
                 <!--image-->
                 <div class="mobile__main-background">
-                    <img src="{{ asset('images/background-mobile.png') }}" alt="Car Image">
+                    <img src="{{ asset('public/images/background-mobile.png') }}" alt="Car Image">
                 </div>
                 <!--DESC + CONTACT-->
                 <div class="mobile__main-desc">
@@ -198,13 +198,13 @@
 
                     <div class="mobile__main-car">
                         <div class="mobile__main-car-car">
-                            <img src="{{ asset('images/aboutcar-mobile.png') }}" alt="">
+                            <img src="{{ asset('public/images/aboutcar-mobile.png') }}" alt="">
                         </div>
                         <div class="mobile__main-car-desc">
 
                             <!---1--->
                             <div class="mobile__main-car-desc1-image">
-                                <img src="{{ asset('images/mobile-vector1.svg') }}" alt="" srcset="">
+                                <img src="{{ asset('public/images/mobile-vector1.svg') }}" alt="" srcset="">
                             </div>
                             <div class="mobile__main-car-desc-text mobile__main-car-desc1-text">
                                 Premium quality
@@ -215,7 +215,7 @@
 
                             <!---2--->
                             <div class="mobile__main-car-desc2-image">
-                                <img src="{{ asset('images/mobile-vector2.svg') }}" alt="" srcset="">
+                                <img src="{{ asset('public/images/mobile-vector2.svg') }}" alt="" srcset="">
                             </div>
                             <div class="mobile__main-car-desc-text mobile__main-car-desc2-text">
                                 High hydrophobicity
@@ -225,7 +225,7 @@
                             </div>
                             <!---3--->
                             <div class="mobile__main-car-desc3-image">
-                                <img src="{{ asset('images/mobile-vector3.svg') }}" alt="" srcset="">
+                                <img src="{{ asset('public/images/mobile-vector3.svg') }}" alt="" srcset="">
                             </div>
                             <div class="mobile__main-car-desc-text mobile__main-car-desc3-text">
                                 100% Self-healing
@@ -235,7 +235,7 @@
                             </div>
                             <!---4--->
                             <div class="mobile__main-car-desc4-image">
-                                <img src="{{ asset('images/mobile-vector4.svg') }}" alt="" srcset="">
+                                <img src="{{ asset('public/images/mobile-vector4.svg') }}" alt="" srcset="">
                             </div>
                             <div class="mobile__main-car-desc-text mobile__main-car-desc4-text">
                                 Anti-yellow warranty
@@ -245,7 +245,7 @@
                             </div>
                             <!---5--->
                             <div class="mobile__main-car-desc5-image">
-                                <img src="{{ asset('images/mobile-vector5.svg') }}" alt="" srcset="">
+                                <img src="{{ asset('public/images/mobile-vector5.svg') }}" alt="" srcset="">
                             </div>
                             <div class="mobile__main-car-desc-text mobile__main-car-desc5-text">
                                 Excellent carrosion
@@ -260,17 +260,17 @@
 
 
                     <div class="mobile__main-background-car">
-                        <img src="{{ asset('images/mobile_placeholder.svg') }}" alt="" srcset="">
+                        <img src="{{ asset('public/images/mobile_placeholder.svg') }}" alt="" srcset="">
                     </div>
                 </div>
                 <!----RIGHT CAR---->
 
                 <div class="mobile__main-technology">
                     <div class="mobile__main-technoimage">
-                        <img src="{{asset('images/techno-mobile.png')}}" alt="" srcset="">
+                        <img src="{{asset('public/images/techno-mobile.png')}}" alt="" srcset="">
                     </div>
                     <div class="mobile__main-car-small">                        
-                        <img src="{{asset('images/mobile-car.png')}}" alt="" srcset="">
+                        <img src="{{asset('public/images/mobile-car.png')}}" alt="" srcset="">
                     </div>
                 </div>
 
@@ -1188,7 +1188,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             setTimeout(() => {
                 const car = document.querySelector('.mobile__main-car-small');
-                car.style.animation = 'carAnimation 3.2s ease-in-out forwards';
+                car.style.animation = 'carAnimationSmall 3.2s ease-in-out forwards';
             }, 1500); // Start animation after 1.5 seconds
         });
     </script>
