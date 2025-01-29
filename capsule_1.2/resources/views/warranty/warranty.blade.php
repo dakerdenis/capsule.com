@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
 
-    <link rel="stylesheet" href="{{ asset('./public/css/warranty.css') }}"> <!-- Link to warranty.css -->
+    <link rel="stylesheet" href="{{ asset('/css/warranty.css') }}"> <!-- Link to warranty.css -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </head>
@@ -17,7 +17,7 @@
         <div class="admin__login-form">
             <div class="admin__login__wrapper">
                 <div class="login_image">
-                    <img src="{{ asset('./public/images/logo_main.png') }}" alt="" srcset="">
+                    <img src="{{ asset('/public/images/logo_main.png') }}" alt="" srcset="">
                 </div>
                 <div class="login__hello">
                     Welcome !
@@ -26,7 +26,7 @@
                     CAPSULEPPF warranty page
                 </div>
 
-                <form method="POST" action="{{ route('warranty.login') }}" class="login__form" id="loginForm">
+                <form method="POST" action="{{ route('service.post_login') }}" class="login__form" id="loginForm">
                     @csrf
                     <!-- Input fields for email and password -->
                     <div class="input__container">

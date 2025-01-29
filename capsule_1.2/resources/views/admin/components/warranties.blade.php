@@ -1,5 +1,5 @@
 <div>
-    <h2>Авто сервисы</h2>
+    <h2>Гарантийные</h2>
 
     <div class="services__wrapper">
         <table class="main__table table table-hover">
@@ -12,17 +12,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($services as $service)
-                    <tr class="{{ $service->cooperation == 1 ? 'cooperation' : '' }}">
-                        <th scope="row">{{ $service->id }}</th>
-                        <td>
-                            <a href="{{ route('admin.service', ['id' => $service->id]) }}">{{ $service->name }}</a>
-                        </td>
-                        
-                        <td>{{ $service->cooperation == 1 ? 'Да' : 'Нет' }}</td>
-                        <td>{{ count($service->list_of_products) }}</td>
-                    </tr>
-                @endforeach
+
             </tbody>
             
         </table>

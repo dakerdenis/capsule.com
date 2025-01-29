@@ -46,6 +46,9 @@
                 <div class="admin__navigation-element">
                     <a class="btn btn-dark" href="{{ route('admin.warranties') }}">Гарантии</a> <!-- Use 'admin.warranties' -->
                 </div>
+                <div class="admin__navigation-element">
+                    <a class="btn btn-dark" href="{{ route('admin.users') }}">Клиенты</a> <!-- Use 'admin.warranties' -->
+                </div>
             </div>
             
 

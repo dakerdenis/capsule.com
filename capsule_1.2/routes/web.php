@@ -9,6 +9,7 @@ use App\Http\Controllers\VerificationController;
 use App\Http\Controllers\AdminProductsController;
 use App\Http\Controllers\AdminServicesController;
 use App\Http\Controllers\AdminWarrantyController;
+use App\Http\Controllers\UsersController;
 
 //! MAIN PAGE ROUTES + CATALOG
 //*************************** */
@@ -72,6 +73,9 @@ Route::middleware('auth_admin')->group(function () {
             Route::get('/add', [AdminServicesController::class, 'adminNewService'])->name('admin.new_service');
             Route::post('/add', [AdminServicesController::class, 'adminPostNewService'])->name('admin.new_post_service');
         });
+        //**USERS (FOR FUTURE)
+        Route::get('/users', [UsersController::class, 'adminUsers'])->name('admin.users');
+        
         //* WARRANTIES
         Route::get('/warranties', [AdminWarrantyController::class, 'adminWarranties'])->name('admin.warranties');
         Route::prefix('warranties')->group(function () {

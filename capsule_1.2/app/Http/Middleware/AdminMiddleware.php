@@ -16,9 +16,11 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::check()){
+        if (Auth::check()) {
             return $next($request);
         }
-        abort(401);
+
+        // Redirect to the admin login page if not authenticated
+        return redirect()->route('admin.login');
     }
 }
