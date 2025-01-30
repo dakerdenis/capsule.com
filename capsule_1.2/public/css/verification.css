@@ -366,7 +366,7 @@ h6 {
 .verification__car-message{
     width: 381px;
     height: 54px;
-    background-color: #34C81E;
+    background-color: #34c81e;
     display: flex;
     align-items: center;
     border-radius: 36px;
@@ -393,4 +393,34 @@ text-align: left;
 
 text-decoration-skip-ink: none;
 
+}
+@media only screen and (max-width: 768px) {
+    .verification__container{
+        height: initial;
+    }
+.verification__wrapper{
+    flex-direction: column;
+    position: initial;
+}
+.verification__form{
+    width: 100%;
+
+}
+.verification__car{
+    width: 100%;
+    background-color: #000;
+}
+.verification__form-image_form{
+    display: none;
+    visibility: hidden;
+}
+.verification__car-image{
+    display: none;
+    visibility: hidden;
+}
+.verification__form-image{
+    width: 165px;
+    height: 55px;
+    margin-top: 15px;
+}
 }
