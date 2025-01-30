@@ -33,7 +33,7 @@
                         <div class="verification__form-line">
                             <div class="verification__form-line-line"></div>
                             <div class="verification__form-text">
-                                enter your film code
+                                enter your product code
                             </div>
                             <div class="verification__form-line-line"></div>
                         </div>

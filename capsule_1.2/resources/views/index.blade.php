@@ -576,92 +576,92 @@
 
                 <div class="gallery__images__wrapper">
                     <div class="gallery__images__small gallery__images__small-mobile">
-                        <a href="{{ asset('public/images/1.png') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/gallery/1.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('public/images/1.png') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/gallery/1.png') }}" alt="Gallery Image" />
                         </a>
-                        <a href="{{ asset('public/images/2.png') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/gallery/2.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('public/images/2.png') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/gallery/2.png') }}" alt="Gallery Image" />
                         </a>
                     </div>
                     <div class="gallery__images__big">
-                        <a href="{{ asset('public/images/10.png') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/gallery/3.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('public/images/10.png') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/gallery/3.png') }}" alt="Gallery Image" />
                         </a>
                     </div>
                     <div class="gallery__images__small">
-                        <a href="{{ asset('public/images/4.png') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/gallery/4.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('public/images/4.png') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/gallery/4.png') }}" alt="Gallery Image" />
                         </a>
-                        <a href="{{ asset('public/images/5.png') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/gallery/5.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('public/images/5.png') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/gallery/5.png') }}" alt="Gallery Image" />
                         </a>
                     </div>
                     <div class="gallery__images__small gallery__images__medium">
-                        <a href="{{ asset('public/images/6.png') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/gallery/6.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('public/images/6.png') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/gallery/6.png') }}" alt="Gallery Image" />
                         </a>
 
                     </div>
                     <div class="gallery__images__small">
-                        <a href="{{ asset('public/images/7.png') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/gallery/7.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('public/images/7.png') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/gallery/7.png') }}" alt="Gallery Image" />
                         </a>
-                        <a href="{{ asset('public/images/8.png') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/gallery/8.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('public/images/8.png') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/gallery/8.png') }}" alt="Gallery Image" />
                         </a>
                     </div>
                 </div>
 
                 <div class="gallery__images__wrapper">
                     <div class="gallery__images__small">
-                        <a href="{{ asset('public/images/9.png') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/gallery/9.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('public/images/9.png') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/gallery/9.png') }}" alt="Gallery Image" />
                         </a>
-                        <a href="{{ asset('public/images/10.png') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/gallery/10.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('public/images/10.png') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/gallery/10.png') }}" alt="Gallery Image" />
                         </a>
                     </div>
                     <div class="gallery__images__big">
-                        <a href="{{ asset('public/images/11.png') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/gallery/11.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('public/images/11.png') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/gallery/11.png') }}" alt="Gallery Image" />
                         </a>
                     </div>
                     <div class="gallery__images__small">
-                        <a href="{{ asset('public/images/12.png') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/gallery/12.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('public/images/12.png') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/gallery/12.png') }}" alt="Gallery Image" />
                         </a>
-                        <a href="{{ asset('public/images/13.png') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/gallery/13.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('public/images/13.png') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/gallery/13.png') }}" alt="Gallery Image" />
                         </a>
                     </div>
                     <div class="gallery__images__small gallery__images__medium">
-                        <a href="{{ asset('public/images/14.png') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/gallery/14.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('public/images/14.png') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/gallery/14.png') }}" alt="Gallery Image" />
                         </a>
 
                     </div>
                     <div class="gallery__images__small">
-                        <a href="{{ asset('public/images/1.png') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/gallery/15.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('public/images/1.png') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/gallery/15.png') }}" alt="Gallery Image" />
                         </a>
-                        <a href="{{ asset('public/images/2.png') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/gallery/16.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('public/images/2.png') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/gallery/16.png') }}" alt="Gallery Image" />
                         </a>
                     </div>
                 </div>

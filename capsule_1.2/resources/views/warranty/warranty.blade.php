@@ -29,7 +29,7 @@
                     <div class="verification__form-form">
                         <div class="verification__form-name">
                             <h2>Welcome to “Capsule”</h2>
-                            <h3>product verification system</h3>
+                            <h3>Warranty Activation System</h3>
                         </div>
                         <div class="verification__form-line">
                             <div class="verification__form-line-line"></div>
