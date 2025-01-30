@@ -727,7 +727,7 @@
                                 Address:
                             </div>
                             <div class="contact__adress__content">
-                                37157 Barrington Parkway, Millville, DE 19967
+                                635 E 28th Street Brooklyn NY 11210
                             </div>
                         </div>
                         <div class="contact__adress__element">

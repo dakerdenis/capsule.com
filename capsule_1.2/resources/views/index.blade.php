@@ -586,9 +586,9 @@
                         </a>
                     </div>
                     <div class="gallery__images__big">
-                        <a href="{{ asset('public/images/3.png') }}" data-fancybox="gallery"
+                        <a href="{{ asset('public/images/10.png') }}" data-fancybox="gallery"
                             data-caption="Royal Park L-16A">
-                            <img src="{{ asset('public/images/3.png') }}" alt="Gallery Image" />
+                            <img src="{{ asset('public/images/10.png') }}" alt="Gallery Image" />
                         </a>
                     </div>
                     <div class="gallery__images__small">
@@ -1089,7 +1089,7 @@
                                 Address:
                             </div>
                             <div class="contact__adress__content">
-                                37157 Barrington Parkway, Millville, DE 19967
+                                635 E 28th Street Brooklyn NY 11210
                             </div>
                         </div>
                         <div class="contact__adress__element">
