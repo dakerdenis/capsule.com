@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verification</title>
-    <link rel="stylesheet" href="{{ asset('css/verification.css') }}"> <!-- Link to warranty.css -->
-    <link rel="stylesheet" href="{{ asset('css/warranty.css') }}"> <!-- Link to warranty.css -->
+    <link rel="stylesheet" href="{{ asset('public/css/verification.css') }}"> <!-- Link to warranty.css -->
+    <link rel="stylesheet" href="{{ asset('public/css/warranty.css') }}"> <!-- Link to warranty.css -->
 </head>
 </head>
 
@@ -18,12 +18,12 @@
             <!---Verification FORM--->
             <div class="verification__form">
                 <div class="verification__form-absoluteimage">
-                    <img src="{{ asset('images/background.png') }}" alt="">
+                    <img src="{{ asset('public/images/background.png') }}" alt="">
                 </div>
                 <div class="verification__content">
                     <!---top image--->
                     <div class="verification__form-image">
-                        <img src="{{ asset('images/logo_main.png') }}" alt="">
+                        <img src="{{ asset('public/images/logo_main.png') }}" alt="">
                     </div>
                     <!---form--->
                     <div class="verification__form-form">
@@ -70,7 +70,7 @@
                     </div>
                     <!-----bottom form-->
                     <div class="verification__form-image_form">
-                        <img src="{{ asset('images/warranty_bottom.svg') }}" alt="">
+                        <img src="{{ asset('public/images/warranty_bottom.svg') }}" alt="">
                     </div>
                 </div>
             </div>

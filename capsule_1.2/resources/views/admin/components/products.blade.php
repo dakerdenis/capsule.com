@@ -8,10 +8,11 @@
     </div>
     <div class="products__sortby__buttons">
         <a class="btn btn-secondary" href="{{ route('admin.products', ['type' => 1]) }}">Urban</a>
-        <a class="btn btn-secondary" href="{{ route('admin.products', ['type' => 2]) }}">Element</a>
-        <a class="btn btn-secondary" href="{{ route('admin.products', ['type' => 3]) }}">Huracan</a>
-        <a class="btn btn-secondary" href="{{ route('admin.products', ['type' => 4]) }}">Matte</a>
-        <a class="btn btn-secondary" href="{{ route('admin.products', ['type' => 5]) }}">Black</a>
+        <a class="btn btn-secondary" href="{{ route('admin.products', ['type' => 2]) }}">Optima</a>
+        <a class="btn btn-secondary" href="{{ route('admin.products', ['type' => 3]) }}">Element</a>
+        <a class="btn btn-secondary" href="{{ route('admin.products', ['type' => 4]) }}">Huracan</a>
+        <a class="btn btn-secondary" href="{{ route('admin.products', ['type' => 5]) }}">Matte</a>
+        <a class="btn btn-secondary" href="{{ route('admin.products', ['type' => 6]) }}">Black</a>
     </div>
 
     <div class="products__sortby">

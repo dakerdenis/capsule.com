@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verification</title>
-    <link rel="stylesheet" href="{{ asset('css/verification.css') }}"> <!-- Link to warranty.css -->
+    <link rel="stylesheet" href="{{ asset('public/css/verification.css') }}"> <!-- Link to warranty.css -->
 </head>
 </head>
 
@@ -17,12 +17,12 @@
             <!---Verification FORM--->
             <div class="verification__form">
                 <div class="verification__form-absoluteimage">
-                    <img src="{{ asset('images/background.png') }}" alt="">
+                    <img src="{{ asset('public/images/background.png') }}" alt="">
                 </div>
                 <div class="verification__content">
                     <!---top image--->
                     <div class="verification__form-image">
-                        <img src="{{ asset('images/logo_main.png') }}" alt="">
+                        <img src="{{ asset('public/images/logo_main.png') }}" alt="">
                     </div>
                     <!---form--->
                     <div class="verification__form-form">
@@ -58,14 +58,14 @@
                     </div>
                     <!-----bottom form-->
                     <div class="verification__form-image_form">
-                        <img src="{{ asset('images/verification_bottom.svg') }}" alt="">
+                        <img src="{{ asset('public/images/verification_bottom.svg') }}" alt="">
                     </div>
                 </div>
             </div>
             <!---Verification IMAGE---->
             <div class="verification__car">
                 <div class="verification__car-image">
-                    <img src="{{ asset('images/verification.PNG') }}" alt="">
+                    <img src="{{ asset('public/images/verification.PNG') }}" alt="">
                 </div>
 
                 <div class="verification__car-alert">
@@ -117,16 +117,16 @@
                     if (data.success) {
                         alertContainer.innerHTML = `
                             <div class="verification__car-alert-block">
-                                <img class="verification__car-image-svg" src="{{ asset('images/verification_svg.svg') }}" alt="">
+                                <img class="verification__car-image-svg" src="{{ asset('public/images/verification_svg.svg') }}" alt="">
                                 <div class="verification__car-alert-blur"></div>
                                 <div class="verification__car-alert-content">
                                     <div class="verification__car-message">
-                                        <img src="{{ asset('images/successs.png') }}" alt="">
+                                        <img src="{{ asset('public/images/successs.png') }}" alt="">
                                         <p>${data.message}</p>
                                     </div>
                                     <div class="verification__car-text">
-                                        Product Code: ${data.product.code}<br>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tempor porta elit a posuere. Sed commodo nulla non sem commodo, ut pulvinar mauris eleifend. 
+                                        Model: ${data.product.model_name}<br>
+                                        Congratulations! The verification code has been successfully checked, and your product is authentic.
                                     </div>
                                 </div>
                             </div>
@@ -134,15 +134,16 @@
                     } else {
                         alertContainer.innerHTML = `
                             <div class="verification__car-alert-block">
-                                <img class="verification__car-image-svg" src="{{ asset('images/verification_svg.svg') }}" alt="">
+                                <img class="verification__car-image-svg" src="{{ asset('public/images/verification_svg.svg') }}" alt="">
                                 <div class="verification__car-alert-blur"></div>
                                 <div class="verification__car-alert-content">
                                     <div style="background-color: #710000;" class="verification__car-message">
-                                        <img style="transform: rotate(180deg);" src="{{ asset('images/successs.png') }}" alt="">
+                                        <img style="transform: rotate(180deg);" src="{{ asset('public/images/successs.png') }}" alt="">
                                         <p style="color: #fff;">${data.message}</p>
                                     </div>
                                     <div class="verification__car-text">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tempor porta elit a posuere. Sed commodo nulla non sem commodo, ut pulvinar mauris eleifend. 
+                                        Sorry, but this product is not in our database. Most likely, it is a counterfeit. </br>
+                                        Please contact your local Capsule representative for further clarification.
                                     </div>
                                 </div>
                             </div>
@@ -152,7 +153,7 @@
                     alertContainer.innerHTML = `
                         <div class="verification__car-alert-content">
                             <div class="verification__car-message">
-                                <img src="{{ asset('images/error.png') }}" alt="">
+                                <img src="{{ asset('public/images/error.png') }}" alt="">
                                 <p>An error occurred. Please try again later.</p>
                             </div>
                         </div>

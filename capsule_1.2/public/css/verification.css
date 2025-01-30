@@ -296,9 +296,7 @@ h6 {
     margin-top: 100px;
 }
 
-.verification__form-image_form {
-
-}
+.verification__form-image_form {}
 
 
 .verification__car {
@@ -318,9 +316,11 @@ h6 {
     height: 100%;
     z-index: 100;
 }
+
 .verification__car-image img {
     height: 100%;
 }
+
 .verification__car-alert {
     position: absolute;
     z-index: 200;
@@ -333,20 +333,22 @@ h6 {
     flex-direction: column;
 }
 
-.verification__car-alert-block{
+.verification__car-alert-block {
     position: relative;
     height: 325px;
     width: 658px;
 
 
 }
+
 .verification__car-image-svg {
     position: absolute;
     z-index: 200;
     top: -99%;
     left: -42%;
 }
-.verification__car-alert-blur{
+
+.verification__car-alert-blur {
     position: absolute;
     z-index: 100;
     width: 100%;
@@ -356,14 +358,16 @@ h6 {
     background-color: #FFF2F221;
 
 }
-.verification__car-alert-content{
+
+.verification__car-alert-content {
     position: absolute;
     z-index: 300;
     width: 100%;
     height: 100%;
     padding: 50px 41px;
 }
-.verification__car-message{
+
+.verification__car-message {
     width: 381px;
     height: 54px;
     background-color: #34c81e;
@@ -373,119 +377,181 @@ h6 {
     padding-left: 15px;
 
 }
-.verification__car-message p{
+
+.verification__car-message p {
 
     margin-left: 15px;
-font-size: 14px;
-font-weight: 400;
-line-height: 17.11px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17.11px;
 
-text-decoration-skip-ink: none;
+    text-decoration-skip-ink: none;
 
 }
-.verification__car-text{
+
+.verification__car-text {
     margin-top: 30px;
     color: #fff;
-font-size: 20px;
-font-weight: 400;
-line-height: 32.97px;
-text-align: left;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 32.97px;
+    text-align: left;
 
-text-decoration-skip-ink: none;
+    text-decoration-skip-ink: none;
 
 }
+
 @media only screen and (max-width: 768px) {
-    .verification__container{
+    .verification__container {
         height: initial;
     }
-.verification__wrapper{
-    flex-direction: column;
-    position: initial;
-}
-.verification__form{
-    width: 100%;
 
-}
-.verification__car{
-    width: 100%;
-    background-color: #000;
-}
-.verification__form-image_form{
-    display: none;
-    visibility: hidden;
-}
-.verification__car-image{
-    display: none;
-    visibility: hidden;
-}
-.verification__form-image{
-    width: 165px;
-    height: 55px;
-    margin-top: 15px;
-}
-.verification__car-image-svg{
-    display: none;
-    visibility: hidden;
-}
-.verification__form-name h2 {
+    .verification__wrapper {
+        flex-direction: column;
+        position: initial;
+    }
 
-font-size: 20px;
-font-weight: 600;
-line-height: 44px;
-text-align: center;
+    .verification__form {
+        width: 100%;
 
-text-decoration-skip-ink: none;
+    }
 
-}
-.verification__form-name h3 {
+    .verification__car {
+        width: 100%;
+        background-color: #000;
+    }
 
-font-size: 14px;
-font-weight: 400;
-line-height: 4.3px;
-text-align: center;
+    .verification__form-image_form {
+        display: none;
+        visibility: hidden;
+    }
 
-text-decoration-skip-ink: none;
+    .verification__car-image {
+        display: none;
+        visibility: hidden;
+    }
 
-}
-.verification__form-form{
-    margin-top: 127px;
-}
-.verification__form-text{
+    .verification__form-image {
+        width: 165px;
+        height: 55px;
+        margin-top: 15px;
+    }
 
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 14.5px;
-    text-align: center;
-    margin: 0 10px;
-    text-decoration-skip-ink: none;
-}
-.verification__form-line{
-    justify-content: center;
-}
-.verification__form-line-line{
-    width: 80px;
-}
-.verification__form-form{
-    width: 310px;
-}
-.input__wrapper{
-    width: 100%;
-    height: 40px;
-}
-.verification__form-submit {
-    margin-top: 50px;
-}
-.verification__form-formblock button{
-    width: 287px;
-    height: 48px;
-    border-radius: 36px;
+    .verification__car-image-svg {
+        display: none;
+        visibility: hidden;
+    }
 
-font-size: 16px;
-font-weight: 400;
-line-height: 20px;
-text-align: center;
+    .verification__form-name h2 {
 
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 44px;
+        text-align: center;
 
+        text-decoration-skip-ink: none;
 
-}
+    }
+
+    .verification__form-name h3 {
+
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 4.3px;
+        text-align: center;
+
+        text-decoration-skip-ink: none;
+
+    }
+
+    .verification__form-form {
+        margin-top: 8vh;
+    }
+
+    .verification__form-text {
+
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14.5px;
+        text-align: center;
+        margin: 0 10px;
+        text-decoration-skip-ink: none;
+    }
+
+    .verification__form-line {
+        justify-content: center;
+        margin-top: 25px;
+    }
+
+    .verification__form-line-line {
+        width: 80px;
+    }
+
+    .verification__form-form {
+        width: 90%;
+    }
+
+    .input__wrapper {
+        width: 100%;
+        height: 40px;
+    }
+
+    .verification__form-submit {
+        margin-top: 17px;
+    }
+
+    .verification__form-formblock button {
+        width: 287px;
+        height: 48px;
+        border-radius: 36px;
+
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+        text-align: center;
+
+        margin-top: 10px;
+
+    }
+
+    .verification__car-alert-block {
+        height: 158px;
+        width: 320px;
+
+    }
+
+    .verification__car-message {
+        width: 276px;
+        height: 28px;
+
+    }
+
+    .verification__car-message p {
+
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14.66px;
+        text-align: left;
+
+        text-decoration-skip-ink: none;
+
+    }
+
+    .verification__car-text {
+
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 19px;
+        text-align: left;
+        margin-top: 10px;
+        text-decoration-skip-ink: none;
+
+    }
+    .verification__car-alert-content{
+        padding: 18px;
+    }
+    .verification__car-message img {
+        width: 15px;
+        height: 15px;
+    }
 }
