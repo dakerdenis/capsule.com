@@ -4371,4 +4371,37 @@ h6 {
     padding-top: 35px;
 
 }
+.map__container-desc{
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: initial;
+    position: relative;
+}
+.map__container-p1{
+    position: absolute;
+    font-size: 60px;
+    top: 35px;
+    left: 50px;
+}
+.map__container-p2{
+    position: absolute;
+    font-size: 60px;
+    top: 30px;
+    right: 50px;
+}
+.map__container-country{
+    position: absolute;
+    top: 100px;
+    left:30px
+}
+
+.map_dealers{
+    position: absolute;
+    top: 100px;
+    left: initial;
+    right: 49px;
+}
+.map__container-desc p {
+    font-size: 61px;
+    line-height: 30px;
+}
 }
