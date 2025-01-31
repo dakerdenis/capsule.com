@@ -4171,28 +4171,33 @@ h6 {
         text-decoration-skip-ink: none;
         color: #fff;
     }
-    .mobile__main-car-desc1-text{
+
+    .mobile__main-car-desc1-text {
         left: 111px;
         top: -5px;
         height: 34px;
         width: 90px;
     }
-    .mobile__main-car-desc2-text{
+
+    .mobile__main-car-desc2-text {
         left: 163px;
         top: 28px;
         height: 34px;
         width: 123px;
     }
-    .main__car__dot{
+
+    .main__car__dot {
         display: flex;
         visibility: visible;
     }
-    .main__mobile__dot1{
+
+    .main__mobile__dot1 {
         left: 42px;
         top: 33px;
         z-index: 500;
     }
-    .main__mobile__dot2{
+
+    .main__mobile__dot2 {
         left: 93px;
         top: 71px;
     }
@@ -4220,47 +4225,52 @@ h6 {
         left: 100px;
         top: 42px;
     }
-    .mobile__main-car-desc3-image{
+
+    .mobile__main-car-desc3-image {
         position: absolute;
         left: 94px;
         top: 89px;
     }
 
-    
+
     .mobile__main-car-desc3-text {
         height: 34px;
         width: 109px;
         top: 77px;
         left: 193px;
     }
-    .main__mobile__dot3{
+
+    .main__mobile__dot3 {
         left: 85px;
         top: 129px;
     }
-    .mobile__main-car-desc4-text{
+
+    .mobile__main-car-desc4-text {
         left: 203px;
         top: 135px;
         height: 34px;
         width: 79px;
     }
-    .main__mobile__dot4{
+
+    .main__mobile__dot4 {
         left: 109px;
         top: 175px;
     }
 
-    .mobile__main-car-desc4-image{
+    .mobile__main-car-desc4-image {
         position: absolute;
         left: 119px;
         top: 150px;
     }
 
 
-    .mobile__main-car-desc5-image{
+    .mobile__main-car-desc5-image {
         position: absolute;
         left: 119px;
         top: 232px;
     }
-    .mobile__main-car-desc5-text{
+
+    .mobile__main-car-desc5-text {
         position: absolute;
         left: 205px;
         top: 210px;
@@ -4272,9 +4282,10 @@ h6 {
         left: 113px;
         top: 229px;
     }
-    .american__wrapper{
-       display: none;
-       visibility: hidden; 
+
+    .american__wrapper {
+        display: none;
+        visibility: hidden;
     }
 
     .mobile__main-technology {
@@ -4288,7 +4299,8 @@ h6 {
         left: 82%;
         top: -33px;
     }
-    .mobile__main-technoimage{
+
+    .mobile__main-technoimage {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -4296,112 +4308,135 @@ h6 {
         top: 0;
 
     }
-    .mobile__main-technoimage img{
+
+    .mobile__main-technoimage img {
         width: 100%;
         height: 100%;
         object-fit: contain;
     }
+
     @keyframes carAnimationSmall {
         0% {
             top: -103px;
             opacity: 0;
         }
+
         10% {
             top: -103px;
             opacity: 1;
         }
+
         90% {
             top: 547px;
             opacity: 1;
         }
+
         100% {
             top: 547px;
             opacity: 0;
         }
     }
-    
+
     .mobile__main-car-small {
         position: absolute;
         left: calc(50% - 19px);
         top: -103px;
         opacity: 0;
-        animation: none; /* Animation will be added dynamically */
+        animation: none;
+        /* Animation will be added dynamically */
     }
-    .american__name{
+
+    .american__name {
         display: none;
         visibility: hidden;
     }
-    .about_us__name{
+
+    .about_us__name {
         font-size: 19.5px;
         max-width: 241px;
         margin: 0 auto;
         line-height: 24px;
     }
-    .about_us__content__name{
+
+    .about_us__content__name {
         font-size: 20px;
         line-height: 32px;
         text-align: center;
         max-width: 280px;
         margin: 0 auto;
     }
-    .about_us__image-car{
+
+    .about_us__image-car {
         display: none;
         visibility: hidden;
     }
+
     .about_us__content__name {
         margin-top: 34px;
         margin-bottom: 20px;
         position: relative;
-}
-.about_us__content__name::after{
-    z-index: -100;
-    content: "";
-    top: -99px;
-    /* left: 0px; */
-    position: absolute;
-    width: 154px;
-    height: 500px;
-    /* background-color: red; */
-    background-image: url(../images/about_svg.svg);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.warranty {
+    }
 
-    padding-top: 35px;
+    .about_us__content__name::after {
+        z-index: -100;
+        content: "";
+        top: -99px;
 
-}
-.map__container-desc{
-    background-color: rgba(0, 0, 0, 0.5);
-    bottom: initial;
-    position: relative;
-}
-.map__container-p1{
-    position: absolute;
-    font-size: 60px;
-    top: 35px;
-    left: 50px;
-}
-.map__container-p2{
-    position: absolute;
-    font-size: 60px;
-    top: 30px;
-    right: 50px;
-}
-.map__container-country{
-    position: absolute;
-    top: 100px;
-    left:30px
-}
+        position: absolute;
+        width: 154px;
+        height: 500px;
 
-.map_dealers{
-    position: absolute;
-    top: 100px;
-    left: initial;
-    right: 49px;
-}
-.map__container-desc p {
-    font-size: 61px;
-    line-height: 30px;
-}
+        background-image: url('../images/about_svg.svg');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .warranty {
+
+        padding-top: 35px;
+
+    }
+
+    .map__container-desc {
+        background-color: rgba(0, 0, 0, 0.5);
+        bottom: initial;
+        position: relative;
+    }
+
+    .map__container-p1 {
+        position: absolute;
+        font-size: 60px;
+        top: 35px;
+        left: 50px;
+    }
+
+    .map__container-p2 {
+        position: absolute;
+        font-size: 60px;
+        top: 30px;
+        right: 50px;
+    }
+
+    .map__container-country {
+        position: absolute;
+        top: 100px;
+        left: 30px
+    }
+
+    .map_dealers {
+        position: absolute;
+        top: 100px;
+        left: initial;
+        right: 49px;
+    }
+
+    .map__container-desc p {
+        font-size: 61px;
+        line-height: 30px;
+    }
+
+    .map__container-desc {
+        left: initial;
+        width: 100%;
+    }
 }

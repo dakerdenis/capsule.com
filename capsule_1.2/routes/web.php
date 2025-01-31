@@ -93,7 +93,7 @@ Route::get('/warranty', [WarrantyController::class, 'warrantyPage'])->name('warr
 Route::post('/warranty',[WarrantyController::class,'warrantyLogin'])->name('service.post_login');
 //!Warranty only logged in
 Route::middleware('auth_service')->group(function () {
-    Route::prefix('warranty')->group(function(){
+    Route::prefix('warranty')->group(function () {
         Route::get('/register', [WarrantyController::class, 'warrantyregister'])->name('service.register');
         Route::post('/register', [WarrantyController::class, 'warrantyPostRegister'])->name('service.post_register');
     });

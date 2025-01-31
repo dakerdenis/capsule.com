@@ -129,7 +129,7 @@ h6 {
 .verification__form-absoluteimage {
     position: absolute;
     z-index: 100;
-
+    width: 100%;
 }
 
 .verification__form-absoluteimage img {
@@ -318,7 +318,7 @@ h6 {
 }
 
 .verification__car-image img {
-    height: 100%;
+    width: 100%;
 }
 
 .verification__car-alert {

@@ -13,11 +13,14 @@
 
   gtag('config', 'G-2B54N2FD1H');
 </script>
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('images/casule_favicon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('images/casule_favicon.png') }}" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verification</title>
-    <link rel="stylesheet" href="{{ asset('public/css/verification.css') }}"> <!-- Link to warranty.css -->
-    <link rel="stylesheet" href="{{ asset('public/css/warranty.css') }}"> <!-- Link to warranty.css -->
+    <title>Warranty System</title>
+    <link rel="stylesheet" href="{{ asset('css/verification.css') }}"> <!-- Link to warranty.css -->
+    <link rel="stylesheet" href="{{ asset('css/warranty.css') }}"> <!-- Link to warranty.css -->
 </head>
 <!-- Google tag (gtag.js) -->
 
@@ -49,33 +52,51 @@
                             <div class="verification__form-line-line"></div>
                         </div>
                         <div class="verification__form-formblock">
-                            <form action="">
+                            <form action="{{ route('service.post_login') }}" method="POST">
+                                @csrf <!-- Include CSRF token for security -->
+                            
                                 <div class="input__wrapper">
-
-                                    <input placeholder="Login" type="email" name="login"
-                                        id="login">
+                                    <input value="kris.jalon@example.org" placeholder="Login" type="email" name="email" id="email" required>
+                                    @if ($errors->has('email'))
+                                        <div style="color: red; font-size: 14px;">
+                                            {{ $errors->first('email') }}
+                                        </div>
+                                    @endif
                                 </div>
                                 <div class="input__wrapper">
-
-                                    <input placeholder="Password" type="password" name="password"
-                                        id="password">
+                                    <input value="password" placeholder="Password" type="password" name="password" id="password" required>
+                                    @if ($errors->has('password'))
+                                        <div style="color: red; font-size: 14px;">
+                                            {{ $errors->first('password') }}
+                                        </div>
+                                    @endif
                                 </div>
-
                                 <div class="input__wrapper">
-                                    <div class="input__wrapper-info">
-                                        i
-                                    </div>
-                                    <input placeholder="Enter product code" type="text" name="product_code"
-                                        id="product_code">
+                                    <div class="input__wrapper-info">i</div>
+                                    <input value="TTNNPBBNQ295" placeholder="Enter product code" type="text" name="product_code" id="product_code" required>
+                                    @if ($errors->has('product_code'))
+                                        <div style="color: red; font-size: 14px;">
+                                            {{ $errors->first('product_code') }}
+                                        </div>
+                                    @endif
                                 </div>
-
                                 <div class="verification__form-submit">
                                     <button name="submit" type="submit">
-                                        check warranty
+                                        Check Warranty
                                     </button>
                                 </div>
-
                             </form>
+                            
+                            <!-- Display generic errors, such as authentication or product code validation -->
+                            @if ($errors->any())
+                                <div style="color: red; font-size: 14px; margin-top: 10px;">
+                                    @foreach ($errors->all() as $error)
+                                        <p>{{ $error }}</p>
+                                    @endforeach
+                                </div>
+                            @endif
+                            
+                            
                         </div>
                     </div>
                     <!-----bottom form-->
@@ -87,7 +108,7 @@
             <!---Verification IMAGE---->
             <div class="verification__car">
                 <div class="verification__car-image">
-                    <img src="{{ asset('images/warranty_page.PNG') }}" alt="">
+                    <img src="{{ asset('public/images/warranty_page.PNG') }}" alt="">
                 </div>
 
                 <div class="verification__car-alert">
@@ -98,91 +119,7 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const form = document.querySelector('.verification__form-formblock form');
-            const input = document.querySelector('#product_code');
-            const alertContainer = document.querySelector('.verification__car-alert');
-    
-            form.addEventListener('submit', async function (event) {
-                event.preventDefault(); // Prevent form submission
-    
-                const productCode = input.value.trim();
-    
-                // Clear previous messages
-                alertContainer.innerHTML = '';
-    
-                if (!productCode) {
-                    alertContainer.innerHTML = `
-                        <div class="verification__car-alert-content">
-                            <div class="verification__car-message">
-                                <img src="{{ asset('images/error.png') }}" alt="">
-                                <p>Please enter a product code.</p>
-                            </div>
-                        </div>
-                    `;
-                    return;
-                }
-    
-                try {
-                    const response = await fetch("{{ url('/api/verify-product') }}", {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}', // Include CSRF token for security
-                        },
-                        body: JSON.stringify({ product_code: productCode }),
-                    });
-    
-                    const data = await response.json();
-    
-                    if (data.success) {
-                        alertContainer.innerHTML = `
-                            <div class="verification__car-alert-block">
-                                <img class="verification__car-image-svg" src="{{ asset('images/verification_svg.svg') }}" alt="">
-                                <div class="verification__car-alert-blur"></div>
-                                <div class="verification__car-alert-content">
-                                    <div class="verification__car-message">
-                                        <img src="{{ asset('images/successs.png') }}" alt="">
-                                        <p>${data.message}</p>
-                                    </div>
-                                    <div class="verification__car-text">
-                                        Product Code: ${data.product.code}<br>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tempor porta elit a posuere. Sed commodo nulla non sem commodo, ut pulvinar mauris eleifend. 
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                    } else {
-                        alertContainer.innerHTML = `
-                            <div class="verification__car-alert-block">
-                                <img class="verification__car-image-svg" src="{{ asset('images/verification_svg.svg') }}" alt="">
-                                <div class="verification__car-alert-blur"></div>
-                                <div class="verification__car-alert-content">
-                                    <div style="background-color: #710000;" class="verification__car-message">
-                                        <img style="transform: rotate(180deg);" src="{{ asset('images/successs.png') }}" alt="">
-                                        <p style="color: #fff;">${data.message}</p>
-                                    </div>
-                                    <div class="verification__car-text">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tempor porta elit a posuere. Sed commodo nulla non sem commodo, ut pulvinar mauris eleifend. 
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                    }
-                } catch (error) {
-                    alertContainer.innerHTML = `
-                        <div class="verification__car-alert-content">
-                            <div class="verification__car-message">
-                                <img src="{{ asset('images/error.png') }}" alt="">
-                                <p>An error occurred. Please try again later.</p>
-                            </div>
-                        </div>
-                    `;
-                }
-            });
-        });
-    </script>
+
     
 </body>
 
