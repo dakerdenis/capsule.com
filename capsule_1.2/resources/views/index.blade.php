@@ -10,13 +10,13 @@
             <div class="header__wrapper">
 
                 <a class="header__wrapper__image-a" href="{{ url(app()->getLocale()) }}">
-                    <img src="{{ asset('public/images/logo_main.png') }}" alt="">
+                    <img src="{{ asset('images/logo_main.png') }}" alt="">
                 </a>
 
 
                 <div class="header__navigation">
                     <div class="header__nav__burger">
-                        <img src="{{ asset('public/images/circum_menu-burger.png') }}" alt="" srcset="">
+                        <img src="{{ asset('images/circum_menu-burger.png') }}" alt="" srcset="">
                     </div>
                     <div class="header__nav__element">
                         <button data-target="home">{{ __('main.header_home') }}</button>
@@ -37,7 +37,7 @@
                     <div class="header__nav__element">
                         <button data-target="contact">{{ __('main.header_contacts') }}</button>
                     </div>
-                    <img src="{{ asset('public/images/header_rectangle.png') }}" id="header_rectangle"
+                    <img src="{{ asset('images/header_rectangle.png') }}" id="header_rectangle"
                         class="header_rectangle" alt="" />
                 </div>
 
@@ -66,7 +66,7 @@
                 <div class="mobile-menu__content">
                     <div class="mobile__menu__container">
                         <div class="mobile__burger-logo">
-                            <img src="{{ asset('public/images/logo_main.png') }}" alt="">
+                            <img src="{{ asset('images/logo_main.png') }}" alt="">
                         </div>
                         <div class="mobile__burger-language">
                             <a href="{{ url('/en') }}" class="{{ app()->getLocale() === 'en' ? 'active' : '' }}">EN</a>
@@ -86,7 +86,7 @@
                     </div>
 
                     <div class="mobile__menu__placeholder">
-                        <img src="{{ asset('public/images/about_placeholder1.png') }}" alt="">
+                        <img src="{{ asset('images/about_placeholder1.png') }}" alt="">
                     </div>
                 </div>
             </div>
@@ -116,7 +116,7 @@
                 <!---car and description---->
                 <div class="main__car">
 
-                    <img class="main__car__main__img" src="{{ asset('public/images/car_main.png') }}" alt="Car info image"
+                    <img class="main__car__main__img" src="{{ asset('images/car_main.png') }}" alt="Car info image"
                         srcset="">
                     <div class="main__car__dot main__car__dot1">
                         <div class="main__car__dot-white"></div>
@@ -137,20 +137,20 @@
 
 
                     <div class="car-vector car-vector1">
-                        <img src="{{ asset('public/images/car-vector1.png') }}" alt="" srcset="">
+                        <img src="{{ asset('images/car-vector1.png') }}" alt="" srcset="">
                     </div>
                     <div class="car-vector car-vector2">
-                        <img src="{{ asset('public/images/car-vector2.png') }}" alt="" srcset="">
+                        <img src="{{ asset('images/car-vector2.png') }}" alt="" srcset="">
                     </div>
                     <div class="car-vector car-vector3">
-                        <img src="{{ asset('public/images/car-vector3.png') }}" alt="" srcset="">
+                        <img src="{{ asset('images/car-vector3.png') }}" alt="" srcset="">
                     </div>
 
                     <div class="car-vector car-vector4">
-                        <img src="{{ asset('public/images/car-vector4.png') }}" alt="" srcset="">
+                        <img src="{{ asset('images/car-vector4.png') }}" alt="" srcset="">
                     </div>
                     <div class="car-vector car-vector5">
-                        <img src="{{ asset('public/images/car-vector5.png') }}" alt="" srcset="">
+                        <img src="{{ asset('images/car-vector5.png') }}" alt="" srcset="">
                     </div>
 
 
@@ -198,13 +198,13 @@
 
                     <div class="mobile__main-car">
                         <div class="mobile__main-car-car">
-                            <img src="{{ asset('public/images/aboutcar-mobile.png') }}" alt="">
+                            <img src="{{ asset('images/aboutcar-mobile.png') }}" alt="">
                         </div>
                         <div class="mobile__main-car-desc">
 
                             <!---1--->
                             <div class="mobile__main-car-desc1-image">
-                                <img src="{{ asset('public/images/mobile-vector1.svg') }}" alt="" srcset="">
+                                <img src="{{ asset('images/mobile-vector1.svg') }}" alt="" srcset="">
                             </div>
                             <div class="mobile__main-car-desc-text mobile__main-car-desc1-text">
                                 Premium quality
@@ -215,7 +215,7 @@
 
                             <!---2--->
                             <div class="mobile__main-car-desc2-image">
-                                <img src="{{ asset('public/images/mobile-vector2.svg') }}" alt="" srcset="">
+                                <img src="{{ asset('images/mobile-vector2.svg') }}" alt="" srcset="">
                             </div>
                             <div class="mobile__main-car-desc-text mobile__main-car-desc2-text">
                                 High hydrophobicity
@@ -225,7 +225,7 @@
                             </div>
                             <!---3--->
                             <div class="mobile__main-car-desc3-image">
-                                <img src="{{ asset('public/images/mobile-vector3.svg') }}" alt="" srcset="">
+                                <img src="{{ asset('images/mobile-vector3.svg') }}" alt="" srcset="">
                             </div>
                             <div class="mobile__main-car-desc-text mobile__main-car-desc3-text">
                                 100% Self-healing
@@ -235,7 +235,7 @@
                             </div>
                             <!---4--->
                             <div class="mobile__main-car-desc4-image">
-                                <img src="{{ asset('public/images/mobile-vector4.svg') }}" alt="" srcset="">
+                                <img src="{{ asset('images/mobile-vector4.svg') }}" alt="" srcset="">
                             </div>
                             <div class="mobile__main-car-desc-text mobile__main-car-desc4-text">
                                 Anti-yellow warranty
@@ -245,7 +245,7 @@
                             </div>
                             <!---5--->
                             <div class="mobile__main-car-desc5-image">
-                                <img src="{{ asset('public/images/mobile-vector5.svg') }}" alt="" srcset="">
+                                <img src="{{ asset('images/mobile-vector5.svg') }}" alt="" srcset="">
                             </div>
                             <div class="mobile__main-car-desc-text mobile__main-car-desc5-text">
                                 Excellent carrosion
@@ -260,17 +260,17 @@
 
 
                     <div class="mobile__main-background-car">
-                        <img src="{{ asset('public/images/mobile_placeholder.svg') }}" alt="" srcset="">
+                        <img src="{{ asset('images/mobile_placeholder.svg') }}" alt="" srcset="">
                     </div>
                 </div>
                 <!----RIGHT CAR---->
 
                 <div class="mobile__main-technology">
                     <div class="mobile__main-technoimage">
-                        <img src="{{asset('public/images/techno-mobile.png')}}" alt="" srcset="">
+                        <img src="{{asset('images/techno-mobile.png')}}" alt="" srcset="">
                     </div>
                     <div class="mobile__main-car-small">                        
-                        <img src="{{asset('public/images/mobile-car.png')}}" alt="" srcset="">
+                        <img src="{{asset('images/mobile-car.png')}}" alt="" srcset="">
                     </div>
                 </div>
 
@@ -280,8 +280,8 @@
             <div class="main__background main__background-mobile">
 
                 <picture>
-                    <source media="(max-width: 768px)" srcset="{{ asset('public/images/background-mobile.png') }}">
-                    <img src="{{ asset('public/images/background.png') }}" alt="Car Image">
+                    <source media="(max-width: 768px)" srcset="{{ asset('images/background-mobile.png') }}">
+                    <img src="{{ asset('images/background.png') }}" alt="Car Image">
                 </picture>
             </div>
         </section>
@@ -293,10 +293,10 @@
             </div>
             <div class="american__wrapper">
                 <div class="american__text__block">
-                    <img src="{{ asset('public/images/German_quality.png') }}" alt="">
+                    <img src="{{ asset('images/German_quality.png') }}" alt="">
                 </div>
                 <div class="american__car__block">
-                    <img src="{{ asset('public/images/quality_car.png') }}" alt="">
+                    <img src="{{ asset('images/quality_car.png') }}" alt="">
                 </div>
             </div>
         </section>
@@ -329,12 +329,12 @@
                 <div class="about_us__wrapper">
                     <div class="about_us__image">
                         <div class="about_us__image-car">
-                            <img src="{{ asset('public/images/aboutcar.png') }}" alt="" srcset="">
+                            <img src="{{ asset('images/aboutcar.png') }}" alt="" srcset="">
                         </div>
 
                         <!--placeholders--->
                         <img class="about_us__image-placeholder1"
-                            src="{{ asset('public/images/about_placeholder1.png') }}" alt="" srcset="">
+                            src="{{ asset('images/about_placeholder1.png') }}" alt="" srcset="">
                     </div>
 
                     <div class="about_us__content">

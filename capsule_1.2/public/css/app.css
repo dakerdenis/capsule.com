@@ -4344,4 +4344,31 @@ h6 {
         max-width: 280px;
         margin: 0 auto;
     }
+    .about_us__image-car{
+        display: none;
+        visibility: hidden;
+    }
+    .about_us__content__name {
+        margin-top: 34px;
+        margin-bottom: 20px;
+        position: relative;
+}
+.about_us__content__name::after{
+    z-index: -100;
+    content: "";
+    top: -99px;
+    /* left: 0px; */
+    position: absolute;
+    width: 154px;
+    height: 500px;
+    /* background-color: red; */
+    background-image: url(../images/about_svg.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.warranty {
+
+    padding-top: 35px;
+
+}
 }

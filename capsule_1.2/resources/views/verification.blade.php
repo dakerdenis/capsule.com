@@ -4,12 +4,22 @@
 <html lang="en">
 
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2B54N2FD1H"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2B54N2FD1H');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verification</title>
     <link rel="stylesheet" href="{{ asset('public/css/verification.css') }}"> <!-- Link to warranty.css -->
 </head>
-</head>
+<!-- Google tag (gtag.js) -->
+
 
 <body>
     <div class="verification__container">
@@ -48,9 +58,12 @@
                                 </div>
 
                                 <div class="verification__form-submit">
-                                    <button name="submit" type="submit">
+                                    <button name="submit" type="submit"         data-sitekey="reCAPTCHA_site_key" 
+                                    data-callback='onSubmit' 
+                                    data-action='submit'>
                                         check verification
                                     </button>
+                                    
                                 </div>
 
                             </form>
@@ -162,7 +175,12 @@
             });
         });
     </script>
-    
+     <script src="https://www.google.com/recaptcha/api.js"></script>
+     <script>
+        function onSubmit(token) {
+          document.getElementById("demo-form").submit();
+        }
+      </script>
 </body>
 
 </html>
