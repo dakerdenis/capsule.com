@@ -22,8 +22,13 @@ class Service extends Authenticatable
         'list_of_products' => 'array',
     ];
 
+    // Fix for preventing double hashing
     public function setPasswordAttribute($value)
     {
-        $this->attributes['password'] = bcrypt($value);
+        if (\Illuminate\Support\Facades\Hash::needsRehash($value)) {
+            $this->attributes['password'] = bcrypt($value);
+        } else {
+            $this->attributes['password'] = $value;
+        }
     }
 }

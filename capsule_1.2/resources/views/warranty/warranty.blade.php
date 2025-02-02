@@ -56,7 +56,7 @@
                                 @csrf <!-- Include CSRF token for security -->
                             
                                 <div class="input__wrapper">
-                                    <input value="kris.jalon@example.org" placeholder="Login" type="email" name="email" id="email" required>
+                                    <input value="klakin@example.com" placeholder="Login" type="email" name="email" id="email" required>
                                     @if ($errors->has('email'))
                                         <div style="color: red; font-size: 14px;">
                                             {{ $errors->first('email') }}
@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="input__wrapper">
                                     <div class="input__wrapper-info">i</div>
-                                    <input value="TTNNPBBNQ295" placeholder="Enter product code" type="text" name="product_code" id="product_code" required>
+                                    <input  placeholder="Enter product code" type="text" name="product_code" id="product_code" required>
                                     @if ($errors->has('product_code'))
                                         <div style="color: red; font-size: 14px;">
                                             {{ $errors->first('product_code') }}

@@ -12,6 +12,6 @@ class WarrantySeeder extends Seeder
      */
     public function run(): void
     {
-        Warranty::factory()->count(50)->create(); // Seed 50 fake warranties
+        Warranty::factory()->count(10)->create(); // Seed 50 fake warranties
     }
 }

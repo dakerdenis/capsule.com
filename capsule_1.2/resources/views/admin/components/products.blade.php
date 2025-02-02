@@ -69,10 +69,11 @@
             @php
                 $typeNames = [
                     1 => 'Urban',
-                    2 => 'Element',
-                    3 => 'Huracan',
-                    4 => 'Matte',
-                    5 => 'Black',
+                    2=>  'Optima',
+                    3 => 'Element',
+                    4 => 'Huracan',
+                    5 => 'Matte',
+                    6 => 'Black',
                 ];
             @endphp
             @foreach ($products as $product)

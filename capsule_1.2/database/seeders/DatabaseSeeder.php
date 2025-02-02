@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
             ProductSeeder::class, // Optional if you've added it earlier
             UserSeeder::class,
             ServiceSeeder::class,
-            WarrantySeeder::class,
+
         ]);
     }
 }

@@ -12,7 +12,14 @@ class ServiceSeeder extends Seeder
      */
     public function run(): void
     {
-        // Create 10 fake services
-        Service::factory()->count(10)->create();
+        // Explicitly hash passwords during seeding
+        Service::factory()->create([
+            'name' => 'Test Service',
+            'email' => 'klakin@example.com',
+            'password' => bcrypt('password'), // Hash it once
+        ]);
+
+        // Add additional fake services
+        Service::factory(9)->create();
     }
 }
