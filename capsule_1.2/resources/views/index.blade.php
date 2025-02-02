@@ -687,10 +687,10 @@
                     </div>
 
                     <div class="map__container-desc">
-                        <p>9</p>
-                        <span>countries</span>
-                        <p class="map_margin">34</p>
-                        <span>dealers</span>
+                        <p class="map__container-p1">9</p>
+                        <span class="map__container-country">countries</span>
+                        <p class="map_margin map__container-p2">34</p>
+                        <span class="map_dealers">dealers</span>
                     </div>
                 </div>
 

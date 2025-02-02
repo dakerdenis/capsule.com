@@ -13,9 +13,11 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
-            'auth_admin'=> AdminMiddleware::class
+            'auth_admin' => AdminMiddleware::class,
+            'auth_service' => \App\Http\Middleware\ServiceMiddleware::class, // Register the service middleware
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();
+

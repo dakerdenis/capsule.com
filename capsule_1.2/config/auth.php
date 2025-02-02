@@ -27,7 +27,7 @@ return [
     | Of course, a great default configuration has been defined for you
     | which utilizes session storage plus the Eloquent user provider.
     |
-    | All authentication guards have a user provider, which defines how the
+    | All authentication     have a user provider, which defines how the
     | users are actually retrieved out of your database or other storage
     | system used by the application. Typically, Eloquent is utilized.
     |
@@ -39,6 +39,10 @@ return [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+        'service' => [ // Add this guard
+            'driver' => 'session',
+            'provider' => 'services',
         ],
     ],
 
@@ -63,6 +67,10 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
+        ],
+        'services' => [ // Add this provider
+            'driver' => 'eloquent',
+            'model' => App\Models\Service::class,
         ],
 
         // 'users' => [

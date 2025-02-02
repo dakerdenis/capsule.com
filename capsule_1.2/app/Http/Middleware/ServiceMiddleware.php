@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
 class ServiceMiddleware
@@ -15,6 +16,11 @@ class ServiceMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        return $next($request);
+        if (Auth::guard('service')->check()) {
+            return $next($request);
+        }
+
+        // Redirect to the service login page if not authenticated
+        return redirect()->route('warranty');
     }
 }
