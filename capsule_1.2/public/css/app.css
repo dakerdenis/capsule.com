@@ -4406,14 +4406,15 @@ h6 {
     .map__container-p1 {
         position: absolute;
         font-size: 60px;
-        top: 35px;
+        top: 57px;
         left: 50px;
+
     }
 
     .map__container-p2 {
         position: absolute;
         font-size: 60px;
-        top: 30px;
+        top: 46px;
         right: 50px;
     }
 
@@ -4438,5 +4439,8 @@ h6 {
     .map__container-desc {
         left: initial;
         width: 100%;
+    }
+    .map {
+        min-height: 390px;
     }
 }

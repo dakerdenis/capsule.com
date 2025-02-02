@@ -204,7 +204,8 @@
 
                             <!---1--->
                             <div class="mobile__main-car-desc1-image">
-                                <img src="{{ asset('public/images/mobile-vector1.svg') }}" alt="" srcset="">
+                                <img src="{{ asset('public/images/mobile-vector1.svg') }}" alt=""
+                                    srcset="">
                             </div>
                             <div class="mobile__main-car-desc-text mobile__main-car-desc1-text">
                                 Premium quality
@@ -215,7 +216,8 @@
 
                             <!---2--->
                             <div class="mobile__main-car-desc2-image">
-                                <img src="{{ asset('public/images/mobile-vector2.svg') }}" alt="" srcset="">
+                                <img src="{{ asset('public/images/mobile-vector2.svg') }}" alt=""
+                                    srcset="">
                             </div>
                             <div class="mobile__main-car-desc-text mobile__main-car-desc2-text">
                                 High hydrophobicity
@@ -225,7 +227,8 @@
                             </div>
                             <!---3--->
                             <div class="mobile__main-car-desc3-image">
-                                <img src="{{ asset('public/images/mobile-vector3.svg') }}" alt="" srcset="">
+                                <img src="{{ asset('public/images/mobile-vector3.svg') }}" alt=""
+                                    srcset="">
                             </div>
                             <div class="mobile__main-car-desc-text mobile__main-car-desc3-text">
                                 100% Self-healing
@@ -235,7 +238,8 @@
                             </div>
                             <!---4--->
                             <div class="mobile__main-car-desc4-image">
-                                <img src="{{ asset('public/images/mobile-vector4.svg') }}" alt="" srcset="">
+                                <img src="{{ asset('public/images/mobile-vector4.svg') }}" alt=""
+                                    srcset="">
                             </div>
                             <div class="mobile__main-car-desc-text mobile__main-car-desc4-text">
                                 Anti-yellow warranty
@@ -245,7 +249,8 @@
                             </div>
                             <!---5--->
                             <div class="mobile__main-car-desc5-image">
-                                <img src="{{ asset('public/images/mobile-vector5.svg') }}" alt="" srcset="">
+                                <img src="{{ asset('public/images/mobile-vector5.svg') }}" alt=""
+                                    srcset="">
                             </div>
                             <div class="mobile__main-car-desc-text mobile__main-car-desc5-text">
                                 Excellent carrosion
@@ -267,10 +272,10 @@
 
                 <div class="mobile__main-technology">
                     <div class="mobile__main-technoimage">
-                        <img src="{{asset('public/images/techno-mobile.png')}}" alt="" srcset="">
+                        <img src="{{ asset('public/images/techno-mobile.png') }}" alt="" srcset="">
                     </div>
-                    <div class="mobile__main-car-small">                        
-                        <img src="{{asset('public/images/mobile-car.png')}}" alt="" srcset="">
+                    <div class="mobile__main-car-small">
+                        <img src="{{ asset('public/images/mobile-car.png') }}" alt="" srcset="">
                     </div>
                 </div>
 
@@ -679,22 +684,18 @@
                     </div>
                 </div>
 
-
                 <div class="map__container">
                     <div class="map__container-map">
                         <img src="{{ 'public/images/map.png' }}" alt="" srcset="">
-
                     </div>
 
                     <div class="map__container-desc">
-                        <p class="map__container-p1">9</p>
+                        <p class="map__container-p1" data-target="9">0</p>
                         <span class="map__container-country">countries</span>
-                        <p class="map_margin map__container-p2">34</p>
+                        <p class="map_margin map__container-p2" data-target="34">0</p>
                         <span class="map_dealers">dealers</span>
                     </div>
                 </div>
-
-
             </div>
         </section>
 
@@ -1185,14 +1186,47 @@
         });
     </script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 const car = document.querySelector('.mobile__main-car-small');
                 car.style.animation = 'carAnimationSmall 3.2s ease-in-out forwards';
             }, 1500); // Start animation after 1.5 seconds
         });
     </script>
-    
+<script>
+    // Function to animate the numbers
+    function animateNumbers(element, target, duration) {
+        let start = 0;
+        const stepTime = Math.abs(Math.floor(duration / target)); // Time per increment
+        const timer = setInterval(() => {
+            start++;
+            element.textContent = start;
+            if (start >= target) {
+                clearInterval(timer);
+            }
+        }, stepTime);
+    }
+
+    // Observe when the numbers come into view
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+                const target = parseInt(element.getAttribute('data-target'));
+                const duration = 1000; // 1 second
+                animateNumbers(element, target, duration);
+                observer.unobserve(element); // Stop observing after animation is done
+            }
+        });
+    }, {
+        threshold: 1.0, // Trigger when the entire element is visible
+    });
+
+    // Select the elements to animate
+    document.querySelectorAll('.map__container-desc p').forEach(p => {
+        observer.observe(p);
+    });
+</script>
     <script src="{{ asset('public/js/main.js') }}"></script>
 
 
