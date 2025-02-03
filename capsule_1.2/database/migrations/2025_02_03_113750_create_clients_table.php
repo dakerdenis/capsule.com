@@ -12,8 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('clients', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id(); // Primary Key
+            $table->string('name'); // Client Name
+            $table->string('mobile_number'); // Mobile Number
+            $table->string('email')->unique(); // Email Address
+            $table->json('warranties')->default(json_encode([])); // Array of warranties
+            $table->timestamps(); // Created and Updated timestamps
         });
     }
 
