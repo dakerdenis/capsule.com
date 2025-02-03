@@ -9,7 +9,7 @@ use App\Http\Controllers\VerificationController;
 use App\Http\Controllers\AdminProductsController;
 use App\Http\Controllers\AdminServicesController;
 use App\Http\Controllers\AdminWarrantyController;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ClientsController;
 
 //! MAIN PAGE ROUTES + CATALOG
 //*************************** */
@@ -63,7 +63,7 @@ Route::middleware('auth_admin')->group(function () {
             Route::post('/add', [AdminProductsController::class, 'adminPostProductAdd'])->name('admin.add_post_product');
             Route::delete('/delete/{id}', [AdminProductsController::class, 'adminDeleteProduct'])->name('admin.delete_product');
         });
-        //* SERVICES
+        //* SERVICES ***///
         Route::get('/services', [AdminServicesController::class, 'adminServices'])->name('admin.services');
         Route::prefix('services')->group(function () {
             Route::get('/{id}', [AdminServicesController::class, 'adminSingleService'])->name('admin.service');
@@ -73,9 +73,11 @@ Route::middleware('auth_admin')->group(function () {
             Route::get('/add', [AdminServicesController::class, 'adminAddService'])->name('admin.add_service');
             Route::post('/add', [AdminServicesController::class, 'adminPostAddService'])->name('admin.add_post_service');
         });
-        //**USERS (FOR FUTURE)
-        Route::get('/users', [UsersController::class, 'adminUsers'])->name('admin.users');
-        
+        //**Clients (FOR FUTURE)
+        Route::get('/clients', [ClientsController::class, 'adminClients'])->name('admin.clients');
+        Route::prefix('clients')->group(function (){
+
+        });
         //* WARRANTIES
         Route::get('/warranties', [AdminWarrantyController::class, 'adminWarranties'])->name('admin.warranties');
         Route::prefix('warranties')->group(function () {

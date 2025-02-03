@@ -83,7 +83,7 @@ class AdminServicesController extends Controller
     public function adminPostEditService(Request $request, $id)
     {
         $service = Service::findOrFail($id);
-
+    
         // Validate the input
         $request->validate([
             'name' => 'required|string|max:255',
@@ -92,32 +92,36 @@ class AdminServicesController extends Controller
             'password' => 'nullable|string|min:6', // Password can be nullable for no change
             'logo' => 'nullable|image|max:2048', // Image validation (max size 2MB)
         ]);
-
+    
         // Handle logo upload
         if ($request->hasFile('logo')) {
             // Delete the old logo if it exists
             if ($service->logo && file_exists(public_path($service->logo))) {
                 unlink(public_path($service->logo));
             }
-
+    
             $file = $request->file('logo');
             $logoPath = 'images/services/' . $file->getClientOriginalName();
             $file->move(public_path('images/services'), $file->getClientOriginalName());
             $service->logo = $logoPath;
         }
-
+    
         // Update service details
         $service->name = $request->name;
         $service->description = $request->description;
         $service->email = $request->email;
-
+    
         // Update password only if provided
         if ($request->filled('password')) {
             $service->password = bcrypt($request->password);
         }
-
+    
+        // Handle cooperation field
+        $service->cooperation = $request->has('cooperation') ? 1 : 0;
+    
         $service->save();
-
+    
         return redirect()->route('admin.services')->with('success', 'Service updated successfully.');
     }
+    
 }
