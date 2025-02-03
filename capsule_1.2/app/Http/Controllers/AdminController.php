@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use App\Models\Product;
 use App\Models\Service;
-
+use App\Models\Warranty;
 class AdminController extends Controller
 {
     public function showLoginForm()
@@ -43,8 +43,35 @@ class AdminController extends Controller
 
     public function showAdminPage()
     {
+        // Total products
+        $totalProducts = Product::count();
+
+        // Total verified products (placeholder for future implementation)
+        $verifiedProducts = Product::whereNotNull('verification_date')->count();
+
+        // Total products with warranty
+        $productsWithWarranty = Product::whereNotNull('warranty')->count();
+
+        // Total services
+        $totalServices = Service::count();
+
+        // Total warranties
+        $totalWarranties = Warranty::count();
+
+        // Expired warranties
+        $expiredWarranties = Warranty::where('warranty_end_date', '<', now())->count();
+
         $section = 'home';
-        return view('admin.dashboard', compact('section'));
+
+        return view('admin.dashboard', compact(
+            'section',
+            'totalProducts',
+            'verifiedProducts',
+            'productsWithWarranty',
+            'totalServices',
+            'totalWarranties',
+            'expiredWarranties'
+        ));
     }
 
 }

@@ -1,44 +1,46 @@
 <div class="home__wrapper">
     <div class="home__statistics__container">
+        <!-- Products -->
         <div class="home__statistics__element">
             <div class="element__name">
                 <p>Товары</p>
-                <span>23</span>
+                <span>{{ $totalProducts }}</span>
             </div>
 
             <div class="element__desc">
                 <p>Верифицированных:</p>
-                <span>14</span>
+                <span>{{ $verifiedProducts }}</span>
             </div>
             <div class="element__desc">
                 <p>С гарантией:</p>
-                <span>11</span>
+                <span>{{ $productsWithWarranty }}</span>
             </div>
         </div>
+
+        <!-- Services -->
         <div class="home__statistics__element">
             <div class="element__name">
                 <p>Сервисы</p>
-                <span>45</span>
+                <span>{{ $totalServices }}</span>
             </div>
 
             <div class="element__desc">
                 <p>Выпущено гарантий:</p>
-                <span>14</span>
+                <span>Плейсхолдер</span> <!-- Placeholder for future implementation -->
             </div>
-
         </div>
+
+        <!-- Warranties -->
         <div class="home__statistics__element">
             <div class="element__name">
                 <p>Гарантии</p>
-                <span>18</span>
+                <span>{{ $totalWarranties }}</span>
             </div>
 
             <div class="element__desc">
                 <p>Просроченных гарантий:</p>
-                <span>14</span>
+                <span>{{ $expiredWarranties }}</span>
             </div>
         </div>
     </div>
-
-
 </div>
