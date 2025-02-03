@@ -39,4 +39,8 @@ class AdminProductsController extends Controller
 
         return view('admin.dashboard', compact('section', 'products'));
     }
+    public function adminProductAdd(Request $request){
+        $section = 'products__add';
+        return view('admin.dashboard', compact('section'));
+    }
 }

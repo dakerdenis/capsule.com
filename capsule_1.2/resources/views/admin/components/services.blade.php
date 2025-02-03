@@ -1,5 +1,9 @@
 <div>
-    <h2>Авто сервисы</h2>
+    <div class="services__name__add">
+        <h2>Авто сервисы</h2>
+        <a class="btn btn-secondary" href="{{route('admin.new_service')}}">Добавление сервиса</a>
+    </div>
+
 
     <div class="services__wrapper">
         <table class="main__table table table-hover">

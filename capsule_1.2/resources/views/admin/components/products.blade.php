@@ -65,7 +65,7 @@
 
         <!-----CRUD--->
         <div class="products__sortby-edit">
-            <a href="#" class="btn btn-secondary">Добавить продукт</a>
+            <a href="{{ route('admin.add_product')}}" class="btn btn-secondary">Добавить продукт</a>
 
         </div>
     </div>

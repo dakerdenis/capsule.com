@@ -21,4 +21,9 @@ class AdminServicesController extends Controller
     
         return view('admin.dashboard', compact('section', 'service'));
     }
+
+    public function adminNewService(){
+        $section = 'services__add';
+        return view('admin.dashboard', compact('section'));
+    }
 }

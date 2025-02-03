@@ -12,6 +12,7 @@ class Service extends Authenticatable
     protected $fillable = [
         'name',
         'description',
+        'logo',
         'cooperation',
         'list_of_products',
         'email',
