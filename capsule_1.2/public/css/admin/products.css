@@ -104,3 +104,23 @@
     max-width: 200px;
 
 }
+.products__sort__add-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.products__sortby-block {
+    width: 40%;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.products__sortby-edit{
+
+
+    border-radius: 5px;
+    padding: 15px;
+
+}
