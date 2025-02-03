@@ -1,7 +1,7 @@
 <div>
     <div class="services__name__add">
         <h2>Авто сервисы</h2>
-        <a class="btn btn-secondary" href="{{route('admin.new_service')}}">Добавление сервиса</a>
+        <a class="btn btn-secondary" href="{{route('admin.add_service')}}">Добавление сервиса</a>
     </div>
 
 

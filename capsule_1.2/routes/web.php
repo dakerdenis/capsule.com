@@ -70,8 +70,8 @@ Route::middleware('auth_admin')->group(function () {
             Route::get('/{id}/edit', [AdminServicesController::class, 'adminEditService'])->name('admin.edit_service');
             Route::post('/{id}/edit', [AdminServicesController::class, 'adminPostEditService'])->name('admin.edit_post_service');
             Route::delete('/{id}', [AdminServicesController::class, 'adminDeleteService'])->name('admin.delete_service');
-            Route::get('/add', [AdminServicesController::class, 'adminNewService'])->name('admin.new_service');
-            Route::post('/add', [AdminServicesController::class, 'adminPostNewService'])->name('admin.new_post_service');
+            Route::get('/add', [AdminServicesController::class, 'adminAddService'])->name('admin.add_service');
+            Route::post('/add', [AdminServicesController::class, 'adminPostAddService'])->name('admin.add_post_service');
         });
         //**USERS (FOR FUTURE)
         Route::get('/users', [UsersController::class, 'adminUsers'])->name('admin.users');

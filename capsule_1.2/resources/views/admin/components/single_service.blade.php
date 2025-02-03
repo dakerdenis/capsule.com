@@ -4,3 +4,7 @@
 <br>
 <p>Кол-во продуктов: {{ count($service->list_of_products) }} </p>
 
+<img src="{{ $service->logo ? asset('images/' . $service->logo) : asset('images/default-logo.png') }}" alt="Service Logo">
+
+
+
