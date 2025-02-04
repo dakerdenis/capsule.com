@@ -114,7 +114,7 @@
                     <input type="text" id="warranty-period" name="warranty_period" value="{{ $warrantyPeriod }}" readonly>
                 </div>
                 <div class="form-group non-editable">
-                    <label for="service-life">Service Life:</label>
+                    <label for="service-life">Lifespan:</label>
                     <input type="text" id="service-life" name="service_life" value="5 Years" readonly>
                 </div>
             </div>

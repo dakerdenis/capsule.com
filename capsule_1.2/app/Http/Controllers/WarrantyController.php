@@ -92,17 +92,20 @@ class WarrantyController extends Controller
         $installationDate = now()->format('Y-m-d');
         $clientCode = strtoupper(bin2hex(random_bytes(6)) . rand(1, 9)); // 13-char alphanumeric
     
+        // Fetch warranty and lifespan dynamically
         $filmModel = $this->getFilmModel($product->type);
         $warrantyPeriod = $this->getWarrantyPeriod($product->type);
+        $serviceLife = $this->getServiceLife($product->type);
         $warrantyEndDate = now()->addYears($warrantyPeriod)->format('Y-m-d');
     
         session(['accessed_register' => true]);
     
         return view('warranty.register', compact(
             'service', 'licenseNumber', 'installationDate', 'clientCode',
-            'filmModel', 'warrantyPeriod', 'warrantyEndDate'
+            'filmModel', 'warrantyPeriod', 'serviceLife', 'warrantyEndDate'
         ));
     }
+    
     
     
     private function getFilmModel($type)
@@ -120,12 +123,25 @@ class WarrantyController extends Controller
     private function getWarrantyPeriod($type)
     {
         return [
-            1 => 5,
-            2 => 5,
-            3 => 8,
-            4 => 8,
-            5 => 5,
-            6 => 5,
-        ][$type] ?? 0;
-    }  
+            1 => 3, // Urban
+            2 => 3, // Optima
+            3 => 5, // Element
+            4 => 5, // Huracan
+            5 => 3, // Matte
+            6 => 3, // Black
+        ][$type] ?? 0; // Default to 0 if type not found
+    }
+    
+    private function getServiceLife($type)
+    {
+        return [
+            1 => 5, // Urban
+            2 => 5, // Optima
+            3 => 8, // Element
+            4 => 8, // Huracan
+            5 => 6, // Matte
+            6 => 5, // Black
+        ][$type] ?? 0; // Default to 0 if type not found
+    }
+     
 }
