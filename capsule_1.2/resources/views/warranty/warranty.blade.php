@@ -56,7 +56,7 @@
                                 @csrf <!-- Include CSRF token for security -->
                             
                                 <div class="input__wrapper">
-                                    <input value="klakin@example.com" placeholder="Login" type="email" name="email" id="email" required>
+                                    <input value="test@example.com" placeholder="Login" type="email" name="email" id="email" required>
                                     @if ($errors->has('email'))
                                         <div style="color: red; font-size: 14px;">
                                             {{ $errors->first('email') }}
