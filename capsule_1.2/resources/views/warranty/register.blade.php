@@ -46,14 +46,14 @@
             <h2 class="warranty__name-name">Car Information</h2>
             <div class="form-row">
                 <div class="form-group">
-                    <label for="car-model">Car Model:</label>
+                    <label for="car-model">Brand:</label>
                     <div class="warranty-input-container">
                         <input type="text" id="car-model" name="car_model" placeholder="Enter car model" required>
                     </div>
                     
                 </div>
                 <div class="form-group">
-                    <label for="car-make">Car Make:</label>
+                    <label for="car-make">Model:</label>
                     <div class="warranty-input-container">
                         <input type="text" id="car-make" name="car_make" placeholder="Enter car make" required>
                     </div>
@@ -79,7 +79,7 @@
     
             <div class="form-row">
                 <div class="form-group">
-                    <label for="license-plate">License Plate Number:</label>
+                    <label for="license-plate">License Plate Number:</label> <!--NUmber of car--->
                     <div class="warranty-input-container">
                     <input type="text" id="license-plate" name="license_plate" placeholder="Enter license plate number" required>
                     </div>
@@ -171,7 +171,7 @@
             </div>
     
             <div class="form-group photo-upload">
-                <label for="installation-photos">Installation Photos:</label>
+                <label for="installation-photos">Installation Photos:</label> <!---3 IMAGES--->
                 <div class="warranty-input-container">
                 <input type="file" id="installation-photos" name="installation_photos[]" multiple accept="image/*">
                 </div>
