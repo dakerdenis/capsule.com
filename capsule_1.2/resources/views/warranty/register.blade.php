@@ -115,7 +115,7 @@
                 </div>
                 <div class="form-group non-editable">
                     <label for="service-life">Lifespan:</label>
-                    <input type="text" id="service-life" name="service_life" value="5 Years" readonly>
+                    <input type="text" id="service-life" name="service-life" value="{{ $serviceLife }} Years" readonly>
                 </div>
             </div>
     
