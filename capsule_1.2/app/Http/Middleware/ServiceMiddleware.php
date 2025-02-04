@@ -5,22 +5,24 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Symfony\Component\HttpFoundation\Response;
 
 class ServiceMiddleware
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
-     */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next)
     {
-        if (Auth::guard('service')->check()) {
-            return $next($request);
+        if (!Auth::guard('service')->check()) {
+            \Log::info('Middleware: Service not logged in');
+            return redirect()->route('warranty');
         }
-
-        // Redirect to the service login page if not authenticated
-        return redirect()->route('warranty');
+    
+        if ($request->route()->getName() === 'service.register' && session()->get('accessed_register', false)) {
+            \Log::info('Middleware: Access to /warranty/register blocked. Session flag accessed_register:', [session()->get('accessed_register')]);
+            return redirect()->route('warranty');
+        }
+    
+        \Log::info('Middleware: Access granted to route', [$request->route()->getName()]);
+    
+        return $next($request);
     }
+    
 }
