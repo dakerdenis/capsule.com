@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
+use App\Models\Warranty;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class WarrantyController extends Controller
 {
@@ -171,9 +173,25 @@ class WarrantyController extends Controller
         return redirect()->route('warranty')->with('success', 'Warranty successfully registered.');
     }
     
-    
+    public function singleWarranty($id)
+    {
+        // Fetch warranty data along with the service relationship
+        $warranty = Warranty::with('service')->findOrFail($id);
 
-    
+        return view('warranty.show', compact('warranty'));
+    }
+
+    public function generatePdf($id)
+{
+    // Fetch the warranty data
+    $warranty = Warranty::findOrFail($id);
+
+    // Pass data to the view
+    $pdf = Pdf::loadView('warranty.single_warranty_pdf', compact('warranty'));
+
+    // Download the generated PDF
+    return $pdf->download('warranty_' . $warranty->id . '.pdf');
+}
     
     private function getFilmModel($type)
     {
