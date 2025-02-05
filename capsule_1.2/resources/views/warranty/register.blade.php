@@ -110,11 +110,12 @@
                     </div>
                 </div>
                 <div class="form-group non-editable">
-                    <label for="license-number">License Number:</label>
+                    <label for="license-number">Product Code:</label>
                     <div class="warranty-input-container">
-                    <input type="text" id="license-number" name="license_number" value="{{ $licenseNumber }}" readonly>
+                        <input type="text" id="license-number" name="license_number" value="{{ $productCode }}" readonly>
                     </div>
                 </div>
+                
             </div>
     
             <div class="form-group non-editable">

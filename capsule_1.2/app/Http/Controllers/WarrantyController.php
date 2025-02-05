@@ -87,8 +87,7 @@ class WarrantyController extends Controller
             return redirect()->route('warranty')->withErrors(['error' => 'Product not found. Please log in again.']);
         }
     
-        // Generate system values
-        $licenseNumber = strtoupper(bin2hex(random_bytes(6))); // Generate 12-char alphanumeric
+        // System-generated values
         $installationDate = now()->format('Y-m-d');
         $clientCode = strtoupper(bin2hex(random_bytes(6)) . rand(1, 9)); // 13-char alphanumeric
     
@@ -101,61 +100,78 @@ class WarrantyController extends Controller
         session(['accessed_register' => true]);
     
         return view('warranty.register', compact(
-            'service', 'licenseNumber', 'installationDate', 'clientCode',
+            'service', 'productCode', 'installationDate', 'clientCode',
             'filmModel', 'warrantyPeriod', 'serviceLife', 'warrantyEndDate'
         ));
     }
+    
     public function warrantyPostRegister(Request $request)
-{
-    $request->validate([
-        'client_name' => 'required|string|max:255',
-        'client_phone' => 'required|string|max:15',
-        'car_model' => 'required|string|max:255',
-        'car_make' => 'required|string|max:255',
-        'car_color' => 'required|string|max:50',
-        'car_year' => 'required|integer|digits:4|min:1900|max:' . date('Y'),
-        'license_plate' => 'required|string|max:20',
-        'manager_name' => 'required|string|max:255',
-        'installation_photos.*' => 'nullable|image|max:2048',
-    ]);
-
-    // Handle file uploads
-    $uploadedPhotos = [];
-    if ($request->hasFile('installation_photos')) {
-        foreach ($request->file('installation_photos') as $photo) {
-            $filePath = $photo->store('warranty_photos', 'public');
-            $uploadedPhotos[] = $filePath;
+    {
+        $request->validate([
+            'client_name' => 'required|string|max:255',
+            'client_phone' => 'required|string|max:15',
+            'car_model' => 'required|string|max:255',
+            'car_make' => 'required|string|max:255',
+            'car_color' => 'required|string|max:50',
+            'car_year' => 'required|integer|digits:4|min:1900|max:' . date('Y'),
+            'license_plate' => 'required|string|max:20',
+            'manager_name' => 'required|string|max:255',
+            'installation_photos.*' => 'nullable|image|max:2048',
+        ]);
+    
+        // Handle file uploads
+        $uploadedPhotos = [];
+        if ($request->hasFile('installation_photos')) {
+            foreach ($request->file('installation_photos') as $photo) {
+                $filePath = $photo->store('warranty_photos', 'public');
+                $uploadedPhotos[] = $filePath;
+            }
         }
+    
+        // Get the authenticated service
+        $service = Auth::guard('service')->user();
+    
+        // Retrieve product code from session
+        $productCode = session('product_code');
+    
+        $product = Product::where('code', $productCode)->first();
+        if (!$product) {
+            return redirect()->route('warranty')->withErrors(['error' => 'Product not found. Please log in again.']);
+        }
+    
+        // Create a new warranty record
+        $warranty = \App\Models\Warranty::create([
+            'client_name' => $request->input('client_name'),
+            'client_number' => $request->input('client_phone'),
+            'car_model' => $request->input('car_model'),
+            'car_make' => $request->input('car_make'),
+            'car_color' => $request->input('car_color'),
+            'manufacture_year' => $request->input('car_year'),
+            'license_plate_number' => $request->input('license_plate'),
+            'service_id' => $service->id, // Add the authenticated service ID here
+            'master_name' => $request->input('manager_name'),
+            'service_phone_number' => $service->phone,
+            'product_code' => $productCode, // Store the product code
+            'installation_date' => $request->input('installation_date'),
+            'brand_name' => $request->input('brand_name'),
+            'film_model' => $request->input('film_model'),
+            'warranty_model' => $request->input('warranty_period') . ' Years',
+            'service_life' => $request->input('service_life') . ' Years',
+            'warranty_end_date' => $request->input('warranty_end_date'),
+            'client_code' => $request->input('client_code'),
+            'images_array' => $uploadedPhotos,
+        ]);
+    
+        // Update the product record
+        $product->update([
+            'warranty' => $warranty->id,
+            'service_id' => $service->id,
+        ]);
+    
+        return redirect()->route('warranty')->with('success', 'Warranty successfully registered.');
     }
-
-    // Get the authenticated service
-    $service = Auth::guard('service')->user();
-
-    // Create a new warranty record
-    $warranty = \App\Models\Warranty::create([
-        'client_name' => $request->input('client_name'),
-        'client_number' => $request->input('client_phone'),
-        'car_model' => $request->input('car_model'),
-        'car_make' => $request->input('car_make'),
-        'car_color' => $request->input('car_color'),
-        'manufacture_year' => $request->input('car_year'),
-        'license_plate_number' => $request->input('license_plate'),
-        'service_name' => $service->name,
-        'master_name' => $request->input('manager_name'),
-        'service_phone_number' => $service->phone,
-        'license_number' => $request->input('license_number'),
-        'installation_date' => $request->input('installation_date'),
-        'brand_name' => $request->input('brand_name'),
-        'film_model' => $request->input('film_model'),
-        'warranty_model' => $request->input('warranty_period') . ' Years',
-        'service_life' => $request->input('service_life') . ' Years',
-        'warranty_end_date' => $request->input('warranty_end_date'),
-        'client_code' => $request->input('client_code'),
-        'images_array' => $uploadedPhotos,
-    ]);
-
-    return redirect()->route('warranty')->with('success', 'Warranty successfully registered.');
-}
+    
+    
 
     
     

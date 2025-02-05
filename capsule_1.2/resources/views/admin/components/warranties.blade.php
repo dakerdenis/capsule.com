@@ -6,17 +6,31 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Номер лицензии</th>
-                    <th scope="col">Код товара</th>
-                    <th scope="col">Бренд</th>
-                    <th scope="col">Дата установки</th>
-                    <th scope="col">Дата окончания</th>                    
+                    <th scope="col">Product Code</th>
+                    <th scope="col">Car Model</th>
+                    <th scope="col">Installation Date</th>
+                    <th scope="col">Warranty End Date</th>
+                    <th scope="col">Client Code</th>
+                    <th scope="col">Service Name</th>
                 </tr>
             </thead>
             <tbody>
-
+                @foreach ($warranties as $warranty)
+                    <tr>
+                        <td>{{ $warranty->id }}</td>
+                        <td>{{ $warranty->product_code }}</td> 
+                        <td>{{ $warranty->car_model }}</td>
+                        <td>{{ $warranty->installation_date }}</td>
+                        <td>{{ $warranty->warranty_end_date }}</td>
+                        <td>{{ $warranty->client_code }}</td>
+                        <td>
+                            <a href="{{ route('admin.service', ['id' => $warranty->service_id]) }}">
+                                {{ $warranty->service_name }}
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
-            
         </table>
     </div>
 </div>

@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Warranty;
 use Illuminate\Http\Request;
 
 class AdminWarrantyController extends Controller
 {
     public function adminWarranties()
     {
-        $warranties = []; // Load warranty data as needed
+        // Fetch warranties with related services
+        $warranties = Warranty::with('service')->get();
         $section = 'warranties';
 
         return view('admin.dashboard', compact('section', 'warranties'));
@@ -16,7 +18,7 @@ class AdminWarrantyController extends Controller
 
     public function adminSingleWarranty($id)
     {
-        $warranty = []; // Load single warranty data as needed
+        $warranty = Warranty::with('service')->findOrFail($id); // Load single warranty with related service
         $section = 'single_warranty';
 
         return view('admin.dashboard', compact('section', 'warranty'));
