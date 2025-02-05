@@ -15,7 +15,7 @@ class ServiceSeeder extends Seeder
         // Explicitly hash passwords during seeding
         Service::factory()->create([
             'name' => 'Test Service',
-            'email' => 'klakin@example.com',
+            'email' => 'test@example.com',
             'password' => bcrypt('password'), // Hash it once
         ]);
 

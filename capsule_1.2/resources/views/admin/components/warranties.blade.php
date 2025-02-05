@@ -18,15 +18,19 @@
                 @foreach ($warranties as $warranty)
                     <tr>
                         <td>{{ $warranty->id }}</td>
-                        <td>{{ $warranty->product_code }}</td> 
+                        <td>{{ $warranty->product_code }}</td>
                         <td>{{ $warranty->car_model }}</td>
                         <td>{{ $warranty->installation_date }}</td>
                         <td>{{ $warranty->warranty_end_date }}</td>
                         <td>{{ $warranty->client_code }}</td>
                         <td>
-                            <a href="{{ route('admin.service', ['id' => $warranty->service_id]) }}">
-                                {{ $warranty->service_name }}
-                            </a>
+                            @if ($warranty->service)
+                                <a href="{{ route('admin.service', ['id' => $warranty->service->id]) }}">
+                                    {{ $warranty->service->name }}
+                                </a>
+                            @else
+                                N/A
+                            @endif
                         </td>
                     </tr>
                 @endforeach

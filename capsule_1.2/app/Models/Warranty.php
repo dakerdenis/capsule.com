@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -34,4 +33,10 @@ class Warranty extends Model
         'warranty_end_date' => 'date',
         'images_array' => 'array',
     ];
+
+    // Add the relationship
+    public function service()
+    {
+        return $this->belongsTo(Service::class, 'service_id');
+    }
 }
