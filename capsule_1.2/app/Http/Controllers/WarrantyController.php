@@ -105,7 +105,58 @@ class WarrantyController extends Controller
             'filmModel', 'warrantyPeriod', 'serviceLife', 'warrantyEndDate'
         ));
     }
-    
+    public function warrantyPostRegister(Request $request)
+{
+    $request->validate([
+        'client_name' => 'required|string|max:255',
+        'client_phone' => 'required|string|max:15',
+        'car_model' => 'required|string|max:255',
+        'car_make' => 'required|string|max:255',
+        'car_color' => 'required|string|max:50',
+        'car_year' => 'required|integer|digits:4|min:1900|max:' . date('Y'),
+        'license_plate' => 'required|string|max:20',
+        'manager_name' => 'required|string|max:255',
+        'installation_photos.*' => 'nullable|image|max:2048',
+    ]);
+
+    // Handle file uploads
+    $uploadedPhotos = [];
+    if ($request->hasFile('installation_photos')) {
+        foreach ($request->file('installation_photos') as $photo) {
+            $filePath = $photo->store('warranty_photos', 'public');
+            $uploadedPhotos[] = $filePath;
+        }
+    }
+
+    // Get the authenticated service
+    $service = Auth::guard('service')->user();
+
+    // Create a new warranty record
+    $warranty = \App\Models\Warranty::create([
+        'client_name' => $request->input('client_name'),
+        'client_number' => $request->input('client_phone'),
+        'car_model' => $request->input('car_model'),
+        'car_make' => $request->input('car_make'),
+        'car_color' => $request->input('car_color'),
+        'manufacture_year' => $request->input('car_year'),
+        'license_plate_number' => $request->input('license_plate'),
+        'service_name' => $service->name,
+        'master_name' => $request->input('manager_name'),
+        'service_phone_number' => $service->phone,
+        'license_number' => $request->input('license_number'),
+        'installation_date' => $request->input('installation_date'),
+        'brand_name' => $request->input('brand_name'),
+        'film_model' => $request->input('film_model'),
+        'warranty_model' => $request->input('warranty_period') . ' Years',
+        'service_life' => $request->input('service_life') . ' Years',
+        'warranty_end_date' => $request->input('warranty_end_date'),
+        'client_code' => $request->input('client_code'),
+        'images_array' => $uploadedPhotos,
+    ]);
+
+    return redirect()->route('warranty')->with('success', 'Warranty successfully registered.');
+}
+
     
     
     private function getFilmModel($type)

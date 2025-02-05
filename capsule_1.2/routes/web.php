@@ -98,8 +98,10 @@ Route::middleware('auth_service')->group(function () {
     Route::prefix('warranty')->group(function () {
         Route::get('/register', [WarrantyController::class, 'warrantyregister'])->name('service.register');
         Route::post('/register', [WarrantyController::class, 'warrantyPostRegister'])->name('service.post_register');
+
     });
 });
+Route::get('/warranty-success',[WarrantyController::class, 'warrantySuccess'])->name('service.success');
 
 Route::get('/warranty/{id}', [WarrantyController::class, 'singleWarranty'])->name('service.warranty');
 //*************************** */
