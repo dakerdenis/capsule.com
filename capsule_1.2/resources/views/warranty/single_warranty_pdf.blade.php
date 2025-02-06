@@ -12,6 +12,7 @@
             padding: 20px;
             background-color: #f9f9f9;
         }
+
         .container {
             background: #ffffff;
             border-radius: 8px;
@@ -20,11 +21,13 @@
             max-width: 800px;
             margin: auto;
         }
+
         h2 {
             color: #333333;
             border-bottom: 2px solid #ddd;
             padding-bottom: 5px;
         }
+
         .warranty__name-main {
             text-align: center;
             font-size: 24px;
@@ -35,11 +38,13 @@
         .form-group {
             margin-bottom: 15px;
         }
+
         label {
             font-weight: bold;
             color: #555555;
             display: block;
         }
+
         .form-group p {
             font-size: 14px;
             color: #333333;
@@ -48,33 +53,36 @@
             border-radius: 4px;
             margin: 0;
         }
+
         .form-row {
             display: flex;
             justify-content: space-between;
         }
+
         .form-row .form-group {
             flex: 0 0 48%;
         }
 
-    .logos{
-        display: flex;
-        width:100%;
-        justify-content: space-between;
-        height: 80px;
-        margin-bottom: 10px;
-        margin-top: 20px;
-    }
-    .logos_img{
-        height: 80px;
+        .logos {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            height: 80px;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
 
-    }
-    img {
+        .logos_img {
+            height: 80px;
+
+        }
+
+        img {
             height: 100%;
-  object-fit: contain;
-}
-    .logos_img-capsule{
-        
-    }
+            object-fit: contain;
+        }
+
+        .logos_img-capsule {}
     </style>
 </head>
 
@@ -83,8 +91,8 @@
         <div class="warranty__name-main">Capsule Warranty Card</div>
 
         <div class="logos">
-            <div class="logos_img logos_img-capsule">
-                <img src="{{ public_path('images/logo_main.png') }}" alt="Capsule Logo">
+            <div class="logos_img ">
+                <img src="{{ public_path('images/warranty_logo.png') }}" alt="Capsule Logo">
             </div>
             <div class="logos_img">
                 <!---img src="{{ public_path($warranty->service->logo) }}" alt="Service Logo"-->
@@ -186,6 +194,52 @@
             <label>Client/Document Code:</label>
             <p>{{ $warranty->client_code }}</p>
         </div>
+
+        <div style="  width: 100%;
+  text-align: left;
+  font-size: 14px;
+  line-height: 17px;" class="warranty__desc-text">
+            Capsule PPF provides a warranty for protective films exclusively against the following defects:
+
+            <p>Yellowing (discoloration of the film).
+            </p>
+            <p>Clouding (loss of transparency).</p>
+
+            <p>Cracking (appearance of cracks on the surface).</p>
+
+            <p>Delamination (separation of film layers).</p>
+
+            <p>Bubble formation (if not caused by improper installation).</p>
+
+            <p>Cases Where the Warranty Does Not Apply</p>
+
+            <p>Capsule PPF is not responsible for and does not cover warranty claims in the following cases:</p>
+
+            <p>Improper installation (violation of installation technology, installation by unauthorized technicians).</p>
+
+            <p>Mechanical damage (scratches, cuts, impacts, accidents).</p>
+
+            <p>Exposure to aggressive chemicals (solvents, abrasive cleaning agents, acidic and alkaline substances).</p>
+
+            <p>Failure to follow operating conditions (excessive heating, frequent use of automatic car washes with hard
+                brushes, improper cleaning methods).</p>
+
+            <p>Attempts at self-removal or unqualified repairs.</p>
+
+            <p>Changes in the vehicle's paintwork under the film (if the damage occurred due to pre-existing defects in the
+                paintwork before film installation).</p>
+
+                <br>
+            <p>Warranty Claim Process</p>
+
+            <p>To submit a warranty claim, you must visit the center where the film was installed and provide your unique
+                customer code, which was issued by the Dual Digital Shield system during installation.</p>
+
+            <p>If the installation center has closed, you can contact the official Capsule PPF representative in your
+                region for further assistance.</p>
+
+        </div>
     </div>
 </body>
+
 </html>

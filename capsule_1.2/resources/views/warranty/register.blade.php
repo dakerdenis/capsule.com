@@ -15,8 +15,8 @@
         <div class="warranty__name-main">Capsule Warranty Card</div>
     
         <div class="logos">
-            <div class="logos_img logos_img-capsule">
-                <img src="{{ asset('images/logo_main.png') }}" alt="Capsule Logo">
+            <div class="logos_img ">
+                <img src="{{ asset('images/warranty_logo.png') }}" alt="Capsule Logo">
             </div>
             <div class="logos_img">
                 <img src="{{ asset($service->logo) }}" alt="Service Logo">
