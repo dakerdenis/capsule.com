@@ -23,6 +23,8 @@ return new class extends Migration
             $table->unsignedBigInteger('service_id')->nullable(); // Make service_id nullable
             $table->string('master_name');
             $table->string('service_phone_number');
+            $table->string('service_country');
+            $table->string('service_city');           
             $table->string('product_code');
             $table->date('installation_date');
             $table->string('brand_name');

@@ -117,6 +117,22 @@
                 </div>
                 
             </div>
+
+            <div class="form-row">
+                <div class="form-group non-editable">
+                    <label for="service_country">Country of service:</label>
+                    <div class="warranty-input-container">
+                    <input type="text" id="service_country" name="service_country" value="{{ $service->country }}" readonly>
+                    </div>
+                </div>
+                <div class="form-group non-editable">
+                    <label for="service_city">City of service:</label>
+                    <div class="warranty-input-container">
+                        <input type="text" id="service_city" name="service_city" value="{{ $service->city }}" readonly>
+                    </div>
+                </div>
+                
+            </div>
     
             <div class="form-group non-editable">
                 <label for="installation-date">Installation Date:</label>

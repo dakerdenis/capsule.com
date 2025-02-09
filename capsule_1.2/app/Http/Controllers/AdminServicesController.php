@@ -36,9 +36,12 @@ class AdminServicesController extends Controller
             'description' => 'nullable|string',
             'email' => 'required|email|unique:services,email',
             'password' => 'required|string|min:6',
+            'phone' => 'required|string|max:20',
+            'city' => 'nullable|string|max:255',
+            'country' => 'nullable|string|max:255',
             'logo' => 'nullable|image|max:2048', // Image validation (max size 2MB)
         ]);
-
+    
         // Handle the logo upload
         $logoPath = null;
         if ($request->hasFile('logo')) {
@@ -46,16 +49,19 @@ class AdminServicesController extends Controller
             $logoPath = 'images/services/' . $file->getClientOriginalName();
             $file->move(public_path('images/services'), $file->getClientOriginalName());
         }
-
+    
         // Create the service
         Service::create([
             'name' => $request->name,
             'description' => $request->description,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            'logo' => $logoPath, // Save the relative path to the logo
+            'phone' => $request->phone,
+            'city' => $request->city,
+            'country' => $request->country,
+            'logo' => $logoPath,
         ]);
-
+    
         return redirect()->route('admin.services')->with('success', 'Service added successfully.');
     }
     public function adminDeleteService($id)
@@ -90,6 +96,9 @@ class AdminServicesController extends Controller
             'description' => 'nullable|string',
             'email' => 'required|email|unique:services,email,' . $service->id,
             'password' => 'nullable|string|min:6', // Password can be nullable for no change
+            'phone' => 'required|string|max:20',
+            'city' => 'nullable|string|max:255',
+            'country' => 'nullable|string|max:255',
             'logo' => 'nullable|image|max:2048', // Image validation (max size 2MB)
         ]);
     
@@ -110,14 +119,14 @@ class AdminServicesController extends Controller
         $service->name = $request->name;
         $service->description = $request->description;
         $service->email = $request->email;
+        $service->phone = $request->phone;
+        $service->city = $request->city;
+        $service->country = $request->country;
     
         // Update password only if provided
         if ($request->filled('password')) {
             $service->password = bcrypt($request->password);
         }
-    
-        // Handle cooperation field
-        $service->cooperation = $request->has('cooperation') ? 1 : 0;
     
         $service->save();
     

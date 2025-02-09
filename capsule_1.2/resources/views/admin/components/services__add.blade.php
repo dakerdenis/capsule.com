@@ -20,6 +20,28 @@
                 </div>
             </div>
 
+            <!---Phone number---->
+            <div class="add__input">
+                <div class="add__input-name">Номер телефона</div>
+                <div class="add__input-input">
+                    <input type="text" name="phone" required>
+                </div>
+            </div>
+            <div class="add__input">
+                <div class="add__input-name">Город</div>
+                <div class="add__input-input">
+                    <input type="text" name="city" required>
+                </div>
+            </div>
+            <div class="add__input">
+                <div class="add__input-name">Страна</div>
+                <div class="add__input-input">
+                    <input type="text" name="country" required>
+                </div>
+            </div>
+            
+            
+
             <!-- Input block for Email -->
             <div class="add__input">
                 <div class="add__input-name">E-mail</div>

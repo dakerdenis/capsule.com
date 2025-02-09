@@ -11,6 +11,8 @@
                     <th scope="col">ID</th>
                     <th scope="col">Название</th>
                     <th scope="col">Сотрудничество</th>
+                    <th scope="col">Город</th>
+                    <th scope="col">Страна</th>
                     <th scope="col">Кол-во продуктов</th>
                     <th scope="col"> </th>
                     <th scope="col"> </th>
@@ -24,6 +26,8 @@
                             <a href="{{ route('admin.service', ['id' => $service->id]) }}">{{ $service->name }}</a>
                         </td>
                         <td>{{ $service->cooperation == 1 ? 'Да' : 'Нет' }}</td>
+                        <td>{{ $service->city }}</td>
+                        <td>{{ $service->country }}</td>
                         <td>{{ count($service->list_of_products) }}</td>
                         <td>
                             <a href="{{ route('admin.edit_service', ['id' => $service->id]) }}">

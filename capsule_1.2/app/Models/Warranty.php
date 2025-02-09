@@ -16,6 +16,8 @@ class Warranty extends Model
         'service_id',
         'master_name',
         'service_phone_number',
+        'service_country',
+        'service_city',
         'product_code',
         'installation_date',
         'brand_name',

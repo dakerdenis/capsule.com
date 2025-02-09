@@ -153,6 +153,8 @@ class WarrantyController extends Controller
             'service_id' => $service->id, // Add the authenticated service ID here
             'master_name' => $request->input('manager_name'),
             'service_phone_number' => $service->phone,
+            'service_country'=>$service->country,
+            'service_city'=>$service->city,
             'product_code' => $productCode, // Store the product code
             'installation_date' => $request->input('installation_date'),
             'brand_name' => $request->input('brand_name'),

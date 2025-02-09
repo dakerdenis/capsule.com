@@ -12,6 +12,8 @@ class ServiceFactory extends Factory
             'name' => $this->faker->company,
             'description' => $this->faker->paragraph,
             'phone' => $this->faker->phoneNumber, // Generate a fake phone number
+            'city' => $this ->faker->city,
+            'country'=>$this->faker->country,
             'cooperation' => $this->faker->boolean,
             'list_of_products' => [], // Default to an empty array
             'email' => $this->faker->unique()->safeEmail,

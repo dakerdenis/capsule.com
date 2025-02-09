@@ -11,6 +11,8 @@ class CreateServicesTable extends Migration
             $table->string('name'); // Service name
             $table->text('description')->nullable(); // Optional description of the service
             $table->string('phone')->nullable();
+            $table->string('city')->nullable();
+            $table->string('country')->nullable();
             $table->text('logo')->nullable(); // Optional Logo of Service
             $table->boolean('cooperation')->default(false); // Indicates cooperation (default 0/false)
             $table->json('list_of_products')->default(json_encode([])); // List of associated products (default empty array)

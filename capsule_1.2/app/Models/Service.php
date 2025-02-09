@@ -13,6 +13,8 @@ class Service extends Authenticatable
         'name',
         'description',
         'phone',
+        'city',
+        'country',
         'logo',
         'cooperation',
         'list_of_products',

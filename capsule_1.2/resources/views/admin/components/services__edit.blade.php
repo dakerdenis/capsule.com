@@ -12,7 +12,25 @@
                     <input type="text" name="name" value="{{ $service->name }}" required>
                 </div>
             </div>
-
+            <div class="add__input">
+                <div class="add__input-name">Номер телефона</div>
+                <div class="add__input-input">
+                    <input type="text" name="phone" value="{{ $service->phone }}" required>
+                </div>
+            </div>
+            <div class="add__input">
+                <div class="add__input-name">Город</div>
+                <div class="add__input-input">
+                    <input type="text" name="city" value="{{ $service->city }}" required>
+                </div>
+            </div>
+            <div class="add__input">
+                <div class="add__input-name">Страна</div>
+                <div class="add__input-input">
+                    <input type="text" name="country" value="{{ $service->country }}" required>
+                </div>
+            </div>
+            
             <!-- Input block for Description -->
             <div class="add__input">
                 <div class="add__input-name">Описание</div>
