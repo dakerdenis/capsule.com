@@ -128,9 +128,13 @@ class AdminServicesController extends Controller
             $service->password = bcrypt($request->password);
         }
     
+        // Handle cooperation field (set to 0 if unchecked)
+        $service->cooperation = $request->has('cooperation') ? 1 : 0;
+    
         $service->save();
     
         return redirect()->route('admin.services')->with('success', 'Service updated successfully.');
     }
+    
     
 }

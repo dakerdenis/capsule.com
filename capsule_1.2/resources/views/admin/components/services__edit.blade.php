@@ -66,14 +66,15 @@
                 @endif
             </div>
 
-            <!-- Input block for Cooperation -->
-            <div class="add__input">
-                <div class="add__input-name">Сотрудничество</div>
-                <div class="add__input-input">
-                    <input type="checkbox" name="cooperation" id="cooperation" value="1" {{ $service->cooperation ? 'checked' : '' }}>
-                    <label for="cooperation">Включить сотрудничество</label>
-                </div>
-            </div>
+<!-- Input block for Cooperation -->
+<div class="add__input">
+    <div class="add__input-name">Сотрудничество</div>
+    <div class="add__input-input">
+        <input type="checkbox" name="cooperation" id="cooperation" value="1" {{ $service->cooperation ? 'checked' : '' }}>
+        <label for="cooperation">Включить сотрудничество</label>
+    </div>
+</div>
+
 
             <button class="btn btn-secondary" type="submit">Сохранить изменения</button>
         </form>
