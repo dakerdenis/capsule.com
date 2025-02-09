@@ -110,6 +110,9 @@ class WarrantyController extends Controller
     
     public function warrantyPostRegister(Request $request)
     {
+        \Log::info('Starting warranty registration process.');
+    
+        // Validate input
         $request->validate([
             'client_name' => 'required|string|max:255',
             'client_phone' => 'required|string|max:15',
@@ -123,46 +126,94 @@ class WarrantyController extends Controller
             'installation_photos.*' => 'image|mimes:jpeg,png,jpg,webp|max:2048', // Max size per photo: 2MB
         ]);
     
+        Log::info('Validation passed for warranty registration.');
+    
+        // Handle photo uploads
         $uploadedPhotos = [];
         $watermarkPath = public_path('images/logo_main.png');
     
+        Log::info('Watermark path: ' . $watermarkPath);
+    
         foreach ($request->file('installation_photos') as $photo) {
-            $image = Image::make($photo->getRealPath());
+            Log::info('Processing photo: ' . $photo->getClientOriginalName());
     
-            // Resize the image to a maximum of 400KB
-            $image->encode('jpg', 85); // Adjust quality
-            while (strlen($image->encode()) > 400 * 1024) { // If size > 400KB, reduce quality
-                $image->encode('jpg', $image->quality() - 10);
+            try {
+                // Process the image
+                $image = Image::make($photo->getRealPath());
+    
+                // Resize the image to a maximum of 400KB
+                $image->encode('jpg', 85); // Initial compression
+                while (strlen($image->encode()) > 400 * 1024) { // If size > 400KB, reduce quality further
+                    $image->encode('jpg', $image->quality() - 10);
+                }
+    
+                // Add watermark
+                $image->insert($watermarkPath, 'bottom-right', 10, 10);
+    
+                // Generate a unique name and save
+                $fileName = uniqid() . '.jpg';
+                $filePath = public_path('images/warranty_photos/' . $fileName);
+    
+                Log::info('Saving photo to: ' . $filePath);
+    
+                // Ensure directory exists
+                if (!file_exists(public_path('images/warranty_photos'))) {
+                    mkdir(public_path('images/warranty_photos'), 0775, true);
+                    Log::info('Created directory: ' . public_path('images/warranty_photos'));
+                }
+    
+                $image->save($filePath);
+                $uploadedPhotos[] = 'images/warranty_photos/' . $fileName;
+    
+                Log::info('Photo saved successfully: ' . $fileName);
+            } catch (\Exception $e) {
+                Log::error('Error processing photo: ' . $photo->getClientOriginalName() . ' - ' . $e->getMessage());
             }
+        }
     
-            // Add watermark
-            $image->insert($watermarkPath, 'bottom-right', 10, 10);
+        Log::info('Uploaded photos: ' . json_encode($uploadedPhotos));
     
-            // Generate a unique name and save
-            $fileName = uniqid() . '.jpg';
-            $filePath = public_path('images/warranty_photos/' . $fileName);
-            $image->save($filePath);
-    
-            $uploadedPhotos[] = 'images/warranty_photos/' . $fileName;
+        // Check if at least one photo was uploaded
+        if (count($uploadedPhotos) < 1) {
+            Log::error('No photos were successfully uploaded.');
+            return back()->withErrors(['installation_photos' => 'Failed to upload photos.']);
         }
     
         // Create warranty record
-        Warranty::create([
-            'client_name' => $request->client_name,
-            'client_number' => $request->client_phone,
-            'car_model' => $request->car_model,
-            'car_make' => $request->car_make,
-            'car_color' => $request->car_color,
-            'manufacture_year' => $request->car_year,
-            'license_plate_number' => $request->license_plate,
-            'master_name' => $request->manager_name,
-            'images_array' => $uploadedPhotos,
-        ]);
+        try {
+            Warranty::create([
+                'client_name' => $request->client_name,
+                'client_number' => $request->client_phone,
+                'car_model' => $request->car_model,
+                'car_make' => $request->car_make,
+                'car_color' => $request->car_color,
+                'manufacture_year' => $request->car_year,
+                'license_plate_number' => $request->license_plate,
+                'service_id' => Auth::guard('service')->id(), // Assuming service is logged in
+                'master_name' => $request->manager_name,
+                'service_phone_number' => Auth::guard('service')->user()->phone,
+                'service_country' => Auth::guard('service')->user()->country,
+                'service_city' => Auth::guard('service')->user()->city,
+                'product_code' => session('product_code'),
+                'installation_date' => now(),
+                'brand_name' => 'Capsule', // Assuming static value
+                'film_model' => $request->film_model ?? 'Default',
+                'warranty_model' => $request->warranty_period ?? 'Default',
+                'service_life' => $request->service_life ?? 'Default',
+                'warranty_end_date' => now()->addYears(5), // Assuming static value
+                'client_code' => strtoupper(bin2hex(random_bytes(6)) . rand(1, 9)),
+                'images_array' => json_encode($uploadedPhotos),
+            ]);
     
-        return redirect()->route('warranty')->with('success', 'Warranty successfully registered.');
+            Log::info('Warranty record created successfully.');
+            return redirect()->route('service.success')->with('success', 'Warranty successfully registered.');
+        } catch (\Exception $e) {
+            Log::error('Error creating warranty: ' . $e->getMessage());
+            return back()->withErrors(['error' => 'Failed to create warranty.']);
+        }
     }
     
-    
+     
 
 
 
