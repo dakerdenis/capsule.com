@@ -204,14 +204,10 @@
 
             <div class="photo-upload">
                 <label for="installation-photos">Installation Photos (at least 1 required):</label>
-                <div id="image-preview-container">
-                    <!-- Uploaded images will be displayed here -->
-                </div>
-            
-                <!-- Hidden input for image uploads -->
-                <input type="file" id="installation-photos" name="installation_photos[]" accept="image/*" onchange="handleFileSelect(this)" hidden multiple>
-                
-                <!-- Styled button to add images -->
+                <div id="image-preview-container"></div>
+        
+                <input type="file" id="installation-photos" name="installation_photos[]" accept="image/*" hidden multiple>
+        
                 <div class="add-photo-btn" onclick="document.getElementById('installation-photos').click()">
                     <span>+</span>
                 </div>

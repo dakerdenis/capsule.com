@@ -101,7 +101,7 @@ Route::middleware('auth_service')->group(function () {
 
     });
 });
-Route::get('/warranty-success',[WarrantyController::class, 'warrantySuccess'])->name('service.success');
+Route::get('/warranty-success', [WarrantyController::class, 'warrantySuccess'])->name('service.success');
 
 Route::get('/warranty/{id}', [WarrantyController::class, 'singleWarranty'])->name('service.warranty');
 Route::get('/warranty/{id}/pdf', [WarrantyController::class, 'generatePdf'])->name('service.warranty.pdf');
