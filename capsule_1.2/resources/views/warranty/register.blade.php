@@ -204,15 +204,23 @@
             </div>
             <!-- Form Fields -->
             <div class="photo-upload">
-                <label for="installation-photos">Installation Photos (at least 1 required):</label>
-                <div id="image-preview-container"></div>
-                <!-- File input moved off-screen -->
-                <input type="file" id="installation-photos" name="installation_photos[]" accept="image/*" style="position: absolute; left: -9999px;" multiple>
-                <div class="add-photo-btn" onclick="document.getElementById('installation-photos').click()">
-                    <span>+</span>
-                </div>
+                <label for="image-input-1">Installation Photo 1 (Mandatory):</label>
+                <input type="file" id="image-input-1" name="installation_photos[]" accept="image/*" required>
+                <div id="image-preview-container-1" class="image-preview-container-1"></div>
             </div>
-            
+
+            <div class="photo-upload">
+                <label for="image-input-2">Installation Photo 2 (Optional):</label>
+                <input type="file" id="image-input-2" name="installation_photos[]" accept="image/*">
+                <div id="image-preview-container-2" class="image-preview-container-2"></div>
+            </div>
+
+            <div class="photo-upload">
+                <label for="image-input-3">Installation Photo 3 (Optional):</label>
+                <input type="file" id="image-input-3" name="installation_photos[]" accept="image/*">
+                <div id="image-preview-container-3" class="image-preview-container-3"></div>
+            </div>
+
 
 
 
@@ -221,123 +229,81 @@
         </form>
     </div>
 
-
     <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const warrantyForm = document.getElementById("warrantyForm");
-    const fileInput = document.getElementById("installation-photos");
-    const previewContainer = document.getElementById("image-preview-container");
-    let uploadedFiles = []; // Store uploaded files
-
-    console.log("DOM fully loaded and parsed. All elements ready!");
-
-    // Ensure required elements exist
-    if (!warrantyForm || !fileInput) {
-        console.error("Form or file input element not found. Ensure IDs are correct.");
-        return;
-    }
-
-    // Handle file selection
-    function handleFileSelect(input) {
-        const files = Array.from(input.files);
-        console.log("Selected files:", files);
-
-        // Check file limit
-        if (uploadedFiles.length + files.length > 3) {
-            alert("You can upload a maximum of 3 photos.");
-            return;
-        }
-
-        files.forEach((file) => {
-            if (!file.type.startsWith("image/")) {
-                console.error("Invalid file type. Only images are allowed:", file);
-                return;
-            }
-
-            uploadedFiles.push(file);
-
-            const previewDiv = document.createElement("div");
-            previewDiv.classList.add("image-preview");
-
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                const img = document.createElement("img");
-                img.src = e.target.result;
-                img.alt = "Uploaded Photo";
-                img.classList.add("preview-image");
-                previewDiv.appendChild(img);
-            };
-            reader.readAsDataURL(file);
-
-            const removeBtn = document.createElement("button");
-            removeBtn.textContent = "X";
-            removeBtn.classList.add("remove-image-btn");
-            removeBtn.onclick = (event) => {
-                event.preventDefault();
-                previewDiv.remove();
-                uploadedFiles = uploadedFiles.filter((f) => f !== file);
-                console.log("File removed:", file.name);
-            };
-
-            previewDiv.appendChild(removeBtn);
-            previewContainer.appendChild(previewDiv);
-        });
-
-        input.value = ""; // Reset input field
-    }
-
-    // Attach change listener to the file input
-    fileInput.addEventListener("change", function () {
-        console.log("File input changed.");
-        handleFileSelect(this);
-    });
-
-    // Attach submit listener to the form
-    warrantyForm.addEventListener("submit", function (event) {
-        console.log("Form submission triggered.");
-        console.log("Uploaded files:", uploadedFiles);
-
-        if (uploadedFiles.length === 0) {
-            alert("Please upload at least one photo.");
-            console.error("Form submission blocked: No files uploaded.");
-            event.preventDefault();
-            return;
-        }
-
-        // Add files programmatically to the form's FormData
-        const formData = new FormData(warrantyForm);
-        uploadedFiles.forEach((file, index) => {
-            formData.append(`installation_photos[${index}]`, file);
-        });
-
-        // Debug FormData
-        for (let [key, value] of formData.entries()) {
-            console.log(`FormData - ${key}:`, value);
-        }
-
-        // Submit the form explicitly
-        fetch(warrantyForm.action, {
-            method: "POST",
-            body: formData,
-        })
-            .then((response) => {
-                if (response.ok) {
-                    console.log("Form submitted successfully!");
-                    // Optionally, redirect or show success message
-                } else {
-                    console.error("Form submission failed:", response.statusText);
-                    alert("There was an error submitting the form.");
+        document.addEventListener("DOMContentLoaded", function() {
+            // Add functionality for each file input
+            const fileInputs = [{
+                    id: "image-input-1",
+                    container: "image-preview-container-1"
+                },
+                {
+                    id: "image-input-2",
+                    container: "image-preview-container-2"
+                },
+                {
+                    id: "image-input-3",
+                    container: "image-preview-container-3"
                 }
-            })
-            .catch((error) => {
-                console.error("Error submitting form:", error);
-                alert("There was a network error.");
+            ];
+
+            fileInputs.forEach(({
+                id,
+                container
+            }) => {
+                const input = document.getElementById(id);
+                const previewContainer = document.getElementById(container);
+
+                input.addEventListener("change", function() {
+                    const file = input.files[0];
+
+                    // Clear previous preview
+                    previewContainer.innerHTML = "";
+
+                    if (file && file.type.startsWith("image/")) {
+                        const reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            const previewDiv = document.createElement("div");
+                            previewDiv.classList.add("image-preview");
+
+                            const img = document.createElement("img");
+                            img.src = e.target.result;
+                            img.alt = "Uploaded Image";
+
+                            const removeBtn = document.createElement("button");
+                            removeBtn.classList.add("remove-image-btn");
+                            removeBtn.innerText = "X";
+                            removeBtn.addEventListener("click", function(event) {
+                                event.preventDefault();
+                                previewContainer.innerHTML = ""; // Clear preview
+                                input.value = ""; // Clear input
+                            });
+
+                            previewDiv.appendChild(img);
+                            previewDiv.appendChild(removeBtn);
+                            previewContainer.appendChild(previewDiv);
+                        };
+
+                        reader.readAsDataURL(file);
+                    } else if (file) {
+                        alert("Only image files are allowed.");
+                        input.value = "";
+                    }
+                });
             });
 
-        event.preventDefault(); // Prevent default form submission
-    });
-});
+            // Form submission handler (for debugging purposes)
+            const warrantyForm = document.getElementById("warrantyForm");
+            warrantyForm.addEventListener("submit", function(event) {
+                console.log("Form submitted!");
+                const mandatoryInput = document.getElementById("image-input-1");
 
+                if (!mandatoryInput.files.length) {
+                    alert("Please upload an image for the first input.");
+                    event.preventDefault();
+                }
+            });
+        });
     </script>
 
 

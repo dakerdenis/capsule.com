@@ -118,19 +118,21 @@
             <div class="form-group non-editable">
                 <label for="service_country">Country of service:</label>
                 <div class="warranty-input-container">
-                <input type="text" id="service_country" name="service_country" value="{{ $warranty->service_country }}" readonly>
+                    <input type="text" id="service_country" name="service_country"
+                        value="{{ $warranty->service_country }}" readonly>
                 </div>
             </div>
             <div class="form-group non-editable">
                 <label for="service_city">City of service:</label>
                 <div class="warranty-input-container">
-                    <input type="text" id="service_city" name="service_city" value="{{ $warranty->service_city }}" readonly>
+                    <input type="text" id="service_city" name="service_city"
+                        value="{{ $warranty->service_city }}" readonly>
                 </div>
             </div>
-            
+
         </div>
 
-        
+
         <div class="form-group non-editable">
             <label for="installation-date">Installation Date:</label>
             <div class="warranty-input-container">
@@ -188,6 +190,23 @@
                     readonly>
             </div>
         </div>
+        <br>
+        <!-- Warranty Images Section -->
+        <div class="warranty-images-row" style="display: flex; gap: 10px; margin-top: 20px;">
+            @if (!empty($warranty->images_array) && is_array($warranty->images_array))
+                @foreach ($warranty->images_array as $image)
+                    <div class="image-container"
+                        style="width: 300px; height: 150px; overflow: hidden; border: 1px solid #ddd; border-radius: 5px;">
+                        <img src="{{ asset($image) }}" alt="Warranty Image"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                @endforeach
+            @else
+                <p>No images available for this warranty.</p>
+            @endif
+        </div>
+        
+        <br>
         <div class="warranty__desc-text">
             Capsule PPF provides a warranty for protective films exclusively against the following defects:
 
@@ -205,24 +224,28 @@
 
             <p>Capsule PPF is not responsible for and does not cover warranty claims in the following cases:</p>
 
-            <p>Improper installation (violation of installation technology, installation by unauthorized technicians).</p>
+            <p>Improper installation (violation of installation technology, installation by unauthorized technicians).
+            </p>
 
             <p>Mechanical damage (scratches, cuts, impacts, accidents).</p>
 
-            <p>Exposure to aggressive chemicals (solvents, abrasive cleaning agents, acidic and alkaline substances).</p>
+            <p>Exposure to aggressive chemicals (solvents, abrasive cleaning agents, acidic and alkaline substances).
+            </p>
 
             <p>Failure to follow operating conditions (excessive heating, frequent use of automatic car washes with hard
                 brushes, improper cleaning methods).</p>
 
             <p>Attempts at self-removal or unqualified repairs.</p>
 
-            <p>Changes in the vehicle's paintwork under the film (if the damage occurred due to pre-existing defects in the
+            <p>Changes in the vehicle's paintwork under the film (if the damage occurred due to pre-existing defects in
+                the
                 paintwork before film installation).</p>
 
-                <br>
+            <br>
             <p>Warranty Claim Process</p>
 
-            <p>To submit a warranty claim, you must visit the center where the film was installed and provide your unique
+            <p>To submit a warranty claim, you must visit the center where the film was installed and provide your
+                unique
                 customer code, which was issued by the Dual Digital Shield system during installation.</p>
 
             <p>If the installation center has closed, you can contact the official Capsule PPF representative in your

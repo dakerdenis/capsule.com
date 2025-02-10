@@ -130,14 +130,12 @@ class WarrantyController extends Controller
                 'installation_photos.*' => 'image|mimes:jpeg,png,jpg,webp|max:10240', // Max size: 10MB
             ]);
     
-            // Log successful validation
             \Log::info('Validation passed for warranty registration.');
     
             // Check uploaded files
             $uploadedPhotos = [];
             if ($request->hasFile('installation_photos')) {
                 foreach ($request->file('installation_photos') as $photo) {
-                    // Log each file
                     \Log::info('Processing Photo:', [
                         'name' => $photo->getClientOriginalName(),
                         'size' => $photo->getSize(),
@@ -146,8 +144,8 @@ class WarrantyController extends Controller
     
                     // Generate a unique filename and save it in the specified folder
                     $fileName = uniqid() . '.' . $photo->getClientOriginalExtension();
-                    $filePath = $photo->storeAs('public/images/warranty_photos', $fileName);
-                    $uploadedPhotos[] = str_replace('public/', 'public/', $filePath); // Generate accessible path
+                    $filePath = $photo->storeAs('images/warranty_photos', $fileName, 'public');
+                    $uploadedPhotos[] = 'storage/' . $filePath; // Accessible path
                 }
             } else {
                 \Log::warning('No photos were uploaded.');
@@ -194,9 +192,13 @@ class WarrantyController extends Controller
     {
         // Fetch warranty data along with the service relationship
         $warranty = Warranty::with('service')->findOrFail($id);
-
+    
+        // Ensure images_array is decoded into an array
+        $warranty->images_array = json_decode($warranty->images_array, true);
+    
         return view('warranty.show', compact('warranty'));
     }
+    
 
     public function generatePdf($id)
 {
