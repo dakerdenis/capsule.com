@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Support\Facades\Log; 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
@@ -10,6 +10,8 @@ use App\Http\Controllers\AdminProductsController;
 use App\Http\Controllers\AdminServicesController;
 use App\Http\Controllers\AdminWarrantyController;
 use App\Http\Controllers\ClientsController;
+
+use Intervention\Image\Facades\Image;
 
 //! MAIN PAGE ROUTES + CATALOG
 //*************************** */
@@ -106,6 +108,17 @@ Route::get('/warranty-success', [WarrantyController::class, 'warrantySuccess'])-
 Route::get('/warranty/{id}', [WarrantyController::class, 'singleWarranty'])->name('service.warranty');
 Route::get('/warranty/{id}/pdf', [WarrantyController::class, 'generatePdf'])->name('service.warranty.pdf');
 //*************************** */
+
+
+Route::get('/test-image', function () {
+    try {
+        $image = Image::canvas(100, 100, '#ff0000');
+        return $image->response('png');
+    } catch (\Exception $e) {
+        Log::error("Intervention Image Error: " . $e->getMessage());
+        return response()->json(['error' => $e->getMessage()], 500);
+    }
+});
 
 
 Route::fallback(function () {

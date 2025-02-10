@@ -197,14 +197,17 @@
                 @foreach ($warranty->images_array as $image)
                     <div class="image-container"
                         style="width: 300px; height: 150px; overflow: hidden; border: 1px solid #ddd; border-radius: 5px;">
-                        <img src="{{ asset($image) }}" alt="Warranty Image"
-                            style="width: 100%; height: 100%; object-fit: cover;">
+                        <a href="{{ asset($image) }}" target="_blank" style="display: block; width: 100%; height: 100%;">
+                            <img src="{{ asset($image) }}" alt="Warranty Image"
+                                style="width: 100%; height: 100%; object-fit: cover;">
+                        </a>
                     </div>
                 @endforeach
             @else
                 <p>No images available for this warranty.</p>
             @endif
         </div>
+        
         
         <br>
         <div class="warranty__desc-text">

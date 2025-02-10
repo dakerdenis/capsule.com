@@ -7,15 +7,17 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Http\Request;
-
+use Intervention\Image\ImageManager; 
 class AppServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
      */
-    public function register(): void
+    public function register()
     {
-        //
+        $this->app->bind('ImageManager', function() {
+            return new ImageManager(['driver' => 'gd']);
+        });
     }
 
     /**
