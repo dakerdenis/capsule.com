@@ -144,10 +144,10 @@ class WarrantyController extends Controller
                         'mime_type' => $photo->getMimeType(),
                     ]);
     
-                    // Process and save file
+                    // Generate a unique filename and save it in the specified folder
                     $fileName = uniqid() . '.' . $photo->getClientOriginalExtension();
-                    $photo->storeAs('public/warranty_photos', $fileName);
-                    $uploadedPhotos[] = 'storage/warranty_photos/' . $fileName;
+                    $filePath = $photo->storeAs('public/images/warranty_photos', $fileName);
+                    $uploadedPhotos[] = str_replace('public/', 'public/', $filePath); // Generate accessible path
                 }
             } else {
                 \Log::warning('No photos were uploaded.');
@@ -186,6 +186,7 @@ class WarrantyController extends Controller
             return redirect()->route('service.success')->with('status', 'error')->with('message', 'Failed to create warranty.')->with('debug_request', $request->all());
         }
     }
+    
     
     
 
