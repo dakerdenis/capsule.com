@@ -111,14 +111,11 @@ class WarrantyController extends Controller
     public function warrantyPostRegister(Request $request)
     {
         \Log::info('Starting warranty registration process.');
-        \Log::info('Uploaded Files:', [
-            'files' => $request->file('installation_photos') ? $request->file('installation_photos') : 'No files received',
-        ]);
-        try {
-            // Log the incoming request data
-            \Log::info('Request Data:', $request->all());
-            \Log::info('Uploaded Files:', ['files' => $request->file('installation_photos') ?? []]);
     
+        // Debug incoming files
+        \Log::info('Uploaded Files:', ['files' => $request->allFiles()]);
+        
+        try {
             // Validate input
             $request->validate([
                 'client_name' => 'required|string|max:255',
@@ -132,62 +129,32 @@ class WarrantyController extends Controller
                 'installation_photos' => 'required|array|min:1',
                 'installation_photos.*' => 'image|mimes:jpeg,png,jpg,webp|max:10240', // Max size: 10MB
             ]);
-            
-            \Log::info('Uploaded Files (raw):', ['files' => $request->allFiles()]);
-
+    
+            // Log successful validation
+            \Log::info('Validation passed for warranty registration.');
+    
+            // Check uploaded files
+            $uploadedPhotos = [];
             if ($request->hasFile('installation_photos')) {
                 foreach ($request->file('installation_photos') as $photo) {
-                    \Log::info('Photo Uploaded:', [
+                    // Log each file
+                    \Log::info('Processing Photo:', [
                         'name' => $photo->getClientOriginalName(),
                         'size' => $photo->getSize(),
                         'mime_type' => $photo->getMimeType(),
                     ]);
+    
+                    // Process and save file
+                    $fileName = uniqid() . '.' . $photo->getClientOriginalExtension();
+                    $photo->storeAs('public/warranty_photos', $fileName);
+                    $uploadedPhotos[] = 'storage/warranty_photos/' . $fileName;
                 }
             } else {
-                \Log::warning('No installation photos uploaded.');
-            }
-            
-            \Log::info('Validation passed for warranty registration.');
-    
-            // Handle file uploads
-            $uploadedPhotos = [];
-            $watermarkPath = public_path('images/logo_main.png');
-    
-            foreach ($request->file('installation_photos') as $photo) {
-                \Log::info('Processing photo: ' . $photo->getClientOriginalName());
-    
-                try {
-                    $image = Image::make($photo->getRealPath());
-    
-                    // Resize and compress image
-                    $image->encode('jpg', 85);
-                    while (strlen($image->encode()) > 400 * 1024) {
-                        $image->encode('jpg', $image->quality() - 10);
-                    }
-    
-                    // Add watermark
-                    $image->insert($watermarkPath, 'bottom-right', 10, 10);
-    
-                    // Save the image
-                    $fileName = uniqid() . '.jpg';
-                    $filePath = public_path('images/warranty_photos/' . $fileName);
-                    $image->save($filePath);
-    
-                    $uploadedPhotos[] = 'images/warranty_photos/' . $fileName;
-                } catch (\Exception $e) {
-                    \Log::error('Error processing photo: ' . $photo->getClientOriginalName() . ' - ' . $e->getMessage());
-                }
+                \Log::warning('No photos were uploaded.');
+                throw new \Exception('No photos were uploaded.');
             }
     
-            if (count($uploadedPhotos) < 1) {
-                Log::error('No photos were successfully uploaded.');
-                return redirect()->route('service.success')
-                    ->with('status', 'error')
-                    ->with('message', 'Failed to upload photos.')
-                    ->with('debug_request', $request->all());
-            }
-    
-            // Create warranty record
+            // Save warranty to the database
             Warranty::create([
                 'client_name' => $request->client_name,
                 'client_number' => $request->client_phone,
@@ -216,13 +183,10 @@ class WarrantyController extends Controller
             return redirect()->route('service.success')->with('status', 'success')->with('message', 'Warranty successfully registered.');
         } catch (\Exception $e) {
             \Log::error('Error creating warranty: ' . $e->getMessage());
-    
-            return redirect()->route('service.success')
-                ->with('status', 'error')
-                ->with('message', 'Failed to create warranty.')
-                ->with('debug_request', $request->all());
+            return redirect()->route('service.success')->with('status', 'error')->with('message', 'Failed to create warranty.')->with('debug_request', $request->all());
         }
     }
+    
     
 
     public function singleWarranty($id)
