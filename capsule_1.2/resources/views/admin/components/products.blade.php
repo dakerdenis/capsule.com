@@ -64,7 +64,7 @@
     
             <!--  SORT BY WARRANTY ----->
             <div class="products__sortbyhaswarranty">
-                <form method="GET" action="{{ route('admin.dashboard') }}">
+                <form method="GET" action="{{ route('admin.products') }}">
                     <input type="hidden" name="section" value="products">
                     <input type="hidden" name="type" value="{{ request('type') }}">
                     <label for="has_warranty">Сортировка по наличию гарантии:</label>
