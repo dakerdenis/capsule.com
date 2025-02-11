@@ -119,147 +119,155 @@ class WarrantyController extends Controller
         ));
     }
 
-    public function warrantyPostRegister(Request $request)
-    {
-        Log::info('Starting warranty registration process.');
+public function warrantyPostRegister(Request $request)
+{
+    Log::info('Starting warranty registration process.');
 
-        try {
-            // Validate input
-            $request->validate([
-                'client_name' => 'required|string|max:255',
-                'client_phone' => 'required|string|max:15',
-                'car_model' => 'required|string|max:255',
-                'car_make' => 'required|string|max:255',
-                'car_color' => 'required|string|max:50',
-                'car_year' => 'required|integer|digits:4|min:1900|max:' . date('Y'),
-                'license_plate' => 'required|string|max:20',
-                'manager_name' => 'required|string|max:255',
-                'installation_photos' => 'required|array|min:1',
-                'installation_photos.*' => 'image|mimes:jpeg,png,jpg,webp|max:10240', // Max size: 10MB
-            ]);
+    try {
+        // Validate input
+        $request->validate([
+            'client_name' => 'required|string|max:255',
+            'client_phone' => 'required|string|max:15',
+            'car_model' => 'required|string|max:255',
+            'car_make' => 'required|string|max:255',
+            'car_color' => 'required|string|max:50',
+            'car_year' => 'required|integer|digits:4|min:1900|max:' . date('Y'),
+            'license_plate' => 'required|string|max:20',
+            'manager_name' => 'required|string|max:255',
+            'installation_photos' => 'required|array|min:1',
+            'installation_photos.*' => 'image|mimes:jpeg,png,jpg,webp|max:10240', // Max size: 10MB
+        ]);
 
-            Log::info('Validation passed for warranty registration.');
+        Log::info('Validation passed for warranty registration.');
 
-            // Process uploaded files
-            $uploadedPhotos = [];
-            $watermarkPath = public_path('images/logo_main.png'); // Path to watermark image
+        // Process uploaded files
+        $uploadedPhotos = [];
+        $watermarkPath = public_path('images/logo_main.png'); // Path to watermark image
 
-            if ($request->hasFile('installation_photos')) {
-                foreach ($request->file('installation_photos') as $photo) {
-                    Log::info('Processing Photo:', [
-                        'name' => $photo->getClientOriginalName(),
-                        'size' => $photo->getSize(),
-                        'mime_type' => $photo->getMimeType(),
-                    ]);
+        if ($request->hasFile('installation_photos')) {
+            foreach ($request->file('installation_photos') as $photo) {
+                Log::info('Processing Photo:', [
+                    'name' => $photo->getClientOriginalName(),
+                    'size' => $photo->getSize(),
+                    'mime_type' => $photo->getMimeType(),
+                ]);
 
-                    // Generate a unique filename
-                    $fileName = uniqid() . '.' . $photo->getClientOriginalExtension();
-                    $filePath = public_path('images/warranty_photos/' . $fileName);
+                // Generate a unique filename
+                $fileName = uniqid() . '.' . $photo->getClientOriginalExtension();
+                $filePath = public_path('images/warranty_photos/' . $fileName);
 
-                    // Ensure directory exists
-                    if (!file_exists(public_path('images/warranty_photos'))) {
-                        mkdir(public_path('images/warranty_photos'), 0775, true);
-                    }
-
-                    // Process image using Intervention Image
-                    try {
-                        $image = Image::make($photo->getRealPath());
-
-                        // Apply watermark if available
-                        if (file_exists($watermarkPath)) {
-                            try {
-                                $watermark = Image::make($watermarkPath);
-
-                                // Resize watermark to 10% of the main image width while maintaining aspect ratio
-                                $watermarkSize = (int) ($image->width() * 0.2); // 10% of image width
-                                $watermark->resize($watermarkSize, null, function ($constraint) {
-                                    $constraint->aspectRatio();
-                                });
-
-                                $image->insert($watermark, 'bottom-right', 20, 20); // Insert with padding
-                                Log::info('Watermark applied successfully.');
-                            } catch (\Exception $e) {
-                                Log::warning('Failed to apply watermark: ' . $e->getMessage());
-                            }
-                        } else {
-                            Log::warning('Watermark file not found at: ' . $watermarkPath);
-                        }
-
-
-                        // **Compress image to ensure it's under 500KB**
-                        $quality = 90; // Start with high quality
-                        do {
-                            $compressedImage = clone $image; // Clone the image to avoid multiple encodings
-                            $compressedImage->encode('jpg', $quality);
-                            $imageSize = strlen($compressedImage); // Get image size in bytes
-                            $quality -= 10; // Reduce quality in steps of 10
-                        } while ($imageSize > 500 * 1024 && $quality > 10); // Stop if size is under 500KB or quality is too low
-
-                        // Save the processed and compressed image
-                        $image->encode('jpg', $quality)->save($filePath);
-
-
-                        $uploadedPhotos[] = 'images/warranty_photos/' . $fileName;
-
-                        Log::info('Image successfully saved at: ' . $filePath);
-                    } catch (\Exception $e) {
-                        Log::error('Image processing failed: ' . $e->getMessage());
-                        throw new \Exception('Image processing error: ' . $e->getMessage());
-                    }
+                // Ensure directory exists
+                if (!file_exists(public_path('images/warranty_photos'))) {
+                    mkdir(public_path('images/warranty_photos'), 0775, true);
                 }
-            } else {
-                Log::warning('No photos were uploaded.');
-                throw new \Exception('No photos were uploaded.');
+
+                // Process image using Intervention Image
+                try {
+                    $image = Image::make($photo->getRealPath());
+
+                    // Apply watermark if available
+                    if (file_exists($watermarkPath)) {
+                        try {
+                            $watermark = Image::make($watermarkPath);
+
+                            // Resize watermark to 10% of the main image width while maintaining aspect ratio
+                            $watermarkSize = (int) ($image->width() * 0.1); // 10% of image width
+                            $watermark->resize($watermarkSize, null, function ($constraint) {
+                                $constraint->aspectRatio();
+                            });
+
+                            $image->insert($watermark, 'bottom-right', 20, 20); // Insert with padding
+                            Log::info('Watermark applied successfully.');
+                        } catch (\Exception $e) {
+                            Log::warning('Failed to apply watermark: ' . $e->getMessage());
+                        }
+                    } else {
+                        Log::warning('Watermark file not found at: ' . $watermarkPath);
+                    }
+
+                    // **Compress image to ensure it's under 500KB**
+                    $quality = 90; // Start with high quality
+                    do {
+                        $compressedImage = $image->encode('jpg', $quality); // Encode and compress
+                        $imageSize = $compressedImage->filesize(); // Get actual file size
+                        $quality -= 10; // Reduce quality in steps of 10
+                    } while ($imageSize > 500 * 1024 && $quality > 10); // Stop if size is under 500KB or quality is too low
+
+                    // Save the processed and compressed image
+                    $image->save($filePath, $quality); // Save with final quality
+
+                    $uploadedPhotos[] = 'images/warranty_photos/' . $fileName;
+
+                    Log::info('Image successfully saved at: ' . $filePath);
+                } catch (\Exception $e) {
+                    Log::error('Image processing failed: ' . $e->getMessage());
+                    throw new \Exception('Image processing error: ' . $e->getMessage());
+                }
             }
-
-            // Ensure service ID is not null
-            $serviceId = Auth::guard('service')->id();
-            if (!$serviceId) {
-                throw new \Exception('Service ID is missing. User might not be authenticated.');
-            }
-
-            // Convert array to JSON safely
-            $imagesJson = json_encode($uploadedPhotos, JSON_THROW_ON_ERROR);
-            Log::info('Final image paths stored:', $uploadedPhotos);
-
-            // Save warranty to the database
-            Warranty::create([
-                'client_name' => $request->client_name,
-                'client_number' => $request->client_phone,
-                'car_model' => $request->car_model,
-                'car_make' => $request->car_make,
-                'car_color' => $request->car_color,
-                'manufacture_year' => $request->car_year,
-                'license_plate_number' => $request->license_plate,
-                'service_id' => $serviceId,
-                'master_name' => $request->manager_name,
-                'service_phone_number' => Auth::guard('service')->user()->phone ?? 'N/A',
-                'service_country' => Auth::guard('service')->user()->country ?? 'N/A',
-                'service_city' => Auth::guard('service')->user()->city ?? 'N/A',
-                'product_code' => session('product_code'),
-                'installation_date' => now(),
-                'brand_name' => 'Capsule',
-                'film_model' => $request->film_model ?? 'Default',
-                'warranty_model' => $request->warranty_period ?? 'Default',
-                'service_life' => $request->input('service-life', 'Default'),
-                'warranty_end_date' => now()->addYears(5),
-                'client_code' => strtoupper(bin2hex(random_bytes(6)) . rand(1, 9)),
-                'images_array' => $imagesJson,
-            ]);
-
-            Log::info('Warranty record created successfully.');
-            return redirect()->route('service.success')->with('status', 'success')->with('message', 'Warranty successfully registered.');
-        } catch (\Exception $e) {
-            Log::error('Error creating warranty: ' . $e->getMessage());
-
-            return redirect()->route('service.success')->with([
-                'status' => 'error',
-                'message' => 'Failed to create warranty.',
-                'debug_request' => $request->except(['installation_photos', '_token']), // Exclude sensitive data
-            ]);
+        } else {
+            Log::warning('No photos were uploaded.');
+            throw new \Exception('No photos were uploaded.');
         }
-    }
 
+        // Ensure service ID is not null
+        $serviceId = Auth::guard('service')->id();
+        if (!$serviceId) {
+            throw new \Exception('Service ID is missing. User might not be authenticated.');
+        }
+
+        // Convert array to JSON safely
+        $imagesJson = json_encode($uploadedPhotos, JSON_THROW_ON_ERROR);
+        Log::info('Final image paths stored:', $uploadedPhotos);
+
+        // **Save warranty to the database**
+        $warranty = Warranty::create([
+            'client_name' => $request->client_name,
+            'client_number' => $request->client_phone,
+            'car_model' => $request->car_model,
+            'car_make' => $request->car_make,
+            'car_color' => $request->car_color,
+            'manufacture_year' => $request->car_year,
+            'license_plate_number' => $request->license_plate,
+            'service_id' => $serviceId,
+            'master_name' => $request->manager_name,
+            'service_phone_number' => Auth::guard('service')->user()->phone ?? 'N/A',
+            'service_country' => Auth::guard('service')->user()->country ?? 'N/A',
+            'service_city' => Auth::guard('service')->user()->city ?? 'N/A',
+            'product_code' => session('product_code'),
+            'installation_date' => now(),
+            'brand_name' => 'Capsule',
+            'film_model' => $request->film_model ?? 'Default',
+            'warranty_model' => $request->warranty_period ?? 'Default',
+            'service_life' => $request->input('service-life', 'Default'),
+            'warranty_end_date' => now()->addYears(5),
+            'client_code' => strtoupper(bin2hex(random_bytes(6)) . rand(1, 9)),
+            'images_array' => $imagesJson,
+        ]);
+
+        Log::info('Warranty record created successfully with ID: ' . $warranty->id);
+
+        // **Find the corresponding product and update its warranty column**
+        $product = Product::where('code', $warranty->product_code)->first();
+        if ($product) {
+            $product->update(['warranty' => $warranty->id]);
+            Log::info('Product warranty column updated for Product ID: ' . $product->id);
+        } else {
+            Log::warning('No product found with code: ' . $warranty->product_code);
+        }
+
+        return redirect()->route('service.success')->with('status', 'success')->with('message', 'Warranty successfully registered.');
+    } catch (\Exception $e) {
+        Log::error('Error creating warranty: ' . $e->getMessage());
+
+        return redirect()->route('service.success')->with([
+            'status' => 'error',
+            'message' => 'Failed to create warranty.',
+            'debug_request' => $request->except(['installation_photos', '_token']), // Exclude sensitive data
+        ]);
+    }
+}
+
+    
 
 
 

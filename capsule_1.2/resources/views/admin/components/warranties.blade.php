@@ -12,6 +12,7 @@
                     <th scope="col">Warranty End Date</th>
                     <th scope="col">Client Code</th>
                     <th scope="col">Service Name</th>
+                    <th scope="col">Look</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,6 +32,11 @@
                             @else
                                 N/A
                             @endif
+                        </td>
+                        <td>
+                            <a href="{{ route('service.warranty', ['id' => $warranty->id]) }}" target="_blank" class="btn btn-primary">
+                                View
+                            </a>
                         </td>
                     </tr>
                 @endforeach
