@@ -1,3 +1,22 @@
+
+<style>
+    /* Highlight rows with warranties */
+    .has-warranty {
+        background-color: #c8f7c5 !important; /* Light Green */
+    }
+
+    /* Style the warranty link */
+    .main__table td a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .main__table td a:hover {
+        text-decoration: underline;
+    }
+</style>
+
 <div class="products__wrapper">
     <div class="products__name">
         Список всех продуктов
@@ -94,11 +113,19 @@
                 ];
             @endphp
             @foreach ($products as $product)
-                <tr>
+                <tr class="{{ $product->warranty ? 'has-warranty' : '' }}"> 
                     <th scope="row">{{ $product->id }}</th>
                     <td>{{ $product->code }}</td>
                     <td>{{ $product->verification_date ? $product->verification_date->format('d.m.Y') : 'N/A' }}</td>
-                    <td>{{ $product->warranty ?? 'N/A' }}</td>
+                    <td>
+                        @if ($product->warranty)
+                            <a href="{{ route('service.warranty', ['id' => $product->warranty]) }}" target="_blank">
+                                {{ $product->warranty }}
+                            </a>
+                        @else
+                            N/A
+                        @endif  
+                    </td>
                     <td>{{ $typeNames[$product->type] ?? 'Unknown' }}</td>
                     <td>{{ $product->country ?? 'N/A' }}</td>
                     <td>{{ $product->service_id ?? 'N/A' }}</td>
