@@ -25,32 +25,32 @@ class WarrantyController extends Controller
     public function warrantyLogin(Request $request)
     {
         Log::info('Received Login Request:', $request->all());
-    
+
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
             'product_code' => 'required|string',
         ]);
-    
+
         $product = Product::where('code', $request->product_code)->first();
-    
+
         if (!$product) {
             return back()->withErrors(['product_code' => 'The product code does not exist in our database.']);
         }
-    
+
         $service = \App\Models\Service::where('email', $request->email)->first();
-    
+
         if (!$service) {
             Log::error('Email not found:', ['email' => $request->email]);
             return back()->withErrors(['email' => 'The provided credentials are incorrect.']);
         }
-    
+
         // Check if service has cooperation permission
         if (!$service->cooperation) {
             Log::error('Service does not have cooperation permission:', ['email' => $request->email]);
             return back()->withErrors(['email' => 'You do not have permission to log in.']);
         }
-    
+
         // Manual password check
         if (!Hash::check($request->password, $service->password)) {
             Log::error('Password mismatch:', [
@@ -59,64 +59,70 @@ class WarrantyController extends Controller
             ]);
             return back()->withErrors(['email' => 'The provided credentials are incorrect.']);
         }
-    
+
         // Authenticate service and set session flag
         if (Auth::guard('service')->attempt($request->only('email', 'password'))) {
             Log::info('Login successful for:', ['email' => $request->email]);
-    
+
             // Store product code in the session for use in /warranty/register
             session(['product_code' => $request->product_code]);
             session(['accessed_register' => false]); // Allow access to /warranty/register
-    
+
             return redirect()->route('service.register');
         }
-    
+
         Log::error('Authentication failed for:', ['email' => $request->email]);
         return back()->withErrors(['email' => 'The provided credentials are incorrect.']);
     }
-    
-    
-    
+
+
+
 
     public function warrantyregister()
     {
         $service = Auth::guard('service')->user();
-    
+
         // Retrieve product code from session
         $productCode = session('product_code');
-    
+
         if (!$productCode) {
             return redirect()->route('warranty')->withErrors(['error' => 'Product code not found. Please log in again.']);
         }
-    
+
         $product = Product::where('code', $productCode)->first();
-    
+
         if (!$product) {
             return redirect()->route('warranty')->withErrors(['error' => 'Product not found. Please log in again.']);
         }
-    
+
         // System-generated values
         $installationDate = now()->format('Y-m-d');
         $clientCode = strtoupper(bin2hex(random_bytes(6)) . rand(1, 9)); // 13-char alphanumeric
-    
+
         // Fetch warranty and lifespan dynamically
         $filmModel = $this->getFilmModel($product->type);
         $warrantyPeriod = $this->getWarrantyPeriod($product->type);
         $serviceLife = $this->getServiceLife($product->type);
         $warrantyEndDate = now()->addYears($warrantyPeriod)->format('Y-m-d');
-    
+
         session(['accessed_register' => true]);
-    
+
         return view('warranty.register', compact(
-            'service', 'productCode', 'installationDate', 'clientCode',
-            'filmModel', 'warrantyPeriod', 'serviceLife', 'warrantyEndDate'
+            'service',
+            'productCode',
+            'installationDate',
+            'clientCode',
+            'filmModel',
+            'warrantyPeriod',
+            'serviceLife',
+            'warrantyEndDate'
         ));
     }
-    
+
     public function warrantyPostRegister(Request $request)
     {
         Log::info('Starting warranty registration process.');
-    
+
         try {
             // Validate input
             $request->validate([
@@ -131,13 +137,13 @@ class WarrantyController extends Controller
                 'installation_photos' => 'required|array|min:1',
                 'installation_photos.*' => 'image|mimes:jpeg,png,jpg,webp|max:10240', // Max size: 10MB
             ]);
-    
+
             Log::info('Validation passed for warranty registration.');
-    
+
             // Process uploaded files
             $uploadedPhotos = [];
             $watermarkPath = public_path('images/logo_main.png'); // Path to watermark image
-    
+
             if ($request->hasFile('installation_photos')) {
                 foreach ($request->file('installation_photos') as $photo) {
                     Log::info('Processing Photo:', [
@@ -145,25 +151,32 @@ class WarrantyController extends Controller
                         'size' => $photo->getSize(),
                         'mime_type' => $photo->getMimeType(),
                     ]);
-    
+
                     // Generate a unique filename
                     $fileName = uniqid() . '.' . $photo->getClientOriginalExtension();
                     $filePath = public_path('images/warranty_photos/' . $fileName);
-    
+
                     // Ensure directory exists
                     if (!file_exists(public_path('images/warranty_photos'))) {
                         mkdir(public_path('images/warranty_photos'), 0775, true);
                     }
-    
+
                     // Process image using Intervention Image
                     try {
                         $image = Image::make($photo->getRealPath());
-    
+
                         // Apply watermark if available
                         if (file_exists($watermarkPath)) {
                             try {
                                 $watermark = Image::make($watermarkPath);
-                                $image->insert($watermark, 'bottom-right', 10, 10);
+
+                                // Resize watermark to 10% of the main image width while maintaining aspect ratio
+                                $watermarkSize = (int) ($image->width() * 0.2); // 10% of image width
+                                $watermark->resize($watermarkSize, null, function ($constraint) {
+                                    $constraint->aspectRatio();
+                                });
+
+                                $image->insert($watermark, 'bottom-right', 20, 20); // Insert with padding
                                 Log::info('Watermark applied successfully.');
                             } catch (\Exception $e) {
                                 Log::warning('Failed to apply watermark: ' . $e->getMessage());
@@ -171,17 +184,23 @@ class WarrantyController extends Controller
                         } else {
                             Log::warning('Watermark file not found at: ' . $watermarkPath);
                         }
-    
-                        // Compress image if it exceeds 500KB
-                        if ($photo->getSize() / 1024 > 500) {
-                            $image->encode('jpg', 20); // Compress to 20% quality
-                            Log::info('Image compressed to 20% quality.');
-                        }
-    
-                        // Save the processed image
-                        $image->save($filePath);
+
+
+                        // **Compress image to ensure it's under 500KB**
+                        $quality = 90; // Start with high quality
+                        do {
+                            $compressedImage = clone $image; // Clone the image to avoid multiple encodings
+                            $compressedImage->encode('jpg', $quality);
+                            $imageSize = strlen($compressedImage); // Get image size in bytes
+                            $quality -= 10; // Reduce quality in steps of 10
+                        } while ($imageSize > 500 * 1024 && $quality > 10); // Stop if size is under 500KB or quality is too low
+
+                        // Save the processed and compressed image
+                        $image->encode('jpg', $quality)->save($filePath);
+
+
                         $uploadedPhotos[] = 'images/warranty_photos/' . $fileName;
-    
+
                         Log::info('Image successfully saved at: ' . $filePath);
                     } catch (\Exception $e) {
                         Log::error('Image processing failed: ' . $e->getMessage());
@@ -192,17 +211,17 @@ class WarrantyController extends Controller
                 Log::warning('No photos were uploaded.');
                 throw new \Exception('No photos were uploaded.');
             }
-    
+
             // Ensure service ID is not null
             $serviceId = Auth::guard('service')->id();
             if (!$serviceId) {
                 throw new \Exception('Service ID is missing. User might not be authenticated.');
             }
-    
+
             // Convert array to JSON safely
             $imagesJson = json_encode($uploadedPhotos, JSON_THROW_ON_ERROR);
             Log::info('Final image paths stored:', $uploadedPhotos);
-    
+
             // Save warranty to the database
             Warranty::create([
                 'client_name' => $request->client_name,
@@ -227,12 +246,12 @@ class WarrantyController extends Controller
                 'client_code' => strtoupper(bin2hex(random_bytes(6)) . rand(1, 9)),
                 'images_array' => $imagesJson,
             ]);
-    
+
             Log::info('Warranty record created successfully.');
             return redirect()->route('service.success')->with('status', 'success')->with('message', 'Warranty successfully registered.');
         } catch (\Exception $e) {
             Log::error('Error creating warranty: ' . $e->getMessage());
-    
+
             return redirect()->route('service.success')->with([
                 'status' => 'error',
                 'message' => 'Failed to create warranty.',
@@ -240,55 +259,55 @@ class WarrantyController extends Controller
             ]);
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
 
     public function singleWarranty($id)
     {
         // Fetch warranty data along with the service relationship
         $warranty = Warranty::with('service')->findOrFail($id);
-    
+
         // Ensure images_array is decoded into an array
         $warranty->images_array = json_decode($warranty->images_array, true);
-    
+
         return view('warranty.show', compact('warranty'));
     }
-    
+
 
     public function generatePdf($id)
-{
-    // Fetch the warranty data
-    $warranty = Warranty::findOrFail($id);
+    {
+        // Fetch the warranty data
+        $warranty = Warranty::findOrFail($id);
 
-    // Pass data to the view
-    $pdf = Pdf::loadView('warranty.single_warranty_pdf', compact('warranty'));
+        // Pass data to the view
+        $pdf = Pdf::loadView('warranty.single_warranty_pdf', compact('warranty'));
 
-    // Download the generated PDF
-    return $pdf->download('warranty_' . $warranty->id . '.pdf');
-}
-public function warrantySuccess(Request $request)
-{
-    \Log::info('Accessed warrantySuccess method.');
+        // Download the generated PDF
+        return $pdf->download('warranty_' . $warranty->id . '.pdf');
+    }
+    public function warrantySuccess(Request $request)
+    {
+        \Log::info('Accessed warrantySuccess method.');
 
-    // Log session data and request data for debugging
-    \Log::info('Session Data:', session()->all());
-    \Log::info('Request Data:', $request->all());
+        // Log session data and request data for debugging
+        \Log::info('Session Data:', session()->all());
+        \Log::info('Request Data:', $request->all());
 
-    return view('warranty.success', [
-        'status' => session('status', 'error'), // Default to error if no status
-        'message' => session('message', 'An unknown error occurred.'),
-        'requestData' => session('debug_request', []), // Include debug request data
-        'sessionData' => session()->all(), // Include session data
-    ]);
-}
+        return view('warranty.success', [
+            'status' => session('status', 'error'), // Default to error if no status
+            'message' => session('message', 'An unknown error occurred.'),
+            'requestData' => session('debug_request', []), // Include debug request data
+            'sessionData' => session()->all(), // Include session data
+        ]);
+    }
 
 
 
@@ -303,7 +322,7 @@ public function warrantySuccess(Request $request)
             6 => 'Black',
         ][$type] ?? 'Unknown';
     }
-    
+
     private function getWarrantyPeriod($type)
     {
         return [
@@ -315,7 +334,7 @@ public function warrantySuccess(Request $request)
             6 => 3, // Black
         ][$type] ?? 0; // Default to 0 if type not found
     }
-    
+
     private function getServiceLife($type)
     {
         return [
@@ -327,5 +346,4 @@ public function warrantySuccess(Request $request)
             6 => 5, // Black
         ][$type] ?? 0; // Default to 0 if type not found
     }
-     
 }
