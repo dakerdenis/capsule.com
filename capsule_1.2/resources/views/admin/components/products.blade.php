@@ -128,7 +128,16 @@
                     </td>
                     <td>{{ $typeNames[$product->type] ?? 'Unknown' }}</td>
                     <td>{{ $product->country ?? 'N/A' }}</td>
-                    <td>{{ $product->service_id ?? 'N/A' }}</td>
+                    <td>
+                        @if ($product->service_id)
+                            <a href="{{ route('admin.service', ['id' => $product->service_id]) }}" target="_blank">
+                                Service #{{ $product->service_id }}
+                            </a>
+                        @else
+                            N/A
+                        @endif
+                    </td>
+                    
                 </tr>
             @endforeach
         </tbody>

@@ -135,14 +135,20 @@ class WarrantyController extends Controller
                 'license_plate' => 'required|string|max:20',
                 'manager_name' => 'required|string|max:255',
                 'installation_photos' => 'required|array|min:1',
-                'installation_photos.*' => 'image|mimes:jpeg,png,jpg,webp|max:10240', // Max size: 10MB
+                'installation_photos.*' => 'image|mimes:jpeg,png,jpg,webp|max:10240',
             ]);
     
             Log::info('Validation passed for warranty registration.');
     
-            // Process uploaded files
+            // Ensure service ID is available
+            $serviceId = Auth::guard('service')->id();
+            if (!$serviceId) {
+                throw new \Exception('Service ID is missing. User might not be authenticated.');
+            }
+    
+            // Process uploaded photos
             $uploadedPhotos = [];
-            $watermarkPath = public_path('images/logo_main.png'); // Path to watermark image
+            $watermarkPath = public_path('images/logo_main.png');
     
             if ($request->hasFile('installation_photos')) {
                 foreach ($request->file('installation_photos') as $photo) {
@@ -152,7 +158,7 @@ class WarrantyController extends Controller
                         'mime_type' => $photo->getMimeType(),
                     ]);
     
-                    // Generate a unique filename
+                    // Generate unique filename
                     $fileName = uniqid() . '.' . $photo->getClientOriginalExtension();
                     $filePath = public_path('images/warranty_photos/' . $fileName);
     
@@ -165,37 +171,32 @@ class WarrantyController extends Controller
                     try {
                         $image = Image::make($photo->getRealPath());
     
-                        // Apply watermark if available
+                        // Apply watermark
                         if (file_exists($watermarkPath)) {
                             try {
                                 $watermark = Image::make($watermarkPath);
-    
-                                // Resize watermark to 10% of the main image width while maintaining aspect ratio
-                                $watermarkSize = (int) ($image->width() * 0.1); // 10% of image width
+                                $watermarkSize = (int) ($image->width() * 0.1);
                                 $watermark->resize($watermarkSize, null, function ($constraint) {
                                     $constraint->aspectRatio();
                                 });
     
-                                $image->insert($watermark, 'bottom-right', 20, 20); // Insert with padding
+                                $image->insert($watermark, 'bottom-right', 20, 20);
                                 Log::info('Watermark applied successfully.');
                             } catch (\Exception $e) {
                                 Log::warning('Failed to apply watermark: ' . $e->getMessage());
                             }
-                        } else {
-                            Log::warning('Watermark file not found at: ' . $watermarkPath);
                         }
     
-                        // **Compress image to ensure it's under 500KB**
-                        $quality = 90; // Start with high quality
+                        // Compress image
+                        $quality = 90;
                         do {
-                            $compressedImage = $image->encode('jpg', $quality); // Encode and compress
-                            $imageSize = $compressedImage->filesize(); // Get actual file size
-                            $quality -= 10; // Reduce quality in steps of 10
-                        } while ($imageSize > 500 * 1024 && $quality > 10); // Stop if size is under 500KB or quality is too low
+                            $compressedImage = $image->encode('jpg', $quality);
+                            $imageSize = $compressedImage->filesize();
+                            $quality -= 10;
+                        } while ($imageSize > 500 * 1024 && $quality > 10);
     
-                        // Save the processed and compressed image
-                        $image->save($filePath, $quality); // Save with final quality
-    
+                        // Save compressed image
+                        $image->save($filePath, $quality);
                         $uploadedPhotos[] = 'images/warranty_photos/' . $fileName;
     
                         Log::info('Image successfully saved at: ' . $filePath);
@@ -209,13 +210,7 @@ class WarrantyController extends Controller
                 throw new \Exception('No photos were uploaded.');
             }
     
-            // Ensure service ID is not null
-            $serviceId = Auth::guard('service')->id();
-            if (!$serviceId) {
-                throw new \Exception('Service ID is missing. User might not be authenticated.');
-            }
-    
-            // Convert array to JSON safely
+            // Convert images array to JSON
             $imagesJson = json_encode($uploadedPhotos, JSON_THROW_ON_ERROR);
             Log::info('Final image paths stored:', $uploadedPhotos);
     
@@ -246,11 +241,15 @@ class WarrantyController extends Controller
     
             Log::info('Warranty record created successfully with ID: ' . $warranty->id);
     
-            // **Find the corresponding product and update its warranty column**
+            // **Find the corresponding product and update its warranty, verification date, and service_id**
             $product = Product::where('code', $warranty->product_code)->first();
             if ($product) {
-                $product->update(['warranty' => $warranty->id]);
-                Log::info('Product warranty column updated for Product ID: ' . $product->id);
+                $product->update([
+                    'warranty' => $warranty->id,
+                    'verification_date' => now(), // Store warranty creation date
+                    'service_id' => $serviceId, // Store service that created it
+                ]);
+                Log::info('Product updated: Warranty ID, verification date, and service ID set for Product ID: ' . $product->id);
             } else {
                 Log::warning('No product found with code: ' . $warranty->product_code);
             }
@@ -262,10 +261,11 @@ class WarrantyController extends Controller
             return redirect()->route('service.success')->with([
                 'status' => 'error',
                 'message' => 'Failed to create warranty.',
-                'debug_request' => $request->except(['installation_photos', '_token']), // Exclude sensitive data
+                'debug_request' => $request->except(['installation_photos', '_token']),
             ]);
         }
     }
+    
 
     public function singleWarranty($id)
     {
@@ -292,11 +292,11 @@ class WarrantyController extends Controller
     }
     public function warrantySuccess(Request $request)
     {
-        \Log::info('Accessed warrantySuccess method.');
+        Log::info('Accessed warrantySuccess method.');
 
         // Log session data and request data for debugging
-        \Log::info('Session Data:', session()->all());
-        \Log::info('Request Data:', $request->all());
+        Log::info('Session Data:', session()->all());
+        Log::info('Request Data:', $request->all());
 
         return view('warranty.success', [
             'status' => session('status', 'error'), // Default to error if no status

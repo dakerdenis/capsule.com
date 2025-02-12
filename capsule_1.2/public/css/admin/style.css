@@ -230,3 +230,8 @@ h6 {
   height: 30px;
 
 }
+.admin__navigation-element .active {
+  background-color: #28a745 !important; /* Green Background */
+  color: white !important; /* White Text */
+  border-radius: 5px;
+}

@@ -35,21 +35,32 @@
 
             <div class="admin__navigation">
                 <div class="admin__navigation-element">
-                    <a class="btn btn-dark" href="{{ route('admin.dashboard') }}">Главная</a>
+                    <a class="btn btn-dark {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
+                        Главная
+                    </a>
                 </div>
                 <div class="admin__navigation-element">
-                    <a class="btn btn-dark" href="{{ route('admin.products') }}">Товары</a>
+                    <a class="btn btn-dark {{ request()->routeIs('admin.products') ? 'active' : '' }}" href="{{ route('admin.products') }}">
+                        Товары
+                    </a>
                 </div>
                 <div class="admin__navigation-element">
-                    <a class="btn btn-dark" href="{{ route('admin.services') }}">Сервисы</a>
+                    <a class="btn btn-dark {{ request()->routeIs('admin.services') ? 'active' : '' }}" href="{{ route('admin.services') }}">
+                        Сервисы
+                    </a>
                 </div>
                 <div class="admin__navigation-element">
-                    <a class="btn btn-dark" href="{{ route('admin.warranties') }}">Гарантии</a> <!-- Use 'admin.warranties' -->
+                    <a class="btn btn-dark {{ request()->routeIs('admin.warranties') ? 'active' : '' }}" href="{{ route('admin.warranties') }}">
+                        Гарантии
+                    </a>
                 </div>
                 <div class="admin__navigation-element">
-                    <a class="btn btn-dark" href="{{ route('admin.clients') }}">Клиенты</a> <!-- Use 'admin.warranties' -->
+                    <a class="btn btn-dark {{ request()->routeIs('admin.clients') ? 'active' : '' }}" href="{{ route('admin.clients') }}">
+                        Клиенты
+                    </a>
                 </div>
             </div>
+            
             
 
             <div class="admin__logout">
