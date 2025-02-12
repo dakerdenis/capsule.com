@@ -7,9 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
 
-    <link rel="stylesheet" href="{{ asset('./css/warranty.css') }}"> <!-- Link to warranty.css -->
-
-
+    <link rel="stylesheet" href="{{ asset('public/css/warranty.css') }}"> <!-- Link to warranty.css -->
+    <link rel="stylesheet" href="{{ asset('public/css/verification.css') }}"> <!-- Link to warranty.css -->
+    <link rel="stylesheet" href="{{ asset('public/css/admin/home.css') }}"> <!-- Link to warranty.css -->
+    <link rel="stylesheet" href="{{ asset('public/css/admin/style.css') }}"> <!-- Link to warranty.css -->
 </head>
 
 <body>
