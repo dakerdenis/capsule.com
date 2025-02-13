@@ -14,13 +14,13 @@
   gtag('config', 'G-2B54N2FD1H');
 </script>
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('images/casule_favicon.png') }}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{ asset('images/casule_favicon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('public/images/casule_favicon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('public/images/casule_favicon.png') }}" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Warranty System</title>
-    <link rel="stylesheet" href="{{ asset('css/verification.css') }}"> <!-- Link to warranty.css -->
-    <link rel="stylesheet" href="{{ asset('css/warranty.css') }}"> <!-- Link to warranty.css -->
+    <link rel="stylesheet" href="{{ asset('public/css/verification.css') }}"> <!-- Link to warranty.css -->
+    <link rel="stylesheet" href="{{ asset('public/css/warranty.css') }}"> <!-- Link to warranty.css -->
 </head>
 <!-- Google tag (gtag.js) -->
 

@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capsule Warranty Card</title>
-    <link rel="stylesheet" href="{{ asset('css/verification.css') }}"> <!-- Link to warranty.css -->
-    <link rel="stylesheet" href="{{ asset('css/warranty.css') }}"> <!-- Link to warranty.css -->
-
+    <link rel="stylesheet" href="{{ asset('public/css/verification.css') }}"> <!-- Link to warranty.css -->
+    <link rel="stylesheet" href="{{ asset('public/css/warranty.css') }}"> <!-- Link to warranty.css -->
 </head>
 
 <body>
@@ -16,7 +15,7 @@
 
         <div class="logos">
             <div class="logos_img ">
-                <img src="{{ asset('images/warranty_logo.png') }}" alt="Capsule Logo">
+                <img src="{{ asset('public/images/warranty_logo.png') }}" alt="Capsule Logo">
             </div>
             <div class="logos_img">
                 <img src="{{ asset($service->logo) }}" alt="Service Logo">

@@ -14,7 +14,7 @@
   gtag('config', 'G-2B54N2FD1H');
 </script>
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('images/casule_favicon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('public/images/casule_favicon.png') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('images/casule_favicon.png') }}" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
