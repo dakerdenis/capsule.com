@@ -7,6 +7,7 @@
     <title>Capsule Warranty Card</title>
     <link rel="stylesheet" href="{{ asset('public/css/verification.css') }}"> <!-- Link to warranty.css -->
     <link rel="stylesheet" href="{{ asset('public/css/warranty.css') }}"> <!-- Link to warranty.css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
 </head>
 
 <body>
@@ -193,23 +194,25 @@
         </div>
         <br>
         <!-- Warranty Images Section -->
-        <div class="warranty-images-row" style="display: flex; gap: 10px; margin-top: 20px;">
-            @if (!empty($warranty->images_array) && is_array($warranty->images_array))
-                @foreach ($warranty->images_array as $image)
-                    <div class="image-container"
-                        style="width: 300px; height: 150px; overflow: hidden; border: 1px solid #ddd; border-radius: 5px;">
-                        <a href="{{ asset('public/'.$image) }}" target="_blank" style="display: block; width: 100%; height: 100%;">
-                            <img src="{{ asset('public/'.$image) }}" alt="Warranty Image"
-                                style="width: 100%; height: 100%; object-fit: cover;">
-                        </a>
-                    </div>
-                @endforeach
-            @else
-                <p>No images available for this warranty.</p>
-            @endif
-        </div>
-        
-        
+        <!-- Warranty Images Section -->
+<!-- Warranty Images Section -->
+<div class="warranty-images-row" style="display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap;">
+    @if (!empty($warranty->images_array) && is_array($warranty->images_array))
+        @foreach ($warranty->images_array as $image)
+            <a href="{{ asset('public/'.$image) }}" data-fancybox="gallery" data-caption="Warranty Image">
+                <div class="image-container"
+                    style="width: 300px; height: 150px; overflow: hidden; border: 1px solid #ddd; border-radius: 5px;">
+                    <img src="{{ asset('public/'.$image) }}" alt="Warranty Image"
+                        style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </a>
+        @endforeach
+    @else
+        <p>No images available for this warranty.</p>
+    @endif
+</div>
+
+
         <br>
         <div class="warranty__desc-text">
             <h2>Warranty Conditions</h2>
@@ -256,8 +259,8 @@
 
             <p>If the installation center has closed, you can contact the official Capsule PPF representative in your
                 region for further assistance.</p>
-                <br>
-                Local support in Azerbaijan: +994 997 79 79 60 
+            <br>
+            Local support in Azerbaijan: +994 997 79 79 60
 
         </div>
 
@@ -306,6 +309,22 @@
             window.open(`https://t.me/share/url?url=${url}&text=${message}`, '_blank');
         }
     </script>
+    <!-- Include Fancybox JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+<!-- Initialize Fancybox -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        Fancybox.bind("[data-fancybox='gallery']", {
+            Thumbs: {
+                autoStart: true
+            },
+            Toolbar: {
+                display: ["zoom", "download", "close"]
+            }
+        });
+    });
+</script>
 </body>
 
 </html>
