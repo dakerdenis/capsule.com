@@ -19,7 +19,7 @@
 
 <div class="products__wrapper">
     <div class="products__name">
-        Список всех продуктов
+        Список всех товаров
     </div>
     <div class="products__sort__add-wrapper">
         <!---SORT BY-->

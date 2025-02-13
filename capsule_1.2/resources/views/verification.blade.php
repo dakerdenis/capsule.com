@@ -53,22 +53,25 @@
                         <div class="verification__form-formblock">
                             <form action="">
                                 <div class="input__wrapper">
-                                    <div class="input__wrapper-info">
+                                    <!-- Info Icon -->
+                                    <div class="input__wrapper-info" id="infoIcon">
                                         i
+                                        <!-- Tooltip with Image -->
+
                                     </div>
-                                    <input placeholder="Enter product code" type="text" name="product_code"
-                                        id="product_code">
-                                </div>
 
+                                    <input placeholder="Enter product code" type="text" name="product_code" id="product_code">
+                                </div>
+                                <div class="tooltip" id="tooltip">
+                                    <img src="{{ asset('public/images/DDS1.jpg') }}" alt="Help Image">
+                                </div>
                                 <div class="verification__form-submit">
-                                    <button name="submit" type="submit"         data-sitekey="reCAPTCHA_site_key" 
-                                    data-callback='onSubmit' 
-                                    data-action='submit'>
-                                        check verification
+                                    <button name="submit" type="submit" data-sitekey="reCAPTCHA_site_key" 
+                                        data-callback='onSubmit' 
+                                        data-action='submit'>
+                                        Check Verification
                                     </button>
-                                    
                                 </div>
-
                             </form>
                         </div>
                     </div>
@@ -184,6 +187,52 @@
           document.getElementById("demo-form").submit();
         }
       </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const infoIcon = document.getElementById("infoIcon");
+        const tooltip = document.getElementById("tooltip");
+    
+        if (!infoIcon || !tooltip) {
+            console.error("Info icon or tooltip not found in the DOM!");
+            return; // Stop execution if elements are missing
+        }
+    
+        // For Desktop - Show on hover
+        infoIcon.addEventListener("mouseenter", function () {
+            if (!isMobile()) {
+                tooltip.style.display = "block";
+            }
+        });
+    
+        infoIcon.addEventListener("mouseleave", function () {
+            if (!isMobile()) {
+                tooltip.style.display = "none";
+            }
+        });
+    
+        // For Mobile - Show on click
+        infoIcon.addEventListener("click", function (event) {
+            if (isMobile()) {
+                event.stopPropagation(); // Prevent click from closing instantly
+                tooltip.style.display = "block";
+            }
+        });
+    
+        // Hide tooltip when clicking anywhere else on mobile
+        document.addEventListener("click", function (event) {
+            if (isMobile() && !infoIcon.contains(event.target) && !tooltip.contains(event.target)) {
+                tooltip.style.display = "none";
+            }
+        });
+    
+        // Function to check if the device is mobile
+        function isMobile() {
+            return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        }
+    });
+    </script>
+    
+
 </body>
 
 </html>

@@ -28,3 +28,14 @@
 }
 .single__service-products {
 }
+
+.popup-actions{
+    display: flex
+    ;
+        margin: 0 auto;
+        width: 100%;
+        justify-content: center;
+}
+.popup-actions button{
+    margin: 0px 10px;
+}

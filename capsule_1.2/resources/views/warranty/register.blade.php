@@ -39,7 +39,7 @@
                     <label for="client-phone">Client Phone Number:</label>
                     <div class="warranty-input-container">
                         <input type="text" id="client-phone" name="client_phone"
-                            placeholder="Enter client phone number" required>
+                            placeholder="994000000000" required>
                     </div>
 
                 </div>

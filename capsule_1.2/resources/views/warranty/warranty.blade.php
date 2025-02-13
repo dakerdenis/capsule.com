@@ -56,7 +56,7 @@
                                 @csrf <!-- Include CSRF token for security -->
                             
                                 <div class="input__wrapper">
-                                    <input value="test@example.com" placeholder="Login" type="email" name="email" id="email" required>
+                                    <input value="service@capsuleppf.com" placeholder="Login" type="email" name="email" id="email" required>
                                     @if ($errors->has('email'))
                                         <div style="color: red; font-size: 14px;">
                                             {{ $errors->first('email') }}
@@ -71,14 +71,27 @@
                                         </div>
                                     @endif
                                 </div>
+
+
+
+
+
+
+
+
+
+
                                 <div class="input__wrapper">
-                                    <div class="input__wrapper-info">i</div>
+                                    <div class="input__wrapper-info" id="infoIcon">i</div>
                                     <input  placeholder="Enter product code" type="text" name="product_code" id="product_code" required>
                                     @if ($errors->has('product_code'))
                                         <div style="color: red; font-size: 14px;">
                                             {{ $errors->first('product_code') }}
                                         </div>
                                     @endif
+                                </div>
+                                <div class="tooltip" id="tooltip">
+                                    <img src="{{ asset('public/images/DDS1.jpg') }}" alt="Help Image">
                                 </div>
                                 <div class="verification__form-submit">
                                     <button name="submit" type="submit">
@@ -119,7 +132,50 @@
         </div>
     </div>
 
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const infoIcon = document.getElementById("infoIcon");
+            const tooltip = document.getElementById("tooltip");
+        
+            if (!infoIcon || !tooltip) {
+                console.error("Info icon or tooltip not found in the DOM!");
+                return; // Stop execution if elements are missing
+            }
+        
+            // For Desktop - Show on hover
+            infoIcon.addEventListener("mouseenter", function () {
+                if (!isMobile()) {
+                    tooltip.style.display = "block";
+                }
+            });
+        
+            infoIcon.addEventListener("mouseleave", function () {
+                if (!isMobile()) {
+                    tooltip.style.display = "none";
+                }
+            });
+        
+            // For Mobile - Show on click
+            infoIcon.addEventListener("click", function (event) {
+                if (isMobile()) {
+                    event.stopPropagation(); // Prevent click from closing instantly
+                    tooltip.style.display = "block";
+                }
+            });
+        
+            // Hide tooltip when clicking anywhere else on mobile
+            document.addEventListener("click", function (event) {
+                if (isMobile() && !infoIcon.contains(event.target) && !tooltip.contains(event.target)) {
+                    tooltip.style.display = "none";
+                }
+            });
+        
+            // Function to check if the device is mobile
+            function isMobile() {
+                return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            }
+        });
+        </script>
     
 </body>
 

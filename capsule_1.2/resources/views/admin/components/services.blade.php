@@ -89,7 +89,7 @@
 
     .popup-content {
         background: white;
-        padding: 20px;
+        padding: 50px;
         border-radius: 8px;
         text-align: center;
         position: relative;
@@ -97,12 +97,17 @@
 
     .popup-close {
         position: absolute;
-        top: 10px;
-        right: 10px;
-        background: none;
-        border: none;
-        font-size: 18px;
-        cursor: pointer;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    width: 24px;
+    height: 28px;
+    color: #fff;
+    border-radius: 16px;
+    background-color: red;
+    cursor: pointer;
     }
 </style>
 
@@ -110,7 +115,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const popup = document.getElementById('delete-popup');
-        const serviceName = document.getElementById('service-name');
+
         const deleteForm = document.getElementById('delete-service-form');
         const cancelDelete = document.getElementById('cancel-delete');
         const closePopup = document.getElementById('close-popup');
@@ -121,7 +126,7 @@
                 const serviceNameText = button.getAttribute('data-service-name');
 
                 // Set the service name in the popup
-                serviceName.textContent = serviceNameText;
+
 
                 // Set the action URL for the form dynamically
                 deleteForm.action = `{{ route('admin.delete_service', ['id' => ':id']) }}`

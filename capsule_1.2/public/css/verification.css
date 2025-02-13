@@ -241,16 +241,47 @@ h6 {
     width: 20px;
     height: 20px;
     background-color: #000;
-    border-radius: 15px;
+    border-radius: 50%;
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     right: 20px;
-    top: calc(50% - 10px);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    cursor: pointer;
 
 }
+.verification__form-formblock form {
+    position: relative;
+}
+.tooltip {
+    position: absolute;
+    top: -13px;
+    left: 33%;
+    transform: translateX(-50%);
+    width: 411px;
+    height: 150px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    padding: 5px;
+    display: none;
+    z-index: 300;
+}
 
+/* Tooltip image */
+.tooltip img {
+    width: 100%;
+
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Show tooltip on hover */
+.input__wrapper-info:hover .tooltip {
+    display: block;
+}
 .input__wrapper input {
     position: absolute;
     width: 100%;
@@ -318,7 +349,9 @@ h6 {
 }
 
 .verification__car-image img {
+    height: 100%;
     width: 100%;
+    object-fit: cover;
 }
 
 .verification__car-alert {
@@ -492,8 +525,8 @@ h6 {
     }
 
     .input__wrapper {
-        width: 100%;
-        height: 40px;
+        width: 315px;
+        height: 50px;
     }
 
     .verification__form-submit {
@@ -553,5 +586,16 @@ h6 {
     .verification__car-message img {
         width: 15px;
         height: 15px;
+    }
+    .tooltip{
+        position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 315px;
+    height: 150px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 5px;
+    padding: 5px;
     }
 }
