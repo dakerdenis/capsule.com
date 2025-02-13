@@ -67,7 +67,7 @@
             display: flex;
             width: 100%;
             justify-content: space-between;
-            height: 80px;
+            flex-direction: row;
             margin-bottom: 10px;
             margin-top: 20px;
         }
@@ -90,13 +90,11 @@
     <div class="container">
         <div class="warranty__name-main">Capsule Warranty Card</div>
 
-        <div class="logos">
+        <div class="logos" style="height: 120px; display: flex; justify-content: space-between;">
             <div class="logos_img ">
                 <img src="{{ public_path('images/warranty_logo.png') }}" alt="Capsule Logo">
             </div>
-            <div class="logos_img">
-                <!---img src="{{ public_path($warranty->service->logo) }}" alt="Service Logo"-->
-            </div>
+
         </div>
 
         <h2>Client Information</h2>
@@ -136,8 +134,17 @@
             <label>License Plate Number:</label>
             <p>{{ $warranty->license_plate_number }}</p>
         </div>
-
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <h2>Installer Information</h2>
+        <br>
+        <div class="logos_img">
+            <img src="{{ public_path($warranty->service->logo) }}" alt="Service Logo">
+        </div>
+        <br>
         <div class="form-row">
             <div class="form-group">
                 <label>Service Name:</label>
