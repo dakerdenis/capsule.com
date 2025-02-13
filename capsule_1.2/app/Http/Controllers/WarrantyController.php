@@ -10,6 +10,7 @@ use App\Models\Product;
 use App\Models\Warranty;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Http;
 
 
 
@@ -122,7 +123,7 @@ class WarrantyController extends Controller
     public function warrantyPostRegister(Request $request)
     {
         Log::info('Starting warranty registration process.');
-    
+
         try {
             // Validate input
             $request->validate([
@@ -137,19 +138,19 @@ class WarrantyController extends Controller
                 'installation_photos' => 'required|array|min:1',
                 'installation_photos.*' => 'image|mimes:jpeg,png,jpg,webp|max:10240',
             ]);
-    
+
             Log::info('Validation passed for warranty registration.');
-    
+
             // Ensure service ID is available
             $serviceId = Auth::guard('service')->id();
             if (!$serviceId) {
                 throw new \Exception('Service ID is missing. User might not be authenticated.');
             }
-    
+
             // Process uploaded photos
             $uploadedPhotos = [];
             $watermarkPath = public_path('images/logo_main.png');
-    
+
             if ($request->hasFile('installation_photos')) {
                 foreach ($request->file('installation_photos') as $photo) {
                     Log::info('Processing Photo:', [
@@ -157,20 +158,20 @@ class WarrantyController extends Controller
                         'size' => $photo->getSize(),
                         'mime_type' => $photo->getMimeType(),
                     ]);
-    
+
                     // Generate unique filename
                     $fileName = uniqid() . '.' . $photo->getClientOriginalExtension();
                     $filePath = public_path('images/warranty_photos/' . $fileName);
-    
+
                     // Ensure directory exists
                     if (!file_exists(public_path('images/warranty_photos'))) {
                         mkdir(public_path('images/warranty_photos'), 0775, true);
                     }
-    
+
                     // Process image using Intervention Image
                     try {
                         $image = Image::make($photo->getRealPath());
-    
+
                         // Apply watermark
                         if (file_exists($watermarkPath)) {
                             try {
@@ -179,14 +180,14 @@ class WarrantyController extends Controller
                                 $watermark->resize($watermarkSize, null, function ($constraint) {
                                     $constraint->aspectRatio();
                                 });
-    
+
                                 $image->insert($watermark, 'bottom-right', 20, 20);
                                 Log::info('Watermark applied successfully.');
                             } catch (\Exception $e) {
                                 Log::warning('Failed to apply watermark: ' . $e->getMessage());
                             }
                         }
-    
+
                         // Compress image
                         $quality = 90;
                         do {
@@ -194,11 +195,11 @@ class WarrantyController extends Controller
                             $imageSize = $compressedImage->filesize();
                             $quality -= 10;
                         } while ($imageSize > 500 * 1024 && $quality > 10);
-    
+
                         // Save compressed image
                         $image->save($filePath, $quality);
                         $uploadedPhotos[] = 'images/warranty_photos/' . $fileName;
-    
+
                         Log::info('Image successfully saved at: ' . $filePath);
                     } catch (\Exception $e) {
                         Log::error('Image processing failed: ' . $e->getMessage());
@@ -209,11 +210,11 @@ class WarrantyController extends Controller
                 Log::warning('No photos were uploaded.');
                 throw new \Exception('No photos were uploaded.');
             }
-    
+
             // Convert images array to JSON
             $imagesJson = json_encode($uploadedPhotos, JSON_THROW_ON_ERROR);
             Log::info('Final image paths stored:', $uploadedPhotos);
-    
+
             // **Save warranty to the database**
             $warranty = Warranty::create([
                 'client_name' => $request->client_name,
@@ -238,9 +239,9 @@ class WarrantyController extends Controller
                 'client_code' => strtoupper(bin2hex(random_bytes(6)) . rand(1, 9)),
                 'images_array' => $imagesJson,
             ]);
-    
+
             Log::info('Warranty record created successfully with ID: ' . $warranty->id);
-    
+
             // **Find the corresponding product and update its warranty, verification date, and service_id**
             $product = Product::where('code', $warranty->product_code)->first();
             if ($product) {
@@ -253,11 +254,24 @@ class WarrantyController extends Controller
             } else {
                 Log::warning('No product found with code: ' . $warranty->product_code);
             }
-    
+
+
+            // **Send SMS Notification**
+            $smsMessage = "Dear {$warranty->client_name}, your warranty is successfully registered. Client Code: {$warranty->client_code}";
+            $smsSent = $this->sendSmsNotification($warranty->client_number, $smsMessage);
+
+            if ($smsSent) {
+                Log::info('SMS sent successfully to ' . $warranty->client_number);
+            } else {
+                Log::warning('Failed to send SMS to ' . $warranty->client_number);
+            }
+
+
+
             return redirect()->route('service.success')->with('status', 'success')->with('message', 'Warranty successfully registered.');
         } catch (\Exception $e) {
             Log::error('Error creating warranty: ' . $e->getMessage());
-    
+
             return redirect()->route('service.success')->with([
                 'status' => 'error',
                 'message' => 'Failed to create warranty.',
@@ -265,7 +279,59 @@ class WarrantyController extends Controller
             ]);
         }
     }
+    private function sendSmsNotification($clientPhone, $message)
+    {
+        $apiUrl = "https://sms.atatexnologiya.az/bulksms/api";
+        $apiLogin = "Capsule";  // Your API credentials
+        $apiPassword = "db8Q#5@H!1R";
+        $title = "CAPSULE PPF"; 
+        $controlId = time() . rand(1000, 9999); // Unique ID
     
+        $xmlData = "<?xml version='1.0' encoding='UTF-8'?>
+            <request>
+                <head>
+                    <operation>submit</operation>
+                    <login>{$apiLogin}</login>
+                    <password>{$apiPassword}</password>
+                    <title>{$title}</title>
+                    <scheduled>now</scheduled>
+                    <isbulk>false</isbulk>
+                    <controlid>{$controlId}</controlid>
+                </head>
+                <body>
+                    <msisdn>{$clientPhone}</msisdn>
+                    <message>{$message}</message>
+                </body>
+            </request>";
+    
+        try {
+            $response = Http::withHeaders([
+                'Content-Type' => 'application/xml',
+            ])->withBody($xmlData, 'application/xml') // Ensures correct XML encoding
+              ->withOptions([
+                  'verify' => false, // Bypass SSL for now
+              ])->post($apiUrl);
+    
+            // Log Request & Response
+            Log::info('SMS API Request:', ['xml' => $xmlData]);
+            Log::info('SMS API Response:', ['response' => $response->body()]);
+    
+            // Check if response contains success code (000)
+            if (strpos($response->body(), '<responsecode>000</responsecode>') !== false) {
+                return true;
+            } else {
+                Log::error('SMS sending failed', ['response' => $response->body()]);
+                return false;
+            }
+        } catch (\Exception $e) {
+            Log::error('SMS API Error: ' . $e->getMessage());
+            return false;
+        }
+    }
+    
+    
+    
+
 
     public function singleWarranty($id)
     {
@@ -281,8 +347,8 @@ class WarrantyController extends Controller
 
     public function generatePdf($id)
     {
-        // Fetch the warranty data
-        $warranty = Warranty::findOrFail($id);
+        // Fetch the warranty data with its related service
+        $warranty = Warranty::with('service')->findOrFail($id);
 
         // Pass data to the view
         $pdf = Pdf::loadView('warranty.single_warranty_pdf', compact('warranty'));
@@ -290,6 +356,7 @@ class WarrantyController extends Controller
         // Download the generated PDF
         return $pdf->download('warranty_' . $warranty->id . '.pdf');
     }
+
     public function warrantySuccess(Request $request)
     {
         Log::info('Accessed warrantySuccess method.');

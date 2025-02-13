@@ -165,11 +165,32 @@
                 <p>{{ $warranty->product_code }}</p>
             </div>
         </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Service's country location:</label>
+                <p>{{ $warranty->service->country ?? 'N/A' }}</p>
+            </div>
+            <div class="form-group">
+                <label>Service's city location:</label>
+                <p>{{ $warranty->service->city ?? 'N/A' }}</p>
+            </div>
+        </div>
         <div class="form-group">
             <label>Installation Date:</label>
             <p>{{ $warranty->installation_date }}</p>
         </div>
-
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br> <br>
+        <br>
+        <br>
+        <br> <br><br>
+        
         <h2>Film and Warranty Information</h2>
         <div class="form-row">
             <div class="form-group">

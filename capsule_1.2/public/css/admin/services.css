@@ -10,3 +10,21 @@
     justify-content: space-between;
     margin-bottom: 15px;
 }
+
+.single__service__wrapper {
+    width: 100%;
+}
+.single__service-name {
+
+}
+.single__service-img {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
+}
+.single__service-desc {
+}
+.single__service-cooperation {
+}
+.single__service-products {
+}
