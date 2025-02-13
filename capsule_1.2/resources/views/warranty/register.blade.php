@@ -18,7 +18,7 @@
                 <img src="{{ asset('public/images/warranty_logo.png') }}" alt="Capsule Logo">
             </div>
             <div class="logos_img">
-                <img src="{{ asset($service->logo) }}" alt="Service Logo">
+                <img src="{{ asset('public/'.$service->logo) }}" alt="Service Logo">
             </div>
         </div>
 

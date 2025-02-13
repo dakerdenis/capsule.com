@@ -172,3 +172,31 @@
           justify-content: center;
           align-items: center;
       }
+.warranty__desc-text h2{
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 23px;
+}
+      @media only screen and (max-width: 768px) {
+        .form-row{
+          flex-direction: column;
+
+        }
+        .form-group{
+          width: 100%;
+        }
+        .logos_img img{
+          width: 100%;
+
+        }
+        .button-container{
+          flex-direction: column;
+          text-align: center;
+        }
+        .button-container a{
+          margin-bottom: 7px;
+        }
+        .button-container button{
+          margin-bottom: 7px;
+        }
+      }

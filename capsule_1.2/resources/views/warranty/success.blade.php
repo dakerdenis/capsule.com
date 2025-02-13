@@ -5,11 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Warranty Status</title>
-    <link rel="stylesheet" href="{{ asset('css/verification.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/warranty.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/css/verification.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/css/warranty.css') }}">
 </head>
 
 <body>
+    <br>
+    <br>
+    <br>
     <div class="container">
         <div class="warranty__name-main">Warranty Registration Status</div>
         <div class="status-message {{ session('status') }}">
@@ -18,28 +21,10 @@
         </div>
 
 
-        <div class="debug-info">
-            <h3>Debug Information</h3>
-            <p><strong>Request Data:</strong></p>
-            <pre>{{ print_r($requestData, true) }}</pre>
-        
-            <p><strong>Session Data:</strong></p>
-            <pre>{{ print_r($sessionData, true) }}</pre>
-        
-            @if(isset($requestData['installation_photos']))
-            <h4>Uploaded Photos:</h4>
-            <ul>
-                @foreach($requestData['installation_photos'] as $photo)
-                    <li>{{ $photo }}</li>
-                @endforeach
-            </ul>
-        @endif
-        
-        </div>
-        
-        
 
-        @if(session('status') === 'success')
+
+
+        @if (session('status') === 'success')
             <p><strong>What to do next?</strong></p>
             <ul>
                 <li>Download or print your warranty details.</li>
@@ -54,7 +39,14 @@
             </ul>
         @endif
 
-        <a href="{{ route('warranty') }}" class="back-btn">Back to Dashboard</a>
+        @if (session('status') === 'success' && isset($latestWarranty))
+            <a href="{{ route('service.warranty', ['id' => $latestWarranty->id]) }}" class="back-btn">
+                View Your Warranty
+            </a>
+        @else
+            <a href="{{ route('warranty') }}" class="back-btn">Back to Dashboard</a>
+        @endif
+
     </div>
 
     <style>

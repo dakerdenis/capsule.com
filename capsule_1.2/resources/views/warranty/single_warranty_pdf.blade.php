@@ -92,7 +92,7 @@
 
         <div class="logos" style="height: 120px; display: flex; justify-content: space-between;">
             <div class="logos_img ">
-                <img src="{{ public_path('images/warranty_logo.png') }}" alt="Capsule Logo">
+                <img src="{{ public_path('public/images/warranty_logo.png') }}" alt="Capsule Logo">
             </div>
 
         </div>

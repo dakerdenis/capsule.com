@@ -3,7 +3,7 @@
         <h1>{{ $service->name }}</h1>
     </div>
     <div class="single__service-img">
-        <img src="{{ $service->logo ? asset('' . $service->logo) : asset('images/default-logo.png') }}" alt="Service Logo">
+        <img src="{{ $service->logo ? asset('public/'.$service->logo) : asset('images/default-logo.png') }}" alt="Service Logo">
     </div>
     <div class="single__service-desc">
         <p>Описание сервиса: {{ $service->description ?? 'Описание отсутствует' }}</p>

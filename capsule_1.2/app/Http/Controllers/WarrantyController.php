@@ -255,9 +255,9 @@ class WarrantyController extends Controller
                 Log::warning('No product found with code: ' . $warranty->product_code);
             }
 
-
+            $warrantyLink = "https://capsuleppf.com/warranty/{$warranty->id}";
             // **Send SMS Notification**
-            $smsMessage = "Dear {$warranty->client_name}, your warranty is successfully registered. Client Code: {$warranty->client_code}";
+            $smsMessage = "Dear {$warranty->client_name},\nCapsule PPF has been installed in your car.\nVisit the link for more information: {$warrantyLink}\nClient Code: {$warranty->client_code}";
             $smsSent = $this->sendSmsNotification($warranty->client_number, $smsMessage);
 
             if ($smsSent) {
@@ -282,7 +282,7 @@ class WarrantyController extends Controller
     private function sendSmsNotification($clientPhone, $message)
     {
         $apiUrl = "https://sms.atatexnologiya.az/bulksms/api";
-        $apiLogin = "Capsule";  // Your API credentials
+        $apiLogin = "Capsule";  
         $apiPassword = "db8Q#5@H!1R";
         $title = "CAPSULE PPF"; 
         $controlId = time() . rand(1000, 9999); // Unique ID
@@ -307,16 +307,13 @@ class WarrantyController extends Controller
         try {
             $response = Http::withHeaders([
                 'Content-Type' => 'application/xml',
-            ])->withBody($xmlData, 'application/xml') // Ensures correct XML encoding
-              ->withOptions([
-                  'verify' => false, // Bypass SSL for now
-              ])->post($apiUrl);
+            ])->withBody($xmlData, 'application/xml') 
+              ->withOptions(['verify' => false])
+              ->post($apiUrl);
     
-            // Log Request & Response
             Log::info('SMS API Request:', ['xml' => $xmlData]);
             Log::info('SMS API Response:', ['response' => $response->body()]);
     
-            // Check if response contains success code (000)
             if (strpos($response->body(), '<responsecode>000</responsecode>') !== false) {
                 return true;
             } else {
@@ -328,6 +325,7 @@ class WarrantyController extends Controller
             return false;
         }
     }
+    
     
     
     
@@ -360,18 +358,22 @@ class WarrantyController extends Controller
     public function warrantySuccess(Request $request)
     {
         Log::info('Accessed warrantySuccess method.');
-
+        
+        $latestWarranty = Warranty::latest()->first(); // Get the most recent warranty
+    
         // Log session data and request data for debugging
         Log::info('Session Data:', session()->all());
         Log::info('Request Data:', $request->all());
-
+    
         return view('warranty.success', [
             'status' => session('status', 'error'), // Default to error if no status
             'message' => session('message', 'An unknown error occurred.'),
             'requestData' => session('debug_request', []), // Include debug request data
             'sessionData' => session()->all(), // Include session data
+            'latestWarranty' => $latestWarranty, // Pass the latest warranty to the view
         ]);
     }
+    
 
 
 

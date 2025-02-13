@@ -62,7 +62,7 @@
                     <input type="file" name="logo" accept="image/*">
                 </div>
                 @if ($service->logo)
-                    <img src="{{ asset($service->logo) }}" alt="Current Logo" style="max-width: 100px; margin-top: 10px;">
+                    <img src="{{ asset('public/'.$service->logo) }}" alt="Current Logo" style="max-width: 100px; margin-top: 10px;">
                 @endif
             </div>
 

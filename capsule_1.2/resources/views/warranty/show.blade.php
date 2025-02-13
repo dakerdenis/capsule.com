@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capsule Warranty Card</title>
-    <link rel="stylesheet" href="{{ asset('css/verification.css') }}"> <!-- Link to warranty.css -->
-    <link rel="stylesheet" href="{{ asset('css/warranty.css') }}"> <!-- Link to warranty.css -->
+    <link rel="stylesheet" href="{{ asset('public/css/verification.css') }}"> <!-- Link to warranty.css -->
+    <link rel="stylesheet" href="{{ asset('public/css/warranty.css') }}"> <!-- Link to warranty.css -->
 </head>
 
 <body>
@@ -15,10 +15,11 @@
 
         <div class="logos">
             <div class="logos_img ">
-                <img src="{{ asset('images/warranty_logo.png') }}" alt="Capsule Logo">
+                <img src="{{ asset('public/images/warranty_logo.png') }}" alt="Capsule Logo">
             </div>
             <div class="logos_img">
-                <img src="{{ asset($warranty->service->logo) }}" alt="Service Logo">
+                <img src="{{ asset('public/' . $warranty->service->logo) }}" alt="Service Logo">
+
             </div>
         </div>
 
@@ -197,8 +198,8 @@
                 @foreach ($warranty->images_array as $image)
                     <div class="image-container"
                         style="width: 300px; height: 150px; overflow: hidden; border: 1px solid #ddd; border-radius: 5px;">
-                        <a href="{{ asset($image) }}" target="_blank" style="display: block; width: 100%; height: 100%;">
-                            <img src="{{ asset($image) }}" alt="Warranty Image"
+                        <a href="{{ asset('public/'.$image) }}" target="_blank" style="display: block; width: 100%; height: 100%;">
+                            <img src="{{ asset('public/'.$image) }}" alt="Warranty Image"
                                 style="width: 100%; height: 100%; object-fit: cover;">
                         </a>
                     </div>
@@ -211,6 +212,8 @@
         
         <br>
         <div class="warranty__desc-text">
+            <h2>Warranty Conditions</h2>
+            <br>
             Capsule PPF provides a warranty for protective films exclusively against the following defects:
 
             <p>Yellowing (discoloration of the film).
@@ -253,6 +256,8 @@
 
             <p>If the installation center has closed, you can contact the official Capsule PPF representative in your
                 region for further assistance.</p>
+                <br>
+                Local support in Azerbaijan: +994 997 79 79 60 
 
         </div>
 

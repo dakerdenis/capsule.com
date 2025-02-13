@@ -17,8 +17,8 @@
 
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('images/casule_favicon.png') }}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{ asset('images/casule_favicon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('public/images/casule_favicon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('public/images/casule_favicon.png') }}" type="image/x-icon">
 
     <!-- Primary Meta Tags -->
     <meta name="description" content="Capsule PPF provides high-quality protective films for cars, offering superior protection against scratches, chemical exposure, and damage while ensuring a glossy, transparent finish. Maintain your car’s aesthetics with ease.">
@@ -31,13 +31,13 @@
     <meta property="og:description" content="Capsule PPF offers premium car protection with advanced polyurethane films featuring self-healing, water-repellent, and long-lasting durability.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:image" content="{{ asset('images/logo_main.png') }}">
+    <meta property="og:image" content="{{ asset('public/images/logo_main.png') }}">
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="@yield('twitter_title', 'Capsule - Car Protection with PPF')">
     <meta name="twitter:description" content="@yield('twitter_description', 'Preserve the original look of your car with Capsule’s innovative protective films. Superior protection, self-healing, and aesthetic excellence.')">
-    <meta name="twitter:image" content="{{ asset('images/logo_main.png') }}">
+    <meta name="twitter:image" content="{{ asset('public/images/logo_main.png') }}">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
@@ -51,7 +51,7 @@
     <!-- Select2 Library -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/css/app.css') }}">
 </head>
 
 <body>

@@ -31,14 +31,14 @@
                         <td>{{ count($service->list_of_products) }}</td>
                         <td>
                             <a href="{{ route('admin.edit_service', ['id' => $service->id]) }}">
-                                <img src="{{ asset('images/edit.svg') }}" alt="Edit" class="delete_image">
+                                <img src="{{ asset('public/images/edit.svg') }}" alt="Edit" class="delete_image">
                             </a>
 
                         </td>
                         <td>
                             <button class="delete_image-button" data-service-id="{{ $service->id }}"
                                 data-service-name="{{ $service->name }}">
-                                <img src="{{ asset('images/trash.svg') }}" alt="" class="delete_image">
+                                <img src="{{ asset('public/images/trash.svg') }}" alt="" class="delete_image">
                             </button>
                         </td>
 
