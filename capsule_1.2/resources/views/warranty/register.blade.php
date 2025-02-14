@@ -323,7 +323,7 @@
             const phoneNumber = phoneInput.value.trim();
 
             if (!phonePattern.test(phoneNumber)) {
-                phoneError.textContent = "Invalid phone number. Format: 994123456789";
+                phoneError.textContent = "Error. Example: 994123456789";
                 phoneError.style.color = "red";
                 phoneInput.style.border = "2px solid red";
             } else {
