@@ -261,6 +261,10 @@
   font-size: 14px;
   line-height: 17px;"
             class="warranty__desc-text">
+            <h2  style="margin-top: 20px;
+            font-weight: 600;
+            font-size: 23px;">Warranty Conditions</h2>
+            <br>
             Capsule PPF provides a warranty for protective films exclusively against the following defects:
 
             <p>Yellowing (discoloration of the film).

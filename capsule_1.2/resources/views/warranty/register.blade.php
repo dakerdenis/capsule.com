@@ -343,6 +343,42 @@
         });
     });
 </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const licensePlateInput = document.getElementById("license-plate");
+        const licensePlateError = document.createElement("small"); // Create error message element
+        licensePlateError.classList.add("error-message");
+        licensePlateInput.parentElement.appendChild(licensePlateError); // Append under input
+
+        // Function to validate license plate input
+        function validateLicensePlate() {
+            const licensePlateValue = licensePlateInput.value.trim();
+
+            if (licensePlateValue.length !== 7) {
+                licensePlateError.textContent = "License plate must be exactly 7 characters.";
+                licensePlateError.style.color = "red";
+                licensePlateInput.style.border = "2px solid red";
+            } else {
+                licensePlateError.textContent = ""; // Clear error message
+                licensePlateInput.style.border = "2px solid green";
+            }
+        }
+
+        // Validate input on typing
+        licensePlateInput.addEventListener("input", validateLicensePlate);
+
+        // Prevent form submission if license plate is invalid
+        document.getElementById("warrantyForm").addEventListener("submit", function(event) {
+            if (licensePlateInput.value.trim().length !== 7) {
+                licensePlateError.textContent = "License plate must be exactly 7 characters.";
+                licensePlateError.style.color = "red";
+                licensePlateInput.style.border = "2px solid red";
+                event.preventDefault(); // Stop form from submitting
+            }
+        });
+    });
+</script>
+
 
 
 </body>

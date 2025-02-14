@@ -167,20 +167,39 @@ class WarrantyController extends Controller
                         'size' => $photo->getSize(),
                         'mime_type' => $photo->getMimeType(),
                     ]);
-
+    
                     // Generate unique filename
                     $fileName = uniqid() . '.' . $photo->getClientOriginalExtension();
                     $filePath = public_path('images/warranty_photos/' . $fileName);
-
+    
                     // Ensure directory exists
                     if (!file_exists(public_path('images/warranty_photos'))) {
                         mkdir(public_path('images/warranty_photos'), 0775, true);
                     }
-
+    
                     // Process image using Intervention Image
                     try {
                         $image = Image::make($photo->getRealPath());
-
+    
+                        // ✅ Fix Rotation Based on EXIF Data
+                        if (function_exists('exif_read_data')) {
+                            $exif = @exif_read_data($photo->getRealPath());
+                            if ($exif && isset($exif['Orientation'])) {
+                                switch ($exif['Orientation']) {
+                                    case 3:
+                                        $image->rotate(180); // Rotate 180 degrees
+                                        break;
+                                    case 6:
+                                        $image->rotate(-90); // Rotate 90 degrees counterclockwise
+                                        break;
+                                    case 8:
+                                        $image->rotate(90); // Rotate 90 degrees clockwise
+                                        break;
+                                }
+                                Log::info('EXIF orientation corrected.');
+                            }
+                        }
+    
                         // Apply watermark
                         if (file_exists($watermarkPath)) {
                             try {
@@ -189,14 +208,14 @@ class WarrantyController extends Controller
                                 $watermark->resize($watermarkSize, null, function ($constraint) {
                                     $constraint->aspectRatio();
                                 });
-
+    
                                 $image->insert($watermark, 'bottom-right', 20, 20);
                                 Log::info('Watermark applied successfully.');
                             } catch (\Exception $e) {
                                 Log::warning('Failed to apply watermark: ' . $e->getMessage());
                             }
                         }
-
+    
                         // Compress image
                         $quality = 90;
                         do {
@@ -204,11 +223,11 @@ class WarrantyController extends Controller
                             $imageSize = $compressedImage->filesize();
                             $quality -= 10;
                         } while ($imageSize > 500 * 1024 && $quality > 10);
-
+    
                         // Save compressed image
                         $image->save($filePath, $quality);
                         $uploadedPhotos[] = 'images/warranty_photos/' . $fileName;
-
+    
                         Log::info('Image successfully saved at: ' . $filePath);
                     } catch (\Exception $e) {
                         Log::error('Image processing failed: ' . $e->getMessage());
