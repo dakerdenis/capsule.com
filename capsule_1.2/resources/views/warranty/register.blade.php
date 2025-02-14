@@ -41,7 +41,7 @@
                         <input type="text" id="client-phone" name="client_phone"
                             placeholder="994000000000" required>
                     </div>
-
+                    <small id="phone-error" class="error-message"></small>
                 </div>
             </div>
 
@@ -304,6 +304,36 @@
             });
         });
     </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const phoneInput = document.getElementById("client-phone");
+        const phoneError = document.getElementById("phone-error");
+
+        phoneInput.addEventListener("input", function() {
+            const phonePattern = /^994\d{9}$/; // Regex: 994 followed by exactly 9 digits
+            const phoneNumber = phoneInput.value.trim();
+
+            if (!phonePattern.test(phoneNumber)) {
+                phoneError.textContent = "Invalid phone number. Format: 994123456789";
+                phoneError.style.color = "red";
+                phoneInput.style.border = "2px solid red";
+            } else {
+                phoneError.textContent = ""; // Clear error message
+                phoneInput.style.border = "2px solid green";
+            }
+        });
+
+        // Prevent form submission if phone is invalid
+        document.getElementById("warrantyForm").addEventListener("submit", function(event) {
+            if (!/^994\d{9}$/.test(phoneInput.value.trim())) {
+                phoneError.textContent = "Please enter a valid phone number (994123456789).";
+                phoneError.style.color = "red";
+                phoneInput.style.border = "2px solid red";
+                event.preventDefault();
+            }
+        });
+    });
+</script>
 
 
 </body>
