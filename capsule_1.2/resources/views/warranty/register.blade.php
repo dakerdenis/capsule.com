@@ -7,6 +7,8 @@
     <title>Capsule Warranty Card</title>
     <link rel="stylesheet" href="{{ asset('public/css/verification.css') }}"> <!-- Link to warranty.css -->
     <link rel="stylesheet" href="{{ asset('public/css/warranty.css') }}"> <!-- Link to warranty.css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -39,7 +41,7 @@
                     <label for="client-phone">Client Phone Number:</label>
                     <div class="warranty-input-container">
                         <input type="text" id="client-phone" name="client_phone"
-                            placeholder="994000000000" required>
+                            placeholder="994123456789" required>
                     </div>
                     <small id="phone-error" class="error-message"></small>
                 </div>
@@ -202,23 +204,30 @@
                 </div>
             </div>
             <!-- Form Fields -->
-            <div class="photo-upload">
-                <label for="image-input-1">Installation Photo 1 (Mandatory):</label>
-                <input type="file" id="image-input-1" name="installation_photos[]" accept="image/*" required>
-                <div id="image-preview-container-1" class="image-preview-container-1"></div>
+            <div class="mb-3">
+                <label for="image-input-1" class="form-label">Installation Photo 1 (Mandatory):</label>
+                <div class="input-group">
+                    <input type="file" class="form-control" id="image-input-1" name="installation_photos[]" accept="image/*" required>
+                </div>
+                <div id="image-preview-container-1" class="mt-2"></div>
             </div>
-
-            <div class="photo-upload">
-                <label for="image-input-2">Installation Photo 2 (Optional):</label>
-                <input type="file" id="image-input-2" name="installation_photos[]" accept="image/*">
-                <div id="image-preview-container-2" class="image-preview-container-2"></div>
+            
+            <div class="mb-3">
+                <label for="image-input-2" class="form-label">Installation Photo 2 (Optional):</label>
+                <div class="input-group">
+                    <input type="file" class="form-control" id="image-input-2" name="installation_photos[]" accept="image/*">
+                </div>
+                <div id="image-preview-container-2" class="mt-2"></div>
             </div>
-
-            <div class="photo-upload">
-                <label for="image-input-3">Installation Photo 3 (Optional):</label>
-                <input type="file" id="image-input-3" name="installation_photos[]" accept="image/*">
-                <div id="image-preview-container-3" class="image-preview-container-3"></div>
+            
+            <div class="mb-3">
+                <label for="image-input-3" class="form-label">Installation Photo 3 (Optional):</label>
+                <div class="input-group">
+                    <input type="file" class="form-control" id="image-input-3" name="installation_photos[]" accept="image/*">
+                </div>
+                <div id="image-preview-container-3" class="mt-2"></div>
             </div>
+            
 
 
 

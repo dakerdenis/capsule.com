@@ -345,15 +345,27 @@ class WarrantyController extends Controller
 
     public function generatePdf($id)
     {
-        // Fetch the warranty data with its related service
+        // Fetch warranty with service details
         $warranty = Warranty::with('service')->findOrFail($id);
-
+    
+        // Convert warranty images to Base64
+        $imageBase64Array = [];
+        if (!empty($warranty->images_array) && is_array($warranty->images_array)) {
+            foreach ($warranty->images_array as $image) {
+                $imagePath = public_path($image);
+                if (file_exists($imagePath)) {
+                    $imageBase64Array[] = "data:image/png;base64," . base64_encode(file_get_contents($imagePath));
+                }
+            }
+        }
+    
         // Pass data to the view
-        $pdf = Pdf::loadView('warranty.single_warranty_pdf', compact('warranty'));
-
+        $pdf = Pdf::loadView('warranty.single_warranty_pdf', compact('warranty', 'imageBase64Array'));
+    
         // Download the generated PDF
         return $pdf->download('warranty_' . $warranty->id . '.pdf');
     }
+    
 
     public function warrantySuccess(Request $request)
     {

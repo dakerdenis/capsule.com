@@ -59,7 +59,7 @@
                                 @csrf <!-- Include CSRF token for security -->
 
                                 <div class="input__wrapper">
-                                    <input value="service@capsuleppf.com" placeholder="Login" type="email"
+                                    <input  placeholder="Login" type="email"
                                         name="email" id="email" required>
                                     @if ($errors->has('email'))
                                         <div style="color: red; font-size: 14px;">
@@ -68,7 +68,7 @@
                                     @endif
                                 </div>
                                 <div class="input__wrapper">
-                                    <input value="password" placeholder="Password" type="password" name="password"
+                                    <input  placeholder="Password" type="password" name="password"
                                         id="password" required>
                                     @if ($errors->has('password'))
                                         <div style="color: red; font-size: 14px;">

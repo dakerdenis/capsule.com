@@ -92,7 +92,7 @@
 
         <div class="logos" style="height: 120px; display: flex; justify-content: space-between;">
             <div class="logos_img ">
-                <img src="{{ public_path('public/images/warranty_logo.png') }}" alt="Capsule Logo">
+                <img src="{{ public_path('images/warranty_logo.png') }}" alt="Capsule Logo">
             </div>
 
         </div>
@@ -134,8 +134,41 @@
             <label>License Plate Number:</label>
             <p>{{ $warranty->license_plate_number }}</p>
         </div>
+        <br>        <br>
+        <br>
+        <br>        <br>
         <br>
         <br>
+        <br>
+        <br>
+        <br>
+        <h2>Car Images</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            @if (!empty($warranty->images_array) && is_array(json_decode($warranty->images_array, true)))
+                @foreach (json_decode($warranty->images_array, true) as $image)
+                    <div style="width: 300px; height: 150px;  overflow: hidden;">
+                        <img src="{{ public_path($image) }}" alt="Warranty Image"
+                            style=" height: 100%; object-fit: cover;">
+                    </div>
+                    <br>
+                @endforeach
+            @else
+                <p>No images available for this warranty.</p>
+            @endif
+        </div>
+        
+        <br>        <br>        <br>
+        <br>
+        <br> 
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>        <br>
+        <br>
+        <br>        <br>
+        <br>
+        <br>       
         <br>
         <br>
         <br>
@@ -190,7 +223,7 @@
         <br>
         <br>
         <br> <br><br>
-        
+
         <h2>Film and Warranty Information</h2>
         <div class="form-row">
             <div class="form-group">
@@ -226,7 +259,8 @@
         <div style="  width: 100%;
   text-align: left;
   font-size: 14px;
-  line-height: 17px;" class="warranty__desc-text">
+  line-height: 17px;"
+            class="warranty__desc-text">
             Capsule PPF provides a warranty for protective films exclusively against the following defects:
 
             <p>Yellowing (discoloration of the film).
@@ -243,29 +277,34 @@
 
             <p>Capsule PPF is not responsible for and does not cover warranty claims in the following cases:</p>
 
-            <p>Improper installation (violation of installation technology, installation by unauthorized technicians).</p>
+            <p>Improper installation (violation of installation technology, installation by unauthorized technicians).
+            </p>
 
             <p>Mechanical damage (scratches, cuts, impacts, accidents).</p>
 
-            <p>Exposure to aggressive chemicals (solvents, abrasive cleaning agents, acidic and alkaline substances).</p>
+            <p>Exposure to aggressive chemicals (solvents, abrasive cleaning agents, acidic and alkaline substances).
+            </p>
 
             <p>Failure to follow operating conditions (excessive heating, frequent use of automatic car washes with hard
                 brushes, improper cleaning methods).</p>
 
             <p>Attempts at self-removal or unqualified repairs.</p>
 
-            <p>Changes in the vehicle's paintwork under the film (if the damage occurred due to pre-existing defects in the
+            <p>Changes in the vehicle's paintwork under the film (if the damage occurred due to pre-existing defects in
+                the
                 paintwork before film installation).</p>
 
-                <br>
+            <br>
             <p>Warranty Claim Process</p>
 
-            <p>To submit a warranty claim, you must visit the center where the film was installed and provide your unique
+            <p>To submit a warranty claim, you must visit the center where the film was installed and provide your
+                unique
                 customer code, which was issued by the Dual Digital Shield system during installation.</p>
 
             <p>If the installation center has closed, you can contact the official Capsule PPF representative in your
                 region for further assistance.</p>
-
+            <br>
+            Local support in Azerbaijan: +994 997 79 79 60
         </div>
     </div>
 </body>
