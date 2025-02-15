@@ -107,6 +107,15 @@
                     </div>
                 </div>
             </div>
+            <div class="form-row">
+                <div class="form-group non-editable">
+                    <label for="service-name">Service's manager:</label>
+                    <div class="warranty-input-container">
+                        <input type="text" id="service-name" name="service_name" value="{{ $warranty->service->description }}"
+                            readonly>
+                    </div>
+                </div>
+            </div>
 
             <div class="form-row">
                 <div class="form-group non-editable">

@@ -36,7 +36,7 @@ class AdminServicesController extends Controller
             'description' => 'nullable|string',
             'email' => 'required|email|unique:services,email',
             'password' => 'required|string|min:6',
-            'phone' => 'required|string|max:20',
+            'phone' => 'required|string|max:50',
             'city' => 'nullable|string|max:255',
             'country' => 'nullable|string|max:255',
             'logo' => 'nullable|image|max:2048', // Image validation (max size 2MB)
@@ -96,7 +96,7 @@ class AdminServicesController extends Controller
             'description' => 'nullable|string',
             'email' => 'required|email|unique:services,email,' . $service->id,
             'password' => 'nullable|string|min:6', // Password can be nullable for no change
-            'phone' => 'required|string|max:20',
+            'phone' => 'required|string|max:50',
             'city' => 'nullable|string|max:255',
             'country' => 'nullable|string|max:255',
             'logo' => 'nullable|image|max:2048', // Image validation (max size 2MB)

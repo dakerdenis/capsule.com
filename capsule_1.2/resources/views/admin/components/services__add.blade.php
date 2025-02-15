@@ -14,7 +14,7 @@
 
             <!-- Input block for Description -->
             <div class="add__input">
-                <div class="add__input-name">Описание</div>
+                <div class="add__input-name">Имя менеджера</div>
                 <div class="add__input-input">
                     <textarea name="description"></textarea>
                 </div>

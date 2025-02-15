@@ -7,7 +7,7 @@
             alt="Service Logo">
     </div>
     <div class="single__service-desc">
-        <p>Описание сервиса: {{ $service->description ?? 'Описание отсутствует' }}</p>
+        <p>Имя менеджера: {{ $service->description ?? 'Описание отсутствует' }}</p>
     </div>
     <div class="single__service-email">
         <p>E-mail сервиса: {{ $service->email ?? 'E-mail отсутствует' }}</p>

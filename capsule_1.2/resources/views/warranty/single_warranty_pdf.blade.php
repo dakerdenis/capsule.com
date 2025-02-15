@@ -157,6 +157,11 @@
         </div>
         <div class="form-row">
             <div class="form-group">
+                <label>Service's manager:</label>
+                <p>{{ $warranty->service->description }}</p>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
                 <label>Service Phone Number:</label>
                 <p>{{ $warranty->service_phone_number }}</p>
             </div>
