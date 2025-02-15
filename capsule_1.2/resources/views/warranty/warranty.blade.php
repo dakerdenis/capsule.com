@@ -4,15 +4,18 @@
 <html lang="en">
 
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2B54N2FD1H"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2B54N2FD1H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-2B54N2FD1H');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2B54N2FD1H');
+    </script>
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('public/images/casule_favicon.png') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('public/images/casule_favicon.png') }}" type="image/x-icon">
@@ -54,9 +57,10 @@
                         <div class="verification__form-formblock">
                             <form action="{{ route('service.post_login') }}" method="POST">
                                 @csrf <!-- Include CSRF token for security -->
-                            
+
                                 <div class="input__wrapper">
-                                    <input value="service@capsuleppf.com" placeholder="Login" type="email" name="email" id="email" required>
+                                    <input  placeholder="Login" type="email"
+                                        name="email" id="email" required>
                                     @if ($errors->has('email'))
                                         <div style="color: red; font-size: 14px;">
                                             {{ $errors->first('email') }}
@@ -64,7 +68,8 @@
                                     @endif
                                 </div>
                                 <div class="input__wrapper">
-                                    <input value="password" placeholder="Password" type="password" name="password" id="password" required>
+                                    <input  placeholder="Password" type="password" name="password"
+                                        id="password" required>
                                     @if ($errors->has('password'))
                                         <div style="color: red; font-size: 14px;">
                                             {{ $errors->first('password') }}
@@ -83,7 +88,8 @@
 
                                 <div class="input__wrapper">
                                     <div class="input__wrapper-info" id="infoIcon">i</div>
-                                    <input  placeholder="Enter product code" type="text" name="product_code" id="product_code" required>
+                                    <input placeholder="Enter product code" type="text" name="product_code"
+                                        id="product_code" required>
                                     @if ($errors->has('product_code'))
                                         <div style="color: red; font-size: 14px;">
                                             {{ $errors->first('product_code') }}
@@ -99,7 +105,7 @@
                                     </button>
                                 </div>
                             </form>
-                            
+
                             <!-- Display generic errors, such as authentication or product code validation -->
                             @if ($errors->any())
                                 <div style="color: red; font-size: 14px; margin-top: 10px;">
@@ -108,8 +114,8 @@
                                     @endforeach
                                 </div>
                             @endif
-                            
-                            
+
+
                         </div>
                     </div>
                     <!-----bottom form-->
@@ -133,50 +139,57 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             const infoIcon = document.getElementById("infoIcon");
             const tooltip = document.getElementById("tooltip");
-        
+
             if (!infoIcon || !tooltip) {
                 console.error("Info icon or tooltip not found in the DOM!");
                 return; // Stop execution if elements are missing
             }
-        
+
             // For Desktop - Show on hover
-            infoIcon.addEventListener("mouseenter", function () {
+            infoIcon.addEventListener("mouseenter", function() {
                 if (!isMobile()) {
                     tooltip.style.display = "block";
                 }
             });
-        
-            infoIcon.addEventListener("mouseleave", function () {
+
+            infoIcon.addEventListener("mouseleave", function() {
                 if (!isMobile()) {
                     tooltip.style.display = "none";
                 }
             });
-        
+
             // For Mobile - Show on click
-            infoIcon.addEventListener("click", function (event) {
+            infoIcon.addEventListener("click", function(event) {
                 if (isMobile()) {
                     event.stopPropagation(); // Prevent click from closing instantly
                     tooltip.style.display = "block";
                 }
             });
-        
+
             // Hide tooltip when clicking anywhere else on mobile
-            document.addEventListener("click", function (event) {
+            document.addEventListener("click", function(event) {
                 if (isMobile() && !infoIcon.contains(event.target) && !tooltip.contains(event.target)) {
                     tooltip.style.display = "none";
                 }
             });
-        
+
             // Function to check if the device is mobile
             function isMobile() {
                 return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             }
         });
-        </script>
-    
+    </script>
+    <!-- 
+===========================================
+ Created & Developed by DAKER
+ Website: https://daker.site/
+ +994 50 750 69 01
+ Year: 2025 
+===========================================
+-->
 </body>
 
 </html>

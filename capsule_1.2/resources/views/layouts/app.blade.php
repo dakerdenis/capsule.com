@@ -60,6 +60,16 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
+
+    <!-- 
+===========================================
+ Created & Developed by DAKER
+ Website: https://daker.site/
+ +994 50 750 69 01
+ Year: 2025 
+===========================================
+-->
+
 </body>
 
 </html>

@@ -26,32 +26,40 @@ class WarrantyController extends Controller
     public function warrantyLogin(Request $request)
     {
         Log::info('Received Login Request:', $request->all());
-
+    
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
             'product_code' => 'required|string',
         ]);
-
+    
+        // Find product in the database
         $product = Product::where('code', $request->product_code)->first();
-
+    
         if (!$product) {
             return back()->withErrors(['product_code' => 'The product code does not exist in our database.']);
         }
-
+    
+        // **Check if the product already has a warranty**
+        if (!empty($product->warranty) && is_numeric($product->warranty)) {
+            Log::warning('Warranty already exists for this product:', ['product_code' => $request->product_code]);
+            return back()->withErrors(['product_code' => 'This product already has a warranty and cannot be registered again.']);
+        }
+    
+        // Find service by email
         $service = \App\Models\Service::where('email', $request->email)->first();
-
+    
         if (!$service) {
             Log::error('Email not found:', ['email' => $request->email]);
             return back()->withErrors(['email' => 'The provided credentials are incorrect.']);
         }
-
+    
         // Check if service has cooperation permission
         if (!$service->cooperation) {
             Log::error('Service does not have cooperation permission:', ['email' => $request->email]);
             return back()->withErrors(['email' => 'You do not have permission to log in.']);
         }
-
+    
         // Manual password check
         if (!Hash::check($request->password, $service->password)) {
             Log::error('Password mismatch:', [
@@ -60,21 +68,22 @@ class WarrantyController extends Controller
             ]);
             return back()->withErrors(['email' => 'The provided credentials are incorrect.']);
         }
-
+    
         // Authenticate service and set session flag
         if (Auth::guard('service')->attempt($request->only('email', 'password'))) {
             Log::info('Login successful for:', ['email' => $request->email]);
-
+    
             // Store product code in the session for use in /warranty/register
             session(['product_code' => $request->product_code]);
             session(['accessed_register' => false]); // Allow access to /warranty/register
-
+    
             return redirect()->route('service.register');
         }
-
+    
         Log::error('Authentication failed for:', ['email' => $request->email]);
         return back()->withErrors(['email' => 'The provided credentials are incorrect.']);
     }
+    
 
 
 
@@ -158,20 +167,39 @@ class WarrantyController extends Controller
                         'size' => $photo->getSize(),
                         'mime_type' => $photo->getMimeType(),
                     ]);
-
+    
                     // Generate unique filename
                     $fileName = uniqid() . '.' . $photo->getClientOriginalExtension();
                     $filePath = public_path('images/warranty_photos/' . $fileName);
-
+    
                     // Ensure directory exists
                     if (!file_exists(public_path('images/warranty_photos'))) {
                         mkdir(public_path('images/warranty_photos'), 0775, true);
                     }
-
+    
                     // Process image using Intervention Image
                     try {
                         $image = Image::make($photo->getRealPath());
-
+    
+                        // ✅ Fix Rotation Based on EXIF Data
+                        if (function_exists('exif_read_data')) {
+                            $exif = @exif_read_data($photo->getRealPath());
+                            if ($exif && isset($exif['Orientation'])) {
+                                switch ($exif['Orientation']) {
+                                    case 3:
+                                        $image->rotate(180); // Rotate 180 degrees
+                                        break;
+                                    case 6:
+                                        $image->rotate(-90); // Rotate 90 degrees counterclockwise
+                                        break;
+                                    case 8:
+                                        $image->rotate(90); // Rotate 90 degrees clockwise
+                                        break;
+                                }
+                                Log::info('EXIF orientation corrected.');
+                            }
+                        }
+    
                         // Apply watermark
                         if (file_exists($watermarkPath)) {
                             try {
@@ -180,14 +208,14 @@ class WarrantyController extends Controller
                                 $watermark->resize($watermarkSize, null, function ($constraint) {
                                     $constraint->aspectRatio();
                                 });
-
+    
                                 $image->insert($watermark, 'bottom-right', 20, 20);
                                 Log::info('Watermark applied successfully.');
                             } catch (\Exception $e) {
                                 Log::warning('Failed to apply watermark: ' . $e->getMessage());
                             }
                         }
-
+    
                         // Compress image
                         $quality = 90;
                         do {
@@ -195,11 +223,11 @@ class WarrantyController extends Controller
                             $imageSize = $compressedImage->filesize();
                             $quality -= 10;
                         } while ($imageSize > 500 * 1024 && $quality > 10);
-
+    
                         // Save compressed image
                         $image->save($filePath, $quality);
                         $uploadedPhotos[] = 'images/warranty_photos/' . $fileName;
-
+    
                         Log::info('Image successfully saved at: ' . $filePath);
                     } catch (\Exception $e) {
                         Log::error('Image processing failed: ' . $e->getMessage());
@@ -345,15 +373,27 @@ class WarrantyController extends Controller
 
     public function generatePdf($id)
     {
-        // Fetch the warranty data with its related service
+        // Fetch warranty with service details
         $warranty = Warranty::with('service')->findOrFail($id);
-
+    
+        // Convert warranty images to Base64
+        $imageBase64Array = [];
+        if (!empty($warranty->images_array) && is_array($warranty->images_array)) {
+            foreach ($warranty->images_array as $image) {
+                $imagePath = public_path($image);
+                if (file_exists($imagePath)) {
+                    $imageBase64Array[] = "data:image/png;base64," . base64_encode(file_get_contents($imagePath));
+                }
+            }
+        }
+    
         // Pass data to the view
-        $pdf = Pdf::loadView('warranty.single_warranty_pdf', compact('warranty'));
-
+        $pdf = Pdf::loadView('warranty.single_warranty_pdf', compact('warranty', 'imageBase64Array'));
+    
         // Download the generated PDF
         return $pdf->download('warranty_' . $warranty->id . '.pdf');
     }
+    
 
     public function warrantySuccess(Request $request)
     {
