@@ -12,35 +12,42 @@ class AdminProductsController extends Controller
     public function adminProducts(Request $request)
     {
         $query = Product::query();
-
+    
         if ($request->has('type') && $request->query('type') !== '') {
             $type = $request->query('type');
             $query->where('type', $type);
         }
+    
         if ($request->has('country') && $request->query('country') !== '') {
             $country = $request->query('country');
             $query->where('country', $country);
         }
-
-        if ($request->has('sort_by_date') && $request->query('sort_by_date') !== '') {
+    
+        // Validate sorting order and apply sorting only if valid
+        if ($request->has('sort_by_date')) {
             $sortByDate = $request->query('sort_by_date');
-            $query->orderBy('verification_date', $sortByDate);
+    
+            if (in_array($sortByDate, ['asc', 'desc'])) {
+                $query->orderBy('verification_date', $sortByDate);
+            }
         }
-
+    
         if ($request->has('has_warranty') && $request->query('has_warranty') !== '') {
             $hasWarranty = $request->query('has_warranty');
+    
             if ($hasWarranty == '1') {
                 $query->whereNotNull('warranty');
-            } else {
+            } elseif ($hasWarranty == '0') {
                 $query->whereNull('warranty');
             }
         }
-
+    
         $products = $query->paginate(20);
         $section = 'products';
-
+    
         return view('admin.dashboard', compact('section', 'products'));
     }
+    
 
     public function adminProductAdd(Request $request)
     {

@@ -49,7 +49,7 @@
             <!--  SORT BY DATE ----->
             <div class="products__sortbydate">
                 <form method="GET" action="{{ route('admin.products') }}">
-                    <input type="hidden" name="section" value="products">
+
                     <input type="hidden" name="type" value="{{ request('type') }}">
                     <label for="sort_by_date">Сортировка по дате:</label>
                     <select id="sort_by_date" name="sort_by_date" onchange="this.form.submit()">

@@ -5,30 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capsule PPF | High-quality car protection</title><!-- Google tag (gtag.js) -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2B54N2FD1H"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2B54N2FD1H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-2B54N2FD1H');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2B54N2FD1H');
+    </script>
 
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('public/images/casule_favicon.png') }}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{ asset('public/images/casule_favicon.png') }}" type="image/x-icon">
+    <!-- ICO Favicon for Desktop Browsers -->
+    <link rel="icon" href="{{ asset('public/images/casule_favicon.ico') }}" sizes="16x16 32x32 48x48"
+        type="image/x-icon">
+
+    <!-- PNG Favicon for Modern Browsers -->
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('public/images/casule_favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="48x48" href="{{ asset('public/images/casule_favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('public/images/casule_favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="512x512" href="{{ asset('public/images/casule_favicon.png') }}">
+
+    <!-- Apple Touch Icon (For iOS Devices) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('public/images/apple-touch-icon.png') }}">
+
+
 
     <!-- Primary Meta Tags -->
-    <meta name="description" content="Capsule PPF provides high-quality protective films for cars, offering superior protection against scratches, chemical exposure, and damage while ensuring a glossy, transparent finish. Maintain your car’s aesthetics with ease.">
-    <meta name="keywords" content="Capsule PPF, car protection film, paint protection, polyurethane film, self-healing film, car aesthetics, scratch-resistant film">
+    <meta name="description"
+        content="Capsule PPF provides high-quality protective films for cars, offering superior protection against scratches, chemical exposure, and damage while ensuring a glossy, transparent finish. Maintain your car’s aesthetics with ease.">
+    <meta name="keywords"
+        content="Capsule PPF, car protection film, paint protection, polyurethane film, self-healing film, car aesthetics, scratch-resistant film">
     <meta name="author" content="Capsule PPF">
     <link rel="canonical" href="{{ url()->current() }}">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Capsule - Car Protection with PPF">
-    <meta property="og:description" content="Capsule PPF offers premium car protection with advanced polyurethane films featuring self-healing, water-repellent, and long-lasting durability.">
+    <meta property="og:description"
+        content="Capsule PPF offers premium car protection with advanced polyurethane films featuring self-healing, water-repellent, and long-lasting durability.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:image" content="{{ asset('public/images/logo_main.png') }}">
@@ -61,12 +79,12 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
 
-    <!-- 
+    <!--
 ===========================================
  Created & Developed by DAKER
  Website: https://daker.site/
  +994 50 750 69 01
- Year: 2025 
+ Year: 2025
 ===========================================
 -->
 
