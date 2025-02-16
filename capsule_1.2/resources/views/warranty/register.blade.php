@@ -359,8 +359,9 @@
         licensePlateError.classList.add("error-message");
         licensePlateInput.parentElement.appendChild(licensePlateError); // Append under input
 
-        // Function to validate license plate input
+        // Function to validate license plate input and convert to uppercase
         function validateLicensePlate() {
+            licensePlateInput.value = licensePlateInput.value.toUpperCase(); // Convert to uppercase
             const licensePlateValue = licensePlateInput.value.trim();
 
             if (licensePlateValue.length !== 7) {
@@ -373,11 +374,13 @@
             }
         }
 
-        // Validate input on typing
+        // Convert to uppercase and validate input on typing
         licensePlateInput.addEventListener("input", validateLicensePlate);
 
         // Prevent form submission if license plate is invalid
         document.getElementById("warrantyForm").addEventListener("submit", function(event) {
+            licensePlateInput.value = licensePlateInput.value.toUpperCase(); // Ensure uppercase on submit
+            
             if (licensePlateInput.value.trim().length !== 7) {
                 licensePlateError.textContent = "License plate must be exactly 7 characters.";
                 licensePlateError.style.color = "red";
@@ -387,6 +390,7 @@
         });
     });
 </script>
+
 
 
 

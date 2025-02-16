@@ -1,3 +1,14 @@
+<style>
+    .service__table-img{
+        width: 50px;
+        height: 50px;
+    }
+    .service__table-img img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+</style>
 <div>
     <div class="services__name__add">
         <h2>Авто сервисы</h2>
@@ -27,8 +38,11 @@
                             <a href="{{ route('admin.service', ['id' => $service->id]) }}">{{ $service->name }}</a>
                         </td>
                         <td>
-                            <img src="{{ $service->logo ? asset('public/' . $service->logo) : asset('images/default-logo.png') }}"
-                            alt="Service Logo">
+                            <div class="service__table-img">
+                                <img src="{{ $service->logo ? asset('public/' . $service->logo) : asset('images/default-logo.png') }}"
+                                alt="Service Logo">
+                            </div>
+
                         </td>
                         <td>{{ $service->cooperation == 1 ? 'Да' : 'Нет' }}</td>
                         <td>{{ $service->city }}</td>

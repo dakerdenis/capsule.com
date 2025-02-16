@@ -35,7 +35,9 @@
                 <div class="verification__content">
                     <!---top image--->
                     <div class="verification__form-image">
-                        <img src="{{ asset('public/images/logo_main.png') }}" alt="">
+                        <a href="{{ url(app()->getLocale()) }}">
+                            <img src="{{ asset('public/images/logo_main.png') }}" alt="">
+                        </a>                        
                     </div>
                     <!---form--->
                     <div class="verification__form-form">
