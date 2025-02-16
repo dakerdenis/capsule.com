@@ -184,7 +184,7 @@
                 <p>{{ $warranty->service->name }}</p>
             </div>
             <div class="form-group">
-                <label>Manager/Master Name:</label>
+                <label>Master Name:</label>
                 <p>{{ $warranty->master_name }}</p>
             </div>
         </div>

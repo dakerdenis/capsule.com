@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="manager-name">Manager/Master Name:</label>
+                <label for="manager-name">Master Name:</label>
                 <div class="warranty-input-container">
                     <input type="text" id="manager-name" name="manager_name" value="{{ $warranty->master_name }}"
                         readonly>
