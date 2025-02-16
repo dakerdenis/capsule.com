@@ -52,14 +52,14 @@
                 <div class="form-group">
                     <label for="car-model">Brand:</label>
                     <div class="warranty-input-container">
-                        <input type="text" id="car-model" name="car_model" placeholder="Enter car model" required>
+                        <input type="text" id="car-model" name="car_model" placeholder="Enter car make" required>
                     </div>
 
                 </div>
                 <div class="form-group">
                     <label for="car-make">Model:</label>
                     <div class="warranty-input-container">
-                        <input type="text" id="car-make" name="car_make" placeholder="Enter car make" required>
+                        <input type="text" id="car-make" name="car_make" placeholder="Enter car model" required>
                     </div>
 
                 </div>
@@ -113,7 +113,7 @@
                 <div class="form-group non-editable">
                     <label for="service-name">Service's manager:</label>
                     <div class="warranty-input-container">
-                        <input type="text" id="service-name" name="service_name" value="{{ $warranty->service->description }}"
+                        <input type="text" id="service-desc" name="service_desc" value="{{ $service->description }}"
                             readonly>
                     </div>
                 </div>
