@@ -10,6 +10,7 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Название</th>
+                    <th scope="col"> </th>
                     <th scope="col">Сотрудничество</th>
                     <th scope="col">Город</th>
                     <th scope="col">Страна</th>
@@ -24,6 +25,10 @@
                         <th scope="row">{{ $service->id }}</th>
                         <td>
                             <a href="{{ route('admin.service', ['id' => $service->id]) }}">{{ $service->name }}</a>
+                        </td>
+                        <td>
+                            <img src="{{ $service->logo ? asset('public/' . $service->logo) : asset('images/default-logo.png') }}"
+                            alt="Service Logo">
                         </td>
                         <td>{{ $service->cooperation == 1 ? 'Да' : 'Нет' }}</td>
                         <td>{{ $service->city }}</td>
