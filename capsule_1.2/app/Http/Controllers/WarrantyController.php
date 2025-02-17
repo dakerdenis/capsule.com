@@ -26,40 +26,40 @@ class WarrantyController extends Controller
     public function warrantyLogin(Request $request)
     {
         Log::info('Received Login Request:', $request->all());
-    
+
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
             'product_code' => 'required|string',
         ]);
-    
+
         // Find product in the database
         $product = Product::where('code', $request->product_code)->first();
-    
+
         if (!$product) {
             return back()->withErrors(['product_code' => 'The product code does not exist in our database.']);
         }
-    
+
         // **Check if the product already has a warranty**
         if (!empty($product->warranty) && is_numeric($product->warranty)) {
             Log::warning('Warranty already exists for this product:', ['product_code' => $request->product_code]);
             return back()->withErrors(['product_code' => 'This product already has a warranty and cannot be registered again.']);
         }
-    
+
         // Find service by email
         $service = \App\Models\Service::where('email', $request->email)->first();
-    
+
         if (!$service) {
             Log::error('Email not found:', ['email' => $request->email]);
             return back()->withErrors(['email' => 'The provided credentials are incorrect.']);
         }
-    
+
         // Check if service has cooperation permission
         if (!$service->cooperation) {
             Log::error('Service does not have cooperation permission:', ['email' => $request->email]);
             return back()->withErrors(['email' => 'You do not have permission to log in.']);
         }
-    
+
         // Manual password check
         if (!Hash::check($request->password, $service->password)) {
             Log::error('Password mismatch:', [
@@ -68,22 +68,22 @@ class WarrantyController extends Controller
             ]);
             return back()->withErrors(['email' => 'The provided credentials are incorrect.']);
         }
-    
+
         // Authenticate service and set session flag
         if (Auth::guard('service')->attempt($request->only('email', 'password'))) {
             Log::info('Login successful for:', ['email' => $request->email]);
-    
+
             // Store product code in the session for use in /warranty/register
             session(['product_code' => $request->product_code]);
             session(['accessed_register' => false]); // Allow access to /warranty/register
-    
+
             return redirect()->route('service.register');
         }
-    
+
         Log::error('Authentication failed for:', ['email' => $request->email]);
         return back()->withErrors(['email' => 'The provided credentials are incorrect.']);
     }
-    
+
 
 
 
@@ -111,9 +111,10 @@ class WarrantyController extends Controller
 
         // Fetch warranty and lifespan dynamically
         $filmModel = $this->getFilmModel($product->type);
-        $warrantyPeriod = $this->getWarrantyPeriod($product->type);
+
         $serviceLife = $this->getServiceLife($product->type);
-        $warrantyEndDate = now()->addYears($warrantyPeriod)->format('Y-m-d');
+        $warrantyPeriod = $this->getWarrantyPeriod($product->type); // Get the correct period
+        $warrantyEndDate = now()->addYears($warrantyPeriod)->format('Y-m-d'); // Add dynamically
 
         session(['accessed_register' => true]);
 
@@ -155,7 +156,21 @@ class WarrantyController extends Controller
             if (!$serviceId) {
                 throw new \Exception('Service ID is missing. User might not be authenticated.');
             }
+            // ✅ Retrieve product using session product code
+            $productCode = session('product_code');
+            $product = Product::where('code', $productCode)->first();
 
+            if (!$product) {
+                throw new \Exception('Product not found in database.');
+            }
+            // ✅ Get correct warranty period dynamically
+            $warrantyPeriod = $this->getWarrantyPeriod($product->type);
+
+            // ✅ Get service life dynamically
+            $serviceLife = $this->getServiceLife($product->type);
+
+            // ✅ Compute warranty end date dynamically
+            $warrantyEndDate = now()->addYears($warrantyPeriod);
             // Process uploaded photos
             $uploadedPhotos = [];
             $watermarkPath = public_path('images/logo_main.png');
@@ -167,20 +182,20 @@ class WarrantyController extends Controller
                         'size' => $photo->getSize(),
                         'mime_type' => $photo->getMimeType(),
                     ]);
-    
+
                     // Generate unique filename
                     $fileName = uniqid() . '.' . $photo->getClientOriginalExtension();
                     $filePath = public_path('images/warranty_photos/' . $fileName);
-    
+
                     // Ensure directory exists
                     if (!file_exists(public_path('images/warranty_photos'))) {
                         mkdir(public_path('images/warranty_photos'), 0775, true);
                     }
-    
+
                     // Process image using Intervention Image
                     try {
                         $image = Image::make($photo->getRealPath());
-    
+
                         // ✅ Fix Rotation Based on EXIF Data
                         if (function_exists('exif_read_data')) {
                             $exif = @exif_read_data($photo->getRealPath());
@@ -199,7 +214,7 @@ class WarrantyController extends Controller
                                 Log::info('EXIF orientation corrected.');
                             }
                         }
-    
+
                         // Apply watermark
                         if (file_exists($watermarkPath)) {
                             try {
@@ -208,14 +223,14 @@ class WarrantyController extends Controller
                                 $watermark->resize($watermarkSize, null, function ($constraint) {
                                     $constraint->aspectRatio();
                                 });
-    
+
                                 $image->insert($watermark, 'bottom-right', 20, 20);
                                 Log::info('Watermark applied successfully.');
                             } catch (\Exception $e) {
                                 Log::warning('Failed to apply watermark: ' . $e->getMessage());
                             }
                         }
-    
+
                         // Compress image
                         $quality = 90;
                         do {
@@ -223,11 +238,11 @@ class WarrantyController extends Controller
                             $imageSize = $compressedImage->filesize();
                             $quality -= 10;
                         } while ($imageSize > 500 * 1024 && $quality > 10);
-    
+
                         // Save compressed image
                         $image->save($filePath, $quality);
                         $uploadedPhotos[] = 'images/warranty_photos/' . $fileName;
-    
+
                         Log::info('Image successfully saved at: ' . $filePath);
                     } catch (\Exception $e) {
                         Log::error('Image processing failed: ' . $e->getMessage());
@@ -242,6 +257,9 @@ class WarrantyController extends Controller
             // Convert images array to JSON
             $imagesJson = json_encode($uploadedPhotos, JSON_THROW_ON_ERROR);
             Log::info('Final image paths stored:', $uploadedPhotos);
+
+
+
 
             // **Save warranty to the database**
             $warranty = Warranty::create([
@@ -263,7 +281,7 @@ class WarrantyController extends Controller
                 'film_model' => $request->film_model ?? 'Default',
                 'warranty_model' => $request->warranty_period ?? 'Default',
                 'service_life' => $request->input('service-life', 'Default'),
-                'warranty_end_date' => now()->addYears(5),
+                'warranty_end_date' => now()->addYears($warrantyPeriod),
                 'client_code' => strtoupper(bin2hex(random_bytes(6)) . rand(1, 9)),
                 'images_array' => $imagesJson,
             ]);
@@ -310,11 +328,11 @@ class WarrantyController extends Controller
     private function sendSmsNotification($clientPhone, $message)
     {
         $apiUrl = "https://sms.atatexnologiya.az/bulksms/api";
-        $apiLogin = "Capsule";  
+        $apiLogin = "Capsule";
         $apiPassword = "db8Q#5@H!1R";
-        $title = "CAPSULE PPF"; 
+        $title = "CAPSULE PPF";
         $controlId = time() . rand(1000, 9999); // Unique ID
-    
+
         $xmlData = "<?xml version='1.0' encoding='UTF-8'?>
             <request>
                 <head>
@@ -331,17 +349,17 @@ class WarrantyController extends Controller
                     <message>{$message}</message>
                 </body>
             </request>";
-    
+
         try {
             $response = Http::withHeaders([
                 'Content-Type' => 'application/xml',
-            ])->withBody($xmlData, 'application/xml') 
-              ->withOptions(['verify' => false])
-              ->post($apiUrl);
-    
+            ])->withBody($xmlData, 'application/xml')
+                ->withOptions(['verify' => false])
+                ->post($apiUrl);
+
             Log::info('SMS API Request:', ['xml' => $xmlData]);
             Log::info('SMS API Response:', ['response' => $response->body()]);
-    
+
             if (strpos($response->body(), '<responsecode>000</responsecode>') !== false) {
                 return true;
             } else {
@@ -353,10 +371,10 @@ class WarrantyController extends Controller
             return false;
         }
     }
-    
-    
-    
-    
+
+
+
+
 
 
     public function singleWarranty($id)
@@ -375,7 +393,7 @@ class WarrantyController extends Controller
     {
         // Fetch warranty with service details
         $warranty = Warranty::with('service')->findOrFail($id);
-    
+
         // Convert warranty images to Base64
         $imageBase64Array = [];
         if (!empty($warranty->images_array) && is_array($warranty->images_array)) {
@@ -386,25 +404,25 @@ class WarrantyController extends Controller
                 }
             }
         }
-    
+
         // Pass data to the view
         $pdf = Pdf::loadView('warranty.single_warranty_pdf', compact('warranty', 'imageBase64Array'));
-    
+
         // Download the generated PDF
         return $pdf->download('warranty_' . $warranty->id . '.pdf');
     }
-    
+
 
     public function warrantySuccess(Request $request)
     {
         Log::info('Accessed warrantySuccess method.');
-        
+
         $latestWarranty = Warranty::latest()->first(); // Get the most recent warranty
-    
+
         // Log session data and request data for debugging
         Log::info('Session Data:', session()->all());
         Log::info('Request Data:', $request->all());
-    
+
         return view('warranty.success', [
             'status' => session('status', 'error'), // Default to error if no status
             'message' => session('message', 'An unknown error occurred.'),
@@ -413,7 +431,7 @@ class WarrantyController extends Controller
             'latestWarranty' => $latestWarranty, // Pass the latest warranty to the view
         ]);
     }
-    
+
 
 
 
