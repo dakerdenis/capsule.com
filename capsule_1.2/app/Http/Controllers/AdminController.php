@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Log;
 use App\Models\Product;
 use App\Models\Service;
 use App\Models\Warranty;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Artisan;
 
 class AdminController extends Controller
 {
@@ -93,4 +95,15 @@ class AdminController extends Controller
             'sessionCount'
         ));
     }
+
+    public function logoutAllSessions()
+{
+    // Flush all sessions
+    Session::flush();
+
+    // Clear cache to ensure logout
+    Artisan::call('cache:clear');
+
+    return redirect()->route('admin.dashboard')->with('success', 'All sessions have been closed.');
+}
 }

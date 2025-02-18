@@ -49,5 +49,11 @@
             <li><strong>Общее число сессий:</strong> {{ $sessionCount }}</li>
 
         </ul>
+
+        <!-- Button to close all sessions -->
+        <form action="{{ route('admin.logout_all_sessions') }}" method="POST">
+            @csrf
+            <button type="submit" class="btn btn-danger"> Close All Sessions</button>
+        </form>
     </div>
 </div>

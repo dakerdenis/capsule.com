@@ -58,6 +58,7 @@ Route::middleware('auth_admin')->group(function () {
     Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.dashboard');
     //PRODUCTS + SERVICES + WARANTIES
     Route::prefix('admin')->group(function () {
+        Route::get('/logout-all-session', [AdminController::class, 'logoutAllSessions'])->name('admin.logout_all_sessions');
         //*PRODUCTS
         Route::get('/products', [AdminProductsController::class, 'adminProducts'])->name('admin.products');
         Route::prefix('products')->group(function () {
