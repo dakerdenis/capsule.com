@@ -127,7 +127,7 @@
 }
 
 .products__sortby-block {
-
+    margin-top: 10px;
     background-color: #fff;
 
 
@@ -141,7 +141,7 @@
 
 
     border-radius: 5px;
-    padding: 15px;
+
 
 }
 

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Log;
 use App\Models\Product;
 use App\Models\Service;
 use App\Models\Warranty;
+
 class AdminController extends Controller
 {
     public function showLoginForm()
@@ -21,16 +22,16 @@ class AdminController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-    
+
         if (Auth::guard('web')->attempt($request->only('email', 'password'))) {
             return redirect()->route('admin.dashboard');
         }
-    
+
         return back()->withErrors([
             'email' => 'Invalid credentials.',
         ]);
     }
-    
+
 
     public function logout(Request $request)
     {
@@ -43,10 +44,12 @@ class AdminController extends Controller
 
     public function showAdminPage()
     {
+
+
         // Total products
         $totalProducts = Product::count();
 
-        // Total verified products (placeholder for future implementation)
+        // Total verified products
         $verifiedProducts = Product::whereNotNull('verification_date')->count();
 
         // Total products with warranty
@@ -61,6 +64,18 @@ class AdminController extends Controller
         // Expired warranties
         $expiredWarranties = Warranty::where('warranty_end_date', '<', now())->count();
 
+        // Get session data
+        $sessionId = session()->getId();
+        $lastActivity = session('last_activity') ?? 'N/A';
+
+        // Get last login details
+
+        $ipAddress = request()->ip();
+        $sessionCount = count(session()->all()); // ✅ This remains an integer
+
+
+
+        // Section identifier
         $section = 'home';
 
         return view('admin.dashboard', compact(
@@ -70,8 +85,12 @@ class AdminController extends Controller
             'productsWithWarranty',
             'totalServices',
             'totalWarranties',
-            'expiredWarranties'
+            'expiredWarranties',
+            'sessionId',
+            'lastActivity',
+
+            'ipAddress',
+            'sessionCount'
         ));
     }
-
 }

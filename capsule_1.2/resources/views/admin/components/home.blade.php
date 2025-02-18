@@ -1,46 +1,53 @@
 <div class="home__wrapper">
-    <div class="home__statistics__container">
-        <!-- Products -->
-        <div class="home__statistics__element">
-            <div class="element__name">
-                <p>Товары</p>
-                <span>{{ $totalProducts }}</span>
+    <div class="home__container__block">
+        <div class="home__container__block-element">
+            <div class="home__container__block-name">
+                <span>
+                    {{ $totalProducts }}
+                </span>
+                <p>
+                    Товары
+                </p>
             </div>
-
-            <div class="element__desc">
-                <p>Верифицированных:</p>
-                <span>{{ $verifiedProducts }}</span>
-            </div>
-            <div class="element__desc">
-                <p>С гарантией:</p>
-                <span>{{ $productsWithWarranty }}</span>
-            </div>
-        </div>
-
-        <!-- Services -->
-        <div class="home__statistics__element">
-            <div class="element__name">
-                <p>Сервисы</p>
-                <span>{{ $totalServices }}</span>
-            </div>
-
-            <div class="element__desc">
-                <p>Выпущено гарантий:</p>
-                <span>Плейсхолдер</span> <!-- Placeholder for future implementation -->
+            <div class="home__container__block-desc">
+                <div class="home__container__block-desc1">
+                    <span>{{ $productsWithWarranty }}</span>
+                    <p>с гарантией</p>
+                </div>
             </div>
         </div>
-
-        <!-- Warranties -->
-        <div class="home__statistics__element">
-            <div class="element__name">
-                <p>Гарантии</p>
-                <span>{{ $totalWarranties }}</span>
-            </div>
-
-            <div class="element__desc">
-                <p>Просроченных гарантий:</p>
-                <span>{{ $expiredWarranties }}</span>
+        <div class="home__container__block-element home__container__block-element1">
+            <div class="home__container__block-name">
+                <span>
+                    {{ $totalServices }}
+                </span>
+                <p>
+                    Сервисы
+                </p>
             </div>
         </div>
+        <div class="home__container__block-element">
+            <div class="home__container__block-name">
+                <span>
+                    {{ $totalWarranties }}
+                </span>
+                <p>
+                    Гарантии
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!----information about website----->
+    <br><br>
+    <div class="admin__stats">
+        <h2> Информация о сессии и авторизации</h2>
+        <ul>
+            <li><strong>Session ID:</strong> {{ $sessionId }}</li>
+            <li><strong>Последняя активность:</strong> {{ $lastActivity }}</li>
+            <li><strong>IP Адрес:</strong> {{ $ipAddress }}</li>
+            <li><strong>Общее число сессий:</strong> {{ $sessionCount }}</li>
+
+        </ul>
     </div>
 </div>

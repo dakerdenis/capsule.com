@@ -213,6 +213,7 @@ h6 {
   background-color: #fff;  
   overflow: hidden;
   border-radius: 5px;
+  border: 1px solid #00000024;
 }
 .add__input-input input {
   width: 100%;
@@ -257,4 +258,11 @@ h6 {
   background-color: #28a745 !important; /* Green Background */
   color: white !important; /* White Text */
   border-radius: 5px;
+}
+.services__wrapper td a{
+  color: #4340DA;
+  font-weight: 500;
+}
+.service__table-img img{
+
 }

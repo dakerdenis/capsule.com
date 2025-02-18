@@ -1,18 +1,28 @@
 <style>
-    .service__table-img{
+    .service__table-img {
         width: 50px;
         height: 50px;
     }
+
     .service__table-img img {
-        height: 100%;
+
         width: 100%;
         object-fit: cover;
+    }
+
+    .add_service_a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 200px;
+        background-color: #4340DA;
+        color: #fff;
     }
 </style>
 <div>
     <div class="services__name__add">
         <h2>Авто сервисы</h2>
-        <a class="btn btn-secondary" href="{{ route('admin.add_service') }}">Добавление сервиса</a>
+        <a class="btn add_service_a" href="{{ route('admin.add_service') }}">Добавление сервиса</a>
     </div>
 
     <div class="services__wrapper">
@@ -40,7 +50,7 @@
                         <td>
                             <div class="service__table-img">
                                 <img src="{{ $service->logo ? asset('public/' . $service->logo) : asset('images/default-logo.png') }}"
-                                alt="Service Logo">
+                                    alt="Service Logo">
                             </div>
 
                         </td>
@@ -116,17 +126,17 @@
 
     .popup-close {
         position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: none;
-    font-size: 18px;
-    width: 24px;
-    height: 28px;
-    color: #fff;
-    border-radius: 16px;
-    background-color: red;
-    cursor: pointer;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        font-size: 18px;
+        width: 24px;
+        height: 28px;
+        color: #fff;
+        border-radius: 16px;
+        background-color: red;
+        cursor: pointer;
     }
 </style>
 
