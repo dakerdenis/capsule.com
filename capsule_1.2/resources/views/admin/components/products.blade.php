@@ -26,50 +26,50 @@
         <div class="products__sortby-block">
 
             <!--  SORT BY TYPE ----->
-            <div class="products__sortby">
-                Фильтр по типу:
-            </div>
-            <div class="products__sortby__buttons">
-                <a class="btn btn-secondary" href="{{ route('admin.products', ['type' => 1]) }}">Urban</a>
-                <a class="btn btn-secondary" href="{{ route('admin.products', ['type' => 2]) }}">Optima</a>
-                <a class="btn btn-secondary" href="{{ route('admin.products', ['type' => 3]) }}">Element</a>
-                <a class="btn btn-secondary" href="{{ route('admin.products', ['type' => 4]) }}">Huracan</a>
-                <a class="btn btn-secondary" href="{{ route('admin.products', ['type' => 5]) }}">Matte</a>
-                <a class="btn btn-secondary" href="{{ route('admin.products', ['type' => 6]) }}">Black</a>
+            <div class="products__sortby-form">
+                <form method="GET" action="{{ route('admin.products') }}">
+                    <select id="filter_by_type" name="type" onchange="this.form.submit()">
+                        <option value="">По типу</option>
+                        <option value="1" {{ request('type') == 1 ? 'selected' : '' }}>Urban</option>
+                        <option value="2" {{ request('type') == 2 ? 'selected' : '' }}>Optima</option>
+                        <option value="3" {{ request('type') == 3 ? 'selected' : '' }}>Element</option>
+                        <option value="4" {{ request('type') == 4 ? 'selected' : '' }}>Huracan</option>
+                        <option value="5" {{ request('type') == 5 ? 'selected' : '' }}>Matte</option>
+                        <option value="6" {{ request('type') == 6 ? 'selected' : '' }}>Black</option>
+                    </select>
+                </form>
             </div>
             <!--  SORT BY COUNTRY ----->
-            <div class="products__sortby">
-                Фильтр по Стране:
-            </div>
-            <div class="products__sortby__buttons">
-                <a class="btn btn-secondary" href="{{ route('admin.products', ['country' => 'AZ']) }}">AZ</a>
-                <a class="btn btn-secondary" href="{{ route('admin.products', ['country' => 'EU']) }}">EU</a>
-                <a class="btn btn-secondary" href="{{ route('admin.products', ['country' => 'US']) }}">US</a>
+            <div class="products__sortby-form">
+                <form method="GET" action="{{ route('admin.products') }}">
+                    <select id="filter_by_country" name="country" onchange="this.form.submit()">
+                        <option value="">По стране</option>
+                        <option value="AZ" {{ request('country') == 'AZ' ? 'selected' : '' }}>AZ</option>
+                        <option value="EU" {{ request('country') == 'EU' ? 'selected' : '' }}>EU</option>
+                        <option value="US" {{ request('country') == 'US' ? 'selected' : '' }}>US</option>
+                    </select>
+                </form>
             </div>
             <!--  SORT BY DATE ----->
-            <div class="products__sortbydate">
+            <div class="products__sortby-form">
                 <form method="GET" action="{{ route('admin.products') }}">
-
                     <input type="hidden" name="type" value="{{ request('type') }}">
-                    <label for="sort_by_date">Сортировка по дате:</label>
                     <select id="sort_by_date" name="sort_by_date" onchange="this.form.submit()">
-                        <option value="">Выберите</option>
+                        <option value="">По дате</option>
                         <option value="asc" {{ request('sort_by_date') === 'asc' ? 'selected' : '' }}>По возрастанию
                         </option>
                         <option value="desc" {{ request('sort_by_date') === 'desc' ? 'selected' : '' }}>По убыванию
                         </option>
                     </select>
                 </form>
-            </div>
-    
+            </div>    
             <!--  SORT BY WARRANTY ----->
-            <div class="products__sortbyhaswarranty">
+            <div class="products__sortby-form">
                 <form method="GET" action="{{ route('admin.products') }}">
                     <input type="hidden" name="section" value="products">
                     <input type="hidden" name="type" value="{{ request('type') }}">
-                    <label for="has_warranty">Сортировка по наличию гарантии:</label>
                     <select id="has_warranty" name="has_warranty" onchange="removeEmptyAndSubmit(this.form)">
-                        <option value="">Выберите</option>
+                        <option value="">По гарантии</option>
                         <option value="1" {{ request('has_warranty') === '1' ? 'selected' : '' }}>С гарантией</option>
                         <option value="0" {{ request('has_warranty') === '0' ? 'selected' : '' }}>Без гарантии
                         </option>
@@ -78,19 +78,18 @@
             </div>
     
             <!--  DEFAULT SORT ----->
-            <a class="filtr_default btn btn-secondary" href="{{ route('admin.products') }}">Сбросить фильтры</a>
+            <a class="filtr_default btn" href="{{ route('admin.products') }}">Сбросить фильтры</a>
     
         </div>
 
         <!-----CRUD--->
         <div class="products__sortby-edit">
-            <a href="{{ route('admin.add_product')}}" class="btn btn-secondary">Добавить продукт</a>
-
+            <a href="{{ route('admin.add_product')}}" class="btn filtr_default">Добавить продукт</a>
         </div>
     </div>
 
     <table class="main__table table table-hover">
-        <thead class="thead-dark">
+        <thead class="thead">
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">6 Digits Code</th>

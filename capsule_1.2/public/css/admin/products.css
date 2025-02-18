@@ -4,6 +4,7 @@
     flex-direction: column;
     height: 100%;
 }
+
 .products__name {
     font-weight: 500;
     font-size: 24px;
@@ -12,10 +13,12 @@
     width: 100%;
     border-bottom: 1px solid #0e025021;
 }
+
 .products__list {
     width: 100%;
-    
+
 }
+
 .products__list__desc {
     width: 1440px;
     height: 40px;
@@ -23,12 +26,13 @@
     background-color: #bebebee5;
 }
 
-.flex-center{
+.flex-center {
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid #000;
 }
+
 .list__desc__id {
     width: 60px;
     display: flex;
@@ -37,18 +41,23 @@
 
 
 }
+
 .list__desc__code {
     width: 200px;
 }
+
 .list__desc__verificationdate {
     width: 140px;
 }
+
 .list__desc__warranty {
     width: 200px;
 }
+
 .list__desc__type {
     width: 120px;
 }
+
 .list__desc__serviceid {
     width: 250px;
 }
@@ -96,31 +105,64 @@
     border-color: #007bff;
 }
 
-.main__table{
+.main__table {
     margin-top: 20px;
 }
-.filtr_default{
-    display: block;
+
+.filtr_default {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     max-width: 200px;
+    background-color: #4340DA;
+    color: #fff;
 
 }
-.products__sort__add-wrapper{
+
+.products__sort__add-wrapper {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column-reverse;
+    
 }
+
 .products__sortby-block {
 
     background-color: #fff;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
 }
 
-.products__sortby-edit{
+.products__sortby-edit {
 
 
     border-radius: 5px;
     padding: 15px;
 
+}
+
+.products__sortby-form {
+    width: 181px;
+    height: 34px;
+
+}
+
+.products__sortby-form form {
+    width: 100%;
+    height: 100%;
+    padding-right: 5px;
+
+}
+
+.products__sortby-form select {
+    width: 100%;
+    height: 100%;
+    background-color: #f6f6f6;
+    border-radius: 5px;
+    padding-left: 8px;
+    padding-right: 5px;
 }

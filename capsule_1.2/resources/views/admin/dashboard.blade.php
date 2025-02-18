@@ -26,7 +26,7 @@
     <div class="admin__wrapper">
         <div class="admin__wrapper__controlpanel">
             <div class="admin__logo">
-                <img src="{{ asset('public/images/logo_main.png') }}" alt="">
+                <img src="{{ asset('public/images/warranty_logo.png') }}" alt="">
             </div>
 
             <div class="admin__hello">
@@ -35,27 +35,27 @@
 
             <div class="admin__navigation">
                 <div class="admin__navigation-element">
-                    <a class="btn btn-dark {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" href="{{ route('admin.dashboard') }}">
+                    <a class="btn  {{ request()->routeIs('admin.dashboard') ? 'active_a' : '' }}" href="{{ route('admin.dashboard') }}">
                         Главная
                     </a>
                 </div>
                 <div class="admin__navigation-element">
-                    <a class="btn btn-dark {{ request()->routeIs('admin.products') ? 'active' : '' }}" href="{{ route('admin.products') }}">
+                    <a class="btn  {{ request()->routeIs('admin.products') ? 'active_a' : '' }}" href="{{ route('admin.products') }}">
                         Товары
                     </a>
                 </div>
                 <div class="admin__navigation-element">
-                    <a class="btn btn-dark {{ request()->routeIs('admin.services') ? 'active' : '' }}" href="{{ route('admin.services') }}">
+                    <a class="btn  {{ request()->routeIs('admin.services') ? 'active_a' : '' }}" href="{{ route('admin.services') }}">
                         Сервисы
                     </a>
                 </div>
                 <div class="admin__navigation-element">
-                    <a class="btn btn-dark {{ request()->routeIs('admin.warranties') ? 'active' : '' }}" href="{{ route('admin.warranties') }}">
+                    <a class="btn {{ request()->routeIs('admin.warranties') ? 'active_a' : '' }}" href="{{ route('admin.warranties') }}">
                         Гарантии
                     </a>
                 </div>
                 <div class="admin__navigation-element">
-                    <a class="btn btn-dark {{ request()->routeIs('admin.clients') ? 'active' : '' }}" href="{{ route('admin.clients') }}">
+                    <a class="btn {{ request()->routeIs('admin.clients') ? 'active_a' : '' }}" href="{{ route('admin.clients') }}">
                         Клиенты
                     </a>
                 </div>
@@ -66,7 +66,10 @@
             <div class="admin__logout">
                 <form method="POST" action="{{ route('admin.logout') }}">
                     @csrf
-                    <button type="submit" class="btn btn-dark">Logout</button>
+                    <button type="submit" class="btn_logout">                        
+                        <img src="{{ asset('public/images/SignOut.svg') }}" alt="">
+                        <p>Logout</p>
+                    </button>
                 </form>
             </div>
         </div>

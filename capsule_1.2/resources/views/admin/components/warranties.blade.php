@@ -3,7 +3,7 @@
     <br>
     <div class="services__wrapper">
         <table class="main__table table table-hover">
-            <thead class="thead-dark">
+            <thead class="thead">
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Product Code</th>
