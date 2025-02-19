@@ -175,7 +175,7 @@
             <div class="main__wrapper-mobile">
                 <!--image-->
                 <div class="mobile__main-background">
-                    <img src="{{ asset('public/images/background-mobile.png') }}" alt="Car Image">
+                    <img src="{{ asset('public/images/background-mobile.webp') }}" alt="Car Image" loading="lazy">
                 </div>
                 <!--DESC + CONTACT-->
                 <div class="mobile__main-desc">
@@ -285,8 +285,8 @@
             <div class="main__background main__background-mobile">
 
                 <picture>
-                    <source media="(max-width: 768px)" srcset="{{ asset('public/images/background-mobile.png') }}">
-                    <img src="{{ asset('public/images/background.png') }}" alt="Car Image">
+                    <source media="(max-width: 768px)" srcset="{{ asset('public/images/background-mobile.webp') }}">
+                    <img src="{{ asset('public/images/background.png') }}" alt="Car Image" loading="lazy">
                 </picture>
             </div>
         </section>
@@ -548,11 +548,11 @@
                                 </ul>
                             </div>
                             <div class="glide__arrows" data-glide-el="controls">
-                                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+                                <button class="glide__arrow glide__arrow--left" data-glide-dir="<" aria-label="Previous Slide">
                                     <img src="{{ asset('public/images/arrow_catalog.png') }}" alt=""
                                         srcset="">
                                 </button>
-                                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+                                <button class="glide__arrow glide__arrow--right" data-glide-dir=">" aria-label="Next Slide">
                                     <img src="{{ asset('public/images/arrow_catalog.png') }}" alt=""
                                         srcset="">
                                 </button>
@@ -1080,7 +1080,7 @@
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3104.5949588474564!2d-77.0222031!3d38.91037680000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2saz!4v1735153252338!5m2!1sru!2saz"
                                 width="100%" height="100%" style="border: none;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                referrerpolicy="no-referrer-when-downgrade" title="Google Maps - Capsule Location"></iframe>
                         </div>
                     </div>
 

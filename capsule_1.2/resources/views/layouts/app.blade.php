@@ -62,8 +62,6 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
-
-    <script src="https://ajax.googleapis.com/ajax/libs/cesiumjs/1.78/Build/Cesium/Cesium.js"></script>
     <!-- jQuery Library -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <!-- Select2 Library -->
@@ -76,7 +74,14 @@
 
     @yield('content')
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        if (document.querySelector('.swiper-container')) {
+            let swiperScript = document.createElement('script');
+            swiperScript.src = "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js";
+            document.body.appendChild(swiperScript);
+        }
+    </script>
+    
 
 
     <!--
