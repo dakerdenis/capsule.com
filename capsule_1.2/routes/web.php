@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminProductsController;
 use App\Http\Controllers\AdminServicesController;
 use App\Http\Controllers\AdminWarrantyController;
 use App\Http\Controllers\ClientsController;
+use App\Http\Controllers\ContactController;
 
 use Intervention\Image\Facades\Image;
 
@@ -58,6 +59,7 @@ Route::middleware('auth_admin')->group(function () {
     Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.dashboard');
     //PRODUCTS + SERVICES + WARANTIES
     Route::prefix('admin')->group(function () {
+        Route::post('/logout-all-session', [AdminController::class, 'logoutAllSessions'])->name('admin.logout_all_sessions');
         //*PRODUCTS
         Route::get('/products', [AdminProductsController::class, 'adminProducts'])->name('admin.products');
         Route::prefix('products')->group(function () {
@@ -76,7 +78,7 @@ Route::middleware('auth_admin')->group(function () {
             Route::post('/add', [AdminServicesController::class, 'adminPostAddService'])->name('admin.add_post_service');
         });
         //**Clients (FOR FUTURE)
-        Route::get('/clients', [ClientsController::class, 'adminClients'])->name('admin.clients');
+    //    Route::get('/clients', [ClientsController::class, 'adminClients'])->name('admin.clients');
         Route::prefix('clients')->group(function (){
 
         });
@@ -108,17 +110,9 @@ Route::get('/warranty-success', [WarrantyController::class, 'warrantySuccess'])-
 Route::get('/warranty/{id}', [WarrantyController::class, 'singleWarranty'])->name('service.warranty');
 Route::get('/warranty/{id}/pdf', [WarrantyController::class, 'generatePdf'])->name('service.warranty.pdf');
 //*************************** */
+Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
 
 
-Route::get('/test-image', function () {
-    try {
-        $image = Image::canvas(100, 100, '#ff0000');
-        return $image->response('png');
-    } catch (\Exception $e) {
-        Log::error("Intervention Image Error: " . $e->getMessage());
-        return response()->json(['error' => $e->getMessage()], 500);
-    }
-});
 
 
 Route::fallback(function () {

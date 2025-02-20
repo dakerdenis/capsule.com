@@ -14,7 +14,7 @@ class AdminProductsController extends Controller
         $query = Product::query();
     
         if ($request->has('type') && $request->query('type') !== '') {
-            $type = $request->query('type');
+            $type = (int) $request->query('type'); // Ensure it's an integer
             $query->where('type', $type);
         }
     

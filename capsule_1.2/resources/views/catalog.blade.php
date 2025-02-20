@@ -735,7 +735,7 @@
                                 Phone:
                             </div>
                             <div class="contact__adress__content">
-                                +1 (302) 307-0077
+                                +1 (302) 853-3979
                             </div>
                         </div>
                         <div class="contact__adress__element">
@@ -761,8 +761,7 @@
     </div>
     <script src="{{ asset('../public/js/main.js') }}"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
 
 
 
@@ -1030,6 +1029,7 @@
         });
     </script>
 
-
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js" defer></script>
 
 @endsection

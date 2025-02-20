@@ -15,7 +15,8 @@ class Product extends Model
         'warranty',
         'type',
         'service_id',
-        'country', 
+        'country',
+        'verification_counter', 
     ];
 
     protected $casts = [

@@ -117,7 +117,7 @@
                 <div class="main__car">
 
                     <img class="main__car__main__img" src="{{ asset('public/images/car_main.png') }}" alt="Car info image"
-                        srcset="">
+                        srcset="" >
                     <div class="main__car__dot main__car__dot1">
                         <div class="main__car__dot-white"></div>
                     </div>
@@ -175,7 +175,7 @@
             <div class="main__wrapper-mobile">
                 <!--image-->
                 <div class="mobile__main-background">
-                    <img src="{{ asset('public/images/background-mobile.png') }}" alt="Car Image">
+                        <img src="{{ asset('public/images/background-mobile.png') }}" alt="Car Image">
                 </div>
                 <!--DESC + CONTACT-->
                 <div class="mobile__main-desc">
@@ -285,8 +285,8 @@
             <div class="main__background main__background-mobile">
 
                 <picture>
-                    <source media="(max-width: 768px)" srcset="{{ asset('public/images/background-mobile.png') }}">
-                    <img src="{{ asset('public/images/background.png') }}" alt="Car Image">
+                    <source media="(max-width: 768px)" srcset="{{ asset('public/images/background-mobile.webp') }}">
+                    <img src="{{ asset('public/images/background.png') }}" alt="Car Image" >
                 </picture>
             </div>
         </section>
@@ -339,7 +339,7 @@
 
                         <!--placeholders--->
                         <img class="about_us__image-placeholder1"
-                            src="{{ asset('public/images/about_placeholder1.png') }}" alt="" srcset="">
+                            src="{{ asset('public/images/about_placeholder1.png') }}" alt="Placeholder" loading="lazy">
                     </div>
 
                     <div class="about_us__content">
@@ -548,11 +548,11 @@
                                 </ul>
                             </div>
                             <div class="glide__arrows" data-glide-el="controls">
-                                <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+                                <button class="glide__arrow glide__arrow--left" data-glide-dir="<" aria-label="Previous Slide">
                                     <img src="{{ asset('public/images/arrow_catalog.png') }}" alt=""
                                         srcset="">
                                 </button>
-                                <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+                                <button class="glide__arrow glide__arrow--right" data-glide-dir=">" aria-label="Next Slide">
                                     <img src="{{ asset('public/images/arrow_catalog.png') }}" alt=""
                                         srcset="">
                                 </button>
@@ -713,7 +713,8 @@
 
                 <div class="contact__main__container">
                     <div class="contact__form__container">
-                        <form action="#">
+                        <form id="contact-form">
+                            @csrf
                             <div class="contact__form__name-message">
                                 <div class="contact__form__block name">
                                     <div class="contact__form__block-name">
@@ -729,7 +730,7 @@
                                         How can we help you?
                                     </div>
                                     <div class="contact__form__block-input">
-                                        <textarea placeholder="Leave your message" name="" id=""></textarea>
+                                        <textarea placeholder="Leave your message" name="message" id="message"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -751,7 +752,7 @@
                                     </div>
                                     <div class="contact__form__block-input">
 
-                                        <select class="contact__form__block-select" id="countries">
+                                        <select class="contact__form__block-select" name="countries" id="countries">
                                             <option value="TT" data-capital="Kabul">Select Counry</option>
                                             <option value="AF" data-capital="Kabul">Afghanistan</option>
                                             <option value="AX" data-capital="Mariehamn">Aland Islands</option>
@@ -1080,7 +1081,7 @@
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3104.5949588474564!2d-77.0222031!3d38.91037680000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2saz!4v1735153252338!5m2!1sru!2saz"
                                 width="100%" height="100%" style="border: none;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                referrerpolicy="no-referrer-when-downgrade" title="Google Maps - Capsule Location"></iframe>
                         </div>
                     </div>
 
@@ -1093,12 +1094,12 @@
                                 635 E 28th Street Brooklyn NY 11210
                             </div>
                         </div>
-                     <!---   <div class="contact__adress__element">
+                       <div class="contact__adress__element">
                             <div class="contact__adress__name">
                                 Phone:
                             </div>
                             <div class="contact__adress__content">
-                                +1 (302) 307-0077
+                                +1 (302) 853-3979
                             </div>
                         </div> -->
                         <div class="contact__adress__element">
@@ -1123,8 +1124,8 @@
         </section>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <script   src="https://cdn.jsdelivr.net/npm/@glidejs/glide" defer></script>
+    <script   src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const glide = new Glide('.glide', {
@@ -1133,7 +1134,7 @@
                 perView: 4,
                 focusAt: 'center',
                 gap: 40,
-                autoplay: 10000,
+                autoplay: 3000,
 
                 animationDuration: 800,
                 breakpoints: {
@@ -1190,7 +1191,7 @@
             setTimeout(() => {
                 const car = document.querySelector('.mobile__main-car-small');
                 car.style.animation = 'carAnimationSmall 3.2s ease-in-out forwards';
-            }, 1500); // Start animation after 1.5 seconds
+            }, 1000); // Start animation after 1.5 seconds
         });
     </script>
 <script>
@@ -1226,8 +1227,68 @@
     document.querySelectorAll('.map__container-desc p').forEach(p => {
         observer.observe(p);
     });
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+    function removeMainWrapperPC() {
+        if (window.innerWidth < 768) {
+            const mainWrapperPC = document.querySelector(".main__wrapper.main__wrapper-pc");
+            if (mainWrapperPC) {
+                mainWrapperPC.remove();
+                console.log("Removed .main__wrapper.main__wrapper-pc for mobile screens.");
+            }
+        }
+    }
+
+    // Run the function when the page loads
+    removeMainWrapperPC();
+
+    // Also run it when the window resizes (useful for dynamic screen changes)
+    window.addEventListener("resize", removeMainWrapperPC);
+});
+
 </script>
+
     <script src="{{ asset('public/js/main.js') }}"></script>
 
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("#contact-form");
+            const submitButton = document.querySelector(".contact__form-submit button");
+        
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+        
+                // Collect form data
+                let formData = new FormData(form);
+        
+                // Disable button while sending
+                submitButton.disabled = true;
+                submitButton.textContent = "Sending...";
+        
+                fetch("send-email.php", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Your message has been sent successfully!");
+                        form.reset();
+                    } else {
+                        alert("Error: " + data.error);
+                    }
+                })
+                .catch(error => {
+                    alert("An error occurred. Please try again.");
+                    console.error("Error:", error);
+                })
+                .finally(() => {
+                    submitButton.disabled = false;
+                    submitButton.textContent = "SEND REQUEST";
+                });
+            });
+        });
+        </script>
+        
 @endsection
