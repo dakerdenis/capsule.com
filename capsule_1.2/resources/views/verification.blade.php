@@ -4,15 +4,18 @@
 <html lang="en">
 
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2B54N2FD1H"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2B54N2FD1H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-2B54N2FD1H');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-2B54N2FD1H');
+    </script>
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('public/images/casule_favicon.png') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('images/casule_favicon.png') }}" type="image/x-icon">
@@ -37,7 +40,7 @@
                     <div class="verification__form-image">
                         <a href="{{ url(app()->getLocale()) }}">
                             <img src="{{ asset('public/images/logo_main.png') }}" alt="">
-                        </a>                        
+                        </a>
                     </div>
                     <!---form--->
                     <div class="verification__form-form">
@@ -62,15 +65,15 @@
 
                                     </div>
 
-                                    <input placeholder="Enter product code" type="text" name="product_code" id="product_code">
+                                    <input placeholder="Enter product code" type="text" name="product_code"
+                                        id="product_code">
                                 </div>
                                 <div class="tooltip" id="tooltip">
                                     <img src="{{ asset('public/images/DDS1.jpg') }}" alt="Help Image">
                                 </div>
                                 <div class="verification__form-submit">
-                                    <button name="submit" type="submit" data-sitekey="reCAPTCHA_site_key" 
-                                        data-callback='onSubmit' 
-                                        data-action='submit'>
+                                    <button name="submit" type="submit" data-sitekey="reCAPTCHA_site_key"
+                                        data-callback='onSubmit' data-action='submit'>
                                         Check Verification
                                     </button>
                                 </div>
@@ -98,19 +101,19 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const form = document.querySelector('.verification__form-formblock form');
             const input = document.querySelector('#product_code');
             const alertContainer = document.querySelector('.verification__car-alert');
-    
-            form.addEventListener('submit', async function (event) {
+
+            form.addEventListener('submit', async function(event) {
                 event.preventDefault(); // Prevent form submission
-    
+
                 const productCode = input.value.trim();
-    
+
                 // Clear previous messages
                 alertContainer.innerHTML = '';
-    
+
                 if (!productCode) {
                     alertContainer.innerHTML = `
                         <div class="verification__car-alert-content">
@@ -122,7 +125,7 @@
                     `;
                     return;
                 }
-    
+
                 try {
                     const response = await fetch("{{ url('/api/verify-product') }}", {
                         method: 'POST',
@@ -130,11 +133,13 @@
                             'Content-Type': 'application/json',
                             'X-CSRF-TOKEN': '{{ csrf_token() }}', // Include CSRF token for security
                         },
-                        body: JSON.stringify({ product_code: productCode }),
+                        body: JSON.stringify({
+                            product_code: productCode
+                        }),
                     });
-    
+
                     const data = await response.json();
-    
+
                     if (data.success) {
                         alertContainer.innerHTML = `
                             <div class="verification__car-alert-block">
@@ -142,7 +147,7 @@
                                 <div class="verification__car-alert-blur"></div>
                                 <div class="verification__car-alert-content">
                                     <div class="verification__car-message">
-                                        <img src="{{ asset('public/images/successs.png') }}" alt="">
+                                        <img style="width: 26px;height: 27px;background-color: #fff;border-radius: 30px;" src="{{ asset('public/images/successs.png') }}" alt="">
                                         <p>${data.message}</p>
                                     </div>
                                     <div class="verification__car-text">
@@ -159,7 +164,7 @@
                                 <div class="verification__car-alert-blur"></div>
                                 <div class="verification__car-alert-content">
                                     <div style="background-color: #710000;" class="verification__car-message">
-                                        <img style="transform: rotate(180deg);" src="{{ asset('public/images/successs.png') }}" alt="">
+                                        <img style="width:25px; height: 25px;" src="{{ asset('public/images/failure.png') }}" alt="">
                                         <p style="color: #fff;">${data.message}</p>
                                     </div>
                                     <div class="verification__car-text">
@@ -183,63 +188,63 @@
             });
         });
     </script>
-     <script src="https://www.google.com/recaptcha/api.js"></script>
-     <script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script>
         function onSubmit(token) {
-          document.getElementById("demo-form").submit();
+            document.getElementById("demo-form").submit();
         }
-      </script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const infoIcon = document.getElementById("infoIcon");
-        const tooltip = document.getElementById("tooltip");
-    
-        if (!infoIcon || !tooltip) {
-            console.error("Info icon or tooltip not found in the DOM!");
-            return; // Stop execution if elements are missing
-        }
-    
-        // For Desktop - Show on hover
-        infoIcon.addEventListener("mouseenter", function () {
-            if (!isMobile()) {
-                tooltip.style.display = "block";
-            }
-        });
-    
-        infoIcon.addEventListener("mouseleave", function () {
-            if (!isMobile()) {
-                tooltip.style.display = "none";
-            }
-        });
-    
-        // For Mobile - Show on click
-        infoIcon.addEventListener("click", function (event) {
-            if (isMobile()) {
-                event.stopPropagation(); // Prevent click from closing instantly
-                tooltip.style.display = "block";
-            }
-        });
-    
-        // Hide tooltip when clicking anywhere else on mobile
-        document.addEventListener("click", function (event) {
-            if (isMobile() && !infoIcon.contains(event.target) && !tooltip.contains(event.target)) {
-                tooltip.style.display = "none";
-            }
-        });
-    
-        // Function to check if the device is mobile
-        function isMobile() {
-            return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        }
-    });
     </script>
-    
-    <!-- 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const infoIcon = document.getElementById("infoIcon");
+            const tooltip = document.getElementById("tooltip");
+
+            if (!infoIcon || !tooltip) {
+                console.error("Info icon or tooltip not found in the DOM!");
+                return; // Stop execution if elements are missing
+            }
+
+            // For Desktop - Show on hover
+            infoIcon.addEventListener("mouseenter", function() {
+                if (!isMobile()) {
+                    tooltip.style.display = "block";
+                }
+            });
+
+            infoIcon.addEventListener("mouseleave", function() {
+                if (!isMobile()) {
+                    tooltip.style.display = "none";
+                }
+            });
+
+            // For Mobile - Show on click
+            infoIcon.addEventListener("click", function(event) {
+                if (isMobile()) {
+                    event.stopPropagation(); // Prevent click from closing instantly
+                    tooltip.style.display = "block";
+                }
+            });
+
+            // Hide tooltip when clicking anywhere else on mobile
+            document.addEventListener("click", function(event) {
+                if (isMobile() && !infoIcon.contains(event.target) && !tooltip.contains(event.target)) {
+                    tooltip.style.display = "none";
+                }
+            });
+
+            // Function to check if the device is mobile
+            function isMobile() {
+                return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            }
+        });
+    </script>
+
+    <!--
 ===========================================
  Created & Developed by DAKER
  Website: https://daker.site/
  +994 50 750 69 01
- Year: 2025 
+ Year: 2025
 ===========================================
 -->
 </body>
