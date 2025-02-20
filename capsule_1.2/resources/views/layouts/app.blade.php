@@ -65,7 +65,7 @@
     <meta name="twitter:description" content="@yield('twitter_description', 'Preserve the original look of your car with Capsule’s innovative protective films. Superior protection, self-healing, and aesthetic excellence.')">
     <meta name="twitter:image" content="{{ asset('public/images/logo_main.png') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
 
@@ -81,6 +81,7 @@
     <link rel="preload" href="{{ asset('public/images/background-mobile.webp') }}" as="image" fetchpriority="high">
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    
 </head>
 
 <body>

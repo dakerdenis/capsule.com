@@ -1248,7 +1248,47 @@
 });
 
 </script>
+
     <script src="{{ asset('public/js/main.js') }}"></script>
 
-
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector("#contact-form");
+            const submitButton = document.querySelector(".contact__form-submit button");
+        
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+        
+                // Collect form data
+                let formData = new FormData(form);
+        
+                // Disable button while sending
+                submitButton.disabled = true;
+                submitButton.textContent = "Sending...";
+        
+                fetch("send-email.php", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert("Your message has been sent successfully!");
+                        form.reset();
+                    } else {
+                        alert("Error: " + data.error);
+                    }
+                })
+                .catch(error => {
+                    alert("An error occurred. Please try again.");
+                    console.error("Error:", error);
+                })
+                .finally(() => {
+                    submitButton.disabled = false;
+                    submitButton.textContent = "SEND REQUEST";
+                });
+            });
+        });
+        </script>
+        
 @endsection

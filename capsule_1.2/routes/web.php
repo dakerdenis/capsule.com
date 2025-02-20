@@ -110,7 +110,7 @@ Route::get('/warranty-success', [WarrantyController::class, 'warrantySuccess'])-
 Route::get('/warranty/{id}', [WarrantyController::class, 'singleWarranty'])->name('service.warranty');
 Route::get('/warranty/{id}/pdf', [WarrantyController::class, 'generatePdf'])->name('service.warranty.pdf');
 //*************************** */
-Route::post('/contact/send', [ContactController::class, 'send'])->middleware('throttle:20,60');
+Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
 
 
 
