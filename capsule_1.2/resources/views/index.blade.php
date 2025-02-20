@@ -1093,14 +1093,14 @@
                                 635 E 28th Street Brooklyn NY 11210
                             </div>
                         </div>
-                        <div class="contact__adress__element">
+                     <!---   <div class="contact__adress__element">
                             <div class="contact__adress__name">
                                 Phone:
                             </div>
                             <div class="contact__adress__content">
                                 +1 (302) 307-0077
                             </div>
-                        </div>
+                        </div> -->
                         <div class="contact__adress__element">
                             <div class="contact__adress__name">
                                 Email:
