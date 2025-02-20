@@ -184,3 +184,103 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 })
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("#contact-form");
+    const submitButton = document.querySelector(".contact__form-submit button");
+
+    // Check if CSRF token meta exists
+    const csrfMeta = document.querySelector('meta[name="csrf-token"]');
+    if (!csrfMeta) {
+        console.error("CSRF token meta tag is missing!");
+        return;
+    }
+
+    const csrfToken = csrfMeta.getAttribute("content");
+
+    form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent page reload
+
+        // Remove previous error messages
+        document.querySelectorAll(".error-message").forEach(el => el.remove());
+
+        let isValid = true;
+        let formData = new FormData(form);
+
+        // Required fields
+        const requiredFields = {
+            name: "Name",
+            message: "Message",
+            number: "Number",
+            countries: "Country",
+            email: "E-mail",
+            "contact-method": "Contact Method",
+            consent: "Consent"
+        };
+
+        // Validate fields
+        Object.keys(requiredFields).forEach(field => {
+            const input = form.querySelector(`[name="${field}"]`);
+            if (input) {
+                if (
+                    (input.type === "checkbox" && !input.checked) ||
+                    (input.type !== "checkbox" && input.value.trim() === "")
+                ) {
+                    isValid = false;
+                    showError(input, requiredFields[field] + " is required.");
+                }
+            } else if (!formData.get(field)) {
+                isValid = false;
+                console.error(`Field ${field} is missing in formData`);
+            }
+        });
+
+        if (!isValid) return;
+
+        // Disable button to prevent multiple clicks
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+
+        fetch("/contact/send", {
+            method: "POST",
+            body: formData,
+            headers: {
+                "X-CSRF-TOKEN": csrfToken,
+            },
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert("Your message has been sent successfully!");
+                    form.reset();
+                } else {
+                    alert("Error: " + JSON.stringify(data.errors));
+                }
+            })
+            .catch(error => {
+                alert("An error occurred. Please try again.");
+                console.error("Error:", error);
+            })
+            .finally(() => {
+                submitButton.disabled = false;
+                submitButton.textContent = "SEND REQUEST";
+            });
+    });
+
+    function showError(input, message) {
+        const error = document.createElement("div");
+        error.className = "error-message";
+        error.style.color = "red";
+        error.style.fontSize = "12px";
+        error.style.marginTop = "5px";
+        error.textContent = message;
+
+        if (input.parentNode) {
+            input.parentNode.appendChild(error);
+        }
+    }
+});
+
+
+

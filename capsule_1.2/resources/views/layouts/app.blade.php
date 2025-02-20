@@ -64,21 +64,23 @@
     <meta name="twitter:title" content="@yield('twitter_title', 'Capsule - Car Protection with PPF')">
     <meta name="twitter:description" content="@yield('twitter_description', 'Preserve the original look of your car with Capsule’s innovative protective films. Superior protection, self-healing, and aesthetic excellence.')">
     <meta name="twitter:image" content="{{ asset('public/images/logo_main.png') }}">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
     <!-- jQuery Library -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" defer></script>
+
     <!-- Select2 Library -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
     <link rel="stylesheet" href="{{ asset('public/css/app.css') }}">
 
-    <link rel="preload" as="image" href="{{ asset('public/images/background-mobile.webp') }}" type="image/webp">
-
+    <link rel="preload" href="{{ asset('public/images/background-mobile.webp') }}" as="image" fetchpriority="high">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 </head>
 
 <body>
@@ -88,13 +90,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
     @yield('content')
 
-    <script>
-        if (document.querySelector('.swiper-container')) {
-            let swiperScript = document.createElement('script');
-            swiperScript.src = "https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js";
-            document.body.appendChild(swiperScript);
-        }
-    </script>
+
     
 
 

@@ -117,7 +117,7 @@
                 <div class="main__car">
 
                     <img class="main__car__main__img" src="{{ asset('public/images/car_main.png') }}" alt="Car info image"
-                        srcset="">
+                        srcset="" >
                     <div class="main__car__dot main__car__dot1">
                         <div class="main__car__dot-white"></div>
                     </div>
@@ -175,10 +175,7 @@
             <div class="main__wrapper-mobile">
                 <!--image-->
                 <div class="mobile__main-background">
-                    <picture>
-                        <source srcset="{{ asset('public/images/background-mobile.webp') }}" media="(max-width: 768px)">
-                        <img src="{{ asset('public/images/background-mobile.webp') }}" alt="Car Image" loading="lazy">
-                    </picture>
+                        <img src="{{ asset('public/images/background-mobile.png') }}" alt="Car Image">
                 </div>
                 <!--DESC + CONTACT-->
                 <div class="mobile__main-desc">
@@ -289,7 +286,7 @@
 
                 <picture>
                     <source media="(max-width: 768px)" srcset="{{ asset('public/images/background-mobile.webp') }}">
-                    <img src="{{ asset('public/images/background.png') }}" alt="Car Image" loading="lazy">
+                    <img src="{{ asset('public/images/background.png') }}" alt="Car Image" >
                 </picture>
             </div>
         </section>
@@ -342,7 +339,7 @@
 
                         <!--placeholders--->
                         <img class="about_us__image-placeholder1"
-                            src="{{ asset('public/images/about_placeholder1.png') }}" alt="" srcset="">
+                            src="{{ asset('public/images/about_placeholder1.png') }}" alt="Placeholder" loading="lazy">
                     </div>
 
                     <div class="about_us__content">
@@ -716,7 +713,8 @@
 
                 <div class="contact__main__container">
                     <div class="contact__form__container">
-                        <form action="#">
+                        <form id="contact-form">
+                            @csrf
                             <div class="contact__form__name-message">
                                 <div class="contact__form__block name">
                                     <div class="contact__form__block-name">
@@ -732,7 +730,7 @@
                                         How can we help you?
                                     </div>
                                     <div class="contact__form__block-input">
-                                        <textarea placeholder="Leave your message" name="" id=""></textarea>
+                                        <textarea placeholder="Leave your message" name="message" id="message"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -754,7 +752,7 @@
                                     </div>
                                     <div class="contact__form__block-input">
 
-                                        <select class="contact__form__block-select" id="countries">
+                                        <select class="contact__form__block-select" name="countries" id="countries">
                                             <option value="TT" data-capital="Kabul">Select Counry</option>
                                             <option value="AF" data-capital="Kabul">Afghanistan</option>
                                             <option value="AX" data-capital="Mariehamn">Aland Islands</option>
@@ -1126,8 +1124,8 @@
         </section>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <script   src="https://cdn.jsdelivr.net/npm/@glidejs/glide" defer></script>
+    <script   src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const glide = new Glide('.glide', {
@@ -1229,6 +1227,26 @@
     document.querySelectorAll('.map__container-desc p').forEach(p => {
         observer.observe(p);
     });
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+    function removeMainWrapperPC() {
+        if (window.innerWidth < 768) {
+            const mainWrapperPC = document.querySelector(".main__wrapper.main__wrapper-pc");
+            if (mainWrapperPC) {
+                mainWrapperPC.remove();
+                console.log("Removed .main__wrapper.main__wrapper-pc for mobile screens.");
+            }
+        }
+    }
+
+    // Run the function when the page loads
+    removeMainWrapperPC();
+
+    // Also run it when the window resizes (useful for dynamic screen changes)
+    window.addEventListener("resize", removeMainWrapperPC);
+});
+
 </script>
     <script src="{{ asset('public/js/main.js') }}"></script>
 
