@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Capsule PPF | High-quality car protection</title><!-- Google tag (gtag.js) -->
-    <!-- Google tag (gtag.js) -->
+    <title>Capsule PPF | High-quality car protection</title>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2B54N2FD1H"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
