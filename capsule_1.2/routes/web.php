@@ -78,7 +78,7 @@ Route::middleware('auth_admin')->group(function () {
             Route::post('/add', [AdminServicesController::class, 'adminPostAddService'])->name('admin.add_post_service');
         });
         //**Clients (FOR FUTURE)
-        Route::get('/clients', [ClientsController::class, 'adminClients'])->name('admin.clients');
+    //    Route::get('/clients', [ClientsController::class, 'adminClients'])->name('admin.clients');
         Route::prefix('clients')->group(function (){
 
         });
