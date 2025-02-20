@@ -18,6 +18,9 @@ class ProductVerificationController extends Controller
         $product = Product::where('code', $request->input('product_code'))->first();
     
         if ($product) {
+            // Increment the verification counter
+            $product->increment('verification_counter'); // ✅ Increase by 1
+    
             // Map product types to their names
             $productTypes = [
                 1 => 'Urban',
@@ -33,7 +36,7 @@ class ProductVerificationController extends Controller
     
             return response()->json([
                 'success' => true,
-                'message' => 'Product found.',
+                'message' => 'Product found and verification counter updated.',
                 'product' => $product,
             ]);
         }
@@ -43,5 +46,6 @@ class ProductVerificationController extends Controller
             'message' => 'Product not found.',
         ]);
     }
+    
     
 }

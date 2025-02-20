@@ -175,7 +175,10 @@
             <div class="main__wrapper-mobile">
                 <!--image-->
                 <div class="mobile__main-background">
-                    <img src="{{ asset('public/images/background-mobile.webp') }}" alt="Car Image" loading="lazy">
+                    <picture>
+                        <source srcset="{{ asset('public/images/background-mobile.webp') }}" media="(max-width: 768px)">
+                        <img src="{{ asset('public/images/background-mobile.webp') }}" alt="Car Image" loading="lazy">
+                    </picture>
                 </div>
                 <!--DESC + CONTACT-->
                 <div class="mobile__main-desc">
@@ -1093,14 +1096,14 @@
                                 635 E 28th Street Brooklyn NY 11210
                             </div>
                         </div>
-                     <!---   <div class="contact__adress__element">
+                       <div class="contact__adress__element">
                             <div class="contact__adress__name">
                                 Phone:
                             </div>
                             <div class="contact__adress__content">
-                                +1 (302) 307-0077
+                                +1 (302) 853-3979
                             </div>
-                        </div> -->
+                        </div>
                         <div class="contact__adress__element">
                             <div class="contact__adress__name">
                                 Email:
@@ -1133,7 +1136,7 @@
                 perView: 4,
                 focusAt: 'center',
                 gap: 40,
-                autoplay: 10000,
+                autoplay: 3000,
 
                 animationDuration: 800,
                 breakpoints: {
@@ -1190,7 +1193,7 @@
             setTimeout(() => {
                 const car = document.querySelector('.mobile__main-car-small');
                 car.style.animation = 'carAnimationSmall 3.2s ease-in-out forwards';
-            }, 1500); // Start animation after 1.5 seconds
+            }, 1000); // Start animation after 1.5 seconds
         });
     </script>
 <script>
