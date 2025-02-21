@@ -80,7 +80,7 @@
                                 <source srcset="{{ asset('images/capsule_car-mobile.webp') }}" media="(max-width: 767px)"
                                     type="image/webp">
 
-                                <img src="{{ asset('images/capsule_car.webp') }}" alt="Capsule Background">
+                                <img src="{{ asset('images/capsule_car.webp') }}" alt="Protected Car">
                             </picture>
                         </div>
                         <!---circles and desc--->
@@ -96,12 +96,48 @@
                                     <source srcset="{{ asset('images/car_desc/desc1mob.svg') }}" media="(max-width: 767px)"
                                         type="image/webp">
     
-                                    <img src="{{ asset('images/car_desc/desc1.svg') }}" alt="Capsule Background">
+                                    <img src="{{ asset('images/car_desc/desc1.svg') }}" alt="Premium quality">
                                 </picture>
                             </div>
                             <div class="car__p car__p1">
-
+                                Premium quality
                             </div>
+                            <!---CIRCLE and DESC 2---->
+                            <div class="car__circle  car__circle2 remove-on-mobile">
+                                <div></div>
+                            </div>
+                            <div class="car__desc car__desc2">
+                                <picture>
+                                    <source srcset="{{ asset('images/car_desc/desc2.svg') }}" media="(min-width: 768px)"
+                                        type="image/webp">
+                                    <source srcset="{{ asset('images/car_desc/desc2mob.svg') }}" media="(max-width: 767px)"
+                                        type="image/webp">
+    
+                                    <img src="{{ asset('images/car_desc/desc2.svg') }}" alt="Premium quality">
+                                </picture>
+                            </div>
+                            <div class="car__p car__p2">
+                                High hydrophobicity
+                            </div>
+
+                            <!---CIRCLE and DESC 3---->
+                            <div class="car__circle  car__circle3 remove-on-mobile">
+                                <div></div>
+                            </div>
+                            <div class="car__desc car__desc3">
+                                <picture>
+                                    <source srcset="{{ asset('images/car_desc/desc3.svg') }}" media="(min-width: 768px)"
+                                        type="image/webp">
+                                    <source srcset="{{ asset('images/car_desc/desc3mob.svg') }}" media="(max-width: 767px)"
+                                        type="image/webp">
+    
+                                    <img src="{{ asset('images/car_desc/desc3.svg') }}" alt="Premium quality">
+                                </picture>
+                            </div>
+                            <div class="car__p car__p3">
+                                100% Self-healing
+                            </div>
+
 
 
                         </div>
