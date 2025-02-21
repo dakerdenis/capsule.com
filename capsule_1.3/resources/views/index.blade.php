@@ -40,7 +40,7 @@
                     <picture>
                         <source srcset="{{ asset('images/background_home-large.webp') }}" media="(min-width: 768px)"
                             type="image/webp">
-                        <source srcset="{{ asset('images/background_home-small.webp') }}" media="(max-width: 767px)"
+                        <source srcset="{{ asset('images/background_home-large.webp') }}" media="(max-width: 767px)"
                             type="image/webp">
 
                         <img src="{{ asset('images/background_home-large.webp') }}" alt="Capsule Background">
@@ -70,8 +70,21 @@
                             </button>
                         </div>
                     </div>
-
+                    <!----capsule__car--->
                     <div class="home__car">
+                        <div class="home__car-image">
+                            <picture>
+                                <source srcset="{{ asset('images/capsule_car.webp') }}" media="(min-width: 768px)"
+                                    type="image/webp">
+                                <source srcset="{{ asset('images/capsule_car-mobile.webp') }}" media="(max-width: 767px)"
+                                    type="image/webp">
+
+                                <img src="{{ asset('images/capsule_car.webp') }}" alt="Capsule Background">
+                            </picture>
+                        </div>
+                        <div class="home__car__desc">
+
+                        </div>
 
                     </div>
                 </div>

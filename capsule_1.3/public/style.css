@@ -127,9 +127,70 @@
     min-height: 100vh;
     overflow-x: hidden;
 }
+
+
+
+/*******HOME SECTION************/
+/*******HOME SECTION************/
+/*******HOME SECTION************/
+
   .main__section {
+    width: 100%;
 
   }
+.home__wrapper {
+  width: 100%;
+  height: 100vh;
+  min-height: 700px;
+  position: relative;
+}
+.home__background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+}
+.home__background img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.home__desc__car {
+  width: 100%;
+  position: absolute;
+  z-index: 200;
+  background-color: #055a00ad;
+}
+.home__desc {
+}
+.home__desc__name {
+}
+.home__desc__text {
+}
+.home__desc__button {
+}
+.home__car {
+}
+.home__car-image {
+}
+.home__car__desc {
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   .about__section {
 
   }
