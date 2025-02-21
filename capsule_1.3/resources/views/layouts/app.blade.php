@@ -21,6 +21,7 @@
         content="Capsule PPF offers premium car protection with advanced polyurethane films featuring self-healing, water-repellent, and long-lasting durability.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://capsuleppf.com/en">
+    <meta property="og:locale" content="en_US">
 
 
     <!-- Twitter Meta Tags -->
@@ -29,19 +30,24 @@
     <meta name="twitter:description"
         content="Preserve the original look of your car with Capsule’s innovative protective films. Superior protection, self-healing, and aesthetic excellence.">
 
+    <!----Location MEta tags---->
+    <meta name="geo.region" content="US">
+    <meta name="geo.placename" content="United States">
+    <meta name="geo.position" content="37.0902;-95.7129">
+    <meta name="ICBM" content="37.0902, -95.7129">
 
 
 
 
-    <link rel="stylesheet" href="{{ asset('style.css') }}">
+    <link rel="stylesheet" href="{{ asset('style.css') }}" media="all" />
 
 
 
     <!-- Best Practice: Preload Fonts for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Rubik+Mono+One&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Rubik+Mono+One&display=swap" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -49,7 +55,7 @@
         @yield('content')
     </main>
 
-    <script src="{{ asset('app.js') }}"></script>
+    <script defer src="{{ asset('app.js') }}"></script>
 </body>
 
 </html>
