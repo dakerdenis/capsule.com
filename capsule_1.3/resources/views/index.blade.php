@@ -139,6 +139,46 @@
                             </div>
 
 
+                            <!---CIRCLE and DESC 4---->
+                            <div class="car__circle  car__circle4 remove-on-mobile">
+                                <div></div>
+                            </div>
+                            <div class="car__desc car__desc4">
+                                <picture>
+                                    <source srcset="{{ asset('images/car_desc/desc4.svg') }}" media="(min-width: 768px)"
+                                        type="image/webp">
+                                    <source srcset="{{ asset('images/car_desc/desc4mob.svg') }}" media="(max-width: 767px)"
+                                        type="image/webp">
+    
+                                    <img src="{{ asset('images/car_desc/desc4.svg') }}" alt="Premium quality">
+                                </picture>
+                            </div>
+                            <div class="car__p car__p4">
+                                Anti-yellow warranty
+                            </div>
+
+
+                            <!---CIRCLE and DESC 5---->
+                            <div class="car__circle  car__circle5 remove-on-mobile">
+                                <div></div>
+                            </div>
+                            <div class="car__desc car__desc5">
+                                <picture>
+                                    <source srcset="{{ asset('images/car_desc/desc5.svg') }}" media="(min-width: 768px)"
+                                        type="image/webp">
+                                    <source srcset="{{ asset('images/car_desc/desc5mob.svg') }}" media="(max-width: 767px)"
+                                        type="image/webp">
+    
+                                    <img src="{{ asset('images/car_desc/desc5.svg') }}" alt="Premium quality">
+                                </picture>
+                            </div>
+                            <div class="car__p car__p5">
+                                Excellent carrosion
+ resistance
+                            </div>
+
+
+                            
 
                         </div>
 

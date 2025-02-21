@@ -257,7 +257,7 @@ h6 {
 
 .home__car__desc {
   position: relative;
-  background-color: #71000049;
+
   width: 1062px;
   height: 502px;
 }
@@ -335,11 +335,60 @@ h6 {
 
 /***CAR 3*****/
 
+.car__circle3 {
+  left: 638px;
+  top: 215px;
+}
+
+.car__desc3 {
+  left: 615px;
+  top: 33px;
+}
+
+.car__p3 {
+  left: 545px;
+  top: 5px;
+}
+/***CAR 4*****/
+
+.car__circle4 {
+  left: 779px;
+  top: 305px;
+}
+
+.car__desc4 {
+  top: 110px;
+  /* left: 351px; */
+  right: 246px;
+}
+
+.car__p4 {
+  right: 215px;
+  top: 52px;
+  max-width: 124px;
+  text-align: center;
+}
 
 
+/***CAR 5*****/
 
+.car__circle5{
+  left: 906px;
+  top: 221px;
+}
 
+.car__desc5 {
+  top: 42px;
+    /* left: 351px; */
+    right: 41px;
+}
 
+.car__p5 {
+  right: 22px;
+  top: -11px;
+  max-width: 197px;
+  text-align: right;
+}
 
 .about__section {}
 
@@ -415,6 +464,14 @@ h6 {
     width: initial;
   }
 
+  .home__car__desc {
+    width: 100%;
+  }
+
+  .home__car-image {
+    top: 70px;
+  }
+
   .car__p {
 
     font-weight: 400;
@@ -422,5 +479,27 @@ h6 {
     line-height: 17px;
     letter-spacing: 0%;
 
+  }
+
+  .car__desc1 {
+    left: 44px;
+    top: 75px;
+  }
+
+  .car__desc2 {
+    left: 102px;
+    top: 113px;
+  }
+
+  .car__p1 {
+    max-width: 91px;
+    left: 112px;
+    top: 56px;
+  }
+
+  .car__p2 {
+    left: 167px;
+    top: 96px;
+    max-width: 123px;
   }
 }
