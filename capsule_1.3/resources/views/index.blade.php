@@ -49,6 +49,7 @@
 
                 <!---home desc and car--->
                 <div class="home__desc__car">
+                    <!--home desc-->
                     <div class="home__desc">
                         <div class="home__desc__name">
                             <h1> High-End Paint <br> Protection Film</h1>
