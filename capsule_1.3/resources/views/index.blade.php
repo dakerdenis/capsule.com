@@ -20,8 +20,8 @@
                 </div>
 
                 <!--HEADER navigation---->
-                <div class="header__navigation">
-
+                <div class="header__navigation remove-on-mobile">
+                    asdasdas
                 </div>
 
                 <!---header language--->
@@ -40,7 +40,7 @@
                     <picture>
                         <source srcset="{{ asset('images/background_home-large.webp') }}" media="(min-width: 768px)"
                             type="image/webp">
-                        <source srcset="{{ asset('images/background_home-large.webp') }}" media="(max-width: 767px)"
+                        <source srcset="{{ asset('images/background_home-small.png') }}" media="(max-width: 767px)"
                             type="image/webp">
 
                         <img src="{{ asset('images/background_home-large.webp') }}" alt="Capsule Background">
@@ -66,7 +66,7 @@
                                 contact us now
                             </button>
 
-                            <button id="lear_more_button">
+                            <button class="remove-on-mobile" id="lear_more_button">
                                 Learn more
                             </button>
                         </div>
@@ -83,7 +83,26 @@
                                 <img src="{{ asset('images/capsule_car.webp') }}" alt="Capsule Background">
                             </picture>
                         </div>
+                        <!---circles and desc--->
                         <div class="home__car__desc">
+                            <!---CIRCLE and DESC 1---->
+                            <div class="car__circle  car__circle1 remove-on-mobile">
+                                <div></div>
+                            </div>
+                            <div class="car__desc car__desc1">
+                                <picture>
+                                    <source srcset="{{ asset('images/car_desc/desc1.svg') }}" media="(min-width: 768px)"
+                                        type="image/webp">
+                                    <source srcset="{{ asset('images/car_desc/desc1mob.svg') }}" media="(max-width: 767px)"
+                                        type="image/webp">
+    
+                                    <img src="{{ asset('images/car_desc/desc1.svg') }}" alt="Capsule Background">
+                                </picture>
+                            </div>
+                            <div class="car__p car__p1">
+
+                            </div>
+
 
                         </div>
 
