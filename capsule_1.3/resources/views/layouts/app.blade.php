@@ -8,8 +8,7 @@
 
 
     <!-- Primary Meta Tags -->
-    <meta name="description"
-        content="Capsule PPF provides high-quality protective films for cars, offering superior protection against scratches, chemical exposure, and damage while ensuring a glossy, transparent finish. Maintain your car’s aesthetics with ease.">
+    <meta name="description" content="Capsule PPF offers high-quality car protection films with self-healing, scratch resistance, and superior durability. Protect your car's paint with innovative technology.">
     <meta name="keywords"
         content="Capsule PPF, car protection film, paint protection, polyurethane film, self-healing film, car aesthetics, scratch-resistant film">
     <meta name="author" content="Capsule PPF">

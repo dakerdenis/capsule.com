@@ -25,14 +25,14 @@
 
                     </div>
 
-                    <div class="nav_elements">
+                    <nav class="nav_elements" role="navigation" aria-label="Main Navigation">
                         <button class="nav_element">Home</button>
                         <button class="nav_element">About</button>
                         <button class="nav_element">Warranty</button>
                         <button class="nav_element">Catalogue</button>
                         <button class="nav_element">Gallery</button>
                         <button class="nav_element">Contacts</button>
-                    </div>
+                    </nav>
 
                     <div class="nav__rectangle">
 
@@ -99,7 +99,7 @@
                                 <source srcset="{{ asset('images/capsule_car-mobile.webp') }}" media="(max-width: 767px)"
                                     type="image/webp">
 
-                                <img src="{{ asset('images/capsule_car.webp') }}" alt="Protected Car">
+                                <img src="{{ asset('images/capsule_car.webp') }}" alt="Car with Capsule PPF Protection">
                             </picture>
                         </div>
                         <!---circles and desc--->
