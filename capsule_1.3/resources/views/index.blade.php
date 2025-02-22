@@ -20,29 +20,29 @@
                 </div>
 
                 <!--HEADER navigation---->
-                <div class="header__navigation remove-on-mobile">
+                <div class="header__navigation ">
                     <div class="nav_burger">
                         <span></span>
                         <span></span>
                         <span></span>
                     </div>
 
-                    <nav class="nav_elements" role="navigation" aria-label="Main Navigation">
-                        <button class="nav_element">Home</button>
-                        <button class="nav_element">About</button>
-                        <button class="nav_element">Warranty</button>
-                        <button class="nav_element">Catalogue</button>
-                        <button class="nav_element">Gallery</button>
-                        <button class="nav_element">Contacts</button>
+                    <nav class="nav_elements remove-on-mobile" role="navigation" aria-label="Main Navigation">
+                        <button>Home</button>
+                        <button>About</button>
+                        <button>Warranty</button>
+                        <button>Catalogue</button>
+                        <button>Gallery</button>
+                        <button>Contacts</button>
                     </nav>
 
-                    <div class="nav__rectangle">
+                    <div class="nav__rectangle remove-on-mobile">
 
                     </div>
                 </div>
 
                 <!---header language--->
-                <div class="header__languages">
+                <div class="header__languages remove-on-mobile">
                     <button id="languageButton">{{ strtoupper(app()->getLocale()) }}</button>
                     <div class="language-dropdown" id="languageDropdown">
                         <a href="{{ url('/en') }}" class="{{ app()->getLocale() === 'en' ? 'active' : '' }}">EN</a>
