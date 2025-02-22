@@ -502,4 +502,41 @@ h6 {
     top: 96px;
     max-width: 123px;
   }
+
+  .car__p3 {
+    left: 185px;
+    top: 150px;
+    max-width: 107px;
+}
+.car__desc3 {
+  left: 88px;
+  top: 166px;
+}
+
+
+
+  .car__desc4 {
+    top: 220px;
+    /* left: 351px; */
+    right: 185px;
+  }
+  .car__p4 {
+    right: 54px;
+    top: 203px;
+    max-width: 124px;
+    text-align: left;
+}
+
+
+.car__desc5 {
+  top: 282px;
+  /* left: 351px; */
+  right: 189px;
+}
+.car__p5 {
+  right: 104px;
+  top: 263px;
+  max-width: 79px;
+  text-align: left;
+}
 }
