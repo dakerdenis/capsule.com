@@ -21,12 +21,31 @@
 
                 <!--HEADER navigation---->
                 <div class="header__navigation remove-on-mobile">
-                    asdasdas
+                    <div class="nav_burger">
+
+                    </div>
+
+                    <div class="nav_elements">
+                        <button class="nav_element">Home</button>
+                        <button class="nav_element">About</button>
+                        <button class="nav_element">Warranty</button>
+                        <button class="nav_element">Catalogue</button>
+                        <button class="nav_element">Gallery</button>
+                        <button class="nav_element">Contacts</button>
+                    </div>
+
+                    <div class="nav__rectangle">
+
+                    </div>
                 </div>
 
                 <!---header language--->
-                <div class="haeder__languge">
-
+                <div class="header__languages">
+                    <button id="languageButton">{{ strtoupper(app()->getLocale()) }}</button>
+                    <div class="language-dropdown" id="languageDropdown">
+                        <a href="{{ url('/en') }}" class="{{ app()->getLocale() === 'en' ? 'active' : '' }}">EN</a>
+                        <a href="{{ url('/de') }}" class="{{ app()->getLocale() === 'de' ? 'active' : '' }}">DE</a>
+                    </div>
                 </div>
             </div>
         </header>
@@ -166,8 +185,8 @@
                                 <picture>
                                     <source srcset="{{ asset('images/car_desc/desc5.svg') }}" media="(min-width: 768px)"
                                         type="image/webp">
-                                    <source srcset="{{ asset('images/car_desc/desc5mob.svg') }}" media="(max-width: 767px)"
-                                        type="image/webp">
+                                    <source srcset="{{ asset('images/car_desc/desc5mob.svg') }}"
+                                        media="(max-width: 767px)" type="image/webp">
 
                                     <img src="{{ asset('images/car_desc/desc5.svg') }}" alt="Premium quality">
                                 </picture>

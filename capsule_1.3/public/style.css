@@ -112,7 +112,7 @@ h6 {
   left: 0;
   width: 100%;
   height: 113px;
-  background: rgba(255, 255, 255, 0.315);
+  background: rgba(0, 0, 0, 0.6);
   /* Slight transparency for effect */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -121,8 +121,80 @@ h6 {
   padding: 0 20px;
   z-index: 1000;
   /* Ensures it's above all content */
+  padding-right: 90px;
+  padding-left: 80px;
+}
+.header__wrapper{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__navigation{
+    width: 591px;
+    height: 55px;
+    border-bottom: 1px solid #fff;
 }
 
+
+
+
+.header__languages {
+  position: relative;
+}
+.header__languages button {
+  width: 79px;
+  height: 48px;
+  background: linear-gradient(90deg, #bb1216 0%, #581923 100%);
+  border-radius: 18px;
+  display: flex
+;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+.language-dropdown {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 79px;
+  display: none;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+.language-dropdown a:nth-child(1) {
+  border-radius: 10px 10px 0px 0px;
+}
+.language-dropdown a.active {
+  background: #581923;
+}
+.language-dropdown a {
+  width: 79px;
+  height: 48px;
+  background: linear-gradient(90deg, #bb1216 0%, #581923 100%);
+  display: flex
+;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.language-dropdown a:nth-child(2) {
+  border-radius: 0px 0px 10px 10px;
+}
 /*******main wrapper*******/
 .main__wrapper {
   background-color: #000;
@@ -349,6 +421,7 @@ h6 {
   left: 545px;
   top: 5px;
 }
+
 /***CAR 4*****/
 
 .car__circle4 {
@@ -372,15 +445,15 @@ h6 {
 
 /***CAR 5*****/
 
-.car__circle5{
+.car__circle5 {
   left: 906px;
   top: 221px;
 }
 
 .car__desc5 {
   top: 42px;
-    /* left: 351px; */
-    right: 41px;
+  /* left: 351px; */
+  right: 41px;
 }
 
 .car__p5 {
@@ -507,36 +580,39 @@ h6 {
     left: 185px;
     top: 150px;
     max-width: 107px;
-}
-.car__desc3 {
-  left: 88px;
-  top: 166px;
-}
+  }
+
+  .car__desc3 {
+    left: 88px;
+    top: 166px;
+  }
 
 
 
   .car__desc4 {
     top: 220px;
-    /* left: 351px; */
-    right: 185px;
-  }
-  .car__p4 {
-    right: 54px;
-    top: 203px;
-    max-width: 124px;
-    text-align: left;
+    left: 119px;
+    right: initial;
 }
 
+.car__p4 {
+  right: initial;
+  left: 204px;
+  top: 203px;
+  max-width: 124px;
+  text-align: left;
+}
 
 .car__desc5 {
   top: 282px;
-  /* left: 351px; */
-  right: 189px;
+  left: 110px;
+  right: initial;
 }
 .car__p5 {
-  right: 104px;
+  right: initial;
   top: 263px;
   max-width: 79px;
   text-align: left;
+  left: 195px;
 }
 }
