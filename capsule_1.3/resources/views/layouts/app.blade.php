@@ -41,10 +41,26 @@
     <link rel="stylesheet" href="{{ asset('style.css') }}" media="all" />
 
 
-
-    <!-- Best Practice: Preload Fonts for Performance -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Rubik+Mono+One&display=swap" rel="stylesheet" />
-
+    <!-- Preload Fonts for Performance -->
+    <link rel="preload" href="{{ asset('fonts/Inter/Inter-VariableFont_opsz,wght.woff2') }}" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="{{ asset('fonts/Rubik_Mono_One/RubikMonoOne-Regular.woff2') }}" as="font" type="font/woff2" crossorigin="anonymous">
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Capsule PPF",
+          "url": "https://capsuleppf.com/en",
+          "logo": "https://capsuleppf.com/images/logo-large.webp",
+          "description": "High-quality paint protection film with superior durability, self-healing technology, and hydrophobic properties.",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+13028533979",
+            "contactType": "customer service",
+            "areaServed": "US"
+          }
+        }
+        </script>
+        
 </head>
 
 <body>

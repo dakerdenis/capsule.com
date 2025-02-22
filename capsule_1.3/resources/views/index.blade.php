@@ -22,7 +22,9 @@
                 <!--HEADER navigation---->
                 <div class="header__navigation remove-on-mobile">
                     <div class="nav_burger">
-
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
 
                     <nav class="nav_elements" role="navigation" aria-label="Main Navigation">

@@ -1,6 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik+Mono+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter/Inter-VariableFont_opsz,wght.woff2') format('woff2');
+  font-weight: 100 900; /* Variable font */
+  font-display: swap;
+}
 
+/* Inter Italic */
+@font-face {
+  font-family: 'Inter';
+  src: url('fonts/Inter/Inter-Italic-VariableFont_opsz,wght.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* Rubik Mono One */
+@font-face {
+  font-family: 'Rubik Mono One';
+  src: url('fonts/Rubik_Mono_One/RubikMonoOne-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-display: swap;
+}
 :root {
   --button-background: linear-gradient(98.88deg,
       #055a00 -2.99%,
@@ -48,7 +68,7 @@ body {
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  font-family: "Inter", serif;
+  font-family: "Inter", sans-serif;
 }
 
 body::-webkit-scrollbar {
@@ -138,6 +158,24 @@ h6 {
 }
 
 
+.nav_burger{
+  width: 17px;
+  height: 17px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav_burger span {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+}
+
+
+
+
 
 
 .header__languages {
@@ -195,6 +233,11 @@ h6 {
 .language-dropdown a:nth-child(2) {
   border-radius: 0px 0px 10px 10px;
 }
+
+
+
+
+
 /*******main wrapper*******/
 .main__wrapper {
   background-color: #000;
