@@ -206,6 +206,11 @@
                     </div>
                 </div>
 
+                <!----home desc name---->
+                <div class="home__desc">
+
+                </div>
+
             </div>
         </section>
 

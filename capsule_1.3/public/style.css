@@ -417,7 +417,18 @@ h6 {
   width: 1062px;
   height: 502px;
 }
-
+/* Define the pulsating effect */
+@keyframes pulse {
+  0% {
+      box-shadow: 0 0 0 0 rgba(187, 18, 22, 0.8);
+  }
+  50% {
+      box-shadow: 0 0 15px 10px rgba(187, 18, 22, 0.6);
+  }
+  100% {
+      box-shadow: 0 0 0 0 rgba(187, 18, 22, 0.8);
+  }
+}
 /*****CIRCLES AND DESC********/
 .car__circle {
   position: absolute;
@@ -429,6 +440,8 @@ h6 {
   align-items: center;
   justify-content: center;
   z-index: 200;
+
+
 }
 
 .car__circle:hover div {
@@ -440,6 +453,8 @@ h6 {
   height: 27px;
   background-color: #fff;
   border-radius: 25px;
+    /* Animation */
+    animation: pulse 1.5s infinite ease-in-out;
 }
 
 .car__p {
@@ -764,4 +779,9 @@ h6 {
     text-align: left;
     left: 195px;
   }
+  .car__desc, .car__p {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
 }
