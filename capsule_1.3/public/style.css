@@ -547,6 +547,59 @@ h6 {
   text-align: right;
 }
 
+
+/* Hide descriptions and text by default */
+.car__desc, .car__p {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+/* Show description and text when hovering over the corresponding circle */
+.car__circle1:hover ~ .car__desc1,
+.car__circle1:hover ~ .car__p1 {
+  opacity: 1;
+  visibility: visible;
+}
+
+.car__circle2:hover ~ .car__desc2,
+.car__circle2:hover ~ .car__p2 {
+  opacity: 1;
+  visibility: visible;
+}
+
+.car__circle3:hover ~ .car__desc3,
+.car__circle3:hover ~ .car__p3 {
+  opacity: 1;
+  visibility: visible;
+}
+
+.car__circle4:hover ~ .car__desc4,
+.car__circle4:hover ~ .car__p4 {
+  opacity: 1;
+  visibility: visible;
+}
+
+.car__circle5:hover ~ .car__desc5,
+.car__circle5:hover ~ .car__p5 {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .about__section {}
 
 .map__section {}
