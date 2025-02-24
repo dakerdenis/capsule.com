@@ -66,7 +66,7 @@
 <body>
         @yield('content')
 
-    <script defer src="{{ asset('app.js') }}"></script>
+    <script src="{{ asset('app.js') }}"></script>
 </body>
 
 </html>
