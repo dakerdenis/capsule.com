@@ -146,15 +146,18 @@ h6 {
   padding-right: 90px;
   padding-left: 80px;
 }
-.header__logo{
+
+.header__logo {
   height: 100px;
   width: 338px;
 }
-.header__logo img{
+
+.header__logo img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
+
 .header__wrapper {
   width: 100%;
   height: 100%;
@@ -417,18 +420,22 @@ h6 {
   width: 1062px;
   height: 502px;
 }
+
 /* Define the pulsating effect */
 @keyframes pulse {
   0% {
-      box-shadow: 0 0 0 0 rgba(187, 18, 22, 0.8);
+    box-shadow: 0 0 0 0 rgba(187, 18, 22, 0.8);
   }
+
   50% {
-      box-shadow: 0 0 15px 10px rgba(187, 18, 22, 0.6);
+    box-shadow: 0 0 15px 10px rgba(187, 18, 22, 0.6);
   }
+
   100% {
-      box-shadow: 0 0 0 0 rgba(187, 18, 22, 0.8);
+    box-shadow: 0 0 0 0 rgba(187, 18, 22, 0.8);
   }
 }
+
 /*****CIRCLES AND DESC********/
 .car__circle {
   position: absolute;
@@ -453,8 +460,8 @@ h6 {
   height: 27px;
   background-color: #fff;
   border-radius: 25px;
-    /* Animation */
-    animation: pulse 1.5s infinite ease-in-out;
+  /* Animation */
+  animation: pulse 1.5s infinite ease-in-out;
 }
 
 .car__p {
@@ -564,39 +571,40 @@ h6 {
 
 
 /* Hide descriptions and text by default */
-.car__desc, .car__p {
+.car__desc,
+.car__p {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
 /* Show description and text when hovering over the corresponding circle */
-.car__circle1:hover ~ .car__desc1,
-.car__circle1:hover ~ .car__p1 {
+.car__circle1:hover~.car__desc1,
+.car__circle1:hover~.car__p1 {
   opacity: 1;
   visibility: visible;
 }
 
-.car__circle2:hover ~ .car__desc2,
-.car__circle2:hover ~ .car__p2 {
+.car__circle2:hover~.car__desc2,
+.car__circle2:hover~.car__p2 {
   opacity: 1;
   visibility: visible;
 }
 
-.car__circle3:hover ~ .car__desc3,
-.car__circle3:hover ~ .car__p3 {
+.car__circle3:hover~.car__desc3,
+.car__circle3:hover~.car__p3 {
   opacity: 1;
   visibility: visible;
 }
 
-.car__circle4:hover ~ .car__desc4,
-.car__circle4:hover ~ .car__p4 {
+.car__circle4:hover~.car__desc4,
+.car__circle4:hover~.car__p4 {
   opacity: 1;
   visibility: visible;
 }
 
-.car__circle5:hover ~ .car__desc5,
-.car__circle5:hover ~ .car__p5 {
+.car__circle5:hover~.car__desc5,
+.car__circle5:hover~.car__p5 {
   opacity: 1;
   visibility: visible;
 }
@@ -604,7 +612,25 @@ h6 {
 
 
 
+.home_desc_techno {
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  background-color: #83080870;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 
+.home_desc_text {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 75.6px;
+  letter-spacing: 0.68px;
+  text-align: center;
+  color: #fff;
+}
 
 
 
@@ -630,18 +656,21 @@ h6 {
 
 
 @media only screen and (max-width: 768px) {
-  .header{
+  .header {
     padding-left: 15px;
     padding-right: 16px;
   }
-  .header__logo{
+
+  .header__logo {
     width: 150px;
     height: 55px;
   }
-.header__navigation{
-  width: 24px;
-  border-bottom: none;
-}
+
+  .header__navigation {
+    width: 24px;
+    border-bottom: none;
+  }
+
   /*******main section HOME*********/
   .home__background img {
     width: 100%;
@@ -779,9 +808,11 @@ h6 {
     text-align: left;
     left: 195px;
   }
-  .car__desc, .car__p {
+
+  .car__desc,
+  .car__p {
     opacity: 1;
     visibility: visible;
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-}
+  }
 }

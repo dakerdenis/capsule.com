@@ -207,8 +207,13 @@
                 </div>
 
                 <!----home desc name---->
-                <div class="home__desc">
-
+                <div class="home_desc_techno">
+                    <div class="home_desc_text">
+                        Designed for Professionals
+                    </div>
+                    <div class="home_desc_animation">
+                        
+                    </div>
                 </div>
 
             </div>
