@@ -38,7 +38,7 @@
 
 
 
-    <link rel="stylesheet" href="{{ asset('style.css') }}" media="all" />
+    <link rel="stylesheet" href="{{ asset('style.css') }}" />
 
 
     <!-- Preload Fonts for Performance -->
