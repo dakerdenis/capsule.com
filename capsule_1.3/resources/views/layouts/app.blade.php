@@ -64,9 +64,7 @@
 </head>
 
 <body>
-    <main>
         @yield('content')
-    </main>
 
     <script defer src="{{ asset('app.js') }}"></script>
 </body>
