@@ -11,7 +11,7 @@ use App\Models\Warranty;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Http;
-
+use App\Models\Client; // Import Client Model
 
 
 
@@ -156,6 +156,24 @@ class WarrantyController extends Controller
             if (!$serviceId) {
                 throw new \Exception('Service ID is missing. User might not be authenticated.');
             }
+                    // ✅ Check if the client already exists in the database
+        $client = Client::where('mobile_number', $request->client_phone)->first();
+        if (!$client) {
+            // ✅ If client does not exist, create a new client
+            $client = Client::create([
+                'name' => $request->client_name,
+                'mobile_number' => $request->client_phone,
+                'email' => 'empty', // Set default value
+                'warranties' => json_encode([]), // Initialize as empty array
+            ]);
+
+            Log::info("New client added: {$client->name} ({$client->mobile_number})");
+        } else {
+            Log::info("Existing client found: {$client->name} ({$client->mobile_number})");
+        }
+
+
+
             // ✅ Retrieve product using session product code
             $productCode = session('product_code');
             $product = Product::where('code', $productCode)->first();

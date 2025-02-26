@@ -97,13 +97,13 @@ class AdminController extends Controller
     }
 
     public function logoutAllSessions()
-    {
-        // Flush all sessions
-        Session::flush();
+{
+    // Flush all sessions
+    Session::flush();
 
-        // Clear cache to ensure logout
-        Artisan::call('cache:clear');
+    // Clear cache to ensure logout
+    Artisan::call('cache:clear');
 
-        return redirect()->route('admin.dashboard')->with('success', 'All sessions have been closed.');
-    }
+    return redirect()->route('admin.dashboard')->with('success', 'All sessions have been closed.');
+}
 }

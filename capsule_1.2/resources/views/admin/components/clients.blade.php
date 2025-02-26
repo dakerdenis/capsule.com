@@ -10,28 +10,23 @@
                     <th scope="col">ID</th>
                     <th scope="col">Имя</th>
                     <th scope="col">Номер телефона</th>
-                    <th scope="col">email</th>
+                    <th scope="col">Email</th>
                 </tr>
             </thead>
             <tbody>
+                @forelse($clients as $client)
                 <tr>
-                    <td>
-                        1
-                    </td>
-                    <td>
-                        TEst Abbasovic
-                    </td>
-                    <td>
-                        +994555555555
-                    </td>
-                    <td>
-                        fabbasov@gmail.com
-                    </td>
+                    <td>{{ $client->id }}</td>
+                    <td>{{ $client->name }}</td>
+                    <td>{{ $client->mobile_number }}</td>
+                    <td>{{ $client->email }}</td>
                 </tr>
+                @empty
+                <tr>
+                    <td colspan="4" class="text-center">No clients found.</td>
+                </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
-
 </div>
-
-

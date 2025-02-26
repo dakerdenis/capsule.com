@@ -1101,7 +1101,7 @@
                             <div class="contact__adress__content">
                                 +1 (302) 853-3979
                             </div>
-                        </div> -->
+                        </div>
                         <div class="contact__adress__element">
                             <div class="contact__adress__name">
                                 Email:
