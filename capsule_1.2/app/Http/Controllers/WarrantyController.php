@@ -159,11 +159,13 @@ class WarrantyController extends Controller
                     // ✅ Check if the client already exists in the database
         $client = Client::where('mobile_number', $request->client_phone)->first();
         if (!$client) {
+                // ✅ Generate a unique placeholder email
+    $generatedEmail = 'client_' . time() . rand(1000, 9999) . '@capsule.com';
             // ✅ If client does not exist, create a new client
             $client = Client::create([
                 'name' => $request->client_name,
                 'mobile_number' => $request->client_phone,
-                'email' => 'empty', // Set default value
+                'email' => $generatedEmail, // Set default value
                 'warranties' => json_encode([]), // Initialize as empty array
             ]);
 
