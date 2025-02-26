@@ -39,7 +39,7 @@
     <link rel="icon" type="image/png" sizes="512x512" href="{{ asset('public/images/casule_favicon.png') }}">
 
     <!-- Apple Touch Icon (For iOS Devices) -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('public/images/apple-touch-icon.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('public/images/casule_favicon.png') }}">
 
 
 
@@ -57,13 +57,13 @@
         content="Capsule PPF offers premium car protection with advanced polyurethane films featuring self-healing, water-repellent, and long-lasting durability.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:image" content="{{ asset('public/images/logo_main.png') }}">
+    <meta property="og:image" content="{{ asset('public/images/casule_favicon.png') }}">
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="@yield('twitter_title', 'Capsule - Car Protection with PPF')">
     <meta name="twitter:description" content="@yield('twitter_description', 'Preserve the original look of your car with Capsule’s innovative protective films. Superior protection, self-healing, and aesthetic excellence.')">
-    <meta name="twitter:image" content="{{ asset('public/images/logo_main.png') }}">
+    <meta name="twitter:image" content="{{ asset('public/images/casule_favicon.png') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
