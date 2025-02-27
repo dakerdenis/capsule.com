@@ -156,23 +156,23 @@ class WarrantyController extends Controller
             if (!$serviceId) {
                 throw new \Exception('Service ID is missing. User might not be authenticated.');
             }
-                    // ✅ Check if the client already exists in the database
-        $client = Client::where('mobile_number', $request->client_phone)->first();
-        if (!$client) {
+            // ✅ Check if the client already exists in the database
+            $client = Client::where('mobile_number', $request->client_phone)->first();
+            if (!$client) {
                 // ✅ Generate a unique placeholder email
-    $generatedEmail = 'client_' . time() . rand(1000, 9999) . '@capsule.com';
-            // ✅ If client does not exist, create a new client
-            $client = Client::create([
-                'name' => $request->client_name,
-                'mobile_number' => $request->client_phone,
-                'email' => $generatedEmail, // Set default value
-                'warranties' => json_encode([]), // Initialize as empty array
-            ]);
+                $generatedEmail = 'client_' . time() . rand(1000, 9999) . '@capsule.com';
+                // ✅ If client does not exist, create a new client
+                $client = Client::create([
+                    'name' => $request->client_name,
+                    'mobile_number' => $request->client_phone,
+                    'email' => $generatedEmail, // Set default value
+                    'warranties' => json_encode([]), // Initialize as empty array
+                ]);
 
-            Log::info("New client added: {$client->name} ({$client->mobile_number})");
-        } else {
-            Log::info("Existing client found: {$client->name} ({$client->mobile_number})");
-        }
+                Log::info("New client added: {$client->name} ({$client->mobile_number})");
+            } else {
+                Log::info("Existing client found: {$client->name} ({$client->mobile_number})");
+            }
 
 
 
@@ -193,7 +193,7 @@ class WarrantyController extends Controller
             $warrantyEndDate = now()->addYears($warrantyPeriod);
             // Process uploaded photos
             $uploadedPhotos = [];
-            $watermarkPath = public_path('images/logo_main.png');
+            $watermarkPath = public_path('images/logo_watermark.png');
 
             if ($request->hasFile('installation_photos')) {
                 foreach ($request->file('installation_photos') as $photo) {
@@ -234,20 +234,23 @@ class WarrantyController extends Controller
                                 Log::info('EXIF orientation corrected.');
                             }
                         }
-
                         // Apply watermark
                         if (file_exists($watermarkPath)) {
                             try {
                                 $watermark = Image::make($watermarkPath);
-                                $watermarkSize = (int) ($image->width() * 0.1);
+
+                                // 🛠️ Calculate new watermark size (2x the previous size)
+                                $watermarkSize = (int) ($image->width() * 0.3); // 30% of image width
                                 $watermark->resize($watermarkSize, null, function ($constraint) {
                                     $constraint->aspectRatio();
                                 });
 
-                                $image->insert($watermark, 'bottom-right', 20, 20);
-                                Log::info('Watermark applied successfully.');
+                                // 🛠️ Insert watermark in the center
+                                $image->insert($watermark, 'center');
+
+                                Log::info('✅ Watermark applied successfully at center.');
                             } catch (\Exception $e) {
-                                Log::warning('Failed to apply watermark: ' . $e->getMessage());
+                                Log::warning('⚠️ Failed to apply watermark: ' . $e->getMessage());
                             }
                         }
 

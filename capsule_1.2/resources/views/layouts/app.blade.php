@@ -3,11 +3,22 @@
 
 <head>
     <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5WJ85FNX');</script>
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5WJ85FNX');
+    </script>
     <!-- End Google Tag Manager -->
 
     <meta charset="UTF-8">
@@ -29,19 +40,7 @@
 
     <!-- Favicon -->
     <!-- ICO Favicon for Desktop Browsers -->
-    <link rel="icon" href="{{ asset('public/images/casule_favicon.ico') }}" sizes="16x16 32x32 48x48"
-        type="image/x-icon">
-
-    <!-- PNG Favicon for Modern Browsers -->
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('public/images/casule_favicon.png') }}">
-    <link rel="icon" type="image/png" sizes="48x48" href="{{ asset('public/images/casule_favicon.png') }}">
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('public/images/casule_favicon.png') }}">
-    <link rel="icon" type="image/png" sizes="512x512" href="{{ asset('public/images/casule_favicon.png') }}">
-
-    <!-- Apple Touch Icon (For iOS Devices) -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('public/images/casule_favicon.png') }}">
-
-
+    <link rel="icon" href="{{ asset('public/images/casule_favicon.png') }}">
 
     <!-- Primary Meta Tags -->
     <meta name="description"
@@ -57,15 +56,15 @@
         content="Capsule PPF offers premium car protection with advanced polyurethane films featuring self-healing, water-repellent, and long-lasting durability.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:image" content="{{ asset('public/images/casule_favicon.png') }}">
+
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="@yield('twitter_title', 'Capsule - Car Protection with PPF')">
     <meta name="twitter:description" content="@yield('twitter_description', 'Preserve the original look of your car with Capsule’s innovative protective films. Superior protection, self-healing, and aesthetic excellence.')">
-    <meta name="twitter:image" content="{{ asset('public/images/casule_favicon.png') }}">
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/glide.min.js"></script>
 
@@ -80,18 +79,19 @@
 
     <link rel="preload" href="{{ asset('public/images/background-mobile.webp') }}" as="image" fetchpriority="high">
     <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+        onload="this.onload=null;this.rel='stylesheet'">
 </head>
 
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5WJ85FNX"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5WJ85FNX" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     @yield('content')
 
 
-    
+
 
 
     <!--
