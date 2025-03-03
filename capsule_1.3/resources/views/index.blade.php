@@ -225,7 +225,25 @@
                 </div>
         <!---section ABOUT--->
         <section class="about__section" id="about">
+            <div class="about__name__desc">
+                <div class="about__name">
+                    who we are and what we do
+                </div>
+                <div class="about__desc">
+                    <p>Protective films by "Capsule" offer an innovative solution for preserving the original look of your car's paint. They provide reliable protection against chemical exposure, scratches, and other damage while ensuring crystal-clear transparency and a deep, glossy finish.</p>
+                    <p>
+                        Each "Capsule" film is crafted using high-quality polyurethane and advanced nanotechnology. This ensures not only the material's strength and durability but also unique features such as water-repellent properties, self-healing capabilities, and ease of application thanks to its perfectly smooth texture. 
+                    </p>
+                    <p>
+                        "Capsule" is your trusted choice for safeguarding your vehicle and maintaining its aesthetics for years to come.
+                    </p>
+                </div>
+            </div>
 
+            <div class="about__car__desc">
+                
+            </div>
+            
         </section>
 
 

@@ -634,7 +634,8 @@ h6 {
   color: #fff;
   margin-bottom: 12px;
 }
-.home_desc_animation{
+
+.home_desc_animation {
   position: absolute;
   bottom: 40px;
 
@@ -645,37 +646,99 @@ h6 {
   width: 250px;
   height: 100px;
   bottom: 50px;
-  transform: translateX(100vw); /* Initially off-screen */
-  opacity: 0; /* Hidden until visible */
+  transform: translateX(100vw);
+  /* Initially off-screen */
+  opacity: 0;
+  /* Hidden until visible */
 }
+
 .home_desc_animation-car.animate {
   animation: carMove 3s ease-in;
   opacity: 1;
 }
-.home_desc_animation-car img{
+
+.home_desc_animation-car img {
   width: 100%;
   object-fit: contain;
 }
+
 @keyframes carMove {
   0% {
-      transform: translateX(100vw); /* Start off-screen right */
+    transform: translateX(100vw);
+    /* Start off-screen right */
   }
+
   40% {
-      transform: translateX(calc(50%)); /* Move to center (250px width/2) */
+    transform: translateX(calc(50%));
+    /* Move to center (250px width/2) */
   }
+
   50% {
-      transform: translateX(calc(50%)); /* Stay in center for a bit */
+    transform: translateX(calc(50%));
+    /* Stay in center for a bit */
   }
+
   100% {
-      transform: translateX(-100vw); /* Move off-screen left */
+    transform: translateX(-100vw);
+    /* Move off-screen left */
   }
 }
 
 
 
 
+/*****ABOUT US********/
+.about__section {
+  width: 100%;
+  margin-top: 20px;
+}
+.about__name__desc{
+  width: 100%;
+  height: 100%;
 
-.about__section {}
+  background-image: url('./images/about_svg.svg');
+  background-size: contain;
+  background-position: bottom;
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+}
+.about__name {
+  width: 100%;
+  text-align: center;
+
+  font-weight: 700;
+  font-size: 46px;
+
+  letter-spacing: 0.8px;
+  text-align: center;
+  color: #34C81E;
+  text-transform: uppercase;
+}
+.about__desc{
+  width: 100%;
+  margin-top: 55px;
+  
+}
+
+.about__desc p {
+  max-width: 1523px;
+  margin: 0 auto;
+
+color: #fff;
+font-weight: 400;
+font-size: 18px;
+line-height: 41px;
+letter-spacing: 0%;
+text-align: center;
+
+}
+
+
+
+
+
+
+
 
 .map__section {}
 
@@ -686,7 +749,22 @@ h6 {
 .gallery__section {}
 
 .contact__section {}
-
+@media only screen and (max-width: 1650px) {
+  .home__desc__name {
+    font-size: 54px;
+  }
+  .home__desc__text {
+    font-size: 19px;
+  }
+  .home_desc_animation{
+    width: 85%;
+    margin: 0 auto;
+  }
+  .home_desc_animation img{
+    width: 100%;
+    object-fit: contain;
+  }
+}
 
 
 @media only screen and (max-width: 768px) {
