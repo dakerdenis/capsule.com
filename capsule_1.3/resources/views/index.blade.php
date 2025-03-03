@@ -206,19 +206,23 @@
                     </div>
                 </div>
 
+
+            </div>
+        </section>
+
+        
                 <!----home desc name---->
                 <div class="home_desc_techno">
                     <div class="home_desc_text">
                         Designed for Professionals
                     </div>
                     <div class="home_desc_animation">
-                        
+                        <img src="{{asset('images/ustechno.svg')}}" alt="" srcset="">
+                    </div>
+                    <div class="home_desc_animation-car">
+                        <img src="{{asset('images/car_animation.webp')}}" alt="" srcset="">
                     </div>
                 </div>
-
-            </div>
-        </section>
-
         <!---section ABOUT--->
         <section class="about__section" id="about">
 

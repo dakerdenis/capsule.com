@@ -305,6 +305,7 @@ h6 {
   width: 100%;
   height: 100vh;
   min-height: 700px;
+  max-height: 1080px;
   position: relative;
 }
 
@@ -613,14 +614,15 @@ h6 {
 
 
 .home_desc_techno {
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 250px;
-  background-color: #83080870;
-  bottom: 0px;
+
+
   display: flex;
   align-items: center;
   flex-direction: column;
+  z-index: 300;
 }
 
 .home_desc_text {
@@ -630,12 +632,44 @@ h6 {
   letter-spacing: 0.68px;
   text-align: center;
   color: #fff;
+  margin-bottom: 12px;
+}
+.home_desc_animation{
+  position: absolute;
+  bottom: 40px;
+
 }
 
-
-
-
-
+.home_desc_animation-car {
+  position: absolute;
+  width: 250px;
+  height: 100px;
+  bottom: 50px;
+  transform: translateX(100vw); /* Initially off-screen */
+  opacity: 0; /* Hidden until visible */
+}
+.home_desc_animation-car.animate {
+  animation: carMove 3s ease-in;
+  opacity: 1;
+}
+.home_desc_animation-car img{
+  width: 100%;
+  object-fit: contain;
+}
+@keyframes carMove {
+  0% {
+      transform: translateX(100vw); /* Start off-screen right */
+  }
+  40% {
+      transform: translateX(calc(50%)); /* Move to center (250px width/2) */
+  }
+  50% {
+      transform: translateX(calc(50%)); /* Stay in center for a bit */
+  }
+  100% {
+      transform: translateX(-100vw); /* Move off-screen left */
+  }
+}
 
 
 
