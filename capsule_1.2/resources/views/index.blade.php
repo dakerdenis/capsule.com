@@ -1003,45 +1003,54 @@
     <script src="{{ asset('public/js/main.js') }}"></script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             const form = document.querySelector("#contact-form");
             const submitButton = document.querySelector(".contact__form-submit button");
-        
-            form.addEventListener("submit", function (event) {
+
+            form.addEventListener("submit", function(event) {
                 event.preventDefault();
-        
+
                 let formData = new FormData(form);
-        
+
                 submitButton.disabled = true;
                 submitButton.textContent = "Sending...";
-        
+
                 fetch("{{ route('send.email') }}", {
-                    method: "POST",
-                    headers: {
-                        "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
-                        "Accept": "application/json"
-                    },
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert("Your message has been sent successfully!");
-                        form.reset();
-                    } else {
-                        alert("Error: " + data.error);
-                    }
-                })
-                .catch(error => {
-                    alert("An error occurred. Please try again.");
-                    console.error("Error:", error);
-                })
-                .finally(() => {
-                    submitButton.disabled = false;
-                    submitButton.textContent = "SEND REQUEST";
-                });
+                        method: "POST",
+                        headers: {
+                            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]')
+                                .getAttribute("content"),
+                            "Accept": "application/json"
+                        },
+                        body: formData
+                    })
+                    .then(response => response.json().then(data => ({
+                        status: response.status,
+                        body: data
+                    })))
+                    .then(result => {
+                        console.log("Response Data:", result);
+
+                        if (result.status === 200 && result.body.success) {
+                            alert("Your message has been sent successfully!");
+                            form.reset();
+                        } else if (result.status === 422) {
+                            console.error("Validation Error:", result.body.details);
+                            alert("Validation Error: " + JSON.stringify(result.body.details));
+                        } else {
+                            alert("Error: " + result.body.error);
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Fetch Error:", error);
+                        alert("An error occurred. Please try again.");
+                    })
+                    .finally(() => {
+                        submitButton.disabled = false;
+                        submitButton.textContent = "SEND REQUEST";
+                    });
             });
         });
-        </script>
+    </script>
 
 @endsection
