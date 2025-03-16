@@ -11,6 +11,7 @@ use App\Http\Controllers\AdminServicesController;
 use App\Http\Controllers\AdminWarrantyController;
 use App\Http\Controllers\ClientsController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\MailController;
 
 use Intervention\Image\Facades\Image;
 
@@ -111,7 +112,7 @@ Route::get('/warranty/{id}', [WarrantyController::class, 'singleWarranty'])->nam
 Route::get('/warranty/{id}/pdf', [WarrantyController::class, 'generatePdf'])->name('service.warranty.pdf');
 //*************************** */
 Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
-
+Route::post('/send-email', [MailController::class, 'sendMail'])->name('send.email');
 
 
 

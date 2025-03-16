@@ -19,8 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->isSMTP();
         $mail->Host = 'smtp.hostinger.com';  // Use your Hostinger SMTP
         $mail->SMTPAuth = true;
-        $mail->Username = 'your-email@yourdomain.com'; // Your Hostinger email
-        $mail->Password = 'your-email-password'; // Your email password
+        $mail->Username = 'form@capsuleppf.com'; // Your Hostinger email
+        $mail->Password = 'Troya@9977!@#geklas'; // Your email password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; 
         $mail->Port = 465;
 
