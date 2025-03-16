@@ -28,16 +28,22 @@ class MailController extends Controller
             // ✅ Setup PHPMailer
             $mail = new PHPMailer(true);
             $mail->isSMTP();
+            $mail->SMTPDebug = 2; // 🛠 Enable Debugging (Set to 0 for production)
             $mail->Host = 'smtp.hostinger.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'form@capsuleppf.com'; // Change this if necessary
-            $mail->Password = 'Troya@9977!@';   // ❗ MOVE THIS TO `.env` FILE
+            $mail->Username = 'form@capsuleppf.com'; // ✅ Authenticated Email
+            $mail->Password = 'Troya@9977!@';  // ❗ MOVE THIS TO `.env` FILE
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port = 465;
 
-            // ✅ Email Headers
-            $mail->setFrom($validated['email'], $validated['name']);
+            // ✅ Set "From" and "Reply-To"
+            $mail->setFrom('form@capsuleppf.com', 'Capsule Contact Form'); // ✅ Must match Username
+            $mail->addReplyTo($validated['email'], $validated['name']); // ✅ Allow replies to user
+
+            // ✅ Add recipient
             $mail->addAddress("contact@capsuleppf.com");
+
+            // ✅ Email Content
             $mail->Subject = "New Contact Form Submission";
             $mail->isHTML(true);
             $mail->Body = "
@@ -51,7 +57,10 @@ class MailController extends Controller
             ";
 
             // ✅ Send Email
-            $mail->send();
+            if (!$mail->send()) {
+                throw new Exception('Mail Error: ' . $mail->ErrorInfo);
+            }
+
             Log::info('✅ Email Sent Successfully');
 
             return response()->json(["success" => true, "message" => "Message sent successfully!"]);
@@ -61,8 +70,8 @@ class MailController extends Controller
             return response()->json(["success" => false, "error" => "Validation failed", "details" => $e->errors()], 422);
 
         } catch (Exception $e) {
-            Log::error('❌ Mail Sending Failed', ['error' => $mail->ErrorInfo]);
-            return response()->json(["success" => false, "error" => "Mail sending failed"], 500);
+            Log::error('❌ Mail Sending Failed', ['error' => $e->getMessage()]);
+            return response()->json(["success" => false, "error" => "Mail sending failed", "details" => $e->getMessage()], 500);
         }
     }
 }
