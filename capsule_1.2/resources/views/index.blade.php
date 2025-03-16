@@ -754,10 +754,15 @@
                                     </div>
                                     <div class="contact__form__block-input">
                                         <select class="contact__form__block-select" name="countries" id="countries">
-                                            <option value="TT" data-capital="Kabul">Select Counry</option>
-                                            <option value="ZW" data-capital="Harare">Zimbabwe</option>
+                                            <option value="" disabled selected>Select Country</option>
+                                            <option value="US" data-capital="Kabul">USA</option>
+                                            <option value="GE" data-capital="Berlin">Germany</option>
+                                            <option value="RU" data-capital="Moscow">Russia</option>
+                                            <option value="CA" data-capital="Washington">Canada</option>
+                                            <option value="TT" data-capital="Harare">Another</option>
                                         </select>
                                     </div>
+                                    
                                 </div>
                             </div>
 

@@ -18,9 +18,10 @@ class MailController extends Controller
                 'name' => 'required|string|max:255',
                 'email' => 'required|email',
                 'number' => 'required|string|max:15',
-                'country' => 'required|string',
+                'countries' => 'required|string', // Change 'country' to 'countries'
                 'message' => 'required|string|max:1000',
             ]);
+            
     
             Log::info('Validation passed', ['validated_data' => $validated]);
     
