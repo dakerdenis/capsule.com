@@ -3,7 +3,12 @@
 @section('title', 'Capsule - car proection')
 
 @section('content')
-
+    <style>
+        .error-message{
+            color: red;
+            line-height: 17px;
+        }
+    </style>
     <div class="main__container">
         <!---header-->
         <header class="header" id="header">
@@ -1011,20 +1016,68 @@
         document.addEventListener("DOMContentLoaded", function() {
             const form = document.querySelector("#contact-form");
             const submitButton = document.querySelector(".contact__form-submit button");
-
+            const termsCheckbox = document.querySelector("input[name='consent']");
+            const checkboxWrapper = document.querySelector(".custom-checkbox");
+    
+            // Function to show error by adding a red border
+            function highlightError(input) {
+                input.style.border = "2px solid red";
+            }
+    
+            // Function to clear error styling
+            function clearHighlight(input) {
+                input.style.border = "";
+            }
+    
             form.addEventListener("submit", function(event) {
                 event.preventDefault();
-
+    
+                let isValid = true;
+    
+                // Get form fields
+                const name = document.querySelector("#name");
+                const email = document.querySelector("#email");
+                const number = document.querySelector("#number");
+                const country = document.querySelector("#countries");
+                const message = document.querySelector("#message");
+    
+                // Validation checks
+                function validateField(field, message) {
+                    if (field.value.trim() === "") {
+                        showError(field, message);
+                        isValid = false;
+                    } else {
+                        clearError(field);
+                    }
+                }
+    
+                validateField(name, "Name is required.");
+                validateField(email, "Email is required.");
+                validateField(number, "Phone number is required.");
+                validateField(country, "Please select a country.");
+                validateField(message, "Message cannot be empty.");
+    
+                // Validate Terms Checkbox (No error message, only red border)
+                if (!termsCheckbox.checked) {
+                    highlightError(checkboxWrapper);
+                    isValid = false;
+                } else {
+                    clearHighlight(checkboxWrapper);
+                }
+    
+                if (!isValid) {
+                    return;
+                }
+    
+                // Form submission logic
                 let formData = new FormData(form);
-
                 submitButton.disabled = true;
                 submitButton.textContent = "Sending...";
-
+    
                 fetch("{{ route('send.email') }}", {
                         method: "POST",
                         headers: {
-                            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]')
-                                .getAttribute("content"),
+                            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
                             "Accept": "application/json"
                         },
                         body: formData
@@ -1035,27 +1088,41 @@
                     })))
                     .then(result => {
                         console.log("Response Data:", result);
-
+    
                         if (result.status === 200 && result.body.success) {
                             alert("Your message has been sent successfully!");
                             form.reset();
+                            submitButton.textContent = "Form Submitted ✅";
+                            submitButton.disabled = true;
+                            clearHighlight(checkboxWrapper); // Remove red border after submission
                         } else if (result.status === 422) {
                             console.error("Validation Error:", result.body.details);
                             alert("Validation Error: " + JSON.stringify(result.body.details));
+                            submitButton.disabled = false;
+                            submitButton.textContent = "SEND REQUEST";
                         } else {
                             alert("Error: " + result.body.error);
+                            submitButton.disabled = false;
+                            submitButton.textContent = "SEND REQUEST";
                         }
                     })
                     .catch(error => {
                         console.error("Fetch Error:", error);
                         alert("An error occurred. Please try again.");
-                    })
-                    .finally(() => {
                         submitButton.disabled = false;
                         submitButton.textContent = "SEND REQUEST";
                     });
             });
+    
+            // Remove red border when checkbox is checked
+            termsCheckbox.addEventListener("change", function() {
+                if (termsCheckbox.checked) {
+                    clearHighlight(checkboxWrapper);
+                }
+            });
         });
     </script>
+    
+    
 
 @endsection
