@@ -1015,16 +1015,40 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const form = document.querySelector("#contact-form");
-            const submitButton = document.querySelector(".contact__form-submit button");
+            const submitButtonContainer = document.querySelector(".contact__form-submit"); // Get the button container
+            const submitButton = submitButtonContainer.querySelector("button");
             const termsCheckbox = document.querySelector("input[name='consent']");
             const checkboxWrapper = document.querySelector(".custom-checkbox");
     
-            // Function to show error by adding a red border
+            // Function to show error message under input fields
+            function showError(input, message) {
+                let errorSpan = input.parentElement.querySelector(".error-message");
+                if (!errorSpan) {
+                    errorSpan = document.createElement("span");
+                    errorSpan.classList.add("error-message");
+                    errorSpan.style.color = "red";
+                    errorSpan.style.fontSize = "12px";
+                    input.parentElement.appendChild(errorSpan);
+                }
+                errorSpan.textContent = message;
+                input.style.border = "2px solid red"; // Add red border
+            }
+    
+            // Function to clear error message
+            function clearError(input) {
+                let errorSpan = input.parentElement.querySelector(".error-message");
+                if (errorSpan) {
+                    errorSpan.remove();
+                }
+                input.style.border = ""; // Remove red border
+            }
+    
+            // Function to highlight checkbox error
             function highlightError(input) {
                 input.style.border = "2px solid red";
             }
     
-            // Function to clear error styling
+            // Function to clear checkbox error styling
             function clearHighlight(input) {
                 input.style.border = "";
             }
@@ -1082,26 +1106,33 @@
                         },
                         body: formData
                     })
-                    .then(response => response.json().then(data => ({
-                        status: response.status,
-                        body: data
-                    })))
+                    .then(response => {
+                        // ✅ Handle non-strict JSON responses
+                        return response.text().then(text => {
+                            try {
+                                return { status: response.status, body: JSON.parse(text) };
+                            } catch (error) {
+                                console.error("JSON Parse Error:", error, "Raw response:", text);
+                                return { status: response.status, body: { success: false, error: "Invalid JSON response" } };
+                            }
+                        });
+                    })
                     .then(result => {
                         console.log("Response Data:", result);
     
                         if (result.status === 200 && result.body.success) {
                             alert("Your message has been sent successfully!");
                             form.reset();
-                            submitButton.textContent = "Form Submitted ✅";
-                            submitButton.disabled = true;
-                            clearHighlight(checkboxWrapper); // Remove red border after submission
+    
+                            // ✅ Replace the submit button with a success message
+                            submitButtonContainer.innerHTML = `<p style="color: green; font-size: 16px; font-weight: bold;">✔ Email Sent Successfully!</p>`;
                         } else if (result.status === 422) {
                             console.error("Validation Error:", result.body.details);
                             alert("Validation Error: " + JSON.stringify(result.body.details));
                             submitButton.disabled = false;
                             submitButton.textContent = "SEND REQUEST";
                         } else {
-                            alert("Error: " + result.body.error);
+                            alert("Error: " + (result.body.error || "Unknown error"));
                             submitButton.disabled = false;
                             submitButton.textContent = "SEND REQUEST";
                         }
@@ -1122,6 +1153,10 @@
             });
         });
     </script>
+    
+    
+    
+    
     
     
 
