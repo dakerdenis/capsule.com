@@ -777,6 +777,94 @@ text-align: center;
     right: -55px;
     height: 378px;
   }
+  .car__circle{
+    width: 40px;
+    height: 40px;
+  }
+  .car__circle div {
+    width: 20px;
+    height: 20px;
+  }
+
+
+
+
+  .car__circle1 {
+    top: 282px;
+    left: 129px;
+  }
+
+
+  .car__desc1 {
+    left: 96px;
+    top: 158px;
+  }
+  .car__p{
+    font-size: 18px;
+  }
+  .car__p1 {
+    left: 0px;
+    top: 121px;
+}
+.car__desc2 {
+  left: 193px;
+  top: 62px;
+}
+.car__p2 {
+  left: 122px;
+  top: 31px;
+}
+.car__circle2 {
+  left: 257px;
+  top: 242px;
+}
+
+
+
+.car__circle3 {
+  left: 383px;
+  top: 338px;
+}
+    .car__desc3 {
+      left: 354px;
+      top: 151px;
+  }
+  .car__p3 {
+    left: 284px;
+    top: 105px;
+}
+
+.car__circle4 {
+  left: 467px;
+  top: 252px;
+}
+.car__desc4 {
+  top: 53px;
+  /* left: 351px; */
+  right: 314px;
+}
+.car__p4 {
+  right: 293px;
+  top: 1px;
+  max-width: 124px;
+  text-align: center;
+}
+
+.car__circle5 {
+  left: 626px;
+  top: 282px;
+}
+.car__desc5 {
+  top: 99px;
+  /* left: 351px; */
+  right: 78px;
+}
+.car__p5 {
+  right: 22px;
+  top: 48px;
+  max-width: 197px;
+  text-align: right;
+}
 }
 
 
