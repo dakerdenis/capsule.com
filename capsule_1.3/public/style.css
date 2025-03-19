@@ -773,7 +773,7 @@ text-align: center;
   }
   .home__car__desc{
     width: 812px;
-    background-color: #008000b0;
+
     right: -55px;
     height: 378px;
   }
@@ -866,7 +866,12 @@ text-align: center;
   text-align: right;
 }
 }
-
+@media only screen and (max-width: 1370px) {
+  .home_desc_animation-car{
+    width: 200px;
+    height: 80px;
+  }
+}
 
 
 @media only screen and (max-width: 768px) {
