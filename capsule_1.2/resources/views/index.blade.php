@@ -180,7 +180,7 @@
             <div class="main__wrapper-mobile">
                 <!--image-->
                 <div class="mobile__main-background">
-                    <img src="{{ asset('public/images/background-mobile.png') }}" alt="Car Image">
+                    <img src="{{ asset('public/images/background-mobile.webp') }}" alt="Car Image">
                 </div>
                 <!--DESC + CONTACT-->
                 <div class="mobile__main-desc">

@@ -9,6 +9,7 @@ use App\Http\Controllers\VerificationController;
 use App\Http\Controllers\AdminProductsController;
 use App\Http\Controllers\AdminServicesController;
 use App\Http\Controllers\AdminWarrantyController;
+use App\Http\Controllers\UserVerificationController;
 use App\Http\Controllers\ClientsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MailController;
@@ -30,6 +31,12 @@ Route::get('/catalog', fn() => redirect('/en/catalog'));
 //*************************** */
 
 
+
+//**********USER CHECK*************/
+Route::get('/user/check', function () {
+    return view('check_warranty');
+})->name('warranty.check');
+Route::post('/user/check', [UserVerificationController::class, 'checkuser'])->name('user.check');
 
 
 //!Verification Page for all users -> need to add maximum values of attempts per minute.
@@ -113,8 +120,6 @@ Route::get('/warranty/{id}/pdf', [WarrantyController::class, 'generatePdf'])->na
 //*************************** */
 Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
 Route::post('/send-email', [MailController::class, 'sendMail'])->name('send.email');
-
-
 
 Route::fallback(function () {
     return 'Error 404 Not Found';
