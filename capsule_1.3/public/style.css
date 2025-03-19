@@ -749,7 +749,7 @@ text-align: center;
 .gallery__section {}
 
 .contact__section {}
-@media only screen and (max-width: 1650px) {
+@media only screen and (max-width: 1660px) {
   .home__desc__name {
     font-size: 54px;
   }
@@ -765,6 +765,20 @@ text-align: center;
     object-fit: contain;
   }
 }
+@media only screen and (max-width: 1450px) {
+  .home__car-image{
+    width: 758px;
+    height: 372px;
+    right: 35px;
+  }
+  .home__car__desc{
+    width: 812px;
+    background-color: #008000b0;
+    right: -55px;
+    height: 378px;
+  }
+}
+
 
 
 @media only screen and (max-width: 768px) {
