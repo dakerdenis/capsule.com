@@ -904,7 +904,24 @@
 
 
     <script>
+        const langBtn = document.getElementById('languageButton');
+const langDropdown = document.getElementById('languageDropdown');
+
+langBtn?.addEventListener('click', e => {
+    e.stopPropagation();
+    langDropdown.style.display = langDropdown.style.display === 'block' ? 'none' : 'block';
+});
+
+document.addEventListener('click', e => {
+    if (!e.target.closest('.header__languages')) {
+        langDropdown.style.display = 'none';
+    }
+});
+
         document.addEventListener('DOMContentLoaded', () => {
+
+            /*************HEADER LNGUAGE**/
+            
             /*** SELECT2 PLUGIN: Country Picker ***/
             if (typeof $ !== 'undefined' && $.fn.select2) {
                 function format(item) {
