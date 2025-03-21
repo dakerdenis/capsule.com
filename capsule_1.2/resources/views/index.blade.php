@@ -5,7 +5,7 @@
 @section('content')
 
     <style>
-        .error-message{
+        .error-message {
             color: red;
             line-height: 17px;
         }
@@ -768,7 +768,7 @@
                                             <option value="TT" data-capital="Harare">Another</option>
                                         </select>
                                     </div>
-                                    
+
                                 </div>
                             </div>
 
@@ -886,155 +886,168 @@
             </div>
         </section>
     </div>
-<!-- jQuery (required for Select2) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery (required for Select2) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<!-- Select2 -->
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <!-- Select2 -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-<!-- GlideJS -->
-<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+    <!-- GlideJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
 
-<!-- Fancybox (optional, if used) -->
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <!-- Fancybox (optional, if used) -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
 
-<!-- Main App JS -->
-<script src="{{ asset('public/js/main.js') }}"></script>
+    <!-- Main App JS -->
+    <script src="{{ asset('public/js/main.js') }}"></script>
 
-<!-- The big JS block above -->
+
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const glide = new Glide('.glide', {
-                type: 'carousel',
-                startAt: 0,
-                perView: 4,
-                focusAt: 'center',
-                gap: 40,
-                autoplay: 3000,
-
-                animationDuration: 800,
-                breakpoints: {
-                    1024: {
-                        perView: 2
-                    },
-                    600: {
-                        perView: 1.5
-                    }
-                }
-            });
-
-            glide.on('move', () => {
-                const slides = document.querySelectorAll('.glide__slide');
-                slides.forEach(slide => slide.classList.remove('is-next'));
-                const nextIndex = (glide.index + 1) % slides.length;
-                slides[nextIndex].classList.add('is-next');
-            });
-
-            glide.mount();
-        });
-
-
         document.addEventListener('DOMContentLoaded', () => {
+            /*** SELECT2 PLUGIN: Country Picker ***/
+            if (typeof $ !== 'undefined' && $.fn.select2) {
+                function format(item) {
+                    if (!item.id) return item.text;
+                    const url = 'https://hatscripts.github.io/circle-flags/flags/';
+                    return $('<span>')
+                        .append($('<img>', {
+                            class: 'img-flag',
+                            width: 26,
+                            src: url + item.element.value.toLowerCase() + '.svg'
+                        }))
+                        .append(' ' + item.text);
+                }
+    
+                $('#countries').select2({
+                    placeholder: "Select Country",
+                    templateResult: format,
+                    templateSelection: format,
+                    allowClear: true
+                });
+            }
+    
+            /*** GLIDE SLIDER INIT ***/
+            if (typeof Glide !== 'undefined') {
+                const glide = new Glide('.glide', {
+                    type: 'carousel',
+                    startAt: 0,
+                    perView: 4,
+                    focusAt: 'center',
+                    gap: 40,
+                    autoplay: 3000,
+                    animationDuration: 800,
+                    breakpoints: {
+                        1024: { perView: 2 },
+                        600: { perView: 1.5 }
+                    }
+                });
+    
+                glide.on('move', () => {
+                    const slides = document.querySelectorAll('.glide__slide');
+                    slides.forEach(slide => slide.classList.remove('is-next'));
+                    const nextIndex = (glide.index + 1) % slides.length;
+                    slides[nextIndex]?.classList.add('is-next');
+                });
+    
+                glide.mount();
+            }
+    
+            /*** MOBILE MENU TOGGLE ***/
             const burger = document.querySelector('.header__burger');
             const mobileMenu = document.getElementById('mobileMenu');
             const mobileMenuClose = document.getElementById('mobileMenuClose');
             const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
             const body = document.body;
-
-            // Open mobile menu
-            burger.addEventListener('click', () => {
-                mobileMenu.classList.add('active');
-                body.style.overflow = 'hidden'; // Disable scrolling
+    
+            burger?.addEventListener('click', () => {
+                mobileMenu?.classList.add('active');
+                body.style.overflow = 'hidden';
             });
-
-            // Close mobile menu on close button click
-            mobileMenuClose.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-                body.style.overflow = ''; // Enable scrolling
+    
+            mobileMenuClose?.addEventListener('click', () => {
+                mobileMenu?.classList.remove('active');
+                body.style.overflow = '';
             });
-
-            // Close mobile menu on link click
+    
             mobileMenuLinks.forEach(link => {
                 link.addEventListener('click', () => {
-                    mobileMenu.classList.remove('active');
-                    body.style.overflow = ''; // Enable scrolling
+                    mobileMenu?.classList.remove('active');
+                    body.style.overflow = '';
                 });
             });
-        });
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
+    
+            /*** SMALL CAR ANIMATION (mobile) ***/
             setTimeout(() => {
                 const car = document.querySelector('.mobile__main-car-small');
-                car.style.animation = 'carAnimationSmall 3.2s ease-in-out forwards';
-            }, 1000); // Start animation after 1.5 seconds
-        });
-    </script>
-    <script>
-        // Function to animate the numbers
-        function animateNumbers(element, target, duration) {
-            let start = 0;
-            const stepTime = Math.abs(Math.floor(duration / target)); // Time per increment
-            const timer = setInterval(() => {
-                start++;
-                element.textContent = start;
-                if (start >= target) {
-                    clearInterval(timer);
+                if (car) car.style.animation = 'carAnimationSmall 3.2s ease-in-out forwards';
+            }, 1000);
+    
+            /*** INTERSECTION OBSERVER FOR COUNTERS ***/
+            const animateNumbers = (element, target, duration) => {
+                let start = 0;
+                const stepTime = Math.abs(Math.floor(duration / target));
+                const timer = setInterval(() => {
+                    start++;
+                    element.textContent = start;
+                    if (start >= target) clearInterval(timer);
+                }, stepTime);
+            };
+    
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const target = parseInt(el.getAttribute('data-target'));
+                        animateNumbers(el, target, 1000);
+                        observer.unobserve(el);
+                    }
+                });
+            }, { threshold: 1.0 });
+    
+            document.querySelectorAll('.map__container-desc p').forEach(p => {
+                observer.observe(p);
+            });
+    
+            /*** REMOVE DESKTOP WRAPPER ON MOBILE ***/
+            const removeMainWrapperPC = () => {
+                if (window.innerWidth < 768) {
+                    const wrapper = document.querySelector('.main__wrapper.main__wrapper-pc');
+                    wrapper?.remove();
                 }
-            }, stepTime);
-        }
-
-        // Observe when the numbers come into view
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const element = entry.target;
-                    const target = parseInt(element.getAttribute('data-target'));
-                    const duration = 1000; // 1 second
-                    animateNumbers(element, target, duration);
-                    observer.unobserve(element); // Stop observing after animation is done
+            };
+            removeMainWrapperPC();
+            window.addEventListener('resize', removeMainWrapperPC);
+    
+            /*** LANGUAGE DROPDOWN ***/
+            const langBtn = document.getElementById('languageButton');
+            const langDropdown = document.getElementById('languageDropdown');
+    
+            langBtn?.addEventListener('click', e => {
+                e.stopPropagation();
+                langDropdown.style.display = (langDropdown.style.display === 'block') ? 'none' : 'block';
+            });
+    
+            document.addEventListener('click', e => {
+                if (!e.target.closest('.header__languages')) {
+                    langDropdown.style.display = 'none';
                 }
             });
-        }, {
-            threshold: 1.0, // Trigger when the entire element is visible
-        });
-
-        // Select the elements to animate
-        document.querySelectorAll('.map__container-desc p').forEach(p => {
-            observer.observe(p);
-        });
-
-
-        document.addEventListener("DOMContentLoaded", function() {
-            function removeMainWrapperPC() {
-                if (window.innerWidth < 768) {
-                    const mainWrapperPC = document.querySelector(".main__wrapper.main__wrapper-pc");
-                    if (mainWrapperPC) {
-                        mainWrapperPC.remove();
-                        console.log("Removed .main__wrapper.main__wrapper-pc for mobile screens.");
-                    }
-                }
-            }
-
-            // Run the function when the page loads
-            removeMainWrapperPC();
-
-            // Also run it when the window resizes (useful for dynamic screen changes)
-            window.addEventListener("resize", removeMainWrapperPC);
         });
     </script>
+    
 
-    <script src="{{ asset('public/js/main.js') }}"></script>
+
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const form = document.querySelector("#contact-form");
-            const submitButtonContainer = document.querySelector(".contact__form-submit"); // Get the button container
+            const submitButtonContainer = document.querySelector(
+            ".contact__form-submit"); // Get the button container
             const submitButton = submitButtonContainer.querySelector("button");
             const termsCheckbox = document.querySelector("input[name='consent']");
             const checkboxWrapper = document.querySelector(".custom-checkbox");
-    
+
             // Function to show error message under input fields
             function showError(input, message) {
                 let errorSpan = input.parentElement.querySelector(".error-message");
@@ -1048,7 +1061,7 @@
                 errorSpan.textContent = message;
                 input.style.border = "2px solid red"; // Add red border
             }
-    
+
             // Function to clear error message
             function clearError(input) {
                 let errorSpan = input.parentElement.querySelector(".error-message");
@@ -1057,29 +1070,29 @@
                 }
                 input.style.border = ""; // Remove red border
             }
-    
+
             // Function to highlight checkbox error
             function highlightError(input) {
                 input.style.border = "2px solid red";
             }
-    
+
             // Function to clear checkbox error styling
             function clearHighlight(input) {
                 input.style.border = "";
             }
-    
+
             form.addEventListener("submit", function(event) {
                 event.preventDefault();
-    
+
                 let isValid = true;
-    
+
                 // Get form fields
                 const name = document.querySelector("#name");
                 const email = document.querySelector("#email");
                 const number = document.querySelector("#number");
                 const country = document.querySelector("#countries");
                 const message = document.querySelector("#message");
-    
+
                 // Validation checks
                 function validateField(field, message) {
                     if (field.value.trim() === "") {
@@ -1089,13 +1102,13 @@
                         clearError(field);
                     }
                 }
-    
+
                 validateField(name, "Name is required.");
                 validateField(email, "Email is required.");
                 validateField(number, "Phone number is required.");
                 validateField(country, "Please select a country.");
                 validateField(message, "Message cannot be empty.");
-    
+
                 // Validate Terms Checkbox (No error message, only red border)
                 if (!termsCheckbox.checked) {
                     highlightError(checkboxWrapper);
@@ -1103,20 +1116,21 @@
                 } else {
                     clearHighlight(checkboxWrapper);
                 }
-    
+
                 if (!isValid) {
                     return;
                 }
-    
+
                 // Form submission logic
                 let formData = new FormData(form);
                 submitButton.disabled = true;
                 submitButton.textContent = "Sending...";
-    
+
                 fetch("{{ route('send.email') }}", {
                         method: "POST",
                         headers: {
-                            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
+                            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]')
+                                .getAttribute("content"),
                             "Accept": "application/json"
                         },
                         body: formData
@@ -1125,22 +1139,33 @@
                         // ✅ Handle non-strict JSON responses
                         return response.text().then(text => {
                             try {
-                                return { status: response.status, body: JSON.parse(text) };
+                                return {
+                                    status: response.status,
+                                    body: JSON.parse(text)
+                                };
                             } catch (error) {
-                                console.error("JSON Parse Error:", error, "Raw response:", text);
-                                return { status: response.status, body: { success: false, error: "Invalid JSON response" } };
+                                console.error("JSON Parse Error:", error, "Raw response:",
+                                text);
+                                return {
+                                    status: response.status,
+                                    body: {
+                                        success: false,
+                                        error: "Invalid JSON response"
+                                    }
+                                };
                             }
                         });
                     })
                     .then(result => {
                         console.log("Response Data:", result);
-    
+
                         if (result.status === 200 && result.body.success) {
                             alert("Your message has been sent successfully!");
                             form.reset();
-    
+
                             // ✅ Replace the submit button with a success message
-                            submitButtonContainer.innerHTML = `<p style="color: green; font-size: 16px; font-weight: bold;">✔ Email Sent Successfully!</p>`;
+                            submitButtonContainer.innerHTML =
+                                `<p style="color: green; font-size: 16px; font-weight: bold;">✔ Email Sent Successfully!</p>`;
                         } else if (result.status === 422) {
                             console.error("Validation Error:", result.body.details);
                             alert("Validation Error: " + JSON.stringify(result.body.details));
@@ -1159,7 +1184,7 @@
                         submitButton.textContent = "SEND REQUEST";
                     });
             });
-    
+
             // Remove red border when checkbox is checked
             termsCheckbox.addEventListener("change", function() {
                 if (termsCheckbox.checked) {
@@ -1168,11 +1193,11 @@
             });
         });
     </script>
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
 
 @endsection
