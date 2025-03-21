@@ -3,6 +3,7 @@
 @section('title', 'Capsule - car proection')
 
 @section('content')
+
     <style>
         .error-message{
             color: red;
@@ -885,9 +886,23 @@
             </div>
         </section>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js" defer></script>
+<!-- jQuery (required for Select2) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Select2 -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<!-- GlideJS -->
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+
+<!-- Fancybox (optional, if used) -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+<!-- Main App JS -->
+<script src="{{ asset('public/js/main.js') }}"></script>
+
+<!-- The big JS block above -->
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const glide = new Glide('.glide', {
