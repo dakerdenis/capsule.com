@@ -1762,11 +1762,18 @@ h6 {
     /* Filled color */
 }
 
+
+
+
 .contact__form__block-select {
     width: 100% !important;
-    height: 41px !important;
+    height: 39px !important;
     background-color: #fff;
+    border-radius: 7px;
 }
+
+
+
 
 .select2-container .select2-selection--single {
     height: 41px;
