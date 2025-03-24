@@ -1,7 +1,5 @@
 @extends('layouts.app')
-
 @section('title', 'Capsule - car proection')
-
 @section('content')
 
     <style>
@@ -905,23 +903,23 @@
 
     <script>
         const langBtn = document.getElementById('languageButton');
-const langDropdown = document.getElementById('languageDropdown');
+        const langDropdown = document.getElementById('languageDropdown');
 
-langBtn?.addEventListener('click', e => {
-    e.stopPropagation();
-    langDropdown.style.display = langDropdown.style.display === 'block' ? 'none' : 'block';
-});
+        langBtn?.addEventListener('click', e => {
+            e.stopPropagation();
+            langDropdown.style.display = langDropdown.style.display === 'block' ? 'none' : 'block';
+        });
 
-document.addEventListener('click', e => {
-    if (!e.target.closest('.header__languages')) {
-        langDropdown.style.display = 'none';
-    }
-});
+        document.addEventListener('click', e => {
+            if (!e.target.closest('.header__languages')) {
+                langDropdown.style.display = 'none';
+            }
+        });
 
         document.addEventListener('DOMContentLoaded', () => {
 
             /*************HEADER LNGUAGE**/
-            
+
             /*** SELECT2 PLUGIN: Country Picker ***/
             if (typeof $ !== 'undefined' && $.fn.select2) {
                 function format(item) {
@@ -935,7 +933,7 @@ document.addEventListener('click', e => {
                         }))
                         .append(' ' + item.text);
                 }
-    
+
                 $('#countries').select2({
                     placeholder: "Select Country",
                     templateResult: format,
@@ -943,7 +941,7 @@ document.addEventListener('click', e => {
                     allowClear: true
                 });
             }
-    
+
             /*** GLIDE SLIDER INIT ***/
             if (typeof Glide !== 'undefined') {
                 const glide = new Glide('.glide', {
@@ -955,51 +953,55 @@ document.addEventListener('click', e => {
                     autoplay: 3000,
                     animationDuration: 800,
                     breakpoints: {
-                        1024: { perView: 2 },
-                        600: { perView: 1.5 }
+                        1024: {
+                            perView: 2
+                        },
+                        600: {
+                            perView: 1.5
+                        }
                     }
                 });
-    
+
                 glide.on('move', () => {
                     const slides = document.querySelectorAll('.glide__slide');
                     slides.forEach(slide => slide.classList.remove('is-next'));
                     const nextIndex = (glide.index + 1) % slides.length;
                     slides[nextIndex]?.classList.add('is-next');
                 });
-    
+
                 glide.mount();
             }
-    
+
             /*** MOBILE MENU TOGGLE ***/
             const burger = document.querySelector('.header__burger');
             const mobileMenu = document.getElementById('mobileMenu');
             const mobileMenuClose = document.getElementById('mobileMenuClose');
             const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
             const body = document.body;
-    
+
             burger?.addEventListener('click', () => {
                 mobileMenu?.classList.add('active');
                 body.style.overflow = 'hidden';
             });
-    
+
             mobileMenuClose?.addEventListener('click', () => {
                 mobileMenu?.classList.remove('active');
                 body.style.overflow = '';
             });
-    
+
             mobileMenuLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu?.classList.remove('active');
                     body.style.overflow = '';
                 });
             });
-    
+
             /*** SMALL CAR ANIMATION (mobile) ***/
             setTimeout(() => {
                 const car = document.querySelector('.mobile__main-car-small');
                 if (car) car.style.animation = 'carAnimationSmall 3.2s ease-in-out forwards';
             }, 1000);
-    
+
             /*** INTERSECTION OBSERVER FOR COUNTERS ***/
             const animateNumbers = (element, target, duration) => {
                 let start = 0;
@@ -1010,7 +1012,7 @@ document.addEventListener('click', e => {
                     if (start >= target) clearInterval(timer);
                 }, stepTime);
             };
-    
+
             const observer = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1020,12 +1022,14 @@ document.addEventListener('click', e => {
                         observer.unobserve(el);
                     }
                 });
-            }, { threshold: 1.0 });
-    
+            }, {
+                threshold: 1.0
+            });
+
             document.querySelectorAll('.map__container-desc p').forEach(p => {
                 observer.observe(p);
             });
-    
+
             /*** REMOVE DESKTOP WRAPPER ON MOBILE ***/
             const removeMainWrapperPC = () => {
                 if (window.innerWidth < 768) {
@@ -1035,16 +1039,16 @@ document.addEventListener('click', e => {
             };
             removeMainWrapperPC();
             window.addEventListener('resize', removeMainWrapperPC);
-    
+
             /*** LANGUAGE DROPDOWN ***/
             const langBtn = document.getElementById('languageButton');
             const langDropdown = document.getElementById('languageDropdown');
-    
+
             langBtn?.addEventListener('click', e => {
                 e.stopPropagation();
                 langDropdown.style.display = (langDropdown.style.display === 'block') ? 'none' : 'block';
             });
-    
+
             document.addEventListener('click', e => {
                 if (!e.target.closest('.header__languages')) {
                     langDropdown.style.display = 'none';
@@ -1052,7 +1056,7 @@ document.addEventListener('click', e => {
             });
         });
     </script>
-    
+
 
 
 
@@ -1060,7 +1064,7 @@ document.addEventListener('click', e => {
         document.addEventListener("DOMContentLoaded", function() {
             const form = document.querySelector("#contact-form");
             const submitButtonContainer = document.querySelector(
-            ".contact__form-submit"); // Get the button container
+                ".contact__form-submit"); // Get the button container
             const submitButton = submitButtonContainer.querySelector("button");
             const termsCheckbox = document.querySelector("input[name='consent']");
             const checkboxWrapper = document.querySelector(".custom-checkbox");
@@ -1162,7 +1166,7 @@ document.addEventListener('click', e => {
                                 };
                             } catch (error) {
                                 console.error("JSON Parse Error:", error, "Raw response:",
-                                text);
+                                    text);
                                 return {
                                     status: response.status,
                                     body: {
