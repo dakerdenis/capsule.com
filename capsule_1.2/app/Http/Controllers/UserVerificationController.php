@@ -10,11 +10,11 @@ class UserVerificationController extends Controller
     public function checkuser(Request $request)
     {
         $request->validate([
-            'client_number' => 'required|string'
+            'client_code' => 'required|string'
         ]);
     
         // Check if warranty exists
-        $warranty = Warranty::where('client_number', $request->client_number)->first();
+        $warranty = Warranty::where('client_code', $request->client_code)->first();
     
         if ($warranty) {
             return response()->json([
