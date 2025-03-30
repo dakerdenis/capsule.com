@@ -759,12 +759,60 @@
                                     <div class="contact__form__block-input">
                                         <select class="contact__form__block-select" name="countries" id="countries">
                                             <option value="" disabled selected>Select Country</option>
-                                            <option value="US">USA</option>
-                                            <option value="GE">Germany</option>
-                                            <option value="RU">Russia</option>
+                                            <option value="US">United States</option>
                                             <option value="CA">Canada</option>
-                                            <option value="TT">Another</option>
+                                            <option value="GB">United Kingdom</option>
+                                            <option value="AU">Australia</option>
+                                            <option value="DE">Germany</option>
+                                            <option value="FR">France</option>
+                                            <option value="IT">Italy</option>
+                                            <option value="ES">Spain</option>
+                                            <option value="RU">Russia</option>
+                                            <option value="UA">Ukraine</option>
+                                            <option value="PL">Poland</option>
+                                            <option value="NL">Netherlands</option>
+                                            <option value="BE">Belgium</option>
+                                            <option value="CH">Switzerland</option>
+                                            <option value="SE">Sweden</option>
+                                            <option value="NO">Norway</option>
+                                            <option value="DK">Denmark</option>
+                                            <option value="FI">Finland</option>
+                                            <option value="IE">Ireland</option>
+                                            <option value="PT">Portugal</option>
+                                            <option value="AT">Austria</option>
+                                            <option value="CZ">Czech Republic</option>
+                                            <option value="SK">Slovakia</option>
+                                            <option value="HU">Hungary</option>
+                                            <option value="RO">Romania</option>
+                                            <option value="BG">Bulgaria</option>
+                                            <option value="GR">Greece</option>
+                                            <option value="TR">Turkey</option>
+                                            <option value="IL">Israel</option>
+                                            <option value="AE">United Arab Emirates</option>
+                                            <option value="SA">Saudi Arabia</option>
+                                            <option value="IN">India</option>
+                                            <option value="PK">Pakistan</option>
+                                            <option value="CN">China</option>
+                                            <option value="JP">Japan</option>
+                                            <option value="KR">South Korea</option>
+                                            <option value="VN">Vietnam</option>
+                                            <option value="TH">Thailand</option>
+                                            <option value="MY">Malaysia</option>
+                                            <option value="ID">Indonesia</option>
+                                            <option value="PH">Philippines</option>
+                                            <option value="BR">Brazil</option>
+                                            <option value="AR">Argentina</option>
+                                            <option value="MX">Mexico</option>
+                                            <option value="CL">Chile</option>
+                                            <option value="CO">Colombia</option>
+                                            <option value="ZA">South Africa</option>
+                                            <option value="EG">Egypt</option>
+                                            <option value="NG">Nigeria</option>
+                                            <option value="KE">Kenya</option>
+                                            <option value="GE">Georgia</option>
+                                            <option value="TT">Other</option>
                                         </select>
+                                        
                                     </div>
                                 </div>
 
