@@ -78,16 +78,6 @@
                                         </div>
                                     @endif
                                 </div>
-
-
-
-
-
-
-
-
-
-
                                 <div class="input__wrapper">
                                     <div class="input__wrapper-info" id="infoIcon">i</div>
                                     <input placeholder="Enter product code" type="text" name="product_code"

@@ -161,29 +161,5 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 
-    /********** SELECT2 PLUGIN WITH FLAGS **********/
-    if (typeof $ !== 'undefined' && $.fn.select2) {
-        function format(item) {
-            if (!item.id) return item.text;
-        
-            const url = 'https://hatscripts.github.io/circle-flags/flags/';
-            const flagUrl = `${url}${item.element.value.toLowerCase()}.svg`;
-        
-            return $('<span>')
-                .append($('<img>', {
-                    class: 'img-flag',
-                    width: 26,
-                    src: flagUrl
-                }))
-                .append(' ' + item.text);
-        }
-        
 
-        $('#countries').select2({
-            templateResult: format,
-            templateSelection: format, // optional: show flag in selected item too
-            minimumResultsForSearch: -1 // optional: hide search input
-        });
-        
-    }
 })

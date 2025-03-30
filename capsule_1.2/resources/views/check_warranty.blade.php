@@ -49,10 +49,6 @@
                             </form>
                         </div>
                     </div>
-
-                    <div class="verification__form-image_form">
-                        <img src="{{ asset('public/images/verification_bottom.svg') }}" alt="">
-                    </div>
                 </div>
             </div>
 
@@ -107,11 +103,11 @@
                                 <div class="verification__car-alert-blur"></div>
                                 <div class="verification__car-alert-content">
                                     <div class="verification__car-message">
-                                        <img style="width: 26px;height: 27px;background-color: #fff;border-radius: 30px;" src="{{ asset('public/images/successs.png') }}" alt="">
+                                        <img style="width: 23px;height: 23px;background-color: #fff;border-radius: 30px;" src="{{ asset('public/images/successs.png') }}" alt="">
                                         <p>Warranty Found!</p>
                                     </div>
                                     <div class="verification__car-text">
-                                        <a href="${data.warranty_link}" target="_blank" style="color: #007bff; font-weight: bold;">
+                                        <a href="${data.warranty_link}" target="_blank" style="color: #fff; font-weight: bold;">
                                             View Warranty Details →
                                         </a>
                                     </div>

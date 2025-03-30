@@ -759,15 +759,15 @@
                                     <div class="contact__form__block-input">
                                         <select class="contact__form__block-select" name="countries" id="countries">
                                             <option value="" disabled selected>Select Country</option>
-                                            <option value="US" data-capital="Kabul">USA</option>
-                                            <option value="GE" data-capital="Berlin">Germany</option>
-                                            <option value="RU" data-capital="Moscow">Russia</option>
-                                            <option value="CA" data-capital="Washington">Canada</option>
-                                            <option value="TT" data-capital="Harare">Another</option>
+                                            <option value="US">USA</option>
+                                            <option value="GE">Germany</option>
+                                            <option value="RU">Russia</option>
+                                            <option value="CA">Canada</option>
+                                            <option value="TT">Another</option>
                                         </select>
                                     </div>
-
                                 </div>
+
                             </div>
 
                             <div class="contact__form__email-contact">
@@ -884,11 +884,11 @@
             </div>
         </section>
     </div>
-    <!-- jQuery (required for Select2) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- Select2 -->
+
+    <!-- Select2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 
     <!-- GlideJS -->
     <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
@@ -1216,7 +1216,16 @@
     </script>
 
 
-
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof $ !== 'undefined' && $.fn.select2) {
+            $('#countries').select2({
+                placeholder: 'Select Country',
+                width: '100%' // Match parent container
+            });
+        }
+    });
+</script>
 
 
 
