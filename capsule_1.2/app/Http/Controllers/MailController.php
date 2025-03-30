@@ -28,6 +28,7 @@ class MailController extends Controller
             // ✅ Setup PHPMailer
             $mail = new PHPMailer(true);
             $mail->isSMTP();
+            $mail->CharSet = 'UTF-8';
             $mail->SMTPDebug = 0; // 🛠 Enable Debugging (Set to 0 for production)
             $mail->Host = 'smtp.hostinger.com';
             $mail->SMTPAuth = true;
