@@ -1764,7 +1764,7 @@ h6 {
 
 
 
-
+/*
 .contact__form__block-select {
     width: 100% !important;
     height: 39px !important;
@@ -1795,7 +1795,7 @@ h6 {
     border-bottom: 2px solid #fff;
     border-radius: 18px;
 }
-
+*/
 .contact__from-terms {
     margin-top: 20px;
 }
@@ -3810,10 +3810,6 @@ h6 {
         height: 92px;
     }
 
-    .select2-container {
-        width: 100%;
-    }
-
     .contact__form-submit {
         margin-top: 13px;
     }
@@ -4460,5 +4456,9 @@ h6 {
     }
     .map {
         min-height: 390px;
+    }
+    .contact__form__block-country{
+        width: 100%;
+        position: relative;
     }
 }

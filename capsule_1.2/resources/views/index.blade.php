@@ -752,7 +752,7 @@
                                     </div>
                                 </div>
 
-                                <div class="contact__form__block country">
+                                <div class="contact__form__block contact__form__block-country country">
                                     <div class="contact__form__block-name">
                                         Country
                                     </div>
