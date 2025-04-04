@@ -96,6 +96,7 @@ Route::middleware('auth_admin')->group(function () {
             Route::get('/{id}', [AdminWarrantyController::class, 'adminSingleWarranty'])->name('admin.warranty');
             Route::get('/{id}/edit', [AdminWarrantyController::class, 'adminSingleWarranty'])->name('admin.edit_warranty');
             Route::post('/{id}', [AdminWarrantyController::class, 'adminEditPostWarranty'])->name('admin.edit_post_warranty');
+            Route::delete('/delete/{id}',[AdminWarrantyController::class, 'deleteWarranty'])->name('admin.delete_warranty');
         });
     });
 });

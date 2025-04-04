@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Warranty;
+use App\Models\Product;
 
 class AdminWarrantyController extends Controller
 {
@@ -23,4 +24,19 @@ class AdminWarrantyController extends Controller
 
         return view('admin.dashboard', compact('section', 'warranty'));
     }
+    public function deleteWarranty($id)
+{
+    $warranty = Warranty::findOrFail($id);
+
+    // Find related product by product_code
+    $product = Product::where('code', $warranty->product_code)->first();
+
+    if ($product) {
+        $product->delete();
+    }
+
+    $warranty->delete();
+
+    return redirect()->route('admin.warranties')->with('success', 'Warranty and related product deleted successfully.');
+}
 }
