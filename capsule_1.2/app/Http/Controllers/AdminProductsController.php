@@ -111,4 +111,18 @@ class AdminProductsController extends Controller
         }
     }
 
+    public function adminDeleteProduct($id)
+{
+    $product = Product::findOrFail($id);
+
+    if ($product->warranty) {
+        return redirect()->back()->with('error', 'Cannot delete product with an active warranty.');
+    }
+
+    $product->delete();
+
+    return redirect()->route('admin.products')->with('success', 'Product deleted successfully.');
+}
+
+
 }

@@ -16,6 +16,16 @@
         text-decoration: underline;
     }
 </style>
+<style>
+    .open-delete-modal {
+        font-size: 13px;
+    }
+
+    .btn[disabled] {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+</style>
 
 <div class="products__wrapper">
     <div class="products__name">
@@ -99,6 +109,7 @@
                 <th scope="col">Type</th>
                 <th scope="col">Country</th>
                 <th scope="col">Service</th>
+                <th scope="col">Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -136,6 +147,47 @@
                             </a>
                         @else
                             N/A
+                        @endif
+                    </td>
+                    <td>
+                        @if (!$product->warranty)
+                            <!-- Trigger Delete Modal -->
+                            <button class="btn btn-danger btn-sm open-delete-modal" data-toggle="modal"
+                                data-target="#deleteModal{{ $product->id }}">
+                                Delete
+                            </button>
+                    
+                            <!-- Modal -->
+                            <div class="modal fade" id="deleteModal{{ $product->id }}" tabindex="-1" role="dialog"
+                                aria-labelledby="deleteModalLabel{{ $product->id }}" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <form method="POST" action="{{ route('admin.delete_product', ['id' => $product->id]) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="deleteModalLabel{{ $product->id }}">
+                                                    Confirm Product Deletion
+                                                </h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you sure you want to delete product <strong>#{{ $product->id }}</strong>
+                                                (Code: <strong>{{ $product->code }}</strong>)?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        @else
+                            <button class="btn btn-secondary btn-sm" disabled title="Product has warranty">
+                                Not Allowed
+                            </button>
                         @endif
                     </td>
                     
