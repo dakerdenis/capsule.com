@@ -10,24 +10,24 @@ class UserVerificationController extends Controller
     public function checkuser(Request $request)
     {
         $request->validate([
-            'client_code' => 'required|string'
+            'license_plate_number' => 'required|string'
         ]);
     
-        // Check if warranty exists
-        $warranty = Warranty::where('client_code', $request->client_code)->first();
+        $warranty = Warranty::where('license_plate_number', $request->license_plate_number)->first();
     
         if ($warranty) {
             return response()->json([
                 'exists' => true,
                 'message' => 'Warranty found!',
-                'warranty_link' => route('service.warranty', ['id' => $warranty->id]) // ✅ Returns warranty link
+                'warranty_link' => route('service.warranty', ['id' => $warranty->id])
             ]);
         }
     
         return response()->json([
             'exists' => false,
-            'message' => 'No warranty found for this number.'
+            'message' => 'No warranty found for this license plate number.'
         ]);
     }
+    
     
 }

@@ -8,6 +8,12 @@
     <link rel="icon" href="{{ asset('public/images/casule_favicon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('public/css/verification.css') }}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .verification__form-line-line {
+            width: 60px;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -33,7 +39,7 @@
 
                         <div class="verification__form-line">
                             <div class="verification__form-line-line"></div>
-                            <div class="verification__form-text">Enter your client code</div>
+                            <div class="verification__form-text">Enter your License Plate Number:</div>
                             <div class="verification__form-line-line"></div>
                         </div>
 
@@ -41,7 +47,8 @@
                             <form id="warrantyCheckForm">
                                 @csrf
                                 <div class="input__wrapper">
-                                    <input type="text" name="client_code" id="client_code" placeholder="Enter client code" required>
+                                    <input type="text" name="license_plate_number" id="license_plate_number" placeholder="Enter license plate number" required>
+
                                 </div>
                                 <div class="verification__form-submit">
                                     <button type="submit">Check Warranty</button>
@@ -65,15 +72,15 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const form = document.querySelector('#warrantyCheckForm');
-            const input = document.querySelector('#client_code');
+            const input = document.querySelector('#license_plate_number');
             const alertContainer = document.querySelector('.verification__car-alert');
 
             form.addEventListener('submit', async function (event) {
                 event.preventDefault();
-                const clientCode = input.value.trim();
+                const licensePlate = input.value.trim();
                 alertContainer.innerHTML = '';
 
-                if (!clientCode) {
+                if (!licensePlate) {
                     alertContainer.innerHTML = `
                         <div class="verification__car-alert-content">
                             <div class="verification__car-message">
@@ -91,7 +98,7 @@
                             'Content-Type': 'application/json',
                             'X-CSRF-TOKEN': '{{ csrf_token() }}',
                         },
-                        body: JSON.stringify({ client_code: clientCode })
+                        body: JSON.stringify({ license_plate_number: licensePlate })
                     });
 
                     const data = await response.json();
@@ -121,7 +128,7 @@
                                 <div class="verification__car-alert-content">
                                     <div style="background-color: #710000;" class="verification__car-message">
                                         <img style="width:25px; height: 25px;" src="{{ asset('public/images/failure.png') }}" alt="">
-                                        <p style="color: #fff;">No warranty found with this client code.</p>
+                                        <p style="color: #fff;">No warranty found with this License Plate Number.</p>
                                     </div>
                                     <div class="verification__car-text">
                                         Please check the code and try again. If the problem persists, contact your local Capsule representative.
