@@ -8,46 +8,46 @@ use App\Models\Service;
 
 class AdminProductsController extends Controller
 {
-    
+
     public function adminProducts(Request $request)
     {
         $query = Product::query();
-    
+
         if ($request->has('type') && $request->query('type') !== '') {
             $type = (int) $request->query('type'); // Ensure it's an integer
             $query->where('type', $type);
         }
-    
+
         if ($request->has('country') && $request->query('country') !== '') {
             $country = $request->query('country');
             $query->where('country', $country);
         }
-    
+
         // Validate sorting order and apply sorting only if valid
         if ($request->has('sort_by_date')) {
             $sortByDate = $request->query('sort_by_date');
-    
+
             if (in_array($sortByDate, ['asc', 'desc'])) {
                 $query->orderBy('verification_date', $sortByDate);
             }
         }
-    
+
         if ($request->has('has_warranty') && $request->query('has_warranty') !== '') {
             $hasWarranty = $request->query('has_warranty');
-    
+
             if ($hasWarranty == '1') {
                 $query->whereNotNull('warranty');
             } elseif ($hasWarranty == '0') {
                 $query->whereNull('warranty');
             }
         }
-    
+
         $products = $query->paginate(20);
         $section = 'products';
-    
+
         return view('admin.dashboard', compact('section', 'products'));
     }
-    
+
 
     public function adminProductAdd(Request $request)
     {
@@ -112,17 +112,65 @@ class AdminProductsController extends Controller
     }
 
     public function adminDeleteProduct($id)
-{
-    $product = Product::findOrFail($id);
+    {
+        $product = Product::findOrFail($id);
 
-    if ($product->warranty) {
-        return redirect()->back()->with('error', 'Cannot delete product with an active warranty.');
+        if ($product->warranty) {
+            return redirect()->back()->with('error', 'Cannot delete product with an active warranty.');
+        }
+
+        $product->delete();
+
+        return redirect()->route('admin.products')->with('success', 'Product deleted successfully.');
     }
 
-    $product->delete();
+    public function adminSellProductPage()
+    {
+        $services = Service::all();
+        $section = 'sell_products';
+        return view('admin.dashboard', compact('section', 'services'));
+    }
 
-    return redirect()->route('admin.products')->with('success', 'Product deleted successfully.');
-}
+    public function adminSellProductPost(Request $request)
+    {
+        $request->validate([
+            'code' => 'required|string',
+            'service_id' => 'required|exists:services,id',
+            'duration_hours' => 'required|integer|min:1'
+        ]);
 
+        $code = trim($request->code);
+        $serviceId = $request->service_id;
+        $expiresAt = now()->addHours($request->duration_hours);
 
+        $product = Product::where('code', $code)->first();
+
+        if (!$product) {
+            return back()->with('error', 'Продукт с таким кодом не найден.');
+        }
+
+        $product->update([
+            'service_id' => $serviceId,
+            'activation_expires_at' => $expiresAt,
+            'is_active' => true,
+        ]);
+
+        return back()->with('success', 'Продукт успешно добавлен в продажу.');
+    }
+
+    public function adminDeactivateProduct($id)
+    {
+        $product = Product::findOrFail($id);
+
+        if ($product->warranty) {
+            return redirect()->back()->with('error', 'Cannot deactivate product with active warranty.');
+        }
+
+        $product->update([
+            'is_active' => false,
+            'activation_expires_at' => now(), // Считаем что истёк
+        ]);
+
+        return redirect()->back()->with('success', 'Product deactivated successfully.');
+    }
 }

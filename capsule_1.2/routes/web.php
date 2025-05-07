@@ -1,5 +1,6 @@
 <?php
-use Illuminate\Support\Facades\Log; 
+
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
@@ -67,7 +68,9 @@ Route::middleware('auth_admin')->group(function () {
         $section = 'sell_products'; // Название соответствует твоему blade-файлу
         return view('admin.dashboard', compact('section'));
     })->name('admin.sell_products');
-    
+    Route::get('/admin/sell-products', [AdminProductsController::class, 'adminSellProductPage'])->name('admin.sell_products');
+    Route::post('/admin/sell-products', [AdminProductsController::class, 'adminSellProductPost'])->name('admin.sell_product_post');
+
     //dashboard admin page - admin panel only could be accessed by authenticated adminstrators
     Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.dashboard');
     //PRODUCTS + SERVICES + WARANTIES
@@ -79,6 +82,7 @@ Route::middleware('auth_admin')->group(function () {
             Route::get('/add', [AdminProductsController::class, 'adminProductAdd'])->name('admin.add_product');
             Route::post('/add', [AdminProductsController::class, 'adminPostProductAdd'])->name('admin.add_post_product');
             Route::delete('/delete/{id}', [AdminProductsController::class, 'adminDeleteProduct'])->name('admin.delete_product');
+            Route::post('/deactivate/{id}',  [AdminProductsController::class, 'adminDeactivateProduct'])->name('admin.deactivate_product');
         });
         //* SERVICES ***///
         Route::get('/services', [AdminServicesController::class, 'adminServices'])->name('admin.services');
@@ -92,16 +96,14 @@ Route::middleware('auth_admin')->group(function () {
         });
         //**Clients (FOR FUTURE)
         Route::get('/clients', [ClientsController::class, 'adminClients'])->name('admin.clients');
-        Route::prefix('clients')->group(function (){
-
-        });
+        Route::prefix('clients')->group(function () {});
         //* WARRANTIES
         Route::get('/warranties', [AdminWarrantyController::class, 'adminWarranties'])->name('admin.warranties');
         Route::prefix('warranties')->group(function () {
             Route::get('/{id}', [AdminWarrantyController::class, 'adminSingleWarranty'])->name('admin.warranty');
             Route::get('/{id}/edit', [AdminWarrantyController::class, 'adminSingleWarranty'])->name('admin.edit_warranty');
             Route::post('/{id}', [AdminWarrantyController::class, 'adminEditPostWarranty'])->name('admin.edit_post_warranty');
-            Route::delete('/delete/{id}',[AdminWarrantyController::class, 'deleteWarranty'])->name('admin.delete_warranty');
+            Route::delete('/delete/{id}', [AdminWarrantyController::class, 'deleteWarranty'])->name('admin.delete_warranty');
         });
     });
 });
@@ -110,13 +112,12 @@ Route::middleware('auth_admin')->group(function () {
 //!Warranty system for Services
 //*************************** */
 Route::get('/warranty', [WarrantyController::class, 'warrantyPage'])->name('warranty');
-Route::post('/warranty',[WarrantyController::class,'warrantyLogin'])->name('service.post_login');
+Route::post('/warranty', [WarrantyController::class, 'warrantyLogin'])->name('service.post_login');
 //!Warranty only logged in
 Route::middleware('auth_service')->group(function () {
     Route::prefix('warranty')->group(function () {
         Route::get('/register', [WarrantyController::class, 'warrantyregister'])->name('service.register');
         Route::post('/register', [WarrantyController::class, 'warrantyPostRegister'])->name('service.post_register');
-
     });
 });
 Route::get('/warranty-success', [WarrantyController::class, 'warrantySuccess'])->name('service.success');
