@@ -142,12 +142,13 @@ class AdminProductsController extends Controller
         $request->validate([
             'code' => 'required|string',
             'service_id' => 'required|exists:services,id',
-            'duration_hours' => 'required|integer|min:1'
+            'duration_hours' => 'required|integer|min:3|max:120'
         ]);
 
         $code = trim($request->code);
         $serviceId = $request->service_id;
-        $expiresAt = now()->addHours($request->duration_hours);
+        $expiresAt = now()->addHours((int) $request->duration_hours);
+
 
         $product = Product::where('code', $code)->first();
 
@@ -161,7 +162,8 @@ class AdminProductsController extends Controller
             'status' => Product::STATUS_ACTIVE,
         ]);
 
-        return back()->with('success', 'Продукт успешно добавлен в продажу.');
+        return redirect()->route('admin.products')->with('success', 'Продукт успешно добавлен в продажу.');
+
     }
 
     public function adminDeactivateProduct($id)

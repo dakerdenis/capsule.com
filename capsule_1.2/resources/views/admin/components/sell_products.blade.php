@@ -4,8 +4,9 @@
         @csrf
         <div class="form-group">
             <label for="code">Код продукта</label>
-            <input type="text" name="code" class="form-control" value="{{ request('code') }}" required
-                placeholder="например: UR123AZ">
+            <input type="text" name="code" class="form-control" value="{{ request('code') }}"
+                placeholder="например: UR123AZ" required {{ request()->has('code') ? 'readonly' : '' }}>
+
 
         </div>
 
