@@ -46,9 +46,14 @@ class WarrantyController extends Controller
             return back()->withErrors(['product_code' => 'This product already has a warranty and cannot be registered again.']);
         }
         // Check if product is expired
-        if (!$product->is_active) {
+        if ($product->status == 2) {
             Log::warning('Product is expired and cannot be registered:', ['product_code' => $request->product_code]);
             return back()->withErrors(['product_code' => 'This product has expired and cannot be registered.']);
+        }
+        
+        if ($product->status == 0) {
+            Log::warning('Product not yet registered in the system:', ['product_code' => $request->product_code]);
+            return back()->withErrors(['product_code' => 'This product has not been registered in our system.']);
         }
 
         // Find service by email
@@ -73,7 +78,16 @@ class WarrantyController extends Controller
             ]);
             return back()->withErrors(['email' => 'The provided credentials are incorrect.']);
         }
-
+        
+        if ($product->service_id !== $service->id) {
+            Log::warning('Service tried to access product not linked to them', [
+                'product_code' => $request->product_code,
+                'product_service_id' => $product->service_id,
+                'logged_service_id' => $service->id,
+            ]);
+        
+            return back()->withErrors(['product_code' => 'You do not have access to this product.']);
+        }
         // Authenticate service and set session flag
         if (Auth::guard('service')->attempt($request->only('email', 'password'))) {
             Log::info('Login successful for:', ['email' => $request->email]);
