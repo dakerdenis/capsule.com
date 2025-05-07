@@ -158,6 +158,7 @@
                 <th scope="col">Country</th>
                 <th scope="col">Service</th>
                 <th scope="col">Status</th>
+                <th scope="col">Sell</th>
                 <th scope="col">Delete</th>
             </tr>
         </thead>
@@ -218,8 +219,24 @@
                             </form>
                         @endif
                     </td>
+                    <!--//!!!-- SELL----->
+                    <td>
+                        @if ($product->warranty)
+                        <button class="btn btn-secondary btn-sm" disabled title="Cannot sell product with warranty">
+                            Sell
+                        </button>
+                    @elseif ($product->status == 2)
+                        <button class="btn btn-secondary btn-sm" disabled title="Expired product cannot be sold">
+                            Expired
+                        </button>
+                    @else
+                        <a style="color: #fff" href="{{ route('admin.sell_products', ['code' => $product->code]) }}" class="btn btn-primary btn-sm">
+                            Продать
+                        </a>
+                    @endif
                     
-
+                    </td>
+                    <!--//!!!-- DELETE----->
                     <td>
                         @if ($product->warranty)
                             <button class="btn btn-secondary btn-sm" disabled title="Product has warranty">
