@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Check Warranty</title>
-    <link rel="icon" href="{{ asset('public/images/casule_favicon.png') }}" type="image/x-icon">
-    <link rel="stylesheet" href="{{ asset('public/css/verification.css') }}">
+    <link rel="icon" href="{{ asset('images/casule_favicon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ asset('css/verification.css') }}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         .verification__form-line-line {
@@ -22,12 +22,12 @@
             <!-- FORM -->
             <div class="verification__form">
                 <div class="verification__form-absoluteimage">
-                    <img src="{{ asset('public/images/background.png') }}" alt="">
+                    <img src="{{ asset('images/background.png') }}" alt="">
                 </div>
                 <div class="verification__content">
                     <div class="verification__form-image">
                         <a href="{{ url(app()->getLocale()) }}">
-                            <img src="{{ asset('public/images/logo_main.png') }}" alt="Capsule Logo">
+                            <img src="{{ asset('images/logo_main.png') }}" alt="Capsule Logo">
                         </a>
                     </div>
 

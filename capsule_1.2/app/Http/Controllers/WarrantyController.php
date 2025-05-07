@@ -45,6 +45,11 @@ class WarrantyController extends Controller
             Log::warning('Warranty already exists for this product:', ['product_code' => $request->product_code]);
             return back()->withErrors(['product_code' => 'This product already has a warranty and cannot be registered again.']);
         }
+        // Check if product is expired
+        if (!$product->is_active) {
+            Log::warning('Product is expired and cannot be registered:', ['product_code' => $request->product_code]);
+            return back()->withErrors(['product_code' => 'This product has expired and cannot be registered.']);
+        }
 
         // Find service by email
         $service = \App\Models\Service::where('email', $request->email)->first();

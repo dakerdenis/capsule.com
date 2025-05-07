@@ -42,7 +42,10 @@ class AdminProductsController extends Controller
             }
         }
 
-        $products = $query->paginate(20);
+        $products = $query
+            ->orderByRaw('FIELD(status, 1, 0, 2)') // Сортировка: active, added, expired
+            ->paginate(20);
+
         $section = 'products';
 
         return view('admin.dashboard', compact('section', 'products'));
@@ -94,11 +97,14 @@ class AdminProductsController extends Controller
             // Create new product
             $product = Product::create([
                 'code' => $code,
-                'type' => $productTypes[$typePrefix], // Convert prefix to type ID
+                'type' => $productTypes[$typePrefix],
                 'country' => $countrySuffix,
                 'verification_date' => null,
                 'warranty' => null,
                 'service_id' => null,
+                'is_active' => false,
+                'activation_expires_at' => null,
+                'status' => Product::STATUS_ADDED, // <-- новое поле
             ]);
 
             $addedProducts[] = $product->code;
@@ -126,7 +132,7 @@ class AdminProductsController extends Controller
 
     public function adminSellProductPage()
     {
-        $services = Service::all();
+        $services = Service::where('cooperation', true)->get(); // Только те, у кого cooperation = 1
         $section = 'sell_products';
         return view('admin.dashboard', compact('section', 'services'));
     }
@@ -152,7 +158,7 @@ class AdminProductsController extends Controller
         $product->update([
             'service_id' => $serviceId,
             'activation_expires_at' => $expiresAt,
-            'is_active' => true,
+            'status' => Product::STATUS_ACTIVE,
         ]);
 
         return back()->with('success', 'Продукт успешно добавлен в продажу.');
@@ -167,8 +173,8 @@ class AdminProductsController extends Controller
         }
 
         $product->update([
-            'is_active' => false,
-            'activation_expires_at' => now(), // Считаем что истёк
+            'status' => Product::STATUS_EXPIRED,
+            'activation_expires_at' => now(),
         ]);
 
         return redirect()->back()->with('success', 'Product deactivated successfully.');

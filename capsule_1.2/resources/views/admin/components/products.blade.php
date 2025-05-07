@@ -1,8 +1,8 @@
-
 <style>
     /* Highlight rows with warranties */
     .has-warranty {
-        background-color: #c8f7c5 !important; /* Light Green */
+        background-color: #c8f7c5 !important;
+        /* Light Green */
     }
 
     /* Style the warranty link */
@@ -18,7 +18,8 @@
 </style>
 <style>
     .is-inactive {
-        background-color: #eee !important; /* Светло-серый */
+        background-color: #eee !important;
+        /* Светло-серый */
         color: #888;
     }
 
@@ -42,7 +43,37 @@
         cursor: not-allowed;
     }
 </style>
+<style>
+    tr.status-0 {
+        background-color: #ffffff !important;
+        /* Белый */
+    }
 
+    tr.status-1 {
+        background-color: #e8f4ff !important;
+        /* Светло-синий */
+    }
+
+    tr.status-2 {
+        background-color: #f2f2f2 !important;
+        /* Серый */
+        color: #888;
+    }
+
+    tr.status-2 td,
+    tr.status-2 a {
+        color: #888 !important;
+    }
+
+    tr.status-2 a:hover {
+        text-decoration: none;
+    }
+
+    .btn[disabled] {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+</style>
 <div class="products__wrapper">
     <div class="products__name">
         Список всех товаров
@@ -88,7 +119,7 @@
                         </option>
                     </select>
                 </form>
-            </div>    
+            </div>
             <!--  SORT BY WARRANTY ----->
             <div class="products__sortby-form">
                 <form method="GET" action="{{ route('admin.products') }}">
@@ -96,21 +127,22 @@
                     <input type="hidden" name="type" value="{{ request('type') }}">
                     <select id="has_warranty" name="has_warranty" onchange="removeEmptyAndSubmit(this.form)">
                         <option value="">По гарантии</option>
-                        <option value="1" {{ request('has_warranty') === '1' ? 'selected' : '' }}>С гарантией</option>
+                        <option value="1" {{ request('has_warranty') === '1' ? 'selected' : '' }}>С гарантией
+                        </option>
                         <option value="0" {{ request('has_warranty') === '0' ? 'selected' : '' }}>Без гарантии
                         </option>
                     </select>
                 </form>
             </div>
-    
+
             <!--  DEFAULT SORT ----->
             <a class="filtr_default btn" href="{{ route('admin.products') }}">Сбросить фильтры</a>
-    
+
         </div>
 
         <!-----CRUD--->
         <div class="products__sortby-edit">
-            <a href="{{ route('admin.add_product')}}" class="btn filtr_default">Добавить продукт</a>
+            <a href="{{ route('admin.add_product') }}" class="btn filtr_default">Добавить продукт</a>
         </div>
     </div>
 
@@ -125,6 +157,7 @@
                 <th scope="col">Type</th>
                 <th scope="col">Country</th>
                 <th scope="col">Service</th>
+                <th scope="col">Status</th>
                 <th scope="col">Delete</th>
                 <th scope="col">Deactivate</th>
             </tr>
@@ -141,7 +174,7 @@
                 ];
             @endphp
             @foreach ($products as $product)
-            <tr class="{{ $product->warranty ? 'has-warranty' : ($product->is_active ? '' : 'is-inactive') }}">
+                <tr class="status-{{ $product->status }} {{ $product->warranty ? 'has-warranty' : '' }}">
 
                     <th scope="row">{{ $product->id }}</th>
                     <td>{{ $product->code }}</td>
@@ -153,7 +186,7 @@
                             </a>
                         @else
                             N/A
-                        @endif  
+                        @endif
                     </td>
                     <td>{{ $product->verification_counter ?? 'N/A' }}</td>
                     <td>{{ $typeNames[$product->type] ?? 'Unknown' }}</td>
@@ -168,51 +201,65 @@
                         @endif
                     </td>
                     <td>
-                        @if ($product->warranty)
-                        <button class="btn btn-secondary btn-sm" disabled title="Product has warranty">
-                            Not Allowed
-                        </button>
-                    @elseif (!$product->is_active)
-                        <button class="btn btn-secondary btn-sm" disabled title="Product is expired">
-                            Expired
-                        </button>
-                    @else
-                        <!-- Trigger Delete Modal -->
-                        <button class="btn btn-danger btn-sm open-delete-modal" data-toggle="modal"
-                            data-target="#deleteModal{{ $product->id }}">
-                            Delete
-                        </button>
-                    
-                        <!-- Modal -->
-                        <div class="modal fade" id="deleteModal{{ $product->id }}" tabindex="-1" role="dialog"
-                            aria-labelledby="deleteModalLabel{{ $product->id }}" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <form method="POST" action="{{ route('admin.delete_product', ['id' => $product->id]) }}">
-                                    @csrf
-                                    @method('DELETE')
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="deleteModalLabel{{ $product->id }}">
-                                                Confirm Product Deletion
-                                            </h5>
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Are you sure you want to delete product <strong>#{{ $product->id }}</strong>
-                                            (Code: <strong>{{ $product->code }}</strong>)?
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                            <button type="submit" class="btn btn-danger">Yes, Delete</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    @endif
-                    
+                        @switch($product->status)
+                            @case(0)
+                                <span class="badge badge-info">New</span>
+                            @break
+
+                            @case(1)
+                                <span class="badge badge-success">Active</span>
+                            @break
+
+                            @case(2)
+                                <span class="badge badge-secondary">Expired</span>
+                            @break
+
+                            @default
+                                <span class="badge badge-dark">Unknown</span>
+                        @endswitch
                     </td>
+                    <td>
+                        @if ($product->warranty)
+                            <button class="btn btn-secondary btn-sm" disabled title="Product has warranty">
+                                Not Allowed
+                            </button>
+                        @else
+                            <!-- Trigger Delete Modal -->
+                            <button class="btn btn-danger btn-sm open-delete-modal" data-toggle="modal"
+                                data-target="#deleteModal{{ $product->id }}">
+                                Delete
+                            </button>
+                    
+                            <!-- Modal -->
+                            <div class="modal fade" id="deleteModal{{ $product->id }}" tabindex="-1" role="dialog"
+                                aria-labelledby="deleteModalLabel{{ $product->id }}" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <form method="POST" action="{{ route('admin.delete_product', ['id' => $product->id]) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="deleteModalLabel{{ $product->id }}">
+                                                    Confirm Product Deletion
+                                                </h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you sure you want to delete product <strong>#{{ $product->id }}</strong>
+                                                (Code: <strong>{{ $product->code }}</strong>)?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        @endif
+                    </td>
+                    
                     <td>
                         @if ($product->warranty)
                             <button class="btn btn-secondary btn-sm" disabled title="Product has warranty">
@@ -221,15 +268,17 @@
                         @elseif (!$product->is_active)
                             <span class="badge badge-secondary">Expired</span>
                         @else
-                            <form method="POST" action="{{ route('admin.deactivate_product', ['id' => $product->id]) }}" onsubmit="return confirm('Deactivate product {{ $product->code }}?');">
+                            <form method="POST"
+                                action="{{ route('admin.deactivate_product', ['id' => $product->id]) }}"
+                                onsubmit="return confirm('Deactivate product {{ $product->code }}?');">
                                 @csrf
                                 @method('POST')
                                 <button type="submit" class="btn btn-warning btn-sm">Deactivate</button>
                             </form>
                         @endif
                     </td>
-                    
-                    
+
+
                 </tr>
             @endforeach
         </tbody>

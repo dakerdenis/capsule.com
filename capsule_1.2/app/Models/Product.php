@@ -8,6 +8,10 @@ use Carbon\Carbon;
 
 class Product extends Model
 {
+    const STATUS_ADDED = 0;
+    const STATUS_ACTIVE = 1;
+    const STATUS_EXPIRED = 2;
+    
     use HasFactory;
 
     protected $fillable = [
@@ -18,7 +22,7 @@ class Product extends Model
         'service_id',
         'country',
         'verification_counter', 
-        'is_active', // ✅ добавь сюда
+        'status',
         'activation_expires_at',
         'activation_expires_at' => 'datetime',
     ];
