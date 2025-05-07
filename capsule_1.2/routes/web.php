@@ -70,6 +70,7 @@ Route::middleware('auth_admin')->group(function () {
     })->name('admin.sell_products');
     Route::get('/admin/sell-products', [AdminProductsController::class, 'adminSellProductPage'])->name('admin.sell_products');
     Route::post('/admin/sell-products', [AdminProductsController::class, 'adminSellProductPost'])->name('admin.sell_product_post');
+    Route::post('/admin/products/{id}/status', [AdminProductsController::class, 'updateProductStatus'])->name('admin.update_product_status');
 
     //dashboard admin page - admin panel only could be accessed by authenticated adminstrators
     Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.dashboard');

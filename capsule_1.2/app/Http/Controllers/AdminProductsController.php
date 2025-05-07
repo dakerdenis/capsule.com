@@ -179,4 +179,22 @@ class AdminProductsController extends Controller
 
         return redirect()->back()->with('success', 'Product deactivated successfully.');
     }
+
+    public function updateProductStatus(Request $request, $id)
+    {
+        $product = Product::findOrFail($id);
+
+        if ($product->warranty) {
+            return redirect()->back()->with('error', 'Cannot change status of a product with warranty.');
+        }
+
+        $request->validate([
+            'status' => 'required|in:0,1,2',
+        ]);
+
+        $product->status = (int)$request->status;
+        $product->save();
+
+        return redirect()->back()->with('success', 'Product status updated.');
+    }
 }

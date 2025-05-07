@@ -159,7 +159,6 @@
                 <th scope="col">Service</th>
                 <th scope="col">Status</th>
                 <th scope="col">Delete</th>
-                <th scope="col">Deactivate</th>
             </tr>
         </thead>
         <tbody>
@@ -201,23 +200,26 @@
                         @endif
                     </td>
                     <td>
-                        @switch($product->status)
-                            @case(0)
-                                <span class="badge badge-info">New</span>
-                            @break
-
-                            @case(1)
-                                <span class="badge badge-success">Active</span>
-                            @break
-
-                            @case(2)
-                                <span class="badge badge-secondary">Expired</span>
-                            @break
-
-                            @default
-                                <span class="badge badge-dark">Unknown</span>
-                        @endswitch
+                        @if ($product->warranty)
+                            @switch($product->status)
+                                @case(0) <span class="badge badge-info">New</span> @break
+                                @case(1) <span class="badge badge-success">Active</span> @break
+                                @case(2) <span class="badge badge-secondary">Expired</span> @break
+                                @default <span class="badge badge-dark">Unknown</span>
+                            @endswitch
+                        @else
+                            <form method="POST" action="{{ route('admin.update_product_status', ['id' => $product->id]) }}">
+                                @csrf
+                                <select name="status" onchange="this.form.submit()" class="form-control form-control-sm">
+                                    <option value="0" {{ $product->status == 0 ? 'selected' : '' }}>New</option>
+                                    <option value="1" {{ $product->status == 1 ? 'selected' : '' }}>Active</option>
+                                    <option value="2" {{ $product->status == 2 ? 'selected' : '' }}>Expired</option>
+                                </select>
+                            </form>
+                        @endif
                     </td>
+                    
+
                     <td>
                         @if ($product->warranty)
                             <button class="btn btn-secondary btn-sm" disabled title="Product has warranty">
@@ -259,25 +261,6 @@
                             </div>
                         @endif
                     </td>
-                    
-                    <td>
-                        @if ($product->warranty)
-                            <button class="btn btn-secondary btn-sm" disabled title="Product has warranty">
-                                Not Allowed
-                            </button>
-                        @elseif (!$product->is_active)
-                            <span class="badge badge-secondary">Expired</span>
-                        @else
-                            <form method="POST"
-                                action="{{ route('admin.deactivate_product', ['id' => $product->id]) }}"
-                                onsubmit="return confirm('Deactivate product {{ $product->code }}?');">
-                                @csrf
-                                @method('POST')
-                                <button type="submit" class="btn btn-warning btn-sm">Deactivate</button>
-                            </form>
-                        @endif
-                    </td>
-
 
                 </tr>
             @endforeach
