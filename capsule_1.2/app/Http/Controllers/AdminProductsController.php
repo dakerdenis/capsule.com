@@ -12,7 +12,11 @@ class AdminProductsController extends Controller
     public function adminProducts(Request $request)
     {
         $query = Product::query();
-
+        
+        if ($request->has('search') && $request->search !== '') {
+            $query->where('code', 'like', '%' . $request->search . '%');
+        }
+        
         if ($request->has('type') && $request->query('type') !== '') {
             $type = (int) $request->query('type'); // Ensure it's an integer
             $query->where('type', $type);

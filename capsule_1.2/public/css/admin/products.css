@@ -166,3 +166,12 @@
     padding-left: 8px;
     padding-right: 5px;
 }
+
+.products__searchbar{
+    margin-top: 25px;
+
+}
+.products__searchbar-input {
+    width: 320px !important;
+    margin-right: 20px !important;
+}

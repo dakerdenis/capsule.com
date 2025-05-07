@@ -146,6 +146,14 @@
         </div>
     </div>
 
+    <div class="products__searchbar" style="margin-bottom: 20px;">
+        <form method="GET" action="{{ route('admin.products') }}" class="form-inline">
+            <input type="text" name="search" value="{{ request('search') }}" class="form-control mr-2 products__searchbar-input"
+                   placeholder="Поиск по коду продукта...">
+            <button type="submit" class="btn btn-primary">Найти</button>
+        </form>
+    </div>
+    
     <table class="main__table table table-hover">
         <thead class="thead">
             <tr>
