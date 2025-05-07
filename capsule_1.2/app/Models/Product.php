@@ -17,6 +17,7 @@ class Product extends Model
         'service_id',
         'country',
         'verification_counter', 
+        'is_active', // ✅ добавь сюда
     ];
 
     protected $casts = [

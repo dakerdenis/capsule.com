@@ -73,28 +73,11 @@
                     </select>
                 </form>
             </div>    
-            <!--  SORT BY WARRANTY ----->
-            <div class="products__sortby-form">
-                <form method="GET" action="{{ route('admin.products') }}">
-                    <input type="hidden" name="section" value="products">
-                    <input type="hidden" name="type" value="{{ request('type') }}">
-                    <select id="has_warranty" name="has_warranty" onchange="removeEmptyAndSubmit(this.form)">
-                        <option value="">По гарантии</option>
-                        <option value="1" {{ request('has_warranty') === '1' ? 'selected' : '' }}>С гарантией</option>
-                        <option value="0" {{ request('has_warranty') === '0' ? 'selected' : '' }}>Без гарантии
-                        </option>
-                    </select>
-                </form>
-            </div>
+
     
             <!--  DEFAULT SORT ----->
             <a class="filtr_default btn" href="{{ route('admin.products') }}">Сбросить фильтры</a>
     
-        </div>
-
-        <!-----CRUD--->
-        <div class="products__sortby-edit">
-            <a href="{{ route('admin.add_product')}}" class="btn filtr_default">Добавить продукт</a>
         </div>
     </div>
 

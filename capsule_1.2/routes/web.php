@@ -63,6 +63,11 @@ Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.lo
 //! Admin authenticated MIddleware (ONLY AUTHORIZED ADMIN CAN ACCESS)
 //*************************** */
 Route::middleware('auth_admin')->group(function () {
+    Route::get('/admin/sell-products', function () {
+        $section = 'sell_products'; // Название соответствует твоему blade-файлу
+        return view('admin.dashboard', compact('section'));
+    })->name('admin.sell_products');
+    
     //dashboard admin page - admin panel only could be accessed by authenticated adminstrators
     Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.dashboard');
     //PRODUCTS + SERVICES + WARANTIES

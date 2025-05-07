@@ -17,12 +17,12 @@
         gtag('config', 'G-2B54N2FD1H');
     </script>
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('public/images/casule_favicon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('images/casule_favicon.png') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('images/casule_favicon.png') }}" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verification</title>
-    <link rel="stylesheet" href="{{ asset('public/css/verification.css') }}"> <!-- Link to warranty.css -->
+    <link rel="stylesheet" href="{{ asset('css/verification.css') }}"> <!-- Link to warranty.css -->
 </head>
 <!-- Google tag (gtag.js) -->
 
@@ -39,7 +39,7 @@
                     <!---top image--->
                     <div class="verification__form-image">
                         <a href="{{ url(app()->getLocale()) }}">
-                            <img src="{{ asset('public/images/logo_main.png') }}" alt="">
+                            <img src="{{ asset('images/logo_main.png') }}" alt="">
                         </a>
                     </div>
                     <!---form--->
@@ -69,7 +69,7 @@
                                         id="product_code" required>
                                 </div>
                                 <div class="tooltip" id="tooltip">
-                                    <img src="{{ asset('public/images/DDS1.jpg') }}" alt="Help Image">
+                                    <img src="{{ asset('images/DDS1.jpg') }}" alt="Help Image">
                                 </div>
                                 <div class="verification__form-submit">
                                     <button name="submit" type="submit" data-sitekey="reCAPTCHA_site_key"
