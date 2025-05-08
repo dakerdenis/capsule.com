@@ -4,7 +4,10 @@
         background-color: #c8f7c5 !important;
         /* Light Green */
     }
-
+    .has-warranty td,
+.has-warranty a {
+    color: #000 !important;
+}
     /* Style the warranty link */
     .main__table td a {
         color: #007bff;
@@ -148,12 +151,12 @@
 
     <div class="products__searchbar" style="margin-bottom: 20px;">
         <form method="GET" action="{{ route('admin.products') }}" class="form-inline">
-            <input type="text" name="search" value="{{ request('search') }}" class="form-control mr-2 products__searchbar-input"
-                   placeholder="Поиск по коду продукта...">
+            <input type="text" name="search" value="{{ request('search') }}"
+                class="form-control mr-2 products__searchbar-input" placeholder="Поиск по коду продукта...">
             <button type="submit" class="btn btn-primary">Найти</button>
         </form>
     </div>
-    
+
     <table class="main__table table table-hover">
         <thead class="thead">
             <tr>
@@ -182,8 +185,7 @@
                 ];
             @endphp
             @foreach ($products as $product)
-                <tr class="status-{{ $product->status }} {{ $product->warranty ? 'has-warranty' : '' }}">
-
+                <tr class="{{ $product->warranty ? 'has-warranty' : 'status-' . $product->status }}">
                     <th scope="row">{{ $product->id }}</th>
                     <td>{{ $product->code }}</td>
                     <td>{{ $product->verification_date ? $product->verification_date->format('d.m.Y') : 'N/A' }}</td>
@@ -211,18 +213,32 @@
                     <td>
                         @if ($product->warranty)
                             @switch($product->status)
-                                @case(0) <span class="badge badge-info">New</span> @break
-                                @case(1) <span class="badge badge-success">Active</span> @break
-                                @case(2) <span class="badge badge-secondary">Expired</span> @break
-                                @default <span class="badge badge-dark">Unknown</span>
+                                @case(0)
+                                    <span class="badge badge-info">New</span>
+                                @break
+
+                                @case(1)
+                                    <span class="badge badge-success">Active</span>
+                                @break
+
+                                @case(2)
+                                    <span class="badge badge-secondary">Expired</span>
+                                @break
+
+                                @default
+                                    <span class="badge badge-dark">Unknown</span>
                             @endswitch
                         @else
-                            <form method="POST" action="{{ route('admin.update_product_status', ['id' => $product->id]) }}">
+                            <form method="POST"
+                                action="{{ route('admin.update_product_status', ['id' => $product->id]) }}">
                                 @csrf
-                                <select name="status" onchange="this.form.submit()" class="form-control form-control-sm">
+                                <select name="status" onchange="this.form.submit()"
+                                    class="form-control form-control-sm">
                                     <option value="0" {{ $product->status == 0 ? 'selected' : '' }}>New</option>
-                                    <option value="1" {{ $product->status == 1 ? 'selected' : '' }}>Active</option>
-                                    <option value="2" {{ $product->status == 2 ? 'selected' : '' }}>Expired</option>
+                                    <option value="1" {{ $product->status == 1 ? 'selected' : '' }}>Active
+                                    </option>
+                                    <option value="2" {{ $product->status == 2 ? 'selected' : '' }}>Expired
+                                    </option>
                                 </select>
                             </form>
                         @endif
@@ -230,19 +246,22 @@
                     <!--//!!!-- SELL----->
                     <td>
                         @if ($product->warranty)
-                        <button class="btn btn-secondary btn-sm" disabled title="Cannot sell product with warranty">
-                            Sell
-                        </button>
-                    @elseif ($product->status == 2)
-                        <button class="btn btn-secondary btn-sm" disabled title="Expired product cannot be sold">
-                            Expired
-                        </button>
-                    @else
-                        <a style="color: #fff" href="{{ route('admin.sell_products', ['code' => $product->code]) }}" class="btn btn-primary btn-sm">
-                            Продать
-                        </a>
-                    @endif
-                    
+                            <button class="btn btn-secondary btn-sm" disabled
+                                title="Cannot sell product with warranty">
+                                Sell
+                            </button>
+                        @elseif ($product->status == 2)
+                            <button class="btn btn-secondary btn-sm" disabled title="Expired product cannot be sold">
+                                Expired
+                            </button>
+                        @else
+                            <a style="color: #fff"
+                                href="{{ route('admin.sell_products', ['code' => $product->code]) }}"
+                                class="btn btn-primary btn-sm">
+                                Продать
+                            </a>
+                        @endif
+
                     </td>
                     <!--//!!!-- DELETE----->
                     <td>
@@ -256,12 +275,14 @@
                                 data-target="#deleteModal{{ $product->id }}">
                                 Delete
                             </button>
-                    
+
                             <!-- Modal -->
-                            <div class="modal fade" id="deleteModal{{ $product->id }}" tabindex="-1" role="dialog"
-                                aria-labelledby="deleteModalLabel{{ $product->id }}" aria-hidden="true">
+                            <div class="modal fade" id="deleteModal{{ $product->id }}" tabindex="-1"
+                                role="dialog" aria-labelledby="deleteModalLabel{{ $product->id }}"
+                                aria-hidden="true">
                                 <div class="modal-dialog" role="document">
-                                    <form method="POST" action="{{ route('admin.delete_product', ['id' => $product->id]) }}">
+                                    <form method="POST"
+                                        action="{{ route('admin.delete_product', ['id' => $product->id]) }}">
                                         @csrf
                                         @method('DELETE')
                                         <div class="modal-content">
@@ -270,14 +291,18 @@
                                                     Confirm Product Deletion
                                                 </h5>
                                                 <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    aria-label="Close"><span
+                                                        aria-hidden="true">&times;</span></button>
                                             </div>
                                             <div class="modal-body">
-                                                Are you sure you want to delete product <strong>#{{ $product->id }}</strong>
-                                                (Code: <strong>{{ $product->code }}</strong>)?
+                                                Are you sure you want to delete product
+                                                <strong>#{{ $product->id }}</strong>
+                                                (Code: <strong>{{ $product->code }}</strong>)
+                                                ?
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Cancel</button>
                                                 <button type="submit" class="btn btn-danger">Yes, Delete</button>
                                             </div>
                                         </div>
