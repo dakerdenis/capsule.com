@@ -246,13 +246,16 @@
                     <!--//!!!-- SELL----->
                     <td>
                         @if ($product->warranty)
-                            <button class="btn btn-secondary btn-sm" disabled
-                                title="Cannot sell product with warranty">
+                            <button class="btn btn-secondary btn-sm" disabled title="Cannot sell product with warranty">
                                 Sell
                             </button>
                         @elseif ($product->status == 2)
                             <button class="btn btn-secondary btn-sm" disabled title="Expired product cannot be sold">
                                 Expired
+                            </button>
+                        @elseif ($product->status == 1)
+                            <button class="btn btn-secondary btn-sm" disabled title="Active product cannot be sold">
+                                Active
                             </button>
                         @else
                             <a style="color: #fff"
@@ -261,8 +264,8 @@
                                 Продать
                             </a>
                         @endif
-
                     </td>
+                    
                     <!--//!!!-- DELETE----->
                     <td>
                         @if ($product->warranty)
