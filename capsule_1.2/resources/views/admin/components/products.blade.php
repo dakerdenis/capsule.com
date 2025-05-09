@@ -4,10 +4,12 @@
         background-color: #c8f7c5 !important;
         /* Light Green */
     }
+
     .has-warranty td,
-.has-warranty a {
-    color: #000 !important;
-}
+    .has-warranty a {
+        color: #000 !important;
+    }
+
     /* Style the warranty link */
     .main__table td a {
         color: #007bff;
@@ -164,6 +166,9 @@
                 <th scope="col">6 Digits Code</th>
                 <th scope="col">DD.MM.YYYY</th>
                 <th scope="col">Warranty Number</th>
+
+                <th scope="col">Expired At</th>
+
                 <th scope="col">Verification</th>
                 <th scope="col">Type</th>
                 <th scope="col">Country</th>
@@ -191,14 +196,19 @@
                     <td>{{ $product->verification_date ? $product->verification_date->format('d.m.Y') : 'N/A' }}</td>
                     <td>
                         @if ($product->warranty)
-                            <a style="color: #fff;" href="{{ route('service.warranty', ['id' => $product->warranty]) }}" target="_blank" class="btn btn-success btn-sm">
+                            <a style="color: #fff;"
+                                href="{{ route('service.warranty', ['id' => $product->warranty]) }}" target="_blank"
+                                class="btn btn-success btn-sm">
                                 See Warranty
                             </a>
                         @else
                             N/A
                         @endif
                     </td>
-                    
+                    <td>
+                        {{ $product->activation_expires_at ? \Carbon\Carbon::parse($product->activation_expires_at)->format('d.m.Y H:i') : 'N/A' }}
+                    </td>
+
                     <td>{{ $product->verification_counter ?? 'N/A' }}</td>
                     <td>{{ $typeNames[$product->type] ?? 'Unknown' }}</td>
                     <td>{{ $product->country ?? 'N/A' }}</td>
@@ -247,7 +257,8 @@
                     <!--//!!!-- SELL----->
                     <td>
                         @if ($product->warranty)
-                            <button class="btn btn-secondary btn-sm" disabled title="Cannot sell product with warranty">
+                            <button class="btn btn-secondary btn-sm" disabled
+                                title="Cannot sell product with warranty">
                                 Sell
                             </button>
                         @elseif ($product->status == 2)
@@ -266,7 +277,7 @@
                             </a>
                         @endif
                     </td>
-                    
+
                     <!--//!!!-- DELETE----->
                     <td>
                         @if ($product->warranty)

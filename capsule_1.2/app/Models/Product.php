@@ -29,6 +29,7 @@ class Product extends Model
 
     protected $casts = [
         'verification_date' => 'date',
+        'activation_expires_at' => 'datetime',
     ];
         // ✅ Динамическая проверка активности
         public function getIsActiveAttribute($value)
