@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Service;
-
+use App\Models\Warranty;
+use Illuminate\Support\Facades\Log; // <-- Add this
+use Illuminate\Support\Facades\Http;
 class AdminProductsController extends Controller
 {
 
@@ -146,7 +148,7 @@ class AdminProductsController extends Controller
         $request->validate([
             'code' => 'required|string',
             'service_id' => 'required|exists:services,id',
-            'duration_hours' => 'required|integer|min:3|max:120'
+            'duration_hours' => 'required|integer|min:1|max:120'
         ]);
 
         $code = trim($request->code);
@@ -165,7 +167,12 @@ class AdminProductsController extends Controller
             'activation_expires_at' => $expiresAt,
             'status' => Product::STATUS_ACTIVE,
         ]);
-
+        $service = Service::find($serviceId);
+        if ($service && $service->phone) {
+            $message = "You have {$request->duration_hours} hours to make warranty with product code(s)";
+            $this->sendSmsNotification($service->phone, $message);
+        }
+        
         return redirect()->route('admin.products')->with('success', 'Продукт успешно добавлен в продажу.');
 
     }
@@ -202,5 +209,55 @@ class AdminProductsController extends Controller
         $product->save();
 
         return redirect()->back()->with('success', 'Product status updated.');
+    }
+
+
+
+
+    private function sendSmsNotification($clientPhone, $message)
+    {
+        $apiUrl = "https://sms.atatexnologiya.az/bulksms/api";
+        $apiLogin = "Capsule";
+        $apiPassword = "db8Q#5@H!1R";
+        $title = "CAPSULE PPF";
+        $controlId = time() . rand(1000, 9999); // Unique ID
+
+        $xmlData = "<?xml version='1.0' encoding='UTF-8'?>
+            <request>
+                <head>
+                    <operation>submit</operation>
+                    <login>{$apiLogin}</login>
+                    <password>{$apiPassword}</password>
+                    <title>{$title}</title>
+                    <scheduled>now</scheduled>
+                    <isbulk>false</isbulk>
+                    <controlid>{$controlId}</controlid>
+                </head>
+                <body>
+                    <msisdn>{$clientPhone}</msisdn>
+                    <message>{$message}</message>
+                </body>
+            </request>";
+
+        try {
+            $response = Http::withHeaders([
+                'Content-Type' => 'application/xml',
+            ])->withBody($xmlData, 'application/xml')
+                ->withOptions(['verify' => false])
+                ->post($apiUrl);
+
+            Log::info('SMS API Request:', ['xml' => $xmlData]);
+            Log::info('SMS API Response:', ['response' => $response->body()]);
+
+            if (strpos($response->body(), '<responsecode>000</responsecode>') !== false) {
+                return true;
+            } else {
+                Log::error('SMS sending failed', ['response' => $response->body()]);
+                return false;
+            }
+        } catch (\Exception $e) {
+            Log::error('SMS API Error: ' . $e->getMessage());
+            return false;
+        }
     }
 }
