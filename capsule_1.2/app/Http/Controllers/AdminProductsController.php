@@ -150,32 +150,36 @@ class AdminProductsController extends Controller
             'service_id' => 'required|exists:services,id',
             'duration_hours' => 'required|integer|min:1|max:120'
         ]);
-
+    
         $code = trim($request->code);
         $serviceId = $request->service_id;
         $expiresAt = now()->addHours((int) $request->duration_hours);
-
-
+    
         $product = Product::where('code', $code)->first();
-
+    
         if (!$product) {
             return back()->with('error', 'Продукт с таким кодом не найден.');
         }
-
+    
         $product->update([
             'service_id' => $serviceId,
             'activation_expires_at' => $expiresAt,
             'status' => Product::STATUS_ACTIVE,
         ]);
+    
+        // Получаем данные сервиса
         $service = Service::find($serviceId);
         if ($service && $service->phone) {
-            $message = "You have {$request->duration_hours} hours to make warranty with product code(s)";
+            $message = "Service: {$service->name} ({$service->city}, {$service->country}).\n"
+                     . "has been assigned a product code: {$product->code}.\n"
+                     . "You have {$request->duration_hours} hour(s) to complete the warranty registration.";
+            
             $this->sendSmsNotification($service->phone, $message);
         }
-        
+    
         return redirect()->route('admin.products')->with('success', 'Продукт успешно добавлен в продажу.');
-
     }
+    
 
     public function adminDeactivateProduct($id)
     {
