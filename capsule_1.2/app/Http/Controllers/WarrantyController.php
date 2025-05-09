@@ -50,7 +50,7 @@ class WarrantyController extends Controller
             Log::warning('Product is expired and cannot be registered:', ['product_code' => $request->product_code]);
             return back()->withErrors(['product_code' => 'This product has expired and cannot be registered.']);
         }
-        
+
         if ($product->status == 0) {
             Log::warning('Product not yet registered in the system:', ['product_code' => $request->product_code]);
             return back()->withErrors(['product_code' => 'This product has not been registered in our system.']);
@@ -78,14 +78,14 @@ class WarrantyController extends Controller
             ]);
             return back()->withErrors(['email' => 'The provided credentials are incorrect.']);
         }
-        
+
         if ($product->service_id !== $service->id) {
             Log::warning('Service tried to access product not linked to them', [
                 'product_code' => $request->product_code,
                 'product_service_id' => $product->service_id,
                 'logged_service_id' => $service->id,
             ]);
-        
+
             return back()->withErrors(['product_code' => 'You do not have access to this product.']);
         }
         // Authenticate service and set session flag
@@ -213,7 +213,19 @@ class WarrantyController extends Controller
             // Process uploaded photos
             $uploadedPhotos = [];
             $watermarkPath = public_path('images/logo_watermark.png');
-
+            if (!$request->hasFile('installation_photos')) {
+                Log::error('installation_photos not present in request.');
+            }
+            if ($request->hasFile('installation_photos')) {
+                foreach ($request->file('installation_photos') as $i => $photo) {
+                    Log::info("File #{$i} upload check", [
+                        'isValid' => $photo->isValid(),
+                        'originalName' => $photo->getClientOriginalName(),
+                        'mimeType' => $photo->getMimeType(),
+                        'size' => $photo->getSize(),
+                    ]);
+                }
+            }
             if ($request->hasFile('installation_photos')) {
                 foreach ($request->file('installation_photos') as $photo) {
                     Log::info('Processing Photo:', [
@@ -343,7 +355,7 @@ class WarrantyController extends Controller
                 Log::warning('No product found with code: ' . $warranty->product_code);
             }
 
-            $warrantyLink = "https://capsuleppf.com/warranty/{$warranty->id}";
+            $warrantyLink = "http://127.0.0.1:8000/warranty/{$warranty->id}";
             // **Send SMS Notification**
             $smsMessage = "Dear {$warranty->client_name},\nCapsule PPF has been installed in your car.\nVisit the link for more information: {$warrantyLink}\nClient Code: {$warranty->client_code}";
             $smsSent = $this->sendSmsNotification($warranty->client_number, $smsMessage);
