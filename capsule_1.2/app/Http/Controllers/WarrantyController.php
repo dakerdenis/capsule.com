@@ -88,6 +88,21 @@ class WarrantyController extends Controller
 
             return back()->withErrors(['product_code' => 'You do not have access to this product.']);
         }
+
+
+
+        // Check expiration based on activation_expires_at
+        if ($product->activation_expires_at && now()->greaterThan($product->activation_expires_at)) {
+            $product->update(['status' => 2]); // Expired
+
+            Log::warning('Product expired due to timer expiration', [
+                'product_code' => $product->code,
+                'activation_expires_at' => $product->activation_expires_at,
+                'now' => now(),
+            ]);
+
+            return back()->withErrors(['product_code' => 'The activation time for this product has expired. It is no longer valid for warranty.']);
+        }
         // Authenticate service and set session flag
         if (Auth::guard('service')->attempt($request->only('email', 'password'))) {
             Log::info('Login successful for:', ['email' => $request->email]);
