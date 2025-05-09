@@ -20,4 +20,26 @@ class ProductFactory extends Factory
             'service_id' => null,
         ];
     }
+
+    public function expired(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'status' => 1, // Active
+                'activation_expires_at' => now()->subHours(1), // Уже истёк
+            ];
+        });
+    }
+    
+    public function activeWithTimer(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'status' => 1, // Active
+                'activation_expires_at' => now()->addHours(3),
+            ];
+        });
+    }
+    
+
 }
