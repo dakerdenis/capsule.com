@@ -75,8 +75,11 @@ Route::middleware('auth_admin')->group(function () {
     //dashboard admin page - admin panel only could be accessed by authenticated adminstrators
     Route::get('/admin', [AdminController::class, 'showAdminPage'])->name('admin.dashboard');
     //PRODUCTS + SERVICES + WARANTIES
-    Route::prefix('admin')->group(function () {
+    Route::prefix('admin')->group(function () {        
         Route::post('/logout-all-session', [AdminController::class, 'logoutAllSessions'])->name('admin.logout_all_sessions');
+
+        //* SELL PRODUCTS*/
+        
         //*PRODUCTS
         Route::get('/products', [AdminProductsController::class, 'adminProducts'])->name('admin.products');
         Route::prefix('products')->group(function () {
@@ -85,6 +88,8 @@ Route::middleware('auth_admin')->group(function () {
             Route::delete('/delete/{id}', [AdminProductsController::class, 'adminDeleteProduct'])->name('admin.delete_product');
             Route::post('/deactivate/{id}',  [AdminProductsController::class, 'adminDeactivateProduct'])->name('admin.deactivate_product');
         });
+
+
         //* SERVICES ***///
         Route::get('/services', [AdminServicesController::class, 'adminServices'])->name('admin.services');
         Route::prefix('services')->group(function () {
@@ -95,9 +100,13 @@ Route::middleware('auth_admin')->group(function () {
             Route::get('/add', [AdminServicesController::class, 'adminAddService'])->name('admin.add_service');
             Route::post('/add', [AdminServicesController::class, 'adminPostAddService'])->name('admin.add_post_service');
         });
+
+
         //**Clients (FOR FUTURE)
         Route::get('/clients', [ClientsController::class, 'adminClients'])->name('admin.clients');
         Route::prefix('clients')->group(function () {});
+
+
         //* WARRANTIES
         Route::get('/warranties', [AdminWarrantyController::class, 'adminWarranties'])->name('admin.warranties');
         Route::prefix('warranties')->group(function () {

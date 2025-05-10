@@ -13,49 +13,50 @@ class AdminProductsController extends Controller
 
     public function adminProducts(Request $request)
     {
-        $query = Product::query();
-        
-        if ($request->has('search') && $request->search !== '') {
-            $query->where('code', 'like', '%' . $request->search . '%');
+        // 1. Обновляем истекшие продукты
+        Product::where('status', Product::STATUS_ACTIVE)
+            ->whereNotNull('activation_expires_at')
+            ->where('activation_expires_at', '<', now())
+            ->update(['status' => Product::STATUS_EXPIRED]);
+    
+        // 2. Загружаем отфильтрованные продукты (если есть фильтры)
+        $productsQuery = Product::query();
+    
+        if ($request->has('type')) {
+            $productsQuery->where('type', $request->type);
         }
-        
-        if ($request->has('type') && $request->query('type') !== '') {
-            $type = (int) $request->query('type'); // Ensure it's an integer
-            $query->where('type', $type);
+    
+        if ($request->has('country')) {
+            $productsQuery->where('country', $request->country);
         }
-
-        if ($request->has('country') && $request->query('country') !== '') {
-            $country = $request->query('country');
-            $query->where('country', $country);
+    
+        if ($request->has('search')) {
+            $productsQuery->where('code', 'like', '%' . $request->search . '%');
         }
-
-        // Validate sorting order and apply sorting only if valid
+    
+        if ($request->has('has_warranty')) {
+            $hasWarranty = $request->has_warranty === '1';
+            $productsQuery->where(function ($query) use ($hasWarranty) {
+                if ($hasWarranty) {
+                    $query->whereNotNull('warranty');
+                } else {
+                    $query->whereNull('warranty');
+                }
+            });
+        }
+    
         if ($request->has('sort_by_date')) {
-            $sortByDate = $request->query('sort_by_date');
-
-            if (in_array($sortByDate, ['asc', 'desc'])) {
-                $query->orderBy('verification_date', $sortByDate);
-            }
+            $productsQuery->orderBy('created_at', $request->sort_by_date);
+        } else {
+            $productsQuery->orderByDesc('id');
         }
-
-        if ($request->has('has_warranty') && $request->query('has_warranty') !== '') {
-            $hasWarranty = $request->query('has_warranty');
-
-            if ($hasWarranty == '1') {
-                $query->whereNotNull('warranty');
-            } elseif ($hasWarranty == '0') {
-                $query->whereNull('warranty');
-            }
-        }
-
-        $products = $query
-            ->orderByRaw('FIELD(status, 1, 0, 2)') // Сортировка: active, added, expired
-            ->paginate(20);
-
+    
+        $products = $productsQuery->paginate(25);
+    
         $section = 'products';
-
         return view('admin.dashboard', compact('section', 'products'));
     }
+    
 
 
     public function adminProductAdd(Request $request)
