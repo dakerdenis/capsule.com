@@ -28,6 +28,7 @@
 
     <div class="admin__wrapper">
         <div class="admin__wrapper__controlpanel">
+            
             <div class="admin__logo">
                 <img src="{{ asset('public/images/warranty_logo.png') }}" alt="">
             </div>

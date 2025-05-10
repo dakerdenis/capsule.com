@@ -519,8 +519,8 @@ class WarrantyController extends Controller
     private function getWarrantyPeriod($type)
     {
         return [
-            1 => 3, // Urban
-            2 => 3, // Optima
+            1 => 5, // Urban
+            2 => 5, // Optima
             3 => 5, // Element
             4 => 5, // Huracan
             5 => 3, // Matte

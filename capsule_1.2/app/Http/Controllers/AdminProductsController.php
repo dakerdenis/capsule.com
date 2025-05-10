@@ -218,8 +218,12 @@ class AdminProductsController extends Controller
         $service = Service::find($serviceId);
         if ($service && $service->phone && count($added)) {
             $codeList = implode(', ', $added);
-            $message = "Service: {$service->name} ({$service->city}, {$service->country})\n"
-                     . "You have {$duration} hour(s) to make warranty with product code(s):\n{$codeList}";
+            $message = "{$service->name}, \n"
+                    . "bu mesajı aldığınız andan etibarən məhsulu aktivləşdirmək üçün {$duration} saat vaxtınız var. "
+                    . "Bu müddət bitdikdən sonra məhsul etibarsız sayılacaq və Capsule şirkəti tərəfindən sizə texniki dəstək göstərilməyəcək.\n"
+                    . "Məhsulu vaxtında aktivləşdirin. Əks halda, Capsule şirkətinin siyasətinə əsasən, müştəri sizin xidmətlərinizi ödəməmək hüququna malikdir.\n"
+                    . "Aktivasiya kodu: {$codeList}"
+                     ;
             $this->sendSmsNotification($service->phone, $message);
         }
     

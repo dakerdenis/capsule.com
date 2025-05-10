@@ -234,8 +234,7 @@
             <br>
             Capsule PPF provides a warranty for protective films exclusively against the following defects:
 
-            <p>Yellowing (discoloration of the film).
-            </p>
+
             <p>Clouding (loss of transparency).</p>
 
             <p>Cracking (appearance of cracks on the surface).</p>
