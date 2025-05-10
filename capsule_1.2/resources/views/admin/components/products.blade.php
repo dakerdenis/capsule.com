@@ -1,84 +1,3 @@
-<style>
-    /* Highlight rows with warranties */
-    .has-warranty {
-        background-color: #c8f7c5 !important;
-        /* Light Green */
-    }
-
-    .has-warranty td,
-    .has-warranty a {
-        color: #000 !important;
-    }
-
-    /* Style the warranty link */
-    .main__table td a {
-        color: #007bff;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    .main__table td a:hover {
-        text-decoration: underline;
-    }
-</style>
-<style>
-    .is-inactive {
-        background-color: #eee !important;
-        /* Светло-серый */
-        color: #888;
-    }
-
-    .is-inactive td,
-    .is-inactive a {
-        color: #888 !important;
-    }
-
-    .is-inactive a:hover {
-        text-decoration: none;
-    }
-</style>
-
-<style>
-    .open-delete-modal {
-        font-size: 13px;
-    }
-
-    .btn[disabled] {
-        opacity: 0.6;
-        cursor: not-allowed;
-    }
-</style>
-<style>
-    tr.status-0 {
-        background-color: #ffffff !important;
-        /* Белый */
-    }
-
-    tr.status-1 {
-        background-color: #e8f4ff !important;
-        /* Светло-синий */
-    }
-
-    tr.status-2 {
-        background-color: #f2f2f2 !important;
-        /* Серый */
-        color: #888;
-    }
-
-    tr.status-2 td,
-    tr.status-2 a {
-        color: #888 !important;
-    }
-
-    tr.status-2 a:hover {
-        text-decoration: none;
-    }
-
-    .btn[disabled] {
-        opacity: 0.6;
-        cursor: not-allowed;
-    }
-</style>
 <div class="products__wrapper">
     <div class="products__name">
         Список всех товаров
@@ -212,15 +131,17 @@
                     <td>{{ $product->verification_counter ?? 'N/A' }}</td>
                     <td>{{ $typeNames[$product->type] ?? 'Unknown' }}</td>
                     <td>{{ $product->country ?? 'N/A' }}</td>
+                    <!----SERVICE--->
                     <td>
                         @if ($product->service_id)
-                            <a href="{{ route('admin.service', ['id' => $product->service_id]) }}" target="_blank">
+                            <a href="{{ route('admin.service', ['id' => $product->service_id]) }}" class="btn btn-light" target="_blank">
                                 Service #{{ $product->service_id }}
                             </a>
                         @else
                             N/A
                         @endif
                     </td>
+                    <!-- STATUS  ------>
                     <td>
                         @if ($product->warranty)
                             @switch($product->status)
@@ -262,11 +183,11 @@
                                 Sell
                             </button>
                         @elseif ($product->status == 2)
-                            <button class="btn btn-secondary btn-sm" disabled title="Expired product cannot be sold">
+                            <button class="btn btn-secondary " disabled title="Expired product cannot be sold">
                                 Expired
                             </button>
                         @elseif ($product->status == 1)
-                            <button class="btn btn-secondary btn-sm" disabled title="Active product cannot be sold">
+                            <button class="btn btn-secondary " disabled title="Active product cannot be sold">
                                 Active
                             </button>
                         @else

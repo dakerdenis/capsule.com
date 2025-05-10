@@ -45,17 +45,23 @@ class AdminProductsController extends Controller
             });
         }
     
-        if ($request->has('sort_by_date')) {
-            $productsQuery->orderBy('created_at', $request->sort_by_date);
-        } else {
-            $productsQuery->orderByDesc('id');
-        }
+        // 3. Кастомная сортировка вручную
+        $productsQuery->orderByRaw("
+            CASE 
+                WHEN status = 1 THEN 1         -- Active
+                WHEN status = 0 THEN 2         -- New
+                WHEN warranty IS NOT NULL THEN 3 -- Has Warranty
+                WHEN status = 2 THEN 4         -- Expired
+                ELSE 5
+            END
+        ");
     
         $products = $productsQuery->paginate(25);
     
         $section = 'products';
         return view('admin.dashboard', compact('section', 'products'));
     }
+    
     
 
 
@@ -152,34 +158,79 @@ class AdminProductsController extends Controller
             'duration_hours' => 'required|integer|min:1|max:120'
         ]);
     
-        $code = trim($request->code);
         $serviceId = $request->service_id;
-        $expiresAt = now()->addHours((int) $request->duration_hours);
+        $duration = (int) $request->duration_hours;
+        $expiresAt = now()->addHours($duration);
     
-        $product = Product::where('code', $code)->first();
+        // Парсим коды (разделитель — запятая)
+        $codes = explode(',', $request->code);
+        $codes = array_map('trim', $codes);
+        $codes = array_filter($codes); // удалим пустые
     
-        if (!$product) {
-            return back()->with('error', 'Продукт с таким кодом не найден.');
+        // Маппинг типа
+        $productTypes = [
+            'UR' => 1,
+            'OP' => 2,
+            'EL' => 3,
+            'HU' => 4,
+            'MA' => 5,
+            'BL' => 6,
+        ];
+        $validCountries = ['AZ', 'EU', 'US'];
+    
+        $added = [];
+        $invalid = [];
+    
+        foreach ($codes as $code) {
+            $product = Product::where('code', $code)->first();
+    
+            if (!$product) {
+                // Пытаемся распарсить новый продукт
+                $typePrefix = substr($code, 0, 2);
+                $countrySuffix = substr($code, -2);
+    
+                if (!isset($productTypes[$typePrefix]) || !in_array($countrySuffix, $validCountries)) {
+                    $invalid[] = $code;
+                    continue;
+                }
+    
+                $product = Product::create([
+                    'code' => $code,
+                    'type' => $productTypes[$typePrefix],
+                    'country' => $countrySuffix,
+                    'status' => Product::STATUS_ACTIVE,
+                    'activation_expires_at' => $expiresAt,
+                    'service_id' => $serviceId,
+                ]);
+            } else {
+                // Обновляем существующий продукт
+                $product->update([
+                    'status' => Product::STATUS_ACTIVE,
+                    'activation_expires_at' => $expiresAt,
+                    'service_id' => $serviceId,
+                ]);
+            }
+    
+            $added[] = $code;
         }
     
-        $product->update([
-            'service_id' => $serviceId,
-            'activation_expires_at' => $expiresAt,
-            'status' => Product::STATUS_ACTIVE,
-        ]);
-    
-        // Получаем данные сервиса
+        // Отправим SMS
         $service = Service::find($serviceId);
-        if ($service && $service->phone) {
-            $message = "Service: {$service->name} ({$service->city}, {$service->country}).\n"
-                     . "has been assigned a product code: {$product->code}.\n"
-                     . "You have {$request->duration_hours} hour(s) to complete the warranty registration.";
-            
+        if ($service && $service->phone && count($added)) {
+            $codeList = implode(', ', $added);
+            $message = "Service: {$service->name} ({$service->city}, {$service->country})\n"
+                     . "You have {$duration} hour(s) to make warranty with product code(s):\n{$codeList}";
             $this->sendSmsNotification($service->phone, $message);
         }
     
-        return redirect()->route('admin.products')->with('success', 'Продукт успешно добавлен в продажу.');
+        // Ответ пользователю
+        if (count($added)) {
+            return redirect()->route('admin.products')->with('success', count($added) . ' product(s) added/assigned successfully.');
+        } else {
+            return back()->with('error', 'No valid product codes were added or assigned.');
+        }
     }
+    
     
 
     public function adminDeactivateProduct($id)

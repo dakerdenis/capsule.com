@@ -79,7 +79,7 @@ Route::middleware('auth_admin')->group(function () {
         Route::post('/logout-all-session', [AdminController::class, 'logoutAllSessions'])->name('admin.logout_all_sessions');
 
         //* SELL PRODUCTS*/
-        
+
         //*PRODUCTS
         Route::get('/products', [AdminProductsController::class, 'adminProducts'])->name('admin.products');
         Route::prefix('products')->group(function () {
@@ -134,6 +134,7 @@ Route::get('/warranty-success', [WarrantyController::class, 'warrantySuccess'])-
 
 Route::get('/warranty/{id}', [WarrantyController::class, 'singleWarranty'])->name('service.warranty');
 Route::get('/warranty/{id}/pdf', [WarrantyController::class, 'generatePdf'])->name('service.warranty.pdf');
+
 //*************************** */
 Route::post('/contact/send', [ContactController::class, 'send'])->name('contact.send');
 Route::post('/send-email', [MailController::class, 'sendMail'])->name('send.email');
