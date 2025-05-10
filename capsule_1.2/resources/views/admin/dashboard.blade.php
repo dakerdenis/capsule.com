@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="{{ asset('css/admin/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <!-- Section-Specific CSS -->
     @if ($section === 'home')
         <link rel="stylesheet" href="{{ asset('css/admin/home.css') }}">
@@ -40,42 +42,36 @@
 
             <div class="admin__navigation">
                 <div class="admin__navigation-element">
-                    <a class="btn  {{ request()->routeIs('admin.dashboard') ? 'active_a' : '' }}"
-                        href="{{ route('admin.dashboard') }}">
-                        Главная
+                    <a class="btn {{ request()->routeIs('admin.dashboard') ? 'active_a' : '' }}" href="{{ route('admin.dashboard') }}">
+                        <i class="fas fa-home"></i> Главная
                     </a>
                 </div>
                 <div class="admin__navigation-element">
-                    <a class="btn  {{ request()->routeIs('admin.products') ? 'active_a' : '' }}"
-                        href="{{ route('admin.products') }}">
-                        Товары
+                    <a class="btn {{ request()->routeIs('admin.products') ? 'active_a' : '' }}" href="{{ route('admin.products') }}">
+                        <i class="fas fa-boxes"></i> Товары
                     </a>
                 </div>
                 <div class="admin__navigation-element">
-                    <a class="btn {{ request()->routeIs('admin.sell_products') ? 'active_a' : '' }}"
-                        href="{{ route('admin.sell_products') }}">
-                        Продажа товаров
+                    <a class="btn {{ request()->routeIs('admin.sell_products') ? 'active_a' : '' }}" href="{{ route('admin.sell_products') }}">
+                        <i class="fas fa-store"></i> Продажа товаров
                     </a>
                 </div>
 
 
 
                 <div class="admin__navigation-element">
-                    <a class="btn  {{ request()->routeIs('admin.services') ? 'active_a' : '' }}"
-                        href="{{ route('admin.services') }}">
-                        Сервисы
+                    <a class="btn {{ request()->routeIs('admin.services') ? 'active_a' : '' }}" href="{{ route('admin.services') }}">
+                        <i class="fas fa-tools"></i> Сервисы
                     </a>
                 </div>
                 <div class="admin__navigation-element">
-                    <a class="btn {{ request()->routeIs('admin.warranties') ? 'active_a' : '' }}"
-                        href="{{ route('admin.warranties') }}">
-                        Гарантии
+                    <a class="btn {{ request()->routeIs('admin.warranties') ? 'active_a' : '' }}" href="{{ route('admin.warranties') }}">
+                        <i class="fas fa-certificate"></i> Гарантии
                     </a>
                 </div>
                 <div class="admin__navigation-element">
-                    <a class="btn {{ request()->routeIs('admin.clients') ? 'active_a' : '' }}"
-                        href="{{ route('admin.clients') }}">
-                        Клиенты
+                    <a class="btn {{ request()->routeIs('admin.clients') ? 'active_a' : '' }}" href="{{ route('admin.clients') }}">
+                        <i class="fas fa-users"></i> Клиенты
                     </a>
                 </div>
             </div>
@@ -86,9 +82,10 @@
                 <form method="POST" action="{{ route('admin.logout') }}">
                     @csrf
                     <button type="submit" class="btn_logout">
-                        <img src="{{ asset('public/images/SignOut.svg') }}" alt="">
+                        <i class="fas fa-sign-out-alt"></i>
                         <p>Logout</p>
                     </button>
+                    
                 </form>
             </div>
         </div>

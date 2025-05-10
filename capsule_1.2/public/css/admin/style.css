@@ -152,7 +152,15 @@ h6 {
     font-size: 24px;
 }
 .admin__hello p {
-  color: #000;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Montserrat Alternates", sans-serif;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 8px 10px;
+  border-radius: 6px;
+  display: inline-block;
 }
 .admin__navigation {
     margin-top: 50px;
@@ -186,7 +194,7 @@ h6 {
     width: 100%;
     height: 100%;
     overflow-y: scroll;
-    padding: 15px;
+
 }
 .products__sortby__buttons{
   margin-bottom: 10px;
@@ -264,5 +272,106 @@ h6 {
   font-weight: 500;
 }
 .service__table-img img{
+
+}
+.admin__wrapper__controlpanel {
+  background: linear-gradient(to bottom, #343a40, #212529);
+  color: #fff;
+  padding: 20px;
+  width: 260px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  min-height: 100vh;
+  position: fixed;
+}
+
+.admin__logo img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.admin__server-time {
+  color: #ffc107;
+  font-size: 14px;
+  text-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+}
+
+.admin__hello {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.admin__navigation-element {
+  margin-top: 10px;
+}
+
+.admin__navigation-element a {
+  display: block;
+  color: #fff;
+  background: #495057;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 15px;
+  text-align: left;
+  transition: background 0.3s ease;
+}
+
+/* --- FIX: Hover keeps text white --- */
+.admin__navigation-element a:hover,
+.admin__navigation-element a:focus,
+.admin__navigation-element a.active_a {
+  color: #fff !important;
+  background-color: #17a2b8;
+  text-decoration: none;
+}
+
+.admin__navigation-element a i {
+  margin-right: 8px;
+}
+
+.admin__logout {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.btn_logout {
+  background-color: #dc3545;
+  color: white;
+  padding: 10px;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn_logout:hover {
+  background-color: #c82333;
+}
+
+/* --- LOGOUT BUTTON REPLACEMENT (FA ICON) --- */
+.btn_logout i {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.btn_logout p {
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+.admin__wrapper__content {
+  margin-left: 280px;
+  padding: 20px;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.admin__content_container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
 
 }

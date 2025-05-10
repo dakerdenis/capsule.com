@@ -66,7 +66,9 @@
 
         <!-----CRUD--->
         <div class="products__sortby-edit">
-            <a href="{{ route('admin.add_product') }}" class="btn filtr_default">Добавить продукт</a>
+            <a href="{{ route('admin.add_product') }}" class="btn filtr_default">
+                <i class="fas fa-plus"></i> Добавить продукт
+            </a>
         </div>
     </div>
 
@@ -74,7 +76,9 @@
         <form method="GET" action="{{ route('admin.products') }}" class="form-inline">
             <input type="text" name="search" value="{{ request('search') }}"
                 class="form-control mr-2 products__searchbar-input" placeholder="Поиск по коду продукта...">
-            <button type="submit" class="btn btn-primary">Найти</button>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-search"></i> Найти
+                </button>
         </form>
     </div>
 
@@ -124,9 +128,18 @@
                             N/A
                         @endif
                     </td>
+                    <!--- EXPIRES AT---->
                     <td>
-                        {{ $product->activation_expires_at ? \Carbon\Carbon::parse($product->activation_expires_at)->format('d.m.Y H:i') : 'N/A' }}
+                        @if ($product->activation_expires_at)
+                            <span class="countdown-timer"
+                                  data-expiration="{{ \Carbon\Carbon::parse($product->activation_expires_at)->timestamp }}">
+                                  <i class="fas fa-clock"></i> <span class="time"></span>
+                            </span>
+                        @else
+                            N/A
+                        @endif
                     </td>
+                    
 
                     <td>{{ $product->verification_counter ?? 'N/A' }}</td>
                     <td>{{ $typeNames[$product->type] ?? 'Unknown' }}</td>
@@ -191,11 +204,11 @@
                                 Active
                             </button>
                         @else
-                            <a style="color: #fff"
-                                href="{{ route('admin.sell_products', ['code' => $product->code]) }}"
-                                class="btn btn-primary btn-sm">
-                                Продать
-                            </a>
+                        <a style="color: #fff"
+                        href="{{ route('admin.sell_products', ['code' => $product->code]) }}"
+                        class="btn btn-primary btn-sm">
+                         <i class="fas fa-store"></i> Продать
+                     </a>
                         @endif
                     </td>
 
@@ -208,9 +221,9 @@
                         @else
                             <!-- Trigger Delete Modal -->
                             <button class="btn btn-danger btn-sm open-delete-modal" data-toggle="modal"
-                                data-target="#deleteModal{{ $product->id }}">
-                                Delete
-                            </button>
+                            data-target="#deleteModal{{ $product->id }}">
+                            <i class="fas fa-trash-alt"></i> Delete
+                        </button>
 
                             <!-- Modal -->
                             <div class="modal fade" id="deleteModal{{ $product->id }}" tabindex="-1"
@@ -268,3 +281,30 @@
         form.submit();
     }
 </script>
+<script>
+    function updateCountdownTimers() {
+        const timers = document.querySelectorAll('.countdown-timer');
+
+        timers.forEach(timer => {
+            const expiration = parseInt(timer.dataset.expiration) * 1000;
+            const now = new Date().getTime();
+            const diff = expiration - now;
+
+            const timeSpan = timer.querySelector('.time');
+
+            if (diff <= 0) {
+                timeSpan.innerText = 'Expired';
+                timeSpan.classList.add('text-danger');
+            } else {
+                const hours = Math.floor(diff / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                timeSpan.innerText = `${hours}h ${minutes}m ${seconds}s`;
+            }
+        });
+    }
+
+    updateCountdownTimers();
+    setInterval(updateCountdownTimers, 1000);
+</script>
+
