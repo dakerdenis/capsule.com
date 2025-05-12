@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capsule Warranty Card</title>
-    <link rel="stylesheet" href="{{ asset('css/verification.css') }}"> <!-- Link to warranty.css -->
-    <link rel="stylesheet" href="{{ asset('css/warranty.css') }}"> <!-- Link to warranty.css -->
+    <link rel="stylesheet" href="{{ asset('public/css/verification.css') }}"> <!-- Link to warranty.css -->
+    <link rel="stylesheet" href="{{ asset('public/css/warranty.css') }}"> <!-- Link to warranty.css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
@@ -17,10 +17,10 @@
 
         <div class="logos">
             <div class="logos_img ">
-                <img src="{{ asset('images/warranty_logo.png') }}" alt="Capsule Logo">
+                <img src="{{ asset('public/images/warranty_logo.png') }}" alt="Capsule Logo">
             </div>
             <div class="logos_img">
-                <img src="{{ asset(''.$service->logo) }}" alt="Service Logo">
+                <img src="{{ asset('public/'.$service->logo) }}" alt="Service Logo">
             </div>
         </div>
 

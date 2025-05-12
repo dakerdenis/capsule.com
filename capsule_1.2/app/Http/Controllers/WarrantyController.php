@@ -370,7 +370,7 @@ class WarrantyController extends Controller
                 Log::warning('No product found with code: ' . $warranty->product_code);
             }
 
-            $warrantyLink = "http://127.0.0.1:8000/warranty/{$warranty->id}";
+            $warrantyLink = "https://capsuleppf.com/warranty/{$warranty->id}";
             // **Send SMS Notification**
             $smsMessage = "Dear {$warranty->client_name},\nCapsule PPF has been installed in your car.\nVisit the link for more information: {$warrantyLink}\nClient Code: {$warranty->client_code}";
             $smsSent = $this->sendSmsNotification($warranty->client_number, $smsMessage);
