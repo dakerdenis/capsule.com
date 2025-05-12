@@ -365,6 +365,12 @@ class WarrantyController extends Controller
                     'verification_date' => now(), // Store warranty creation date
                     'service_id' => $serviceId, // Store service that created it
                 ]);
+                // ⏳ Откат времени активации назад на 100 часов
+                $product->activation_expires_at = now()->subHours(100);
+                $product->save();
+
+                Log::info('Product activation_expires_at rolled back by 100 hours for product ID: ' . $product->id);
+
                 Log::info('Product updated: Warranty ID, verification date, and service ID set for Product ID: ' . $product->id);
             } else {
                 Log::warning('No product found with code: ' . $warranty->product_code);
@@ -394,6 +400,8 @@ class WarrantyController extends Controller
             ]);
         }
     }
+
+
     private function sendSmsNotification($clientPhone, $message)
     {
         $apiUrl = "https://sms.atatexnologiya.az/bulksms/api";
