@@ -365,12 +365,18 @@ class WarrantyController extends Controller
                     'verification_date' => now(), // Store warranty creation date
                     'service_id' => $serviceId, // Store service that created it
                 ]);
+                // ⏳ Откат времени активации назад на 100 часов
+                $product->activation_expires_at = now()->subHours(100);
+                $product->save();
+
+                Log::info('Product activation_expires_at rolled back by 100 hours for product ID: ' . $product->id);
+
                 Log::info('Product updated: Warranty ID, verification date, and service ID set for Product ID: ' . $product->id);
             } else {
                 Log::warning('No product found with code: ' . $warranty->product_code);
             }
 
-            $warrantyLink = "http://127.0.0.1:8000/warranty/{$warranty->id}";
+            $warrantyLink = "https://capsuleppf.com/warranty/{$warranty->id}";
             // **Send SMS Notification**
             $smsMessage = "Dear {$warranty->client_name},\nCapsule PPF has been installed in your car.\nVisit the link for more information: {$warrantyLink}\nClient Code: {$warranty->client_code}";
             $smsSent = $this->sendSmsNotification($warranty->client_number, $smsMessage);
@@ -394,6 +400,8 @@ class WarrantyController extends Controller
             ]);
         }
     }
+
+
     private function sendSmsNotification($clientPhone, $message)
     {
         $apiUrl = "https://sms.atatexnologiya.az/bulksms/api";

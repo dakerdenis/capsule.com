@@ -155,7 +155,7 @@ h6 {
   color: #ffffff;
   font-size: 18px;
   font-weight: 600;
-  font-family: "Montserrat Alternates", sans-serif;
+
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.05);
   padding: 8px 10px;
@@ -290,9 +290,9 @@ h6 {
 }
 
 .admin__server-time {
-  color: #ffc107;
+  color: #fff;
   font-size: 14px;
-  text-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
 .admin__hello {
@@ -374,4 +374,11 @@ h6 {
   border-radius: 8px;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
 
+}
+.sell_products__container{
+  width: 100%;
+  max-width: 600px;
+}
+.sell__products__wrapper{
+  padding: 10px;
 }
