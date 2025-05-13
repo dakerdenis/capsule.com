@@ -10,6 +10,11 @@
     <div class="admin__wrapper">
         @include('admin.components.sidebar')
         <div class="admin__wrapper__content">
+            <!-- Burger button -->
+            <button id="burger-toggle" class="burger-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+
             <div class="admin__content_container">
                 @include('admin.components.' . $section)
             </div>
@@ -44,9 +49,18 @@
                 });
         }, 60000); // обновление раз в минуту
     </script>
-    
-@stack('scripts')
 
+    @stack('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const burgerBtn = document.getElementById('burger-toggle');
+            const sidebar = document.querySelector('.admin__wrapper__controlpanel');
+    
+            burgerBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('open');
+            });
+        });
+    </script>
 </body>
 
 </html>
