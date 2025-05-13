@@ -427,13 +427,6 @@ h6 {
   .admin__content_container {
     padding-top: 60px;
   }
-  .home__container__block-desc{
-    display: none;
-    visibility: hidden;
-  }
-  .home__container__block-name span {
-    font-size: 50px;
-  }
   .admin__wrapper__controlpanel{
     width: 80%;
   }

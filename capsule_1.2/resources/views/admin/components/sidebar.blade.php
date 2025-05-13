@@ -1,7 +1,7 @@
 <div class="admin__wrapper__controlpanel">
             
             <div class="admin__logo">
-                <img src="{{ asset('public/images/warranty_logo.png') }}" alt="">
+                <img src="{{ asset('public/images/logo_main.png') }}" alt="">
             </div>
             <!-----тут добавить время на сервере - минуты и часы ----->
             <div id="server-time-display" class="admin__server-time"

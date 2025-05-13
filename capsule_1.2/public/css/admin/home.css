@@ -146,3 +146,14 @@
     font-size: 14px;
     padding: 5px 0;
 }
+
+@media (max-width: 991.98px) {
+    
+  .home__container__block-desc{
+    display: none;
+    visibility: hidden;
+  }
+  .home__container__block-name span {
+    font-size: 50px;
+  }
+}
