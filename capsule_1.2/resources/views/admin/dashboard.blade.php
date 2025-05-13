@@ -47,7 +47,7 @@
                         document.getElementById('server-time-display').innerText = newTime;
                     }
                 });
-        }, 60000); // обновление раз в минуту
+        }, 60000); 
     </script>
 
     @stack('scripts')
