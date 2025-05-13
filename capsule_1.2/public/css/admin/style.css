@@ -432,7 +432,7 @@ h6 {
   }
   .admin__navigation-element{
     height: initial;
-    margin-top: 10px;
+    margin-top: 5px;
   }
   .admin__logout button{
     width: 210px;
@@ -444,5 +444,20 @@ h6 {
   }
   #server-time-display{
     font-size: 18px;
+  }
+  .admin__navigation{
+    margin-top: 0px;
+  }
+  .admin__logout{
+    bottom: 0;
+  }
+  .admin__logo img{
+    margin-bottom: 5px;
+  }
+  .admin__server-time{
+    height: 35px;
+  }
+  .admin__hello {
+    margin-top: 7px;
   }
 }
