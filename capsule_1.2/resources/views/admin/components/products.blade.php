@@ -76,7 +76,7 @@
         <form method="GET" action="{{ route('admin.products') }}" class="form-inline">
             <input type="text" name="search" value="{{ request('search') }}"
                 class="form-control mr-2 products__searchbar-input" placeholder="Поиск по коду продукта...">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary search_button">
                     <i class="fas fa-search"></i> Найти
                 </button>
         </form>
