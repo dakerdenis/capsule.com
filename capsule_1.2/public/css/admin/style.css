@@ -395,7 +395,7 @@ h6 {
   background: #343a40;
   border: none;
   color: white;
-  padding: 10px 12px;
+  padding: 14px 20px;
   border-radius: 4px;
   font-size: 18px;
   z-index: 999;
@@ -433,5 +433,23 @@ h6 {
   }
   .home__container__block-name span {
     font-size: 50px;
+  }
+  .admin__wrapper__controlpanel{
+    width: 80%;
+  }
+  .admin__navigation-element{
+    height: initial;
+    margin-top: 10px;
+  }
+  .admin__logout button{
+    width: 210px;
+  }
+  .btn_logout{
+    padding: 15px;
+
+    text-align: center;
+  }
+  #server-time-display{
+    font-size: 18px;
   }
 }
