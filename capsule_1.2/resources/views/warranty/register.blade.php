@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  translate="no">
 
 <head>
     <meta charset="UTF-8">
@@ -26,7 +26,7 @@
 
         <h2 class="warranty__name-name">Client Information</h2>
         <form id="warrantyForm" action="{{ route('service.post_register') }}" method="POST"
-            enctype="multipart/form-data">
+            enctype="multipart/form-data" translate="no">
             @csrf
 
             <div class="form-row">
