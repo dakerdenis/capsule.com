@@ -52,6 +52,6 @@
         <p>Сотрудничество: {{ $service->cooperation == 1 ? 'Да' : 'Нет' }}</p>
     </div>
     <div class="single__service-products">
-        <p>Кол-во продуктов: {{ count($service->list_of_products) }} </p>
+        <p>Количество гарантий: {{ count($service->warranties_count) }} </p>
     </div>
 </div>

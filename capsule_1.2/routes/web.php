@@ -99,6 +99,7 @@ Route::middleware('auth_admin')->group(function () {
             Route::delete('/{id}', [AdminServicesController::class, 'adminDeleteService'])->name('admin.delete_service');
             Route::get('/add', [AdminServicesController::class, 'adminAddService'])->name('admin.add_service');
             Route::post('/add', [AdminServicesController::class, 'adminPostAddService'])->name('admin.add_post_service');
+            Route::post('/{id}/reset-counter',[AdminServicesController::class, 'resetServiceCounter'])->name('admin.reset_service_counter');
         });
 
 

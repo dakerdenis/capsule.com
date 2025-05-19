@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\Models\Warranty;
 class Service extends Authenticatable
 {
     use HasFactory;
@@ -34,5 +34,10 @@ class Service extends Authenticatable
         } else {
             $this->attributes['password'] = $value;
         }
+    }
+
+    public function warranties()
+    {
+        return $this->hasMany(Warranty::class);
     }
 }

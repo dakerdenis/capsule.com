@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Service;
+use App\Models\Warranty;
 
 class AdminServicesController extends Controller
 {
     public function adminServices()
     {
-        $services = Service::all();
+        // Подгружаем количество гарантий для каждого сервиса
+        $services = Service::withCount('warranties')->get();
         $section = 'services';
 
         return view('admin.dashboard', compact('section', 'services'));
@@ -41,7 +43,7 @@ class AdminServicesController extends Controller
             'country' => 'nullable|string|max:255',
             'logo' => 'nullable|image|max:2048', // Image validation (max size 2MB)
         ]);
-    
+
         // Handle the logo upload
         $logoPath = null;
         if ($request->hasFile('logo')) {
@@ -49,7 +51,7 @@ class AdminServicesController extends Controller
             $logoPath = 'images/services/' . $file->getClientOriginalName();
             $file->move(public_path('images/services'), $file->getClientOriginalName());
         }
-    
+
         // Create the service
         Service::create([
             'name' => $request->name,
@@ -61,7 +63,7 @@ class AdminServicesController extends Controller
             'country' => $request->country,
             'logo' => $logoPath,
         ]);
-    
+
         return redirect()->route('admin.services')->with('success', 'Service added successfully.');
     }
     public function adminDeleteService($id)
@@ -89,7 +91,7 @@ class AdminServicesController extends Controller
     public function adminPostEditService(Request $request, $id)
     {
         $service = Service::findOrFail($id);
-    
+
         // Validate the input
         $request->validate([
             'name' => 'required|string|max:255',
@@ -101,20 +103,20 @@ class AdminServicesController extends Controller
             'country' => 'nullable|string|max:255',
             'logo' => 'nullable|image|max:2048', // Image validation (max size 2MB)
         ]);
-    
+
         // Handle logo upload
         if ($request->hasFile('logo')) {
             // Delete the old logo if it exists
             if ($service->logo && file_exists(public_path($service->logo))) {
                 unlink(public_path($service->logo));
             }
-    
+
             $file = $request->file('logo');
             $logoPath = 'images/services/' . $file->getClientOriginalName();
             $file->move(public_path('images/services'), $file->getClientOriginalName());
             $service->logo = $logoPath;
         }
-    
+
         // Update service details
         $service->name = $request->name;
         $service->description = $request->description;
@@ -122,19 +124,30 @@ class AdminServicesController extends Controller
         $service->phone = $request->phone;
         $service->city = $request->city;
         $service->country = $request->country;
-    
+
         // Update password only if provided
         if ($request->filled('password')) {
             $service->password = bcrypt($request->password);
         }
-    
+
         // Handle cooperation field (set to 0 if unchecked)
         $service->cooperation = $request->has('cooperation') ? 1 : 0;
-    
+
         $service->save();
-    
+
         return redirect()->route('admin.services')->with('success', 'Service updated successfully.');
     }
-    
-    
+    public function resetServiceCounter($id)
+    {
+        $service = Service::findOrFail($id);
+
+        if ($service->warranty_count < 10) {
+            return redirect()->back()->with('error', 'Сброс возможен только при значении 10 или выше.');
+        }
+
+        $service->warranty_count = 0;
+        $service->save();
+
+        return redirect()->back()->with('success', 'Счётчик успешно сброшен. Бонус применён.');
+    }
 }

@@ -58,11 +58,23 @@
                         <td>{{ $service->cooperation == 1 ? 'Да' : 'Нет' }}</td>
                         <td>{{ $service->city }}</td>
                         <td>{{ $service->country }}</td>
-                        <td>{{ count($service->list_of_products) }}</td>
+                        <td>{{ $service->warranties_count }}</td>
 
                         <td>
-                            {{ $service->warranty_count}}
+                            <div class="d-flex align-items-center">
+                                <span class="mr-2">{{ $service->warranty_count }}</span>
+                                <form method="POST" action="{{ route('admin.reset_service_counter', $service->id) }}">
+                                    @csrf
+                                    <button type="submit"
+                                        class="btn btn-sm {{ $service->warranty_count >= 10 ? 'btn-danger' : 'btn-secondary' }}"
+                                        {{ $service->warranty_count >= 10 ? '' : 'disabled' }}
+                                        title="{{ $service->warranty_count >= 10 ? 'Сбросить счётчик' : 'Доступно при 10' }}">
+                                        <i class="fas fa-gift"></i>
+                                    </button>
+                                </form>
+                            </div>
                         </td>
+                        
 
                         <td>
                             <a href="{{ route('admin.edit_service', ['id' => $service->id]) }}">
