@@ -12,7 +12,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Http;
 use App\Models\Client; // Import Client Model
-
+use App\Models\Service; // Import Service Model
 
 
 
@@ -368,7 +368,12 @@ class WarrantyController extends Controller
                 // ⏳ Откат времени активации назад на 100 часов
                 $product->activation_expires_at = now()->subHours(100);
                 $product->save();
-
+// 📊 Увеличиваем счётчик гарантий для сервиса
+$service = Service::find($serviceId);
+if ($service) {
+    $service->increment('warranty_count');
+    Log::info("Service #{$service->id} warranty count incremented. Total: {$service->warranty_count}");
+}
                 Log::info('Product activation_expires_at rolled back by 100 hours for product ID: ' . $product->id);
 
                 Log::info('Product updated: Warranty ID, verification date, and service ID set for Product ID: ' . $product->id);

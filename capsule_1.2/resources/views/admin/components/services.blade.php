@@ -36,6 +36,7 @@
                     <th scope="col">Город</th>
                     <th scope="col">Страна</th>
                     <th scope="col">Кол-во продуктов</th>
+                    <th scope="col">Счётчик</th>
                     <th scope="col"> </th>
                     <th scope="col"> </th>
                 </tr>
@@ -58,6 +59,11 @@
                         <td>{{ $service->city }}</td>
                         <td>{{ $service->country }}</td>
                         <td>{{ count($service->list_of_products) }}</td>
+
+                        <td>
+                            {{ $service->warranty_count}}
+                        </td>
+
                         <td>
                             <a href="{{ route('admin.edit_service', ['id' => $service->id]) }}">
                                 <img src="{{ asset('public/images/edit.svg') }}" alt="Edit" class="delete_image">
