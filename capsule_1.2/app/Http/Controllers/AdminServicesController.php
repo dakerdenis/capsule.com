@@ -19,9 +19,9 @@ class AdminServicesController extends Controller
     }
     public function adminSingleService($id)
     {
-        $service = Service::findOrFail($id); // Fetch the service by ID or fail with a 404
+        $service = Service::with('warranties')->findOrFail($id);
         $section = 'single_service';
-
+    
         return view('admin.dashboard', compact('section', 'service'));
     }
 

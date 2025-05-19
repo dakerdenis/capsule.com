@@ -34,7 +34,7 @@
                     <label for="client-name">Client Name:</label>
                     <div class="warranty-input-container">
                         <input type="text" id="client-name" name="client_name" placeholder="Enter client name"
-                            required>
+                            required autocomplete="off" translate="no">
                     </div>
                 </div>
                 <div class="form-group">
@@ -76,9 +76,10 @@
                 <div class="form-group">
                     <label for="car-year">Year of Manufacture:</label>
                     <div class="warranty-input-container">
-                        <input type="text" id="car-year" name="car_year" placeholder="Enter year of manufacture"
-                            required>
+                        <input type="text" id="car-year" name="car_year" placeholder="Enter year of manufacture" required>
                     </div>
+                    <small id="year-error" class="error-message"></small>
+                    
                 </div>
             </div>
 
@@ -98,14 +99,14 @@
                     <label for="service-name">Service Name:</label>
                     <div class="warranty-input-container">
                         <input type="text" id="service-name" name="service_name" value="{{ $service->name }}"
-                            readonly>
+                            readonly autocomplete="off" translate="no">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="manager-name">Master Name:</label>
                     <div class="warranty-input-container">
                         <input type="text" id="manager-name" name="manager_name" placeholder="Enter Master name"
-                            required>
+                            required autocomplete="off" translate="no">
                     </div>
                 </div>
             </div>
@@ -114,7 +115,7 @@
                     <label for="service-name">Service's manager:</label>
                     <div class="warranty-input-container">
                         <input type="text" id="service-desc" name="service_desc" value="{{ $service->description }}"
-                            readonly>
+                            readonly autocomplete="off" translate="no">
                     </div>
                 </div>
             </div>
@@ -124,14 +125,14 @@
                     <label for="service-phone">Service Phone Number:</label>
                     <div class="warranty-input-container">
                         <input type="text" id="service-phone" name="service_phone" value="{{ $service->phone }}"
-                            readonly>
+                            readonly autocomplete="off" translate="no">
                     </div>
                 </div>
                 <div class="form-group non-editable">
                     <label for="license-number">Product Code:</label>
                     <div class="warranty-input-container">
                         <input type="text" id="license-number" name="license_number" value="{{ $productCode }}"
-                            readonly>
+                            readonly autocomplete="off" translate="no">
                     </div>
                 </div>
 
@@ -142,14 +143,14 @@
                     <label for="service_country">Country of service:</label>
                     <div class="warranty-input-container">
                         <input type="text" id="service_country" name="service_country"
-                            value="{{ $service->country }}" readonly>
+                            value="{{ $service->country }}" readonly autocomplete="off" translate="no" >
                     </div>
                 </div>
                 <div class="form-group non-editable">
                     <label for="service_city">City of service:</label>
                     <div class="warranty-input-container">
                         <input type="text" id="service_city" name="service_city" value="{{ $service->city }}"
-                            readonly>
+                            readonly autocomplete="off" translate="no">
                     </div>
                 </div>
 
@@ -159,7 +160,7 @@
                 <label for="installation-date">Installation Date:</label>
                 <div class="warranty-input-container">
                     <input type="text" id="installation-date" name="installation_date"
-                        value="{{ $installationDate }}" readonly>
+                        value="{{ $installationDate }}" readonly autocomplete="off" translate="no">
                 </div>
             </div>
 
@@ -175,7 +176,7 @@
                     <label for="film-model">Film Model:</label>
                     <div class="warranty-input-container">
                         <input type="text" id="film-model" name="film_model" value="{{ $filmModel }}"
-                            readonly>
+                            readonly autocomplete="off" translate="no">
                     </div>
                 </div>
             </div>
@@ -186,14 +187,14 @@
                     <div class="warranty-input-container">
 
                         <input type="text" id="warranty-period" name="warranty_period"
-                            value="{{ $warrantyPeriod }}" readonly>
+                            value="{{ $warrantyPeriod }}" readonly autocomplete="off" translate="no">
                     </div>
                 </div>
                 <div class="form-group non-editable">
                     <label for="service-life">Lifespan:</label>
                     <div class="warranty-input-container">
                         <input type="text" id="service-life" name="service-life"
-                            value="{{ $serviceLife }} Years" readonly>
+                            value="{{ $serviceLife }} Years" readonly autocomplete="off" translate="no">
                     </div>
                 </div>
             </div>
@@ -202,21 +203,21 @@
                 <label for="warranty-end-date">Warranty End Date:</label>
                 <div class="warranty-input-container">
                     <input type="text" id="warranty-end-date" name="warranty_end_date"
-                        value="{{ $warrantyEndDate }}" readonly>
+                        value="{{ $warrantyEndDate }}" readonly autocomplete="off" translate="no">
                 </div>
             </div>
 
             <div class="form-group non-editable">
                 <label for="client-code">Client/Document Code:</label>
                 <div class="warranty-input-container">
-                    <input type="text" id="client-code" name="client_code" value="{{ $clientCode }}" readonly>
+                    <input type="text" id="client-code" name="client_code" value="{{ $clientCode }}" readonly autocomplete="off" translate="no">
                 </div>
             </div>
             <!-- Form Fields -->
             <div class="mb-3">
                 <label for="image-input-1" class="form-label">Installation Photo 1 (Mandatory):</label>
                 <div class="input-group">
-                    <input type="file" class="form-control" id="image-input-1" name="installation_photos[]" accept="image/*" required>
+                    <input type="file" class="form-control" id="image-input-1" name="installation_photos[]" accept="image/*" required autocomplete="off" translate="no">
                 </div>
                 <div id="image-preview-container-1" class="mt-2"></div>
             </div>
@@ -391,7 +392,50 @@
     });
 </script>
 
-
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const yearInput = document.getElementById("car-year");
+        const yearError = document.getElementById("year-error");
+    
+        const currentYear = new Date().getFullYear();
+    
+        function validateYear() {
+            const value = yearInput.value.trim();
+            const year = parseInt(value, 10);
+    
+            if (!/^\d{4}$/.test(value)) {
+                yearError.textContent = "Year must be a 4-digit number.";
+                yearError.style.color = "red";
+                yearInput.style.border = "2px solid red";
+                return false;
+            }
+    
+            if (year < 1900 || year > currentYear) {
+                yearError.textContent = `Year must be between 1900 and ${currentYear}.`;
+                yearError.style.color = "red";
+                yearInput.style.border = "2px solid red";
+                return false;
+            }
+    
+            yearError.textContent = "";
+            yearInput.style.border = "2px solid green";
+            return true;
+        }
+    
+        yearInput.addEventListener("input", function () {
+            // Only allow digits
+            yearInput.value = yearInput.value.replace(/[^\d]/g, '');
+            validateYear();
+        });
+    
+        document.getElementById("warrantyForm").addEventListener("submit", function (event) {
+            if (!validateYear()) {
+                event.preventDefault();
+            }
+        });
+    });
+    </script>
+    
 
 
 </body>
