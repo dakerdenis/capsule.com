@@ -114,7 +114,8 @@
                 <div class="form-group non-editable">
                     <label for="service-name">Service's manager:</label>
                     <div class="warranty-input-container">
-                        <input type="text" id="service-desc" name="service_desc" value="{{ $service->description }}"
+                        <p>{{ $service->description }}</p>
+                        <input type="hidden" id="service-desc" name="service_desc" value="{{ $service->description }}"
                             readonly autocomplete="off" translate="no">
                     </div>
                 </div>
@@ -124,14 +125,16 @@
                 <div class="form-group non-editable">
                     <label for="service-phone">Service Phone Number:</label>
                     <div class="warranty-input-container">
-                        <input type="text" id="service-phone" name="service_phone" value="{{ $service->phone }}"
+                        <p>{{ $service->phone }}</p>
+                        <input type="hidden" id="service-phone" name="service_phone" value="{{ $service->phone }}"
                             readonly autocomplete="off" translate="no">
                     </div>
                 </div>
                 <div class="form-group non-editable">
                     <label for="license-number">Product Code:</label>
                     <div class="warranty-input-container">
-                        <input type="text" id="license-number" name="license_number" value="{{ $productCode }}"
+                        <p>{{ $productCode }}</p>
+                        <input type="hidden" id="license-number" name="license_number" value="{{ $productCode }}"
                             readonly autocomplete="off" translate="no">
                     </div>
                 </div>
@@ -142,14 +145,16 @@
                 <div class="form-group non-editable">
                     <label for="service_country">Country of service:</label>
                     <div class="warranty-input-container">
-                        <input type="text" id="service_country" name="service_country"
+                        <p>{{ $service->country }}</p>
+                        <input type="hidden" id="service_country" name="service_country"
                             value="{{ $service->country }}" readonly autocomplete="off" translate="no" >
                     </div>
                 </div>
                 <div class="form-group non-editable">
                     <label for="service_city">City of service:</label>
                     <div class="warranty-input-container">
-                        <input type="text" id="service_city" name="service_city" value="{{ $service->city }}"
+                        <p>{{ $service->city }}</p>
+                        <input type="hidden" id="service_city" name="service_city" value="{{ $service->city }}"
                             readonly autocomplete="off" translate="no">
                     </div>
                 </div>
@@ -159,7 +164,8 @@
             <div class="form-group non-editable">
                 <label for="installation-date">Installation Date:</label>
                 <div class="warranty-input-container">
-                    <input type="text" id="installation-date" name="installation_date"
+                    <p>{{ $installationDate }}</p>
+                    <input type="hidden" id="installation-date" name="installation_date"
                         value="{{ $installationDate }}" readonly autocomplete="off" translate="no">
                 </div>
             </div>
@@ -175,7 +181,8 @@
                 <div class="form-group non-editable">
                     <label for="film-model">Film Model:</label>
                     <div class="warranty-input-container">
-                        <input type="text" id="film-model" name="film_model" value="{{ $filmModel }}"
+                        <p>{{ $filmModel }}</p>
+                        <input type="hidden" id="film-model" name="film_model" value="{{ $filmModel }}"
                             readonly autocomplete="off" translate="no">
                     </div>
                 </div>
@@ -185,15 +192,16 @@
                 <div class="form-group non-editable">
                     <label for="warranty-period">Warranty Period:</label>
                     <div class="warranty-input-container">
-
-                        <input type="text" id="warranty-period" name="warranty_period"
+                        <p>{{ $warrantyPeriod }}</p>
+                        <input type="hidden" id="warranty-period" name="warranty_period"
                             value="{{ $warrantyPeriod }}" readonly autocomplete="off" translate="no">
                     </div>
                 </div>
                 <div class="form-group non-editable">
                     <label for="service-life">Lifespan:</label>
                     <div class="warranty-input-container">
-                        <input type="text" id="service-life" name="service-life"
+                        <p>{{ $serviceLife }} Years</p>
+                        <input type="hidden" id="service-life" name="service-life"
                             value="{{ $serviceLife }} Years" readonly autocomplete="off" translate="no">
                     </div>
                 </div>
@@ -202,7 +210,8 @@
             <div class="form-group non-editable">
                 <label for="warranty-end-date">Warranty End Date:</label>
                 <div class="warranty-input-container">
-                    <input type="text" id="warranty-end-date" name="warranty_end_date"
+                    <p>{{ $warrantyEndDate }}</p>
+                    <input type="hidden" id="warranty-end-date" name="warranty_end_date"
                         value="{{ $warrantyEndDate }}" readonly autocomplete="off" translate="no">
                 </div>
             </div>
