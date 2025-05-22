@@ -30,6 +30,8 @@ class AdminServicesController extends Controller
         $section = 'services__add';
         return view('admin.dashboard', compact('section'));
     }
+
+    
     public function adminPostAddService(Request $request)
     {
         // Validate the request
@@ -39,6 +41,7 @@ class AdminServicesController extends Controller
             'email' => 'required|email|unique:services,email',
             'password' => 'required|string|min:6',
             'phone' => 'required|string|max:50',
+            'warranty_phone' => 'required|string|max:50',
             'city' => 'nullable|string|max:255',
             'country' => 'nullable|string|max:255',
             'logo' => 'nullable|image|max:2048', // Image validation (max size 2MB)
@@ -59,6 +62,7 @@ class AdminServicesController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'phone' => $request->phone,
+            'warranty_phone' => $request->warranty_phone,
             'city' => $request->city,
             'country' => $request->country,
             'logo' => $logoPath,
@@ -66,6 +70,8 @@ class AdminServicesController extends Controller
 
         return redirect()->route('admin.services')->with('success', 'Service added successfully.');
     }
+
+
     public function adminDeleteService($id)
     {
         $service = Service::findOrFail($id);
@@ -87,7 +93,6 @@ class AdminServicesController extends Controller
         $section = 'services__edit';
         return view('admin.dashboard', compact('section', 'service'));
     }
-
     public function adminPostEditService(Request $request, $id)
     {
         $service = Service::findOrFail($id);
@@ -99,6 +104,7 @@ class AdminServicesController extends Controller
             'email' => 'required|email|unique:services,email,' . $service->id,
             'password' => 'nullable|string|min:6', // Password can be nullable for no change
             'phone' => 'required|string|max:50',
+            'warranty_phone' => 'required|string|max:50', // ✅ добавлено
             'city' => 'nullable|string|max:255',
             'country' => 'nullable|string|max:255',
             'logo' => 'nullable|image|max:2048', // Image validation (max size 2MB)
@@ -122,6 +128,7 @@ class AdminServicesController extends Controller
         $service->description = $request->description;
         $service->email = $request->email;
         $service->phone = $request->phone;
+        $service->warranty_phone = $request->warranty_phone; // ✅ добавлено
         $service->city = $request->city;
         $service->country = $request->country;
 
@@ -137,6 +144,9 @@ class AdminServicesController extends Controller
 
         return redirect()->route('admin.services')->with('success', 'Service updated successfully.');
     }
+
+
+
     public function resetServiceCounter($id)
     {
         $service = Service::findOrFail($id);

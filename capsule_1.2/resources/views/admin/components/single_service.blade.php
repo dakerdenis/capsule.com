@@ -55,6 +55,12 @@
     <div class="single__service-cooperation">
         <p>Сотрудничество: {{ $service->cooperation == 1 ? 'Да' : 'Нет' }}</p>
     </div>
+    <div class="single__service-desc">
+        <p>номер телефона для SMS: {{ $service->phone ?? 'Описание отсутствует' }}</p>
+    </div>
+    <div class="single__service-desc">
+        <p>номер телефона для гарантии: {{ $service->warranty_phone ?? 'Описание отсутствует' }}</p>
+    </div>
 </div>
 
 <div class="single__service-warranties mt-4">

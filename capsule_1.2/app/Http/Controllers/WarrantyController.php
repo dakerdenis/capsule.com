@@ -341,7 +341,7 @@ class WarrantyController extends Controller
                 'license_plate_number' => $request->license_plate,
                 'service_id' => $serviceId,
                 'master_name' => $request->manager_name,
-                'service_phone_number' => Auth::guard('service')->user()->phone ?? 'N/A',
+                'service_phone_number' => Auth::guard('service')->user()->warranty_phone ?? 'N/A',
                 'service_country' => Auth::guard('service')->user()->country ?? 'N/A',
                 'service_city' => Auth::guard('service')->user()->city ?? 'N/A',
                 'product_code' => session('product_code'),

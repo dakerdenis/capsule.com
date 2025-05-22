@@ -22,11 +22,19 @@
 
             <!---Phone number---->
             <div class="add__input">
-                <div class="add__input-name">Номер телефона</div>
+                <div class="add__input-name">Номер телефона для смс</div>
                 <div class="add__input-input">
                     <input type="text" name="phone" required>
                 </div>
             </div>
+            <!---Phone number---->
+            <div class="add__input">
+                <div class="add__input-name">Номер телефона для Гарантий</div>
+                <div class="add__input-input">
+                    <input type="text" name="warranty_phone" required>
+                </div>
+            </div>
+
             <div class="add__input">
                 <div class="add__input-name">Город</div>
                 <div class="add__input-input">
@@ -39,8 +47,8 @@
                     <input type="text" name="country" required>
                 </div>
             </div>
-            
-            
+
+
 
             <!-- Input block for Email -->
             <div class="add__input">
@@ -70,18 +78,18 @@
         </form>
 
         @if (session('success'))
-    <div class="alert alert-success">{{ session('success') }}</div>
-@endif
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
 
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
     </div>
 </div>

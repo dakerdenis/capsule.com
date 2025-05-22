@@ -132,8 +132,8 @@
                 <div class="form-group non-editable">
                     <label for="service-phone">Service Phone Number:</label>
                     <div class="warranty-input-container">
-                        <p class="unchanged_p">{{ $service->phone }}</p>
-                        <input type="hidden" id="service-phone" name="service_phone" value="{{ $service->phone }}"
+                        <p class="unchanged_p">{{ $service->warranty_phone  }}</p>
+                        <input type="hidden" id="service-phone" name="service_phone" value="{{ $service->warranty_phone  }}"
                             readonly autocomplete="off" translate="no">
                     </div>
                 </div>

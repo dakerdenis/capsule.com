@@ -13,11 +13,22 @@
                 </div>
             </div>
             <div class="add__input">
-                <div class="add__input-name">Номер телефона</div>
+                <div class="add__input-name">Номер телефона для SMS</div>
                 <div class="add__input-input">
                     <input type="text" name="phone" value="{{ $service->phone }}" required>
                 </div>
             </div>
+            
+            <!---Номер телефона для Гарантии--->
+            <div class="add__input">
+                <div class="add__input-name">Номер телефона для Гарантии</div>
+                <div class="add__input-input">
+                    <input type="text" name="warranty_phone" value="{{ $service->warranty_phone }}" required>
+                </div>
+            </div>
+
+
+
             <div class="add__input">
                 <div class="add__input-name">Город</div>
                 <div class="add__input-input">
