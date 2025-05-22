@@ -13,6 +13,7 @@ class Service extends Authenticatable
         'name',
         'description',
         'phone',
+        'warranty_phone', // ✅ добавили это
         'city',
         'country',
         'logo',
@@ -21,6 +22,7 @@ class Service extends Authenticatable
         'email',
         'password',
     ];
+    
 
     protected $casts = [
         'list_of_products' => 'array',
