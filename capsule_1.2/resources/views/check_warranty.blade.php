@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Check Warranty</title>
-    <link rel="icon" href="{{ asset('images/casule_favicon.png') }}" type="image/x-icon">
-    <link rel="stylesheet" href="{{ asset('css/verification.css') }}">
+    <link rel="icon" href="{{ asset('public/images/casule_favicon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ asset('public/css/verification.css') }}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         .verification__form-line-line {
