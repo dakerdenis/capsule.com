@@ -22,12 +22,12 @@
             <!-- FORM -->
             <div class="verification__form">
                 <div class="verification__form-absoluteimage">
-                    <img src="{{ asset('images/background.png') }}" alt="">
+                    <img src="{{ asset('public/images/background.png') }}" alt="">
                 </div>
                 <div class="verification__content">
                     <div class="verification__form-image">
                         <a href="{{ url(app()->getLocale()) }}">
-                            <img src="{{ asset('images/logo_main.png') }}" alt="Capsule Logo">
+                            <img src="{{ asset('public/images/logo_main.png') }}" alt="Capsule Logo">
                         </a>
                     </div>
 
