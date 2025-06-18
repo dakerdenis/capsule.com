@@ -424,22 +424,23 @@
             <div class="car_number__wrapper">
                 <div class="car__number__element">
                     <div class="car_number-content">
-                                            <div class="car_number-name">
-                        <p>Check your warranty
-                            by the car number</p>
-                        <img src="{{ asset('public/images/new.png') }}" alt="" srcset="">
-                    </div>
-                    <div class="car_number-desc">
-                        <p>Our Digital Warranty System safeguards your investment in paint protection films and your
-                            consumer rights. Each product comes with a unique digital warranty certificate that verifies its
-                            authenticity and quality. The warranty is activated via an SMS notification from Capsule,
-                            ensuring protection against fraud.</p>
-                    </div>
-                    <div class="car_number-btn">
-                        <a target="_blank" href="https://capsuleppf.com/user/check">
-                            CHECK NOW
-                        </a>
-                    </div>
+                        <div class="car_number-name">
+                            <p>Check your warranty
+                                by the car number</p>
+                            <img src="{{ asset('public/images/new.png') }}" alt="" srcset="">
+                        </div>
+                        <div class="car_number-desc">
+                            <p>Our Digital Warranty System safeguards your investment in paint protection films and your
+                                consumer rights. Each product comes with a unique digital warranty certificate that verifies
+                                its
+                                authenticity and quality. The warranty is activated via an SMS notification from Capsule,
+                                ensuring protection against fraud.</p>
+                        </div>
+                        <div class="car_number-btn">
+                            <a target="_blank" href="https://capsuleppf.com/user/check">
+                                <p>CHECK NOW</p>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="car__number__element">

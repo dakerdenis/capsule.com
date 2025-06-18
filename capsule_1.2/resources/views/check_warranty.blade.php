@@ -12,7 +12,6 @@
         .verification__form-line-line {
             width: 60px;
         }
-
     </style>
 </head>
 
@@ -47,8 +46,8 @@
                             <form id="warrantyCheckForm">
                                 @csrf
                                 <div class="input__wrapper">
-                                    <input type="text" name="license_plate_number" id="license_plate_number" placeholder="Enter license plate number" required>
-
+                                    <input type="text" name="license_plate_number" id="license_plate_number"
+                                        placeholder="Enter license plate number" required>
                                 </div>
                                 <div class="verification__form-submit">
                                     <button type="submit">Check Warranty</button>
@@ -70,12 +69,12 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const form = document.querySelector('#warrantyCheckForm');
             const input = document.querySelector('#license_plate_number');
             const alertContainer = document.querySelector('.verification__car-alert');
 
-            form.addEventListener('submit', async function (event) {
+            form.addEventListener('submit', async function(event) {
                 event.preventDefault();
                 const licensePlate = input.value.trim();
                 alertContainer.innerHTML = '';
@@ -98,7 +97,9 @@
                             'Content-Type': 'application/json',
                             'X-CSRF-TOKEN': '{{ csrf_token() }}',
                         },
-                        body: JSON.stringify({ license_plate_number: licensePlate })
+                        body: JSON.stringify({
+                            license_plate_number: licensePlate
+                        })
                     });
 
                     const data = await response.json();
@@ -150,4 +151,5 @@
     </script>
 
 </body>
+
 </html>

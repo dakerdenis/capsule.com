@@ -1417,8 +1417,10 @@ h6 {
 .car_number-name {
     width: 595px;
     height: 112px;
-        position: relative;
+    position: relative;
+    color: #fff;
 }
+
 .car_number-name p {
 
     font-family: Inter;
@@ -1428,38 +1430,84 @@ h6 {
     letter-spacing: 0.8px;
     text-align: center;
     text-transform: uppercase;
+    z-index: 200;
+    position: absolute;
 }
-.car_number-name  img {
+
+.car_number-name img {
     position: absolute;
     width: 170px;
     height: 170px;
-    right: -50px;
-    top: -50px;
+    right: -67px;
+    top: -83px;
+    z-index: 100;
 }
+
 .car_number-desc {
     margin-top: 53px;
     margin-bottom: 82px;
     max-width: 595px;
 
 }
-.car_number-desc p{
+
+.car_number-desc p {
+    color: #fff;
     font-family: Inter;
-font-weight: 400;
-font-size: 18px;
-line-height: 35px;
-letter-spacing: 0%;
-text-align: center;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 35px;
+    letter-spacing: 0%;
+    text-align: center;
 
 }
 
-.car_number-btn {}
+.car_number-btn {
+    width: 595px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.car_number-btn a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #BB1216;
+    width: 293px;
+    height: 69px;
+    border-radius: 36px;
+    border-width: 1px;
+    text-align: center;
+    color: #fff;
+
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+
+}
 
 .car__number__element:nth-child(2) {
     width: calc(100% - 696px);
+    max-width: 650px;
 }
 
-.car__number__car {}
+.car__number__car {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.car__number__car img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 
 
 
@@ -2894,6 +2942,24 @@ text-align: center;
 
     .glide__arrow {
         top: 77%;
+    }
+
+
+    .car_number-name p {
+        font-size: 32px;
+        line-height: 50px;
+    }
+
+    .car_number-desc {
+        margin-top: 33px;
+        margin-bottom: 67px;
+        max-width: 595px;
+    }
+
+    .car_number-btn a {
+        width: 240px;
+        height: 62px;
+        font-size: 20px;
     }
 }
 
@@ -4535,5 +4601,61 @@ text-align: center;
     .contact__form__block-country {
         width: 100%;
         position: relative;
+    }
+    .car_number__wrapper{
+            width: 100%;
+    height: 100%;
+    display: flex
+;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    }
+    .car__number__element:nth-child(1){
+        width: 95%;
+        margin: 0 auto;
+    }
+    .car_number-name{
+        width: 100%;
+        height: 100%;
+    }
+    .car_number-name p{
+        font-size: 24px;
+    }
+    .car_number-name img{
+            right: -23px;
+    top: -46px;
+    }
+    .car_number-desc{
+            margin-top: 33px;
+    margin-bottom: 39px;
+    max-width: 100%;
+    }
+    .car_number-btn{
+        width: 100%;
+    text-align: center;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    }
+    .car_number-btn a {
+            display: flex
+;
+    align-items: center;
+    justify-content: center;
+    background: #BB1216;
+    width: 240px;
+    height: 62px;
+    border-radius: 36px;
+    border-width: 1px;
+    text-align: center;
+    color: #fff;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 18.5px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    text-transform: uppercase;
     }
 }
