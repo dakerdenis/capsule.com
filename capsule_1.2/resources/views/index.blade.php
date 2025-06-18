@@ -419,6 +419,37 @@
             </div>
         </section>
 
+        <!----CAR NUMBER CHECK---->
+        <section class="car_number" id="car_number">
+            <div class="car_number__wrapper">
+                <div class="car__number__element">
+                    <div class="car_number-content">
+                                            <div class="car_number-name">
+                        <p>Check your warranty
+                            by the car number</p>
+                        <img src="{{ asset('public/images/new.png') }}" alt="" srcset="">
+                    </div>
+                    <div class="car_number-desc">
+                        <p>Our Digital Warranty System safeguards your investment in paint protection films and your
+                            consumer rights. Each product comes with a unique digital warranty certificate that verifies its
+                            authenticity and quality. The warranty is activated via an SMS notification from Capsule,
+                            ensuring protection against fraud.</p>
+                    </div>
+                    <div class="car_number-btn">
+                        <a target="_blank" href="https://capsuleppf.com/user/check">
+                            CHECK NOW
+                        </a>
+                    </div>
+                    </div>
+                </div>
+                <div class="car__number__element">
+                    <div class="car__number__car">
+                        <img src="{{ asset('public/images/car-number.png') }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!--- Catalogue --->
         <section class="catalog" id="catalog">
 
@@ -747,8 +778,9 @@
                                         Number
                                     </div>
                                     <div class="contact__form__block-input">
-                                        <input type="number" name="number" id="number"
-                                            placeholder="Your mobile number">
+                                        <input type="text" inputmode="numeric" pattern="[0-9]*" name="number"
+                                            id="number" placeholder="Your mobile number" required>
+
                                     </div>
                                 </div>
 
@@ -813,7 +845,7 @@
                                             <option value="GE">Georgia</option>
                                             <option value="TT">Other</option>
                                         </select>
-                                        
+
                                     </div>
                                 </div>
 
@@ -1265,16 +1297,16 @@
     </script>
 
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        if (typeof $ !== 'undefined' && $.fn.select2) {
-            $('#countries').select2({
-                placeholder: 'Select Country',
-                width: '100%' // Match parent container
-            });
-        }
-    });
-</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof $ !== 'undefined' && $.fn.select2) {
+                $('#countries').select2({
+                    placeholder: 'Select Country',
+                    width: '100%' // Match parent container
+                });
+            }
+        });
+    </script>
 
 
 
