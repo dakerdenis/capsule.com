@@ -156,10 +156,12 @@ h6 {
     align-items: center;
     justify-content: center;
 }
+
 .verification__form-image a {
     width: 100%;
     height: 100%;
 }
+
 .verification__form-image img {
 
     height: 100%;
@@ -256,9 +258,11 @@ h6 {
     cursor: pointer;
 
 }
+
 .verification__form-formblock form {
     position: relative;
 }
+
 .tooltip {
     position: absolute;
     top: -13px;
@@ -285,6 +289,7 @@ h6 {
 .input__wrapper-info:hover .tooltip {
     display: block;
 }
+
 .input__wrapper input {
     position: absolute;
     width: 100%;
@@ -437,6 +442,109 @@ h6 {
 
 }
 
+
+
+
+.car_number-check {
+    margin-top: 190px;
+    width: 100%;
+    min-height: 830px;
+    background-color: #710000a8;
+}
+
+.car_number-name {
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 90%;
+
+    height: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../images/gallery_main.png');
+    background-position: 0% 81%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 18px;
+}
+
+.car_number-name p {
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 56px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: #fff;
+
+}
+
+.car_number-wrapper {
+    max-width: 1600px;
+    margin: 0 auto;
+
+    display: flex;
+
+    justify-content: space-between;
+}
+
+.car__number-form {
+    padding-top: 121px;
+    width: 800px;
+    height: 100%;
+}
+
+.car__number-form form {
+    width: 100%;
+}
+
+.car__number-form-name {
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+    margin-bottom: 15px;
+
+}
+
+.car__number-form-inputs {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    height: 69px;
+}
+
+.car__number-form-input {}
+
+.car__number-form-button {}
+
+.car__number-answer {}
+
+.car__answer-block {}
+
+.car__answer-responce {}
+
+.car__answer-text {}
+
+.car__number-car {}
+
+.car__number-car-image {}
+
+.car__number-car-number {}
+
+
+
+
+
+
+
+
+
+
+
+
 @media only screen and (max-width: 768px) {
     .verification__container {
         height: initial;
@@ -582,22 +690,25 @@ h6 {
         text-decoration-skip-ink: none;
 
     }
-    .verification__car-alert-content{
+
+    .verification__car-alert-content {
         padding: 18px;
     }
+
     .verification__car-message img {
         width: 15px;
         height: 15px;
     }
-    .tooltip{
+
+    .tooltip {
         position: absolute;
-    top: -13px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 315px;
-    height: 150px;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 5px;
-    padding: 5px;
+        top: -13px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 315px;
+        height: 150px;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 5px;
+        padding: 5px;
     }
 }

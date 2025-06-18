@@ -4614,10 +4614,11 @@ h6 {
     .car__number__element:nth-child(1){
         width: 95%;
         margin: 0 auto;
+        padding-left: 0;
     }
     .car_number-name{
         width: 100%;
-        height: 100%;
+        height: 100px;
     }
     .car_number-name p{
         font-size: 24px;
@@ -4657,5 +4658,13 @@ h6 {
     line-height: 20px;
     letter-spacing: 0%;
     text-transform: uppercase;
+    }
+    .car_number{
+        margin-top: 50px;
+    }
+    .car__number__element:nth-child(2){
+        width: 100%;
+    padding-left: 49px;
+    max-width: 650px;
     }
 }
