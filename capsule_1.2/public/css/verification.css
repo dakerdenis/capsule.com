@@ -449,7 +449,8 @@ h6 {
     margin-top: 190px;
     width: 100%;
     min-height: 830px;
-    background-color: #710000a8;
+
+    padding-bottom: 140px;
 }
 
 .car_number-name {
@@ -549,15 +550,24 @@ h6 {
 
 .car__number-form-button button p {
     color: #fff;
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: 0%;
+    text-align: center;
+    text-transform: uppercase;
+
 }
 
 .car__number-answer {
     width: 100%;
     height: 325px;
-    
+
 }
 
 .car__answer-block {
+    margin-top: 50px;
     width: 100%;
     height: 100%;
     background: #FFF2F221;
@@ -565,18 +575,73 @@ h6 {
     padding: 50px;
 }
 
-.car__answer-responce {}
+.car__answer-responce {
+    width: 480px;
+    height: 54px;
+    border-radius: 36px;
+    background-color: #34C81E;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
 
-.car__answer-text {}
+.car__answer-responce p {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 122%;
+    letter-spacing: 0%;
 
-.car__number-car {}
+}
 
-.car__number-car-image {}
+.failed {
+    background-color: #BB1216;
+}
 
-.car__number-car-number {}
+.car__answer-text {
+    margin-top: 30px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 32.97px;
+    letter-spacing: 0px;
+
+}
+
+.car__number-car {
+    width: 700px;
+    height: 100%;
+    position: relative;
+}
+
+.car__number-car-image {
+    width: 100%;
+    position: absolute;
+    z-index: 100;
+}
+
+.car__number-car-image img {
+width: 100%;
+height: 100%;
+object-fit: contain;
+}
+
+.car__number-car-number {
+    position: absolute;
+    z-index: 200;
+    left: 242px;
+    top: 431px;
+    height: 46px;
+    width: 215px;
+    padding: 5px 30px;
+    background-color: #fff;
+}
 
 
-
+.car__number-car-number span {
+        font-size: 33px;
+    letter-spacing: 3px;
+    font-weight: 500;
+}
 
 
 

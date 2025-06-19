@@ -138,12 +138,16 @@
                     <div class="car__number-answer">
                         <!---answer block-->
                         <div class="car__answer-block">
-                            <div class="car__answer-responce">
-                                <!--success/ail symbol---->
+                            <!--success---->
+                            <div class="car__answer-responce">                                
                                 <span></span>
-                                <p>Warranty found</p>
+                                <p>Warranty found ! </p>
                             </div>
-
+                            <!--fail-->
+                            <div class="car__answer-responce failed">                                
+                                <span></span>
+                                <p>Warranty not found</p>
+                            </div>
                             <div class="car__answer-text">
                                 Warranty was found in our database: <br>
                                 <!---Link for warranty--->
@@ -161,7 +165,7 @@
                         <img src="{{ asset('public/images/car-number-car.png') }}" alt="">
                     </div>
                     <div class="car__number-car-number">
-                        <span></span>
+                        <span>77AA777</span>
                     </div>
                 </div>
             </div>
