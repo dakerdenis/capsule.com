@@ -681,7 +681,7 @@ h6 {
 
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
     .verification__container {
         height: initial;
     }
@@ -847,4 +847,70 @@ h6 {
         border-radius: 5px;
         padding: 5px;
     }
+    .car_number-name p {
+        font-size: 31px;
+    }
+    .car_number-wrapper{
+        width: 95%;
+        margin: 0 auto;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .car__number-car {
+
+        width: 350px;
+        height: 351px;
+        position: relative;
+    }
+    .car__number-car-image{
+        height: 100%;
+        width: 350px;
+        position: absolute;
+        z-index: 100;
+    }
+    .car__number-car-image img {
+        transform: scale(1.17);
+    }.car__number-car-number {
+        position: absolute;
+        z-index: 200;
+        left: 111px;
+        top: 223px;
+        height: 28px;
+        width: 127px;
+        display: flex
+    ;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+    }
+    .car__number-car-number span{
+        font-size: 21px;
+    }
+    .car__number-form{
+        padding-top: 0px;
+    width: 95%;
+    height: 100%;
+    }
+    .car__number-form-inputs{
+        height: initial;flex-direction: column;
+
+    }
+    .car__number-form-input{
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    .car__number-form-button{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .car__number-car {
+        background-color: none;
+    }
+    .car__answer-block{
+        padding: 20px;
+    }
+    .car__answer-responce{width: 100%;}
+
 }
