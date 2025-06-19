@@ -131,7 +131,7 @@
                                 <input type="text" name="car_number" id="car_number">
                             </div>
                             <div class="car__number-form-button">
-                                <button>check now</button>
+                                <button><p>check now</p></button>
                             </div>
                         </div>
                     </form>

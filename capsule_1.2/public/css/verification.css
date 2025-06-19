@@ -506,7 +506,7 @@ h6 {
     letter-spacing: 0.5px;
     vertical-align: middle;
     margin-bottom: 15px;
-
+    color: #fff;
 }
 
 .car__number-form-inputs {
@@ -514,15 +514,56 @@ h6 {
     width: 100%;
     justify-content: space-between;
     height: 69px;
+
 }
 
-.car__number-form-input {}
+.car__number-form-input {
+    width: 402px;
+    height: 58px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+}
 
-.car__number-form-button {}
+.car__number-form-input input {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    border-bottom: 3px solid #BB1216;
 
-.car__number-answer {}
+}
 
-.car__answer-block {}
+
+
+
+.car__number-form-button button {
+    width: 293px;
+    height: 69px;
+
+    border-radius: 36px;
+    background-color: #BB1216;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.car__number-form-button button p {
+    color: #fff;
+}
+
+.car__number-answer {
+    width: 100%;
+    height: 325px;
+    
+}
+
+.car__answer-block {
+    width: 100%;
+    height: 100%;
+    background: #FFF2F221;
+    border-radius: 10px;
+    padding: 50px;
+}
 
 .car__answer-responce {}
 
