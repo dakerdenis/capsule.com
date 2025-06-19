@@ -128,7 +128,7 @@
                         </div>
                         <div class="car__number-form-inputs">
                             <div class="car__number-form-input">
-                                <input type="text" name="car_number" id="car_number">
+                                <input type="text" name="car_number" id="car_number" maxlength="7">
                             </div>
                             <div class="car__number-form-button">
                                 <button><p>check now</p></button>
@@ -140,13 +140,17 @@
                         <div class="car__answer-block">
                             <!--success---->
                             <div class="car__answer-responce">                                
-                                <span></span>
+                                <div class="car_responce__wrapper">
+                                    <span></span>
                                 <p>Warranty found ! </p>
+                                </div>
                             </div>
                             <!--fail-->
-                            <div class="car__answer-responce failed">                                
-                                <span></span>
-                                <p>Warranty not found</p>
+                            <div class="car__answer-responce failed">       
+                                <div class="car_responce__wrapper">
+                                    <span></span>
+                                    <p>Warranty not found ! </p>          
+                                </div>                  
                             </div>
                             <div class="car__answer-text">
                                 Warranty was found in our database: <br>
@@ -165,7 +169,7 @@
                         <img src="{{ asset('public/images/car-number-car.png') }}" alt="">
                     </div>
                     <div class="car__number-car-number">
-                        <span>77AA777</span>
+                        <span></span>
                     </div>
                 </div>
             </div>
@@ -446,110 +450,91 @@
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const input = document.getElementById("car_number");
+        const span = document.querySelector(".car__number-car-number span");
+
+        input.addEventListener("input", function () {
+            // Обрезаем до 7 символов
+            input.value = input.value.toUpperCase().substring(0, 7);
+            span.textContent = input.value;
+        });
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.querySelector('.car__number-form form');
+        const input = document.querySelector('#car_number');
+        const successBlock = document.querySelector('.car__answer-responce:not(.failed)');
+        const failBlock = document.querySelector('.car__answer-responce.failed');
+        const answerTextBlock = document.querySelector('.car__answer-text');
+
+        form.addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const licensePlate = input.value.trim().toUpperCase();
+
+            // Скрываем оба блока перед запросом
+            successBlock.style.display = 'none';
+            failBlock.style.display = 'none';
+            answerTextBlock.style.display = 'none';
+
+            // Проверка на пустой ввод
+            if (!licensePlate) {
+                failBlock.style.display = 'block';
+                answerTextBlock.style.display = 'block';
+                answerTextBlock.innerHTML = `
+                    Warranty was not found in our database. Please contact our official service in your country or try again.
+                `;
+                return;
+            }
+
+            try {
+                const response = await fetch("{{ route('user.check') }}", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    },
+                    body: JSON.stringify({
+                        license_plate_number: licensePlate
+                    })
+                });
+
+                const data = await response.json();
+
+                // Показываем результат в зависимости от ответа
+                if (data.exists) {
+                    successBlock.style.display = 'block';
+                    failBlock.style.display = 'none';
+                    answerTextBlock.style.display = 'block';
+                    answerTextBlock.innerHTML = `
+                        Warranty was found in our database: <br>
+                        <a href="${data.warranty_link}" class="warranty_car-link" target="_blank">See warranty</a>
+                    `;
+                } else {
+                    successBlock.style.display = 'none';
+                    failBlock.style.display = 'block';
+                    answerTextBlock.style.display = 'block';
+                    answerTextBlock.innerHTML = `
+                        Warranty was not found in our database.
+                    `;
+                }
+            } catch (error) {
+                console.error('Error checking warranty:', error);
+                successBlock.style.display = 'none';
+                failBlock.style.display = 'block';
+                answerTextBlock.style.display = 'block';
+                answerTextBlock.innerHTML = `
+                    Warranty was not found in our database.
+                `;
+            }
+        });
+    });
+</script>
+
 
 @endsection
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.querySelector('#warrantyCheckForm');
-            const input = document.querySelector('#license_plate_number');
-            const alertContainer = document.querySelector('.verification__car-alert');
-
-            form.addEventListener('submit', async function(event) {
-                event.preventDefault();
-                const licensePlate = input.value.trim();
-                alertContainer.innerHTML = '';
-
-                if (!licensePlate) {
-                    alertContainer.innerHTML = `
-                        <div class="verification__car-alert-content">
-                            <div class="verification__car-message">
-                                <img src="{{ asset('public/images/error.png') }}" alt="">
-                                <p>Please enter a client code.</p>
-                            </div>
-                        </div>`;
-                    return;
-                }
-
-                try {
-                    const response = await fetch("{{ route('user.check') }}", {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                        },
-                        body: JSON.stringify({
-                            license_plate_number: licensePlate
-                        })
-                    });
-
-                    const data = await response.json();
-
-                    if (data.exists) {
-                        alertContainer.innerHTML = `
-                            <div class="verification__car-alert-block">
-                                <img class="verification__car-image-svg" src="{{ asset('public/images/verification_svg.svg') }}" alt="">
-                                <div class="verification__car-alert-blur"></div>
-                                <div class="verification__car-alert-content">
-                                    <div class="verification__car-message">
-                                        <img style="width: 23px;height: 23px;background-color: #fff;border-radius: 30px;" src="{{ asset('public/images/successs.png') }}" alt="">
-                                        <p>Warranty Found!</p>
-                                    </div>
-                                    <div class="verification__car-text">
-                                        <a href="${data.warranty_link}" target="_blank" style="color: #fff; font-weight: bold;">
-                                            View Warranty Details →
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>`;
-                    } else {
-                        alertContainer.innerHTML = `
-                            <div class="verification__car-alert-block">
-                                <img class="verification__car-image-svg" src="{{ asset('public/images/verification_svg.svg') }}" alt="">
-                                <div class="verification__car-alert-blur"></div>
-                                <div class="verification__car-alert-content">
-                                    <div style="background-color: #710000;" class="verification__car-message">
-                                        <img style="width:25px; height: 25px;" src="{{ asset('public/images/failure.png') }}" alt="">
-                                        <p style="color: #fff;">No warranty found with this License Plate Number.</p>
-                                    </div>
-                                    <div class="verification__car-text">
-                                        Please check the code and try again. If the problem persists, contact your local Capsule representative.
-                                    </div>
-                                </div>
-                            </div>`;
-                    }
-                } catch (error) {
-                    alertContainer.innerHTML = `
-                        <div class="verification__car-alert-content">
-                            <div class="verification__car-message">
-                                <img src="{{ asset('public/images/error.png') }}" alt="">
-                                <p>An error occurred. Please try again later.</p>
-                            </div>
-                        </div>`;
-                }
-            });
-        });
-    </script>
